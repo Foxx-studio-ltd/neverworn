@@ -1,25 +1,33 @@
 const $=s=>document.querySelector(s),app=$('#app');let CAT=[];
 const S={get:k=>JSON.parse(localStorage.getItem('nw_'+k)||'null'),set:(k,v)=>localStorage.setItem('nw_'+k,JSON.stringify(v)),del:k=>localStorage.removeItem('nw_'+k)};
 const user=()=>S.get('user'),avatar=()=>S.get('avatar'),cart=()=>S.get('cart')||[];
-const g=id=>CAT.find(x=>x.id===id);let stream=null;
+const g=id=>CAT.find(x=>x.id===id);const TIERS=[['everyday','Everyday'],['inbetween','In-between'],['futuristic','Futuristic'],['all','All']],TL={everyday:'Everyday',inbetween:'In-between',futuristic:'Futuristic'};let stream=null;
 function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.append(d);setTimeout(()=>d.remove(),2200)}
 function chrome(r){document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.r===r));
  $('#cc').textContent=cart().length?'· '+cart().length:'';
  $('#acct').innerHTML=user()?`<a href="#/privacy" class="btn ghost sm">${avatar()?'Your avatar':'Account'}</a>`:`<a href="#/signup" class="hide-m">Sign in</a> <a href="#/signup?next=avatar" class="btn sm">Create your avatar</a>`;}
 function stopCam(){if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}}
 const R={
-'':()=>`<section class="hero"><div><span class="tag">Drop 01 · November 2026</span><h1>Every garment here was designed by AI this year.</h1>
+'':()=>`<section class="hero"><div><span class="tag">The range · November 2026</span><h1>Every garment here was designed by AI this year.</h1>
  <p class="mut">Browse and watch everything free. Create an avatar once to see yourself in any of it. Made to order in the UK.</p>
  <form class="prompt" onsubmit="event.preventDefault();location.hash='#/design?q='+encodeURIComponent(this.q.value)"><input name="q" placeholder="Describe something that doesn't exist yet, e.g. a jacket for London rain"><button class="btn sm">Design</button></form></div>
- <a href="#/p/halo-puffer" class="vid" style="max-height:560px"><img class="model kb" src="assets/01-halo-puffer.jpg" alt="Halo Puffer"><span class="lbl">Drop 01 · hero piece</span><div class="ov"><b style="font-size:20px">Halo Puffer · £690</b><br><span style="opacity:.8">Put yourself in this · matched to your body</span></div></a></section>
- <h2>The drops library</h2><p class="mut">Eight pieces in Drop 01. Each is made only once you order it.</p>
- <div class="grid">${CAT.map(x=>`<a class="card" href="#/p/${x.id}"><img src="${x.img}" alt="${x.name}"><div class="b"><b>${x.name}</b> <span class="mut">£${x.price}</span><br><small class="mut">${x.note}</small>${x.video?'<br><small>▶ Video + try-on</small>':''}</div></a>`).join('')}</div>`,
+ <a href="#/p/mercury-gown" class="vid" style="max-height:560px"><video class="model" src="assets/p/19/show.mp4" poster="assets/p/19/show.jpg" autoplay muted loop playsinline preload="metadata"></video><span class="lbl">New · showcase video</span><div class="ov"><b style="font-size:20px">Mercury Gown · £950</b><br><span style="opacity:.8">Everyday to futuristic · 20 pieces · drag any piece in 3D</span></div></a></section>
+ <h2>The range</h2><p class="mut">${CAT.length} pieces, from clothes you'd wear on Monday to full-on futures. Each is made only once you order it.</p>
+ <div class="seg tiers" id="tiers">${TIERS.map(([k,l])=>`<button class="${(S.get('tier')||'all')===k?'on':''}" onclick="setTier('${k}')">${l} <small>${k==='all'?CAT.length:CAT.filter(x=>x.tier===k).length}</small></button>`).join('')}</div>
+ <div class="grid" id="grid">${gridHtml()}</div>`,
 p:(id)=>{const x=g(id);if(!x)return'Not found';const av=avatar();
- const media=x.video?`<div class="vid" id="hv">${x.hero==='image'?`<img class="model kb" src="${x.img}" alt="${x.name}">`:`<video class="model" src="assets/hero-model-v2.mp4" poster="assets/hero-poster.jpg" autoplay muted loop playsinline></video>`}<video class="you" src="assets/you-in-it-v2.mp4" muted loop playsinline preload="auto"></video>
+ const tryon=x.video?`<div class="vid" id="hv">${x.hero==='image'?`<img class="model kb" src="${x.img}" alt="${x.name}">`:`<video class="model" src="assets/hero-model-v2.mp4" poster="assets/hero-poster.jpg" autoplay muted loop playsinline></video>`}<video class="you" src="assets/you-in-it-v2.mp4" muted loop playsinline preload="auto"></video>
   <span class="lbl" id="hl">${av?'Press and hold to see yourself':'Model video'}</span><span class="ill">Illustration, real try-on in beta</span>
   <div class="ov"><button class="btn ghost wide" id="pyi">◉ ${av?'Hold to put yourself in this video':'Put yourself in this video'}</button><small style="opacity:.8;display:block;text-align:center;margin-top:6px">${av?'Release to see the model again':'Free account · record once, try on everything'}</small></div></div>`
-  :`<div class="vid" style="aspect-ratio:3/4"><img src="${x.img}" style="width:100%;height:100%;object-fit:cover"><span class="lbl">Video coming with this drop</span></div>`;
- return `<a href="#/" class="mut">← Drops</a><div class="pp" style="margin-top:14px"><div>${media}</div><div><span class="tag">Drop 01 · designed by AI, edited by our studio</span><h1>${x.name}</h1><p class="price">£${x.price}</p><p class="mut">${x.note}. Made to your avatar's measurements, ready in about ${x.days} days.</p>
+  :'';
+ const A=x.dir,ang=[['front','Front'],['3q','¾'],['side','Side'],['back','Back'],['detail','Detail']];
+ const media=`<div class="mtabs seg" id="mt">${tryon?'<button data-m="try" class="on">Try on</button>':''}<button data-m="views" ${tryon?'':'class="on"'}>Views</button><button data-m="3d">3D</button><button data-m="video">Video</button></div>
+ ${tryon?`<div class="mp" data-m="try">${tryon}</div>`:''}
+ <div class="mp" data-m="views" ${tryon?'hidden':''}><div class="gal" id="gal">${ang.map(([k,l],i)=>`<figure><img src="${A}/${k}.webp" alt="${x.name}, ${l} view" ${i?'loading="lazy"':''}><figcaption>${l}</figcaption></figure>`).join('')}</div>
+  <div class="thumbs" id="th">${ang.map(([k,l],i)=>`<button class="${i?'':'on'}" data-i="${i}" aria-label="${l} view"><img src="${A}/${k}.webp" loading="lazy" alt=""></button>`).join('')}</div></div>
+ <div class="mp" data-m="3d" hidden><div class="tt" id="tt" data-dir="${A}" data-n="${x.frames}"><img id="tti" src="${A}/t01.webp" alt="${x.name} 360 view" draggable="false"><span class="lbl">3D · drag to spin</span><div class="tthint">⟲ Drag or swipe</div></div><small class="mut">360° turntable from ${x.frames} frames. Not a true 3D model yet.</small></div>
+ <div class="mp" data-m="video" hidden><div class="vid sv"><video id="svv" src="${A}/show.mp4" poster="${A}/show.jpg" muted loop playsinline preload="none" controls></video><span class="lbl">Showcase · AI-generated model</span></div></div>`;
+ return `<a href="#/" class="mut">← The range</a><div class="pp" style="margin-top:14px"><div>${media}</div><div><span class="tag">${TL[x.tier]} · designed by AI, edited by our studio</span><h1>${x.name}</h1><p class="price">£${x.price}</p><p class="mut">${x.note}. Made to your avatar's measurements, ready in about ${x.days} days.</p>
  <div class="row"><button class="btn" onclick="add('${x.id}')">Make mine · £${x.price}</button><a class="btn ghost" href="#/design?q=${encodeURIComponent('Like the '+x.name+' but')}">Remix with AI</a></div>
  <div class="panel"><b>Still try-on</b> <span class="demo">Placeholder</span><p class="mut" style="margin:4px 0 12px">Instant photo of you in it. Ready in a few seconds once live.</p>
  ${av?`<div class="still" style="max-width:260px"><img class="g" src="${x.img}"><img class="me" src="${av.frames[0]}"></div><small class="mut">Demo: your capture shown beside the garment, not a real render.</small>`:`<a class="btn ghost sm" href="#/signup?next=avatar">Create your avatar to try it on</a>`}</div>
@@ -62,7 +70,22 @@ privacy:()=>{const u=user();if(!u){location.hash='#/signup';return''}const a=ava
  <p class="mut" style="font-size:13px;margin-top:18px">Your avatar can't be shared or used on anyone else's account. Try-on videos carry an invisible watermark and Content Credentials (in the real product).</p>
  <p><a href="javascript:logout();S.del('user');S.del('avatar');S.del('consent');S.del('body');S.del('h');S.del('draft');location.hash='#/'" class="mut">Sign out</a></p></div>`}};
 function route(){stopCam();const [p,qs]=location.hash.slice(2).split('?');const parts=(p||'').split('/');const q=new URLSearchParams(qs||'');
- const fn=R[parts[0]]||R[''];app.innerHTML=fn(parts[1]||q,q);chrome(parts[0]);scrollTo(0,0);if(parts[0]==='p')wireHold();}
+ const fn=R[parts[0]]||R[''];app.innerHTML=fn(parts[1]||q,q);chrome(parts[0]);scrollTo(0,0);if(parts[0]==='p'){wireHold();wireMedia()}}
+function gridHtml(){const t=S.get('tier')||'all';return CAT.filter(x=>t==='all'||x.tier===t).map((x,i)=>`<a class="card" href="#/p/${x.id}"><img src="${x.dir}/front.webp" alt="${x.name}" loading="${i<4?'eager':'lazy'}"><div class="b"><small class="tier t-${x.tier}">${TL[x.tier]}</small><br><b>${x.name}</b> <span class="mut">£${x.price}</span><br><small class="mut">${x.note.split('. ')[0]}</small><br><small>${x.video?'◉ Try-on · ':''}5 views · 3D · ▶ Video</small></div></a>`).join('')}
+window.setTier=t=>{S.set('tier',t);$('#grid').innerHTML=gridHtml();document.querySelectorAll('#tiers button').forEach((b,i)=>b.classList.toggle('on',TIERS[i][0]===t))};
+function wireMedia(){const mt=$('#mt');if(!mt)return;
+ mt.onclick=e=>{const b=e.target.closest('button');if(!b)return;const m=b.dataset.m;mt.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.mp').forEach(p=>p.hidden=p.dataset.m!==m);const v=$('#svv');if(m==='video'){v.play().catch(()=>{})}else v.pause();if(m==='3d')loadTT()};
+ const gal=$('#gal'),th=$('#th');th.onclick=e=>{const b=e.target.closest('button');if(b)gal.scrollTo({left:gal.clientWidth*b.dataset.i,behavior:'smooth'})};
+ gal.addEventListener('scroll',()=>{const i=Math.round(gal.scrollLeft/gal.clientWidth);th.querySelectorAll('button').forEach((b,j)=>b.classList.toggle('on',i===j))},{passive:true});
+ const tt=$('#tt'),img=$('#tti'),n=+tt.dataset.n,src=i=>`${tt.dataset.dir}/t${String(i+1).padStart(2,'0')}.webp`;let pos=0,vel=0,drag=false,lx=0,lt=0,raf=0,cache=[];
+ function loadTT(){if(cache.length)return;for(let i=0;i<n;i++){const im=new Image();im.src=src(i);cache.push(im)}}
+ const show=()=>{const i=((Math.round(pos)%n)+n)%n;const s=src(i);if(!img.src.endsWith(s))img.src=s;tt.dataset.f=i};
+ const step=()=>{if(drag)return;vel*=.94;pos+=vel;show();if(Math.abs(vel)>.02)raf=requestAnimationFrame(step)};
+ tt.addEventListener('pointerdown',e=>{drag=true;tt.setPointerCapture(e.pointerId);lx=e.clientX;lt=performance.now();vel=0;cancelAnimationFrame(raf);tt.classList.add('dragging')});
+ tt.addEventListener('pointermove',e=>{if(!drag)return;const dx=e.clientX-lx,now=performance.now(),d=-dx*n/tt.clientWidth*1.2;pos+=d;vel=d/Math.max(1,now-lt)*16;lx=e.clientX;lt=now;show()});
+ const up=()=>{if(!drag)return;drag=false;tt.classList.remove('dragging');raf=requestAnimationFrame(step)};['pointerup','pointercancel'].forEach(t=>tt.addEventListener(t,up));
+ window._tt={get pos(){return pos},get frame(){return +tt.dataset.f||0}};}
 function wireHold(){const v=$('#hv');if(!v)return;const you=v.querySelector('.you'),m=v.querySelector('.model');
  const on=e=>{e.preventDefault();if(!avatar()){location.hash=user()?'#/avatar':'#/signup?next=avatar';return}you.currentTime=m.currentTime%you.duration||0;you.play();v.classList.add('holding');$('#hl').textContent='Holding · release to see the model'};
  const off=()=>{if(!v.classList.contains('holding'))return;v.classList.remove('holding');you.pause();$('#hl').textContent='Press and hold to see yourself'};
