@@ -2,7 +2,7 @@
 
 AI-designed clothing demo: Drop 01 catalogue, sign up, one-time camera body scan (or manual entry) with editable measurements, press-and-hold try-on matched to one of 5 pre-rendered body types with a size recommendation, bag and mock checkout (no payment taken).
 
-Live: https://foxxdo-byte.github.io/neverworn/
+Live: https://foxx-studio-ltd.github.io/neverworn/
 
 - Pure static site (GitHub Pages). Hash routing, relative URLs.
 - **Prototype: your account is saved on this device only** (browser localStorage, password SHA-256 + salt). Nothing is sent to a server.
