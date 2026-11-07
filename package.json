@@ -1,0 +1,8 @@
+{
+  "name": "neverworn",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "ingest": "node scripts/ingest-range.mjs"
+  }
+}
