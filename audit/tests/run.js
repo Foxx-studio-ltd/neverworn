@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Neverworn end-to-end + unit test suite (Playwright, no npm install needed beyond `playwright`).
 //
-//   node audit/tests/run.js original    # tests the live app files at the repo root
-//   node audit/tests/run.js improved    # tests the mirror in /improved
+//   node audit/tests/run.js            # tests the app at the repo root
+//   node audit/tests/run.js live B08   # only tests whose name matches B08
 //
 // Two kinds of test:
 //   [F] feature tests — every user-facing function. Must pass on BOTH versions.
@@ -11,7 +11,7 @@
 'use strict';
 const http = require('http'), fs = require('fs'), path = require('path');
 const { chromium } = require('playwright');
-const TARGET = process.argv[2] || 'improved';
+const TARGET = process.argv[2] || 'live';
 const ONLY = process.argv[3] ? new RegExp(process.argv[3], 'i') : null;
 const REPO = path.resolve(__dirname, '../..');
 const FAKE = fs.readFileSync(path.join(__dirname, 'fakepose.js'), 'utf8');
@@ -334,7 +334,7 @@ B('B25 Product page does not preload the 1.9 MB try-on video for visitors', asyn
 
 // ===================================================================== runner
 (async () => {
-  const srv = await serve(); BASE = `http://127.0.0.1:${srv.address().port}/${TARGET === 'original' ? '' : 'improved/'}`;
+  const srv = await serve(); BASE = `http://127.0.0.1:${srv.address().port}/`; // the improved version is now the root app
   browser = await chromium.launch({ args: ['--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream', '--autoplay-policy=no-user-gesture-required'] });
   const results = [];
   for (const t of tests) {
@@ -349,6 +349,6 @@ B('B25 Product page does not preload the 1.9 MB try-on video for visitors', asyn
   const f = results.filter(r => r.kind === 'F'), b = results.filter(r => r.kind === 'B');
   console.log(`\n${TARGET}: features ${f.filter(r => r.pass).length}/${f.length} pass · bug regressions ${b.filter(r => r.pass).length}/${b.length} pass`);
   if (!ONLY) fs.writeFileSync(path.join(__dirname, `results-${TARGET}.json`), JSON.stringify({ target: TARGET, ran: new Date().toISOString(), results }, null, 1));
-  const ok = f.every(r => r.pass) && (TARGET === 'original' || b.every(r => r.pass));
+  const ok = f.every(r => r.pass) && b.every(r => r.pass);
   process.exit(ok ? 0 : 1);
 })();

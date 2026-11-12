@@ -1,7 +1,9 @@
 # Neverworn — full audit (November 2026)
 
+> **Status: adopted.** The improved version replaced the root app files and went live on 12 November 2026. The pre-audit version is commit `7fc0e93`; roll back with `git revert` of the adoption commit. The `improved/` folder mentioned below was the review mirror and has been folded into the root.
+
 **Scope:** every file in the repo, every route and every user function, tested in a real browser (Chromium via Playwright) with a fake camera.
-**Rule followed:** none of the live app files (`index.html`, `app.js`, `body.js`, `sync.js`, `backend.js`, `style.css`, `catalog.json`, `assets/`) were changed. All fixes are in a **mirror app** in [`improved/`](improved/). It reuses `../assets`, so the 30 MB of media is not copied.
+**How it was done:** the fixes were first built and tested in a separate mirror app (`improved/`) while the live files stayed untouched, then adopted into the root files once all tests passed.
 
 | | Original | Improved mirror |
 |---|---|---|
@@ -9,19 +11,17 @@
 | Bug regression tests (one per bug below) | **0 / 25** (every bug reproduced) | **25 / 25** |
 | Data from the live site (old password hashes, old bag format) | — | still works (tested) |
 
-Raw results: [`audit/tests/results-original.json`](audit/tests/results-original.json) and [`audit/tests/results-improved.json`](audit/tests/results-improved.json). Screenshots: [`audit/screens/`](audit/screens/).
+Latest run against the live files: [`audit/tests/results-live.json`](audit/tests/results-live.json) (24/24 and 25/25). Screenshots: [`audit/screens/`](audit/screens/).
 
 ## How to see it and test it
 
 ```bash
-python3 -m http.server 8000          # from the repo root
-# original: http://localhost:8000/         mirror: http://localhost:8000/improved/
-node audit/tests/run.js original     # needs only `playwright` (Chromium)
-node audit/tests/run.js improved
-node audit/tests/run.js improved B08 # run tests whose name matches a pattern
+python3 -m http.server 8000          # from the repo root, then open http://localhost:8000/
+node audit/tests/run.js              # needs only `playwright` (Chromium)
+node audit/tests/run.js live B08     # run tests whose name matches a pattern
 ```
 
-If this branch were published with GitHub Pages, the mirror would be at `…/neverworn/improved/`.
+To re-run the "before" column: `git worktree add ../nw-before 7fc0e93`, copy `audit/` into it, and run the suite there.
 The pose model normally loads from jsDelivr. The tests swap it for [`audit/tests/fakepose.js`](audit/tests/fakepose.js), a fake that always returns the same body points. That keeps runs repeatable and lets them work in CI, where the CDN may be blocked.
 
 ---
@@ -31,7 +31,7 @@ The pose model normally loads from jsDelivr. The tests swap it for [`audit/tests
 Severity: 🔴 security or data loss · 🟠 broken feature · 🟡 UX or accessibility. The `Bxx` ids match the tests in `audit/tests/run.js`.
 
 ### 🔴 Security and data
-| # | Bug (reproduced by its test) | Why it happens | Fix in `improved/` |
+| # | Bug (reproduced by its test) | Why it happens | Fix |
 |---|---|---|---|
 | B01 | **Reflected XSS.** Opening `#/signup?next="><img src=x onerror=…>` runs the attacker's script. It can read everything in localStorage: password hashes, body measurements and face frames. | `next` from the URL is pasted straight into an inline `onsubmit="auth(this,'${next}')"` attribute. | A `safeNext()` allow-list of known routes. The value is stored escaped in `data-next`. No inline handlers use URL data. An `esc()` helper is applied to every interpolated value app-wide. |
 | B02 | **Sign out wipes the page.** The screen goes blank except for the text `#/` (screenshot: `before-signout.png`). | The link is `href="javascript:…;location.hash='#/'"`. A `javascript:` URL whose last expression is a string replaces the whole document with that string. | A real `<button>` that calls `signOut()`. |
@@ -76,7 +76,7 @@ Severity: 🔴 security or data loss · 🟠 broken feature · 🟡 UX or access
 | — | No sorting in the range. | Sort: Featured / price low→high / high→low (remembered). |
 | — | Autoplaying video and the Ken Burns animation ignore `prefers-reduced-motion`. | Respected. |
 | — | Two tabs drift out of sync (the bag count goes stale). | A `storage` event listener re-renders. |
-| — | No meta description, social preview image or favicon. | Added in `improved/index.html`. |
+| — | No meta description, social preview image or favicon. | Added in `index.html`. |
 
 ---
 
@@ -90,15 +90,13 @@ Severity: 🔴 security or data loss · 🟠 broken feature · 🟡 UX or access
 
 ---
 
-## 3. What's in this branch
+## 3. What's in the repo now
 
 ```
 AUDIT.md                  this report
-improved/                 the mirror app (same 4 scripts + CSS, rewritten readably; catalog.json gains a `kind` field)
-audit/tests/run.js        49 Playwright tests (24 feature + 25 bug regressions), target = original | improved
+index.html, *.js, style.css, catalog.json   the improved app (catalog.json gains a `kind` field per garment)
+audit/tests/run.js        49 Playwright tests (24 feature + 25 bug regressions)
 audit/tests/fakepose.js   deterministic stand-in for the MoveNet CDN bundles
-audit/tests/results-*.json  last run, both targets
-audit/screens/            before/after screenshots (mobile home, bag, guest checkout, jeans fit, account, sign-out bug)
+audit/tests/results-live.json  last run
+audit/screens/            before/after screenshots taken during the audit
 ```
-
-To adopt the fixes: copy `improved/*` over the root files, then delete `data-root="../"` and the `.mirror-banner` from `index.html`. The tests then pass against the root with `node audit/tests/run.js original`.

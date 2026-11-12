@@ -5,7 +5,9 @@ AI-designed clothing demo: Drop 01 catalogue, sign up, one-time camera body scan
 Live: https://foxx-studio-ltd.github.io/neverworn/
 
 - Pure static site (GitHub Pages). Hash routing, relative URLs.
-- **Prototype: your account is saved on this device only** (browser localStorage, password SHA-256 + salt). Nothing is sent to a server.
+- **Prototype: your account is saved on this device only** (browser localStorage, password hashed with PBKDF2-SHA256). Nothing is sent to a server.
 - `backend.js` is the single swap point: replace its methods with API calls to bring back a real server.
 - Pose model (TensorFlow.js MoveNet) loads from jsDelivr; camera needs HTTPS.
 - "Design with AI" chat uses canned offline replies; no API keys.
+
+- Tests: `node audit/tests/run.js` (Playwright: 24 feature + 25 regression tests). Audit and change log: `AUDIT.md`.
