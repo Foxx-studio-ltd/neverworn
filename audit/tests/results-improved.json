@@ -1,0 +1,349 @@
+{
+ "target": "improved",
+ "ran": "2026-11-12T06:21:22.361Z",
+ "results": [
+  {
+   "kind": "F",
+   "name": "Home renders all 20 pieces with no JS errors",
+   "pass": true,
+   "err": null,
+   "ms": 349
+  },
+  {
+   "kind": "F",
+   "name": "Tier filter: counts per tier and persists across reload",
+   "pass": true,
+   "err": null,
+   "ms": 1041
+  },
+  {
+   "kind": "F",
+   "name": "Product cards link to product pages; every product page renders",
+   "pass": true,
+   "err": null,
+   "ms": 5465
+  },
+  {
+   "kind": "F",
+   "name": "Product media tabs switch panels and the video tab plays",
+   "pass": true,
+   "err": null,
+   "ms": 1550
+  },
+  {
+   "kind": "F",
+   "name": "Gallery thumbnails scroll to the chosen angle",
+   "pass": true,
+   "err": null,
+   "ms": 1432
+  },
+  {
+   "kind": "F",
+   "name": "3D turntable rotates on drag",
+   "pass": true,
+   "err": null,
+   "ms": 1433
+  },
+  {
+   "kind": "F",
+   "name": "Try-on hold without an avatar sends you to create one",
+   "pass": true,
+   "err": null,
+   "ms": 868
+  },
+  {
+   "kind": "F",
+   "name": "Bag: add, count badge, total, remove",
+   "pass": true,
+   "err": null,
+   "ms": 1661
+  },
+  {
+   "kind": "F",
+   "name": "Sign-up validation, duplicate email, wrong password, sign-in",
+   "pass": true,
+   "err": null,
+   "ms": 4969
+  },
+  {
+   "kind": "F",
+   "name": "Avatar: consent is required before recording",
+   "pass": true,
+   "err": null,
+   "ms": 1881
+  },
+  {
+   "kind": "F",
+   "name": "Avatar: guided camera recording saves frames and continues to height",
+   "pass": true,
+   "err": null,
+   "ms": 9124
+  },
+  {
+   "kind": "F",
+   "name": "Avatar: photo upload works instead of the camera",
+   "pass": true,
+   "err": null,
+   "ms": 1402
+  },
+  {
+   "kind": "F",
+   "name": "Height: validates range, accepts cm and ft/in",
+   "pass": true,
+   "err": null,
+   "ms": 2156
+  },
+  {
+   "kind": "F",
+   "name": "Body scan (fake pose model) produces a draft and the measure page",
+   "pass": true,
+   "err": null,
+   "ms": 7700
+  },
+  {
+   "kind": "F",
+   "name": "Manual measurements save, classify and show on the account page",
+   "pass": true,
+   "err": null,
+   "ms": 2303
+  },
+  {
+   "kind": "F",
+   "name": "Product page shows a size once measured; hold shows the body-matched variant",
+   "pass": true,
+   "err": null,
+   "ms": 2277
+  },
+  {
+   "kind": "F",
+   "name": "Account: consent toggles persist; download my data; delete body; delete avatar",
+   "pass": true,
+   "err": null,
+   "ms": 2751
+  },
+  {
+   "kind": "F",
+   "name": "Design with AI: chips, free text, keyword matching, remix",
+   "pass": true,
+   "err": null,
+   "ms": 1800
+  },
+  {
+   "kind": "F",
+   "name": "Hero prompt opens Design with the text",
+   "pass": true,
+   "err": null,
+   "ms": 662
+  },
+  {
+   "kind": "F",
+   "name": "Checkout (signed in) places an order and empties the bag",
+   "pass": true,
+   "err": null,
+   "ms": 2296
+  },
+  {
+   "kind": "F",
+   "name": "Fit engine unit checks (classify / build / variant / ellipse)",
+   "pass": true,
+   "err": null,
+   "ms": 201
+  },
+  {
+   "kind": "F",
+   "name": "Mobile (390px): no horizontal scroll on main pages",
+   "pass": true,
+   "err": null,
+   "ms": 1563
+  },
+  {
+   "kind": "F",
+   "name": "All catalogue assets exist (images, 24 turntable frames, video)",
+   "pass": true,
+   "err": null,
+   "ms": 4
+  },
+  {
+   "kind": "F",
+   "name": "Existing data from the live site still works (legacy password hash + legacy bag)",
+   "pass": true,
+   "err": null,
+   "ms": 1545
+  },
+  {
+   "kind": "B",
+   "name": "B01 XSS: ?next= on the sign-up URL must not execute script",
+   "pass": true,
+   "err": null,
+   "ms": 732
+  },
+  {
+   "kind": "B",
+   "name": "B02 Sign out keeps the app working (original replaced the page with \"#/\")",
+   "pass": true,
+   "err": null,
+   "ms": 1842
+  },
+  {
+   "kind": "B",
+   "name": "B03 Sign out clears the bag from this browser",
+   "pass": true,
+   "err": null,
+   "ms": 2536
+  },
+  {
+   "kind": "B",
+   "name": "B04 Guest bag is kept when signing in to an existing account",
+   "pass": true,
+   "err": null,
+   "ms": 3395
+  },
+  {
+   "kind": "B",
+   "name": "B05 Avatar survives sign out and sign back in",
+   "pass": true,
+   "err": null,
+   "ms": 2899
+  },
+  {
+   "kind": "B",
+   "name": "B06 Mobile: home hero video does not block page scrolling",
+   "pass": true,
+   "err": null,
+   "ms": 185
+  },
+  {
+   "kind": "B",
+   "name": "B07 Jeans size advice does not mention sleeves or chest",
+   "pass": true,
+   "err": null,
+   "ms": 163
+  },
+  {
+   "kind": "B",
+   "name": "B08 Leaving the page mid-scan does not yank you back to #/measure",
+   "pass": true,
+   "err": null,
+   "ms": 9127
+  },
+  {
+   "kind": "B",
+   "name": "B09 Leaving mid-recording does not create an avatar or redirect",
+   "pass": true,
+   "err": null,
+   "ms": 10466
+  },
+  {
+   "kind": "B",
+   "name": "B10 Guest checkout offers a way to sign in (keeps the bag)",
+   "pass": true,
+   "err": null,
+   "ms": 903
+  },
+  {
+   "kind": "B",
+   "name": "B11 Reloading #/cart while signed in has no JS errors (catalogue race)",
+   "pass": true,
+   "err": null,
+   "ms": 2326
+  },
+  {
+   "kind": "B",
+   "name": "B12 Camera is released after leaving a directly-loaded capture page",
+   "pass": true,
+   "err": null,
+   "ms": 3327
+  },
+  {
+   "kind": "B",
+   "name": "B13 Impossible measurements (chest 5 cm, waist 900 cm) are rejected",
+   "pass": true,
+   "err": null,
+   "ms": 1756
+  },
+  {
+   "kind": "B",
+   "name": "B14 ft/in never shows \"12 in\" (182 cm = 6ft 0in)",
+   "pass": true,
+   "err": null,
+   "ms": 1377
+  },
+  {
+   "kind": "B",
+   "name": "B15 You can delete your account from the account page",
+   "pass": true,
+   "err": null,
+   "ms": 1794
+  },
+  {
+   "kind": "B",
+   "name": "B16 Mobile: \"Design with AI\" is reachable from the nav",
+   "pass": true,
+   "err": null,
+   "ms": 207
+  },
+  {
+   "kind": "B",
+   "name": "B17 Page title reflects the current page",
+   "pass": true,
+   "err": null,
+   "ms": 510
+  },
+  {
+   "kind": "B",
+   "name": "B18 Unknown product shows a proper not-found page with a way back",
+   "pass": true,
+   "err": null,
+   "ms": 515
+  },
+  {
+   "kind": "B",
+   "name": "B19 Secondary text meets WCAG AA contrast (4.5:1)",
+   "pass": true,
+   "err": null,
+   "ms": 352
+  },
+  {
+   "kind": "B",
+   "name": "B20 Keyboard: holding Space on the try-on button shows you",
+   "pass": true,
+   "err": null,
+   "ms": 1541
+  },
+  {
+   "kind": "B",
+   "name": "B21 Toasts are announced to screen readers (aria-live)",
+   "pass": true,
+   "err": null,
+   "ms": 678
+  },
+  {
+   "kind": "B",
+   "name": "B22 Adding the same item twice shows quantity 2, not two rows",
+   "pass": true,
+   "err": null,
+   "ms": 1308
+  },
+  {
+   "kind": "B",
+   "name": "B23 Address is required to place an order",
+   "pass": true,
+   "err": null,
+   "ms": 2134
+  },
+  {
+   "kind": "B",
+   "name": "B24 Passwords use a slow KDF (PBKDF2), not one SHA-256 round",
+   "pass": true,
+   "err": null,
+   "ms": 1053
+  },
+  {
+   "kind": "B",
+   "name": "B25 Product page does not preload the 1.9 MB try-on video for visitors",
+   "pass": true,
+   "err": null,
+   "ms": 481
+  }
+ ]
+}
