@@ -3,7 +3,7 @@
 import numpy as np, wave
 from scipy.signal import lfilter, butter
 SR = 44100; BPM = 140; B = 60 / BPM; BEATS = 50
-D = 52 * B; N = int(D * SR); t = np.arange(N) / SR
+D = 66 * B; N = int(D * SR); t = np.arange(N) / SR
 L = np.zeros(N); R = np.zeros(N); FX = np.zeros(N)  # FX = reverb send
 rng = np.random.default_rng(7)
 def at(beat): return beat * B
@@ -98,8 +98,8 @@ add(impact(), at(8), 1.0, send=.3); kick_at(8, 1.2); add(stab([45, 52, 57, 60], 
 add(tapestop(at(1.4)), at(8.1), .8)
 add(impact(), at(9.5), .7, send=.3); add(pop(400, 1200), at(9.6), .4)
 add(riser(at(1.5)), at(9.5), .55)
-# --- GROOVE (b11–41)
-for b in np.arange(11, 41, 1.0):
+# --- GROOVE (b11–55)
+for b in np.arange(11, 55, 1.0):
     kick_at(b)
     if int(b) % 2 == 0: add(clap(), at(b), .55, send=.2)
     add(hat(True), at(b + .5), .35, pan=.25)
@@ -122,22 +122,39 @@ add(riser(at(1)), at(23), .55); add(impact(), at(24), .9, send=.35)
 for i in range(4): add(pop(500 + i * 120, 1300 + i * 150), at(26 + i * 1.1), .45, pan=[-.5, 0, .5, -.5][i]); add(click(3200, .25), at(26 + i * 1.1) + .05)
 for i in range(3): add(whoosh(.3), at(25 + i * .15) - .1, .35)
 add(impact(), at(31), .6, send=.25); add(click(2400, .6), at(32.2))
-for i in range(4): add(whoosh(.35, up=i % 2 == 0), at(33 + i * 2) - .15, .7, pan=(.5 if i % 2 else -.5)); add(pop(600, 1500), at(33.3 + i * 2), .3)
-add(riser(at(2)), at(39), .6)
-# --- END (b41–50)
-for i, b in enumerate((41, 42, 43)):
+# --- FEATURE BLITZ (b33–51): one feature per 2 beats, each with its own sound
+for i in range(9): add(whoosh(.3, up=i % 2 == 0), at(33 + i * 2) - .12, .6, pan=(.45 if i % 2 else -.45)); add(impact(), at(33 + i * 2), .35, send=.15)
+add(click(1400, .9), at(33.3)); add(click(1100, .6), at(33.36)); add(chime(91), at(33.5), .07, send=.5)   # action button press
+add(pop(700, 1600), at(34.3), .45); add(shutter(), at(34.35), .6)                                       # tap to paste
+for k in range(6): add(glitch(), at(35.5 + k * .08), 1.2, pan=(k % 2 - .5) * .6)                         # pixel blur zap
+for k in range(10): add(click(2600 + k * 60, .22), at(37.4 + k * .13), 1, pan=(k % 2 - .5) * .4)          # answer typing
+add(chime(84), at(38.8), .08, send=.5)
+for k in (39.2, 39.7, 40.2): add(pop(900, 1300), at(k), .3, pan=.3); add(chime(96), at(k), .03, send=.6)  # spotlight pings
+add(pop(500, 900), at(41.3), .35); add(pluck(76, .4), at(41.5), .2, send=.4); add(pluck(79, .4), at(41.75), .2, send=.4)  # voice reply
+for k, m in enumerate([72, 79, 84]): add(pluck(m, .6, 1.4), at(43.2 + k * .12), .22, send=.5)            # agent arrives
+for k in range(10): add(click(3000, .18), at(43.6 + k * .1), 1)
+for k in range(4): add(pop(800 + k * 160, 1500 + k * 160), at(45.4 + k * .3), .35)                       # votes tick
+add(chime(88), at(46.6), .12, send=.6); add(chime(91), at(46.65), .08, send=.6)                         # room pick
+add(impact(), at(47), .6, send=.3); add(stab([72, 76, 79], .3), at(47), .3, send=.4)                     # weekly challenge
+for k in range(3): add(pop(600 + k * 200, 1600 + k * 200), at(47.6 + k * .25), .3)
+add(whoosh(.25), at(49) - .05, .5); add(pop(), at(49.1), .3); add(whoosh(.25, up=False), at(49.5) - .05, .5); add(pop(700, 1700), at(49.6), .3)  # Slack / Teams
+add(chime(93), at(50.3), .09, send=.6)                                                                   # bookmark star
+for i in range(4): add(whoosh(.25, up=i % 2 == 0), at(51 + i) - .12, .6, pan=(.5 if i % 2 else -.5)); add(pop(600, 1500), at(51.2 + i), .3)  # montage
+add(riser(at(2)), at(53), .6)
+# --- END (b55–66)
+for i, b in enumerate((55, 56, 57)):
     add(impact(), at(b), .8, send=.3); kick_at(b, 1.2); add(stab([m + 12 for m in CHORDS[i % 3]], .3), at(b), .4, send=.4)
-add(impact(), at(44), 1.0, send=.5); kick_at(44, 1.3)
-for i, m in enumerate([72, 76, 79, 84, 88]): add(chime(m), at(44) + i * .05, .09, pan=(i - 2) * .25, send=.6)
+add(impact(), at(58), 1.0, send=.5); kick_at(58, 1.3)
+for i, m in enumerate([72, 76, 79, 84, 88]): add(chime(m), at(58) + i * .05, .09, pan=(i - 2) * .25, send=.6)
 pad_n = int(at(6) * SR)
-for m in (48, 55, 60, 64, 67): add(lp(saw(hz(m), pad_n), 2500) * env(pad_n, .3, r=1.5) * .5, at(44), .09, send=.4)
-for i in range(5): add(pop(800 + i * 150, 1900 + i * 150), at(46 + i * .2), .22)
-for b in np.arange(45, 51, 1.0):  # outro groove under the end card
+for m in (48, 55, 60, 64, 67): add(lp(saw(hz(m), pad_n), 2500) * env(pad_n, .3, r=1.5) * .5, at(58), .09, send=.4)
+for i in range(5): add(pop(800 + i * 150, 1900 + i * 150), at(60 + i * .2), .22)
+for b in np.arange(59, 65, 1.0):  # outro groove under the end card
     kick_at(b, .9); add(hat(True), at(b + .5), .3, pan=.25); [add(hat(), at(b + q), .18, pan=-.2) for q in (.25, .75)]
     if int(b) % 2 == 0: add(clap(), at(b), .45, send=.3)
     n = int(B * SR); sub = np.sin(2 * np.pi * hz(36) * np.arange(n) / SR) * env(n, .005, r=.05); add(sub, at(b), .45)
     if int(b) % 2 == 1: add(stab([60, 64, 67, 72], .2), at(b + .5), .2, send=.4)
-add(impact(), at(51), .7, send=.6); add(chime(84), at(51), .12, send=.7)
+add(impact(), at(65), .7, send=.6); add(chime(84), at(65), .12, send=.7)
 
 # --- mix: sidechain duck on music bus approximated by ducking everything except kicks we already placed
 mix = np.stack([L, R], 1) * duck[:, None] ** .5

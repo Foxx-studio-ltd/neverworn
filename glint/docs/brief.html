@@ -73,7 +73,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}
 </style>
 
 <header class="col">
-  <div class="eyebrow">Product brief · v2 · working name</div>
+  <div class="eyebrow">Product brief · v3 · working name</div>
   <h1>Glint. See it. <i>Say it.</i> Send it.</h1>
   <p class="lede">Snap anything, tap where you mean, and say what you want. Then Claude it, ChatGPT it or Grok it. Now with live rooms, so a whole team can pin the same picture at once.</p>
   <div class="verdict"><b>Verdict (unchanged): buildable and worth building.</b> The moat is a neutral, spatial, voice-first inbox that any AI or teammate can read from. The camera button itself will be copied. v2 leans into that: verbs for every AI, shareable cards, and multiplayer.</div>
@@ -85,7 +85,20 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}
 </header>
 
 <section class="col">
-  <h2>What's new in v2</h2>
+  <h2>What's new in v3</h2>
+  <div class="new">
+    <div><b>iPhone: Share sheet, Action button, Back Tap</b><p>A one-minute Shortcut (guide in Settings) takes a screenshot and opens Glint with a big "Tap to paste". Works from any photo's Share button too. Android already gets Share → Glint.</p></div>
+    <div><b>Blur the private bits</b><p>▦ Blur: drag over anything private. Every copy that leaves the device is pixelated; your original stays local. Auto-blur finds faces, emails and numbers on browsers that can detect them.</p></div>
+    <div><b>Answers right inside Glint</b><p>Add your own Anthropic, OpenAI, xAI or Google key in Settings and "Claude it" answers in place, no app switching. Claude uses the official SDK, defaults to Claude Opus 5.5 with automatic fallback if a request is declined. Keys never leave the device except to that provider.</p></div>
+    <div><b>History and bookmarks</b><p>"Pick up where you left off" on the home screen. Inbox tabs: All, Bookmarked, Unsent, Sent, with "edited 2h ago" and where each capture went. In Together: Jump back in, and saved posts.</p></div>
+    <div><b>Weekly challenges and a winners' wall</b><p>A new #SeeSaySend challenge every week, pinned at the top of Together, with a countdown. The most-glinted post of each past week goes on the winners' wall.</p></div>
+    <div><b>Vote mode</b><p>Add the results you got back to a post, or let the room agent answer, then everyone votes. The leader gets a "Room pick" badge, and any result becomes a Before → After card.</p></div>
+    <div><b>Point, live</b><p>Press and hold on a shared picture: a pulsing blue spotlight follows your finger on everyone's screen, labelled "Sam is pointing".</p></div>
+    <div><b>Voice threads</b><p>Reply to any pin by holding the mic. Replies sit under the pin, and 🔊 reads any pin or reply aloud in a Claude voice.</p></div>
+    <div><b>Room agent</b><p>Turn on an AI member (Design critic, Engineer, Stylist or Helpful generalist). It answers each new post with the team's pins. "Ask again" re-runs it when more pins land. Only one copy runs at a time, even with everyone online.</p></div>
+    <div><b>Slack and Teams</b><p>One tap copies the team card and a deep link for Slack, or opens Teams' share window. The link opens straight to that picture so teammates can pin from it.</p></div>
+  </div>
+  <h2>What came in v2</h2>
   <div class="new">
     <div><b>Verbs, with real logos</b><p>"Claude it", "ChatGPT it", "Grok it", "Gemini it", "Perplexity it". The Send button becomes your favourite verb, so the next send is one tap.</p></div>
     <div><b>Light by default</b><p>The new Daylight look is clean and calm, with one warm orange for every action. Lens (dark) and Signal (loud) are still a tap away.</p></div>
@@ -130,14 +143,11 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}
     <li><b>Remix.</b> Take any post into your own inbox with all its pins, and keep going.</li>
   </ol>
   <div class="callout"><b>Who can join:</b> rooms live in the Claude version of Glint. Invite people with the artifact's Share menu, giving teammates in your organization access or inviting friends as guests, then send the room link. People need a Claude sign-in to post. Anyone can use Remix links, with or without an account.</div>
-  <h3>Ways to make it better next</h3>
+  <h3>Ideas after v3</h3>
   <ul>
-    <li><b>Weekly prompts:</b> a fresh public challenge every Monday, plus a winners' wall of Before → After cards.</li>
-    <li><b>Vote mode:</b> two Before → After results side by side, and the room picks one. Great for design reviews.</li>
-    <li><b>Live "point" mode:</b> hold a finger on the picture to show a pulsing spotlight to everyone. It's like pointing over someone's shoulder, from anywhere.</li>
-    <li><b>Voice threads:</b> reply to a pin by voice. The transcript sits under the pin, and the audio plays on tap.</li>
-    <li><b>Room agents:</b> a room can have an AI member that answers every new team brief automatically and posts the result back.</li>
-    <li><b>Slack and Teams:</b> post a room's best card to a channel, and let teammates pin from the link.</li>
+    <li><b>Real voice clips:</b> record the actual audio for replies, not only the transcript. This needs microphone recording, which the Claude version doesn't allow yet; the installed app could do it once rooms move to their own backend.</li>
+    <li><b>Native iOS app:</b> a true share extension and lock-screen widget. It needs an Apple developer account and App Store review; the Shortcut covers the same flow for now.</li>
+    <li><b>Agent to agent:</b> a room agent that hands its answer to a coding agent, which opens a pull request.</li>
   </ul>
 </section>
 
@@ -148,20 +158,23 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}
     <li><b>Tap the picture</b> where you mean. Hold the orange mic and talk, then let go.</li>
     <li><b>Tap your verb</b> (Claude it, ChatGPT it…). The AI opens with your prompt typed in and the card copied, ready to paste. "Claude it here" answers inside the page.</li>
     <li><b>Got a result?</b> Paste it or add it under Before → After, then share the side-by-side card.</li>
+    <li><b>Private stuff in shot?</b> Tap ▦ Blur and drag over it before sending.</li>
+    <li><b>Fastest capture on iPhone:</b> Settings → iPhone shortcut. Set up once, then press the Action button.</li>
   </ol>
   <p class="note">The installable version (live camera, hold-to-shoot-and-talk, native share sheet straight into the ChatGPT or Claude app, works offline) runs from the repo at <code>/glint/</code> once it's on your GitHub Pages site. On iPhone, open it in Safari, then Share → Add to Home Screen. On Android, use Chrome's Install app.</p>
 
   <h2>Risks, still true</h2>
   <div class="risks">
     <div class="risk"><span class="sev hi">High</span><div><h4>Platforms copy the camera button</h4><p class="fix"><b>Fix:</b> stay neutral across AIs and double down on what they won't build: pins, rooms and the cross-AI inbox.</p></div></div>
-    <div class="risk"><span class="sev hi">High</span><div><h4>The last mile into other AI apps leaks</h4><p class="fix"><b>Fix (built):</b> the prompt is burned into the card, opens with the text pre-filled, and the card is copied. Next: your own API key and an MCP inbox.</p></div></div>
+    <div class="risk"><span class="sev hi">High</span><div><h4>The last mile into other AI apps leaks</h4><p class="fix"><b>Fix (built):</b> the prompt is burned into the card, the AI opens with the text pre-filled, and the card is copied. With your own key the AI answers inside Glint, so there's no last mile at all. Next: an MCP inbox for agents.</p></div></div>
     <div class="risk"><span class="sev med">Medium</span><div><h4>Brand marks</h4><p>The verbs use each company's logo to show where a card goes, the way share sheets do. Before a public launch, check each brand's usage guidelines (for example, no implied partnership).</p></div></div>
-    <div class="risk"><span class="sev med">Medium</span><div><h4>Rooms carry other people's pictures</h4><p class="fix"><b>Fix:</b> rooms are only visible to people you share Glint with. Next: room owners can delete posts, and blur before posting.</p></div></div>
+    <div class="risk"><span class="sev med">Medium</span><div><h4>Rooms carry other people's pictures</h4><p class="fix"><b>Fix:</b> rooms are only visible to people you share Glint with, and Blur runs before anything is posted. Next: room owners can remove posts.</p></div></div>
+    <div class="risk"><span class="sev med">Medium</span><div><h4>API keys on a phone</h4><p class="fix"><b>Fix:</b> keys sit in the phone's browser storage and go only to the provider. Anyone holding the unlocked phone could use them, and the Settings page says so. Use keys with spending limits.</p></div></div>
   </div>
 </section>
 
 <section class="wide" id="film">
-  <div class="col"><h2>The new ad</h2><p>22 seconds at 140 BPM. There's a cut on almost every beat, and no shot holds for more than about a second, except the final logo, which keeps moving. The hook is "SEE IT" on a real photo in the very first frame, with a camera shutter and an impact hit. Everything is synthesised: kick and clap groove, risers, impacts, whooshes, a shutter, pin pops, and a rising pluck for each AI.</p></div>
+  <div class="col"><h2>The new ad</h2><p>28 seconds at 140 BPM. The v2 cut stays, with a new feature blitz in the middle: ten features in about eight seconds, each with its own sound. Everything is synthesised: kick and clap groove, risers, impacts, whooshes, a shutter, pin pops, pixel-glitch zaps, typing ticks, vote chimes, and a rising pluck for each AI.</p></div>
   <div class="film col" style="max-width:900px">
     <video src="glint-ad-9x16.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
     <div class="beats">
@@ -176,8 +189,16 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}
       <div><time>0:07.7</time><span>Claude it. ChatGPT it. Grok it. Gemini it. One logo per beat.</span></div>
       <div><time>0:09.4</time><span>Before → after: the coat goes forest green.</span></div>
       <div><time>0:10.3</time><span>#SeeSaySend. Three phones, pins landing live, one team brief.</span></div>
-      <div><time>0:14.1</time><span>Screens. Sketches. Stuff. Style. Whip pans.</span></div>
-      <div><time>0:17.6</time><span>SEE IT. SAY IT. SEND IT. Then the logo, the AI row, #SeeSaySend.</span></div>
+      <div><time>0:14.1</time><span>One press: the Action button grabs the screen and Glint opens to "Tap to paste".</span></div>
+      <div><time>0:15.0</time><span>Blur the private bits: an invoice's email and card number pixelate.</span></div>
+      <div><time>0:15.9</time><span>Answers, right here: "Claude it · your key" streams the answer in place.</span></div>
+      <div><time>0:16.7</time><span>Point. Live: a blue spotlight, "Sam is pointing".</span></div>
+      <div><time>0:17.6</time><span>Reply by voice, then the room agent types its critique.</span></div>
+      <div><time>0:19.3</time><span>Vote the best: the green coat ticks up to Room pick.</span></div>
+      <div><time>0:20.1</time><span>Weekly challenges, the winners' wall, then Slack it. Teams it.</span></div>
+      <div><time>0:21.4</time><span>Pick up where you left off: a bookmark star pops.</span></div>
+      <div><time>0:21.9</time><span>Screens. Sketches. Stuff. Style. One beat each.</span></div>
+      <div><time>0:23.6</time><span>SEE IT. SAY IT. SEND IT. Then the logo, the AI row, #SeeSaySend.</span></div>
     </div>
   </div>
 </section>
@@ -187,11 +208,11 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em}
 <pre><code>Capture  { id, img, w, h, note, pins:[{n,x,y,text,by?}], strokes, sent, result? }
 Sources       camera · file · paste · drop · screen · share-target   (+ iOS share ext, hotkey, glasses)
 Voice         claude dictation · web speech · keyboard                (+ on-device whisper)
-Destinations  claude · chatgpt · grok · gemini · perplexity · room · share · copy · remix · save
-Together      rooms / posts / notes / glints (live) + presence        (+ room agents, Slack)
+Destinations  claude · chatgpt · grok · gemini · perplexity (link or own key) · room · share · copy · remix · save
+Together      rooms / posts / notes / replies / results / votes / glints + presence (point) + room agent
 Storage       IndexedDB, local-first                                  (+ encrypted sync)</code></pre>
-  <div class="phase"><div><b>Now</b><small>v2</small></div><div>Verbs with logos, light default, Before → After cards, remix links, live rooms, installable app.</div></div>
-  <div class="phase"><div><b>Next</b><small>4–6 weeks</small></div><div>iOS share extension and Action button shortcut, redaction, weekly challenges, vote mode, direct send with your own API key.</div></div>
-  <div class="phase"><div><b>Then</b><small>quarter</small></div><div>MCP inbox for agents, room agents, Slack and Teams, sync, team plans.</div></div>
+  <div class="phase"><div><b>Now</b><small>v3</small></div><div>Everything above: verbs with logos, Before → After, remix links, live rooms, weekly challenges, votes, room agent, voice threads, point mode, Slack and Teams, blur, own-key answers, history and bookmarks, iPhone shortcut.</div></div>
+  <div class="phase"><div><b>Next</b><small>4–6 weeks</small></div><div>Glint's own address and backend (rooms outside Claude, real voice clips), native iOS share extension, MCP inbox for agents.</div></div>
+  <div class="phase"><div><b>Then</b><small>quarter</small></div><div>Agent-to-agent hand-offs, sync across devices, team plans.</div></div>
   <p class="note" style="margin-top:24px">"Glint" is a working name. Check trademarks before you buy a domain.</p>
 </section>

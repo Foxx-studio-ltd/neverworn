@@ -68,6 +68,17 @@ html,body{margin:0;background:#000}
 .row .lgw{position:static;width:130px;height:130px;border-radius:36px;box-shadow:0 10px 30px rgba(18,20,26,.15)}
 .row .lgw svg{width:80px;height:80px}
 .grain{position:absolute;inset:0;pointer-events:none;opacity:.05;background-image:repeating-radial-gradient(circle at 17% 32%,#000 0 1px,transparent 1px 3px)}
+.fs{position:absolute;inset:0;display:none}
+.vcard{position:absolute;top:500px;width:440px;border-radius:36px;background:#fff;overflow:hidden;box-shadow:0 40px 100px rgba(18,20,26,.22)}
+.vcard .im{height:880px;background-size:cover;background-position:center}
+.vcard.lead{outline:10px solid var(--accent)}
+.vf{display:flex;justify-content:space-between;align-items:center;padding:26px 30px;font-size:36px;font-weight:600}
+.vn{background:var(--accent);color:#fff;border-radius:999px;padding:8px 24px;font-weight:700}
+.pick{position:absolute;top:26px;left:26px;background:var(--accent);color:#fff;font-weight:700;font-size:36px;padding:12px 26px;border-radius:999px;box-shadow:0 10px 30px rgba(255,90,31,.4)}
+.win{position:absolute;top:1030px;width:288px;height:420px;border-radius:28px;background-size:cover;background-position:center;box-shadow:0 24px 60px rgba(18,20,26,.2)}
+.win span{position:absolute;left:16px;bottom:16px;background:#fff;color:var(--ink);font-weight:700;font-size:32px;border-radius:999px;padding:6px 18px}
+.appchip{position:absolute;display:flex;align-items:center;gap:22px;background:#fff;color:var(--ink);border-radius:999px;padding:16px 46px 16px 16px;font-size:52px;font-weight:700;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.appchip .chipw{width:96px;height:96px}.appchip .chipw svg{width:58px;height:58px}
 </style></head><body>
 <div id="f"><div id="cam">
 
@@ -133,6 +144,87 @@ html,body{margin:0;background:#000}
   <div class="sendb" id="team" style="position:absolute;left:180px;right:180px;bottom:180px;top:auto;height:140px;font-size:50px"><span class="chipw" data-logo="claude"></span>Claude it · team brief</div>
 </div>
 
+<!-- S4.5 feature blitz (b33–51) -->
+<div class="sc" id="sF">
+  <div class="fs" id="f0" style="background:var(--bg)">
+    <div id="iph" style="position:absolute;left:240px;top:430px;width:600px;height:1240px;border-radius:90px;border:14px solid #12141a;background:#fff;overflow:hidden;box-shadow:0 50px 120px rgba(18,20,26,.25)">
+      <div id="iphApp" style="position:absolute;inset:0;background-color:#f6f6f8;background-size:100% auto;background-repeat:no-repeat;background-position:0 60px"></div>
+      <div id="iphGlint" style="position:absolute;inset:0;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px">
+        <div style="font:italic 64px 'Instrument Serif';display:flex;gap:14px;align-items:center;position:absolute;top:70px;left:50px"><svg viewBox="0 0 100 100" width="40" height="40"><path d="M50 4 C53 38 62 47 96 50 C62 53 53 62 50 96 C47 62 38 53 4 50 C38 47 47 38 50 4Z" fill="#ffb020"/></svg>Glint</div>
+        <div id="pasteB" style="background:var(--accent);color:#fff;font-weight:600;font-size:40px;border-radius:999px;padding:34px 44px;box-shadow:0 14px 40px rgba(255,90,31,.4)">Tap to paste your capture</div>
+      </div>
+      <div id="iphShot" style="position:absolute;left:40px;right:40px;top:150px;bottom:200px;border-radius:30px;background-color:#f6f6f8;background-size:100% auto;background-repeat:no-repeat;background-position:top;box-shadow:0 20px 50px rgba(18,20,26,.2)"><div class="pin" style="left:78%;top:68%">1</div></div>
+      <div class="flash" id="iphFlash" style="opacity:0"></div>
+    </div>
+    <div id="sideBtn" style="position:absolute;left:222px;top:760px;width:22px;height:120px;border-radius:8px;background:#12141a"></div>
+    <div class="finger" id="fFinger"></div>
+  </div>
+  <div class="fs" id="f1" style="background:#fff0e9">
+    <div style="position:absolute;left:110px;top:520px;width:860px;height:980px;border-radius:44px;overflow:hidden;box-shadow:0 50px 120px rgba(18,20,26,.22);background:#fff">
+      <canvas id="inv" width="860" height="980" style="position:absolute;inset:0"></canvas>
+      <canvas id="invPx" width="860" height="980" style="position:absolute;inset:0"></canvas>
+      <div id="blurBox" style="position:absolute;border:5px dashed var(--accent);border-radius:10px"></div>
+    </div>
+    <div class="vchip" id="blurTag" style="position:absolute;left:330px;top:1560px;font-size:40px;padding:16px 32px">▦ Blurred before it leaves</div>
+  </div>
+  <div class="fs" id="f2" style="background:#12141a;color:#fff">
+    <div style="position:absolute;left:110px;top:480px;width:860px;border-radius:44px;background:#fff;color:var(--ink);padding:40px;box-shadow:0 50px 120px rgba(0,0,0,.4)">
+      <div id="f2img" style="height:560px;border-radius:24px;background-color:#f6f6f8;background-size:auto 100%;background-repeat:no-repeat;background-position:center;position:relative"><div class="pin" style="left:68%;top:87%">1</div></div>
+      <div id="f2btn" class="sendb" style="position:static;margin-top:30px;height:120px"><span class="chipw" data-logo="claude"></span><span>Claude it <span style="opacity:.6;font-size:32px">· your key</span></span></div>
+      <div id="f2ans" style="margin-top:30px;border-left:8px solid var(--accent);padding:6px 0 6px 26px;font-size:40px;line-height:1.35;min-height:220px"></div>
+    </div>
+  </div>
+  <div class="fs" id="f3" style="background:#e8efff">
+    <div style="position:absolute;left:120px;top:440px;width:840px;height:1120px;border-radius:44px;overflow:hidden;background:url(../../assets/01-halo-puffer.jpg) center/cover;box-shadow:0 50px 120px rgba(18,20,26,.22)">
+      <div id="spot" style="position:absolute;width:240px;height:240px;margin:-120px 0 0 -120px;border-radius:50%;border:8px solid var(--people);background:rgba(47,107,255,.2)"></div>
+      <div id="spotR" style="position:absolute;width:240px;height:240px;margin:-120px 0 0 -120px;border-radius:50%;border:6px solid var(--people)"></div>
+      <div id="spotL" class="bubble" style="background:var(--people);font-size:34px;padding:12px 22px">Sam is pointing</div>
+    </div>
+    <div class="av" style="left:860px;top:380px;background:#2f6bff">SR</div><div class="av" style="left:760px;top:380px;background:#ff5a1f">AL</div>
+  </div>
+  <div class="fs" id="f4" style="background:#fff">
+    <div style="position:absolute;left:80px;right:80px;top:560px;font-size:76px;line-height:1.25;font-weight:500">
+      <div style="display:flex;gap:28px;align-items:flex-start"><div class="pin b" style="position:static;margin:0;flex:none">2</div><div>Shorter hem<div style="font-size:44px;color:var(--muted)">Sam Rivera</div></div></div>
+      <div id="f4rep" style="margin:40px 0 0 112px;border-left:8px solid var(--line);padding-left:34px">
+        <div class="wave" id="f4wave" style="position:static;height:200px;margin-bottom:30px"></div>
+        <div id="f4txt" style="font-size:72px"></div>
+        <div id="f4by" style="font-size:44px;color:var(--muted)">Leo Kim · <span style="color:var(--people);font-weight:600">🔊 Play</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="fs" id="f5" style="background:#12141a">
+    <div id="f5card" style="position:absolute;left:100px;right:100px;top:560px;border-radius:40px;background:#e8efff;border:4px solid var(--people);padding:52px;font-size:58px;line-height:1.35;color:var(--ink)">
+      <div style="display:flex;align-items:center;gap:20px;font-weight:700;color:var(--people);margin-bottom:20px"><span class="chipw" data-logo="claude" style="width:80px;height:80px"></span>Design critic · room agent</div>
+      <div id="f5txt"></div>
+    </div>
+  </div>
+  <div class="fs" id="f6" style="background:#fff0e9">
+    <div class="vcard" id="vA" style="left:80px"><div class="im" style="background-image:url(../../assets/01-halo-puffer.jpg)"></div><div class="vf"><span>Ada</span><span class="vn" id="vAn">▲ 1</span></div></div>
+    <div class="vcard" id="vB" style="left:560px"><div class="im" style="background-image:url(puffer-green.jpg)"></div><div class="vf"><span>Room agent</span><span class="vn" id="vBn">▲ 1</span></div><div class="pick" id="pick">Room pick</div></div>
+  </div>
+  <div class="fs" id="f7" style="background:#fff">
+    <div id="wk" style="position:absolute;left:90px;right:90px;top:470px;border-radius:44px;background:linear-gradient(135deg,#ff5a1f,#ff8a4c);color:#fff;padding:50px 54px;box-shadow:0 30px 80px rgba(255,90,31,.35)">
+      <div style="font-size:60px;font-weight:700;line-height:1.1">✦ This week's challenge:<br>Outfit check</div><div style="font-size:38px;opacity:.9;margin-top:18px">2 days left · most ✦ Glints wins</div></div>
+    <div style="position:absolute;left:90px;top:960px;font:700 34px 'Instrument Sans';letter-spacing:.1em;color:var(--muted)">WINNERS' WALL</div>
+    <div class="win" id="w0" style="left:90px;background-image:url(../../assets/04-gradient-dress.jpg)"><span>✦ 14</span></div>
+    <div class="win" id="w1" style="left:396px;background-image:url(puffer-green.jpg)"><span>✦ 11</span></div>
+    <div class="win" id="w2" style="left:702px;background-image:url(../../assets/06-brand-mood.jpg)"><span>✦ 9</span></div>
+  </div>
+  <div class="fs" id="f8" style="background:#4a154b;color:#fff">
+    <div id="f8card" style="position:absolute;left:240px;top:520px;width:600px;height:760px;border-radius:40px;background:#fff;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.4)"><div style="height:600px;background:url(../../assets/04-gradient-dress.jpg) center 30%/cover;position:relative"><div class="pin b" style="left:44%;top:12%">1</div><div class="pin" style="left:60%;top:70%">2</div></div><div style="color:var(--ink);font-size:36px;padding:28px 34px">Outfit check · 2 pins</div></div>
+    <div class="appchip" id="slk" style="left:120px;top:1380px"><span class="chipw" data-logo="slack"></span>Slack</div>
+    <div class="appchip" id="tms" style="left:580px;top:1380px"><span class="chipw" style="background:#5059c9;color:#fff;font-weight:700;font-size:34px">T</span>Teams</div>
+  </div>
+  <div class="fs" id="f9" style="background:var(--bg)">
+    <div id="cont" style="position:absolute;left:90px;right:90px;top:820px;display:flex;align-items:center;gap:30px;background:#fff;border-radius:36px;padding:26px 34px 26px 26px;box-shadow:0 30px 80px rgba(18,20,26,.18);border:2px solid var(--line)">
+      <div style="width:150px;height:150px;border-radius:24px;background:url(../../assets/01-halo-puffer.jpg) center 30%/cover;flex:none"></div>
+      <div style="flex:1;font-size:36px;color:var(--muted);line-height:1.3"><b style="display:block;color:var(--ink);font-size:44px">Pick up where you left off</b>Forest green, keep the collar · 2h ago</div>
+      <div style="color:var(--accent);font-weight:700;font-size:40px">Continue →</div></div>
+    <div id="bstar" style="position:absolute;left:470px;top:1160px;font-size:160px;color:#ffb020">★</div>
+  </div>
+  <div class="cap k" id="capF" style="font-size:140px;top:140px;line-height:.9"></div>
+</div>
+
 <!-- S5 montage -->
 <div class="sc" id="s5">
   <div class="mlabel k" id="ml"></div>
@@ -161,7 +253,7 @@ html,body{margin:0;background:#000}
 <script>
 const $ = id => document.getElementById(id);
 const BPM = 140, B = 60 / BPM, BEATS = 50;
-window.DURATION = 52 * B;
+window.DURATION = 66 * B;
 const cl = v => Math.max(0, Math.min(1, v));
 const eo = t => 1 - Math.pow(1 - t, 3);
 const eb = t => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2); }; // back-out overshoot
@@ -188,7 +280,7 @@ const MATES = [["Ada", "#ff5a1f", .55, .2, "Ada: more waist"], ["Sam", "#2f6bff"
   x.fillStyle = "#fff"; x.font = "700 62px system-ui"; x.fillText("Every bean,", 84, 440); x.fillText("one list.", 84, 510);
   x.fillStyle = "#e6e8ee"; x.beginPath(); x.roundRect(50, 610, 740, 92, 16); x.fill(); x.fillStyle = "#8a8f99"; x.font = "32px system-ui"; x.fillText("Email address", 84, 668);
   x.fillStyle = "#c8ccd4"; x.beginPath(); x.roundRect(520, 740, 270, 84, 42); x.fill(); x.fillStyle = "#fff"; x.font = "600 32px system-ui"; x.fillText("Join", 625, 792);
-  $("c0img").style.backgroundImage = `url(${c.toDataURL()})`; $("c0img").innerHTML = '<div class="pin" style="left:78%;top:87%">1</div>';
+  window.BREW = c.toDataURL(); $("c0img").style.backgroundImage = `url(${window.BREW})`; $("c0img").innerHTML = '<div class="pin" style="left:78%;top:87%">1</div>';
   const w = document.createElement("canvas"); w.width = 840; w.height = 900; const y = w.getContext("2d"); y.fillStyle = "#fbfbf8"; y.fillRect(0, 0, 840, 900);
   y.strokeStyle = "#2340e8"; y.lineWidth = 8; y.lineCap = y.lineJoin = "round";
   const wob = (pts) => { y.beginPath(); pts.forEach(([a, b], i) => i ? y.lineTo(a, b) : y.moveTo(a, b)); y.stroke(); };
@@ -198,7 +290,7 @@ const MATES = [["Ada", "#ff5a1f", .55, .2, "Ada: more waist"], ["Sam", "#2f6bff"
   y.strokeStyle = "#ff5a1f"; wob([[500, 660], [560, 610], [650, 615], [690, 670]]); wob([[660, 640], [692, 672], [650, 684]]);
   $("c1img").style.backgroundImage = `url(${w.toDataURL()})`; })();
 
-function render(t) {
+function renderCore(t) {
   const b = t / B;
   const S = { s1a: [0, 1], s1b: [1, 2], s1c: [2, 3], s1d: [3, 5], s2a: [5, 8], s2b: [8, 9.5], s2c: [9.5, 11], s3: [11, 18], s3v: [18, 22], s3r: [22, 24], s4a: [24, 25], s4b: [25, 33], s5: [33, 41], s6a: [41, 44], s6b: [44, 53] };
   for (const id in S) on($(id), b >= S[id][0] && b < S[id][1]);
@@ -286,6 +378,73 @@ function render(t) {
   [...$("lrow").children].forEach((el, i) => T(el, `scale(${eb(k(b, 46 + i * .2, 46.3 + i * .2))}) translateY(${Math.sin(t * 3 + i) * 6}px)`));
   $("end3").style.opacity = eo(k(b, 47.5, 47.8));
 }
+// ---------- feature blitz (b33–51) ----------
+$("f4wave").innerHTML = Array.from({ length: 36 }, () => "<i></i>").join("");
+(() => { const c = $("inv"), x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, 860, 980);
+  x.fillStyle = "#12141a"; x.font = "700 56px Instrument Sans, system-ui"; x.fillText("Invoice #2041", 60, 120);
+  x.fillStyle = "#5c6372"; x.font = "36px Instrument Sans, system-ui"; x.fillText("Billed to", 60, 220); x.fillStyle = "#12141a"; x.font = "500 44px Instrument Sans, system-ui"; x.fillText("Ada Lovelace", 60, 280);
+  x.font = "500 42px Instrument Sans, system-ui"; x.fillText("ada.lovelace@studio.com", 60, 470); x.fillText("Card 4242 4242 4242 4242", 60, 560); x.fillText("+44 7700 900 123", 60, 650);
+  x.fillStyle = "#e2e5eb"; x.fillRect(60, 760, 740, 3); x.fillStyle = "#12141a"; x.font = "700 52px Instrument Sans, system-ui"; x.fillText("Total  £240.00", 60, 860);
+  const s = document.createElement("canvas"); s.width = 860 / 26; s.height = 980 / 26; s.getContext("2d").drawImage(c, 0, 0, s.width, s.height);
+  const p = $("invPx").getContext("2d"); p.imageSmoothingEnabled = false; p.drawImage(s, 0, 0, s.width, s.height, 0, 0, 860, 980); })();
+const FCAP = [[33, "One press."], [34, "Action<br>button."], [35, "Blur the<br>private bits."], [37, "Answers,<br>right here."], [39, "Point.<br>Live."], [41, "Reply by<br>voice."], [43, "Your room's<br>AI agent."], [45, "Vote the<br>best."], [47, "Weekly<br>challenges."], [49, "Slack it.<br>Teams it."], [50, "Pick up where<br>you left off."]];
+function renderF(b, t) {
+  const R = [[33, 35], [35, 37], [37, 39], [39, 41], [41, 43], [43, 45], [45, 47], [47, 49], [49, 50], [50, 51]];
+  R.forEach(([a, z], i) => { const el = $("f" + i); const v = b >= a && b < z; el.style.display = v ? "block" : "none"; if (v) { const p = eo(k(b, a, a + .2)); T(el, `translateX(${(1 - p) * (i % 2 ? -1080 : 1080)}px)`); } });
+  const c = [...FCAP].reverse().find(([a]) => b >= a); $("capF").innerHTML = c ? c[1] : ""; if (c) T($("capF"), `scale(${1.3 - .3 * eb(k(b, c[0], c[0] + .25))})`);
+  $("capF").style.color = (b >= 37 && b < 39) || (b >= 43 && b < 45) || (b >= 49 && b < 50) ? "#fff" : "var(--ink)";
+  $("capF").style.fontSize = b >= 50 ? "110px" : "140px";
+  // f0 action button → paste
+  const pressed = b > 33.3 && b < 33.5; $("sideBtn").style.transform = pressed ? "translateX(8px)" : "none";
+  $("iphApp").style.backgroundImage = `url(${window.BREW})`; $("iphApp").style.opacity = b < 33.4 ? 1 : 0;
+  $("iphFlash").style.opacity = b > 33.4 ? Math.max(0, .9 - (b - 33.4) * 4) : 0;
+  $("iphGlint").style.opacity = b >= 33.4 && b < 34.4 ? 1 : 0; T($("pasteB"), `scale(${eb(k(b, 33.55, 33.85)) * (b > 34.25 && b < 34.4 ? .94 : 1)})`);
+  $("iphShot").style.backgroundImage = `url(${window.BREW})`; $("iphShot").style.opacity = b >= 34.4 ? 1 : 0; T($("iphShot"), `scale(${.85 + .15 * eb(k(b, 34.4, 34.7))})`);
+  let fx, fy; if (b < 33.6) { const m = eo(k(b, 33, 33.28)); fx = 20 + (150 - 20) * m; fy = 820; } else { const m = eo(k(b, 33.8, 34.2)); fx = 150 + (540 - 150) * m; fy = 820 + (1050 - 820) * m; }
+  $("fFinger").style.left = fx + "px"; $("fFinger").style.top = fy + "px"; T($("fFinger"), `scale(${pressed || (b > 34.25 && b < 34.4) ? .82 : 1})`); $("fFinger").style.opacity = b < 34.6 ? 1 : 0;
+  // f1 blur
+  const bx = { x: 40, y: 400, w: 780, h: 290 }; const g = eo(k(b, 35.35, 35.9)); const bb = $("blurBox");
+  bb.style.left = bx.x + "px"; bb.style.top = bx.y + "px"; bb.style.width = bx.w * g + "px"; bb.style.height = bx.h + "px"; bb.style.opacity = b > 35.3 ? 1 : 0;
+  $("invPx").style.clipPath = `inset(${bx.y}px ${860 - bx.x - bx.w * g}px ${980 - bx.y - bx.h}px ${bx.x}px)`;
+  $("blurTag").style.opacity = eo(k(b, 36, 36.3));
+  // f2 answers in place
+  $("f2img").style.backgroundImage = `url(${window.BREW})`; T($("f2btn"), b > 37.3 && b < 37.45 ? "scale(.95)" : "none");
+  const A = "Make Join brand brown (#6B4423), full width. Validate the email as you type."; $("f2ans").textContent = b > 37.45 ? A.slice(0, Math.floor(A.length * k(b, 37.5, 38.6))) : "";
+  // f3 point
+  const s = k(b, 39, 41); const sx = 420 + 230 * Math.sin(s * Math.PI * 1.6), sy = 260 + 640 * s;
+  [$("spot"), $("spotR")].forEach(e => { e.style.left = sx + "px"; e.style.top = sy + "px"; }); const ph = (t * 1.6) % 1;
+  T($("spotR"), `scale(${1 + ph * .8})`); $("spotR").style.opacity = 1 - ph; $("spotL").style.left = Math.min(sx + 90, 560) + "px"; $("spotL").style.top = (sy - 190) + "px";
+  // f4 voice reply
+  [...$("f4wave").children].forEach((e, i) => e.style.height = (b < 42.2 ? 20 + Math.abs(Math.sin(t * 15 + i * .8) * Math.sin(t * 5 + i * .21)) * 180 : 10) + "px");
+  const RT = "Yes, and add pockets."; $("f4txt").textContent = RT.slice(0, Math.floor(RT.length * k(b, 41.4, 42.3))); $("f4by").style.opacity = eo(k(b, 42.3, 42.5));
+  // f5 agent
+  const AT = "① Keep the cocoon shape. ② Shorten the hem 8 cm so it moves. ③ Matte forest green reads premium."; $("f5txt").textContent = AT.slice(0, Math.floor(AT.length * k(b, 43.4, 44.7)));
+  T($("f5card"), `translateY(${(1 - eb(k(b, 43, 43.3))) * 600}px)`);
+  // f6 vote
+  const va = b > 45.9 ? 2 : 1, vb = 1 + [45.4, 45.7, 46, 46.3].filter(x => b > x).length; $("vAn").textContent = "▲ " + va; $("vBn").textContent = "▲ " + vb;
+  $("vB").classList.toggle("lead", b > 46.6); T($("pick"), `scale(${b > 46.6 ? eb(k(b, 46.6, 46.85)) : 0})`);
+  T($("vA"), `translateY(${(1 - eb(k(b, 45, 45.3))) * 1200}px) rotate(-2deg)`); T($("vB"), `translateY(${(1 - eb(k(b, 45.1, 45.4))) * 1200}px) rotate(2deg)`);
+  // f7 weekly
+  T($("wk"), `scale(${eb(k(b, 47, 47.3))})`); ["w0", "w1", "w2"].forEach((id, i) => T($(id), `scale(${eb(k(b, 47.6 + i * .25, 47.85 + i * .25))})`));
+  // f8 Slack / Teams
+  T($("slk"), `translateX(${(1 - eb(k(b, 49.05, 49.3))) * -800}px)`); T($("tms"), `translateX(${(1 - eb(k(b, 49.5, 49.75))) * 800}px)`); T($("f8card"), `rotate(${-3 + 3 * eo(k(b, 49, 49.3))}deg)`);
+  // f9 history
+  T($("cont"), `translateY(${(1 - eb(k(b, 50, 50.25))) * 500}px)`); T($("bstar"), `scale(${eb(k(b, 50.3, 50.55))}) rotate(${(1 - eo(k(b, 50.3, 50.6))) * -90}deg)`);
+}
+function render(t) {
+  const b = t / B;
+  if (b < 33) { $("sF").style.display = "none"; return renderCore(t); }
+  if (b < 51) {
+    document.querySelectorAll(".sc").forEach(e => { if (e.id !== "sF") e.style.display = "none"; }); $("sF").style.display = "block";
+    let sh = 0; [33, 34.4, 35, 37, 39, 41, 43, 45, 46.6, 47, 49, 50].forEach(h => { const d = b - h; if (d >= 0 && d < .5) sh += (1 - d / .5) ** 2; }); sh *= 22;
+    T($("cam"), `translate(${(rnd(Math.floor(t * 30)) - .5) * sh}px,${(rnd(Math.floor(t * 30) + 7) - .5) * sh}px)`); $("flash").style.opacity = 0;
+    return renderF(b, t);
+  }
+  $("sF").style.display = "none";
+  if (b < 55) return renderCore(B * (33 + (b - 51) * 2));
+  return renderCore(B * (41 + (b - 55)));
+}
+
 window.render = render;
 window.ready = fetch("../src/app.html").then(r => r.text()).then(s => { LOGOS = JSON.parse(s.match(/const LOGOS = (\{.*?\}); \/\/@logos/)[1]);
   document.querySelectorAll("[data-logo]").forEach(el => el.innerHTML = LOGOS[el.dataset.logo] || ""); render(0); });
