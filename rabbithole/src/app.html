@@ -1,0 +1,749 @@
+<title>Rabbit Hole</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Courier+Prime:wght@400;700&family=Inter+Tight:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a vertical, snap-scrolling feed of case files over a tunnel; one committed night look (single theme by design). */
+:root {
+  --ink: #13101c;        /* the hole */
+  --ink-2: #1e1929;      /* raised surfaces */
+  --line: rgba(239, 227, 196, .14);
+  --paper: #efe3c4;      /* manila case files */
+  --paper-ink: #2a2116;  /* typewriter text on paper */
+  --text: #f3eee2;
+  --muted: #a59fb3;
+  --mark: #f2e14c;       /* evidence highlighter, the one accent */
+  --cork: #5a3f2b;
+  --string: #d0372c;
+  --v-true: #5fd68e; --v-false: #ff5d4f; --v-mixed: #f5b544; --v-unknown: #9db0ff;
+  --f-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --f-type: "Courier Prime", "Courier New", ui-monospace, monospace;
+  --f-ui: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --tab-h: 62px;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body { margin: 0; background: var(--ink); color: var(--text); font: 15px/1.45 var(--f-ui); overflow: hidden; -webkit-tap-highlight-color: transparent; overscroll-behavior: none; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+button:focus-visible, a:focus-visible, [role="button"]:focus-visible { outline: 2px solid var(--mark); outline-offset: 3px; }
+a { color: inherit; }
+.ico { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+#app { position: relative; height: 100%; max-width: 520px; margin: 0 auto; overflow: hidden; background: var(--ink); }
+.view { position: absolute; inset: 0 0 var(--tab-h) 0; }
+
+/* ---------- HUD ---------- */
+.hud { position: absolute; z-index: 5; top: 0; left: 0; right: 0; display: flex; align-items: center; gap: 10px; padding: 10px max(16px, env(safe-area-inset-right, 0px)) 18px max(16px, env(safe-area-inset-left, 0px)); background: linear-gradient(var(--ink) 30%, transparent); pointer-events: none; }
+.hud > * { pointer-events: auto; }
+.depth { display: flex; align-items: baseline; gap: 6px; font-family: var(--f-display); font-weight: 800; letter-spacing: .02em; }
+.depth b { font-size: 26px; line-height: 1; font-variant-numeric: tabular-nums; }
+.depth small { font-family: var(--f-ui); font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.gauge { flex: 1; height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.gauge i { display: block; height: 100%; width: 0; background: var(--mark); transition: width .6s cubic-bezier(.2,.8,.2,1); }
+.pill { display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px; border-radius: 999px; background: var(--ink-2); border: 1px solid var(--line); font-size: 13px; font-weight: 600; }
+.pill .ico { width: 16px; height: 16px; color: var(--v-mixed); }
+.depth-pop { position: absolute; z-index: 6; left: max(16px, env(safe-area-inset-left, 0px)); top: 50px; font-family: var(--f-display); font-weight: 900; font-size: 22px; color: var(--mark); pointer-events: none; animation: pop 1.1s ease-out forwards; }
+@keyframes pop { 0% { opacity: 0; transform: translateY(8px) scale(.8) } 15% { opacity: 1; transform: none } 100% { opacity: 0; transform: translateY(-26px) } }
+
+/* ---------- Feed ---------- */
+#feed { overflow-y: auto; scroll-snap-type: y mandatory; scrollbar-width: none; }
+#feed::-webkit-scrollbar { display: none; }
+.card { position: relative; height: 100%; scroll-snap-align: start; scroll-snap-stop: always; overflow: hidden; display: flex; flex-direction: column; gap: 14px; padding: 66px calc(max(16px, env(safe-area-inset-right, 0px)) + 52px) 18px max(16px, env(safe-area-inset-left, 0px)); box-sizing: border-box; isolation: isolate; }
+.card .bg { position: absolute; inset: 0; z-index: -1; background:
+  repeating-radial-gradient(circle at 50% 118%, transparent 0 34px, hsla(var(--hue), 60%, 70%, .055) 35px 36px),
+  radial-gradient(120% 70% at 50% 115%, hsla(var(--hue), 55%, 42%, .55), transparent 70%),
+  radial-gradient(80% 50% at 0% 0%, hsla(var(--hue), 40%, 30%, .25), transparent 70%), var(--ink); }
+.card .bg::after { content: ""; position: absolute; inset: 0; opacity: .5; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E"); }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.chip { padding: 3px 8px; border-radius: 4px; background: hsla(var(--hue), 50%, 55%, .22); color: hsl(var(--hue), 70%, 84%); }
+.chip.daily { background: var(--mark); color: var(--ink); }
+.countdown { font-variant-numeric: tabular-nums; }
+.hook { margin: 0; font-family: var(--f-display); font-weight: 800; font-size: clamp(31px, 8.4vw, 44px); line-height: .98; letter-spacing: .005em; text-transform: uppercase; text-wrap: balance; }
+.hook mark { background: linear-gradient(transparent 12%, var(--mark) 12% 88%, transparent 88%); color: var(--ink); padding: 0 .08em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+
+.doc { position: relative; flex: 1 1 auto; min-height: 96px; transition: max-height .4s; overflow: auto; background: var(--paper); color: var(--paper-ink); border-radius: 3px; padding: 14px 16px 16px; transform: rotate(-.8deg); box-shadow: 0 18px 40px rgba(0,0,0,.45); font-family: var(--f-type); font-size: 14.5px; line-height: 1.55; scrollbar-width: thin; }
+.doc::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(transparent 0 31px, rgba(42,33,22,.12) 31px 32px, transparent 32px), radial-gradient(120% 90% at 100% 0%, rgba(120,90,40,.18), transparent 60%); }
+.doc-head { display: flex; justify-content: space-between; gap: 8px; font-weight: 700; font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px; }
+.doc-head span:last-child { opacity: .6; }
+.ev { margin: 0; padding: 0 0 0 1.4em; display: grid; gap: 7px; }
+.ev li::marker { font-weight: 700; }
+.rx { background: #111; color: transparent; border-radius: 2px; padding: 0 .15em; cursor: pointer; transition: background .35s, color .35s; -webkit-user-select: none; user-select: none; }
+.rx.open { background: rgba(242, 225, 76, .7); color: var(--paper-ink); cursor: default; }
+.hint { margin: 12px 0 0; font-size: 12px; opacity: .65; }
+.stamp { position: absolute; right: 12px; top: 34%; padding: 4px 12px; border: 4px solid currentColor; border-radius: 6px; font-family: var(--f-display); font-weight: 900; font-size: 34px; letter-spacing: .04em; text-transform: uppercase; transform: rotate(-11deg) scale(2.4); opacity: 0; pointer-events: none; mix-blend-mode: multiply; }
+.doc.stamped { min-height: 0; max-height: 132px; flex: 0 1 auto; }
+.stamped .stamp { animation: stamp .42s cubic-bezier(.3,1.6,.5,1) forwards; }
+@keyframes stamp { to { opacity: .88; transform: rotate(-11deg) scale(1); } }
+.s-true { color: #1d8a4a; } .s-false { color: #c4261b; } .s-mixed { color: #b26d00; } .s-unknown { color: #3b54c4; }
+
+.call { display: grid; gap: 8px; }
+.call .q { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.btns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.btn-call { height: 54px; border-radius: 12px; font-family: var(--f-display); font-size: 26px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; border: 2px solid var(--line); background: var(--ink-2); transition: transform .12s, background .2s; }
+.btn-call:active { transform: scale(.96); }
+.btn-call.real { border-color: rgba(95, 214, 142, .55); }
+.btn-call.fake { border-color: rgba(255, 93, 79, .55); }
+.btn-call.real:hover { background: rgba(95, 214, 142, .14); } .btn-call.fake:hover { background: rgba(255, 93, 79, .14); }
+
+.truth { display: flex; flex-direction: column; gap: 10px; min-height: 0; flex: 1 1 auto; animation: rise .45s ease-out; }
+.truth > :not(.tt) { flex: none; }
+@keyframes rise { from { opacity: 0; transform: translateY(12px) } }
+.verdict-line { margin: 0; font-weight: 700; font-size: 14px; }
+.verdict-line b { font-family: var(--f-display); font-size: 20px; letter-spacing: .04em; text-transform: uppercase; margin-right: 6px; }
+.tt { margin: 0; font-size: 14.5px; color: #ddd6c8; flex: 1 1 auto; min-height: 3em; overflow: auto; }
+.card.done { gap: 10px; }
+.card.done .hook { font-size: clamp(26px, 7vw, 36px); }
+.src { font-size: 12px; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
+.deeper { display: flex; align-items: center; gap: 10px; text-align: left; padding: 12px 14px; border-radius: 12px; background: var(--mark); color: var(--ink); font-weight: 700; font-size: 14px; line-height: 1.25; }
+.deeper .ico { width: 26px; height: 26px; }
+.deeper span { flex: 1; min-width: 0; }
+.deeper small { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
+
+.rail { position: absolute; right: max(10px, env(safe-area-inset-right, 0px)); bottom: 150px; display: grid; gap: 16px; justify-items: center; }
+.rail button { display: grid; justify-items: center; gap: 3px; font-size: 11px; font-weight: 600; color: var(--text); }
+.rail .disc { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(30, 25, 41, .8); border: 1px solid var(--line); backdrop-filter: blur(6px); }
+.rail button[aria-pressed="true"] .disc { background: var(--string); border-color: var(--string); }
+
+/* locked */
+.card.locked .doc { filter: blur(5px); user-select: none; }
+.ts-stamp { position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%) rotate(-8deg); z-index: 2; padding: 6px 16px; border: 4px solid var(--string); color: var(--string); font-family: var(--f-display); font-weight: 900; font-size: 40px; letter-spacing: .06em; background: rgba(19,16,28,.75); border-radius: 6px; white-space: nowrap; }
+.unlock { height: 54px; border-radius: 12px; background: var(--text); color: var(--ink); font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.redact-word { background: var(--text); color: transparent; border-radius: 2px; }
+
+.swipe-hint { position: absolute; left: 0; right: 0; bottom: 4px; text-align: center; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); animation: nudge 1.8s ease-in-out infinite; pointer-events: none; }
+@keyframes nudge { 50% { transform: translateY(-5px); opacity: .55 } }
+
+/* dive transition */
+.dive { position: absolute; inset: 0; z-index: 20; pointer-events: none; background: repeating-radial-gradient(circle at 50% 50%, var(--ink) 0 18px, var(--ink-2) 19px 36px); animation: dive .7s ease-in forwards; }
+@keyframes dive { 0% { opacity: 0; transform: scale(.2) } 40% { opacity: 1 } 100% { opacity: 0; transform: scale(3.2) } }
+
+/* ---------- Pages (holes, board, me) ---------- */
+.page { overflow-y: auto; padding: 18px max(16px, env(safe-area-inset-right, 0px)) 28px max(16px, env(safe-area-inset-left, 0px)); box-sizing: border-box; }
+.page h1 { margin: 0 0 4px; font-family: var(--f-display); font-weight: 900; font-size: 40px; line-height: 1; text-transform: uppercase; letter-spacing: .01em; }
+.page .lede { margin: 0 0 18px; color: var(--muted); }
+.holes { display: grid; gap: 12px; }
+.hole { position: relative; display: grid; gap: 6px; text-align: left; padding: 16px; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); background: radial-gradient(90% 120% at 100% 100%, hsla(var(--hue), 55%, 40%, .55), transparent 70%), var(--ink-2); }
+.hole h2 { margin: 0; font-family: var(--f-display); font-weight: 800; font-size: 28px; line-height: 1; text-transform: uppercase; }
+.hole p { margin: 0; color: #d4cede; font-size: 14px; }
+.hole .row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 6px; font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+.hole .go { padding: 6px 12px; border-radius: 999px; background: var(--text); color: var(--ink); letter-spacing: .04em; }
+.meter { height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.meter i { display: block; height: 100%; background: hsl(var(--hue), 70%, 72%); }
+
+.board { position: relative; margin-top: 4px; border-radius: 14px; min-height: 420px; background: radial-gradient(rgba(0,0,0,.18) 1px, transparent 1.5px) 0 0 / 7px 7px, radial-gradient(rgba(255,220,170,.08) 1px, transparent 1.5px) 3px 4px / 9px 9px, var(--cork); box-shadow: inset 0 0 40px rgba(0,0,0,.5); overflow: hidden; }
+.board svg.strings { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 2; }
+.bcard { position: absolute; width: 138px; box-sizing: border-box; padding: 16px 10px 10px; background: var(--paper); color: var(--paper-ink); font-family: var(--f-type); font-size: 12px; line-height: 1.35; box-shadow: 0 6px 14px rgba(0,0,0,.45); text-align: left; z-index: 1; }
+.bcard .pin { position: absolute; left: 50%; top: 5px; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ff8a7f, var(--string) 60%, #7a1610); z-index: 3; }
+.bcard b { display: block; font-family: var(--f-display); font-size: 15px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px; }
+.bcard .h { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.board-empty { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; gap: 8px; padding: 24px; color: #f1e2cf; }
+.board-empty b { font-family: var(--f-display); font-size: 26px; text-transform: uppercase; }
+
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 16px 0; }
+.stat { padding: 14px; border-radius: 12px; background: var(--ink-2); border: 1px solid var(--line); }
+.stat b { display: block; font-family: var(--f-display); font-size: 34px; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
+.big-depth { display: flex; align-items: baseline; gap: 8px; font-family: var(--f-display); font-weight: 900; }
+.big-depth b { font-size: 84px; line-height: .9; color: var(--mark); font-variant-numeric: tabular-nums; }
+.big-depth span { font-size: 28px; }
+.levels { display: grid; gap: 6px; margin: 10px 0 0; padding: 0; list-style: none; }
+.levels li { display: flex; justify-content: space-between; padding: 8px 12px; border-radius: 8px; font-size: 14px; color: var(--muted); border: 1px solid var(--line); }
+.levels li.on { color: var(--text); border-color: rgba(242,225,76,.5); }
+.levels li.here { background: rgba(242,225,76,.12); color: var(--mark); font-weight: 700; }
+.ghost { margin-top: 18px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.clr { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px; border-radius: 12px; border: 1px solid var(--line); margin-top: 10px; }
+.clr button { padding: 8px 14px; border-radius: 999px; background: var(--text); color: var(--ink); font-weight: 700; }
+
+/* ---------- Tab bar ---------- */
+.tabs { position: absolute; left: 0; right: 0; bottom: 0; height: var(--tab-h); display: grid; grid-template-columns: repeat(4, 1fr); background: var(--ink); border-top: 1px solid var(--line); padding: 0 max(0px, env(safe-area-inset-right, 0px)) 0 max(0px, env(safe-area-inset-left, 0px)); z-index: 8; }
+.tabs button { display: grid; justify-items: center; align-content: center; gap: 2px; font-size: 11px; font-weight: 600; color: var(--muted); }
+.tabs button[aria-current="page"] { color: var(--text); }
+.tabs button[aria-current="page"] .ico { color: var(--mark); }
+
+/* ---------- Sheet (paywall) ---------- */
+.scrim { position: absolute; inset: 0; z-index: 30; background: rgba(8, 6, 12, .66); display: flex; align-items: flex-end; animation: fade .2s; }
+@keyframes fade { from { opacity: 0 } }
+.sheet { width: 100%; max-height: 92%; overflow: auto; box-sizing: border-box; padding: 22px max(18px, env(safe-area-inset-right, 0px)) 22px max(18px, env(safe-area-inset-left, 0px)); border-radius: 20px 20px 0 0; background: var(--ink-2); border-top: 1px solid var(--line); animation: up .3s cubic-bezier(.2,.8,.2,1); display: grid; gap: 14px; }
+@keyframes up { from { transform: translateY(40px); opacity: 0 } }
+.sheet h2 { margin: 0; font-family: var(--f-display); font-size: 40px; font-weight: 900; line-height: .95; text-transform: uppercase; }
+.sheet ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.sheet li { display: flex; gap: 10px; align-items: flex-start; }
+.sheet li .ico { color: var(--mark); width: 20px; height: 20px; margin-top: 1px; }
+.plans { display: grid; gap: 8px; }
+.plan { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px; border: 2px solid var(--line); cursor: pointer; }
+.plan:has(input:checked) { border-color: var(--mark); background: rgba(242,225,76,.07); }
+.plan input { accent-color: var(--mark); width: 18px; height: 18px; margin: 0; }
+.plan span { flex: 1; } .plan b { display: block; }
+.plan small { color: var(--muted); }
+.plan em { font-style: normal; font-size: 11px; font-weight: 700; padding: 3px 7px; border-radius: 4px; background: var(--mark); color: var(--ink); text-transform: uppercase; letter-spacing: .06em; }
+.cta { height: 56px; border-radius: 14px; background: var(--mark); color: var(--ink); font-weight: 700; font-size: 17px; }
+.fine { margin: 0; font-size: 12px; color: var(--muted); text-align: center; }
+.x { justify-self: end; color: var(--muted); font-size: 14px; padding: 4px; }
+
+/* ---------- Onboarding ---------- */
+#onb { position: absolute; inset: 0; z-index: 40; background: var(--ink); display: grid; overflow: hidden; }
+#onb canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.onb-step { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 16px; padding: 28px max(20px, env(safe-area-inset-right, 0px)) 30px max(20px, env(safe-area-inset-left, 0px)); background: linear-gradient(transparent 30%, rgba(19,16,28,.92) 62%); }
+.onb-logo { width: 120px; }
+.wordmark { font-family: var(--f-display); font-weight: 900; font-size: clamp(58px, 18vw, 92px); line-height: .82; text-transform: uppercase; letter-spacing: -.005em; margin: 0; }
+.wordmark .o { display: inline-block; width: .74em; height: .74em; vertical-align: -.02em; margin: 0 .02em; }
+.tagline { margin: 0; font-family: var(--f-display); font-weight: 800; font-size: 30px; line-height: 1; text-transform: uppercase; }
+.tagline mark { background: var(--mark); color: var(--ink); padding: 0 .1em; }
+.onb-sub { margin: 0; color: #d4cede; max-width: 34ch; }
+.go-btn { height: 58px; border-radius: 14px; background: var(--text); color: var(--ink); font-weight: 700; font-size: 17px; }
+.go-btn:disabled { opacity: .4; cursor: default; }
+.picks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.pick { padding: 12px; border-radius: 12px; text-align: left; border: 2px solid var(--line); background: radial-gradient(100% 120% at 100% 100%, hsla(var(--hue), 55%, 40%, .45), transparent 70%), var(--ink-2); }
+.pick b { display: block; font-family: var(--f-display); font-size: 21px; text-transform: uppercase; line-height: 1; margin-bottom: 4px; }
+.pick small { color: var(--muted); font-size: 12px; line-height: 1.3; display: block; }
+.pick[aria-pressed="true"] { border-color: var(--mark); }
+.onb-h { margin: 0; font-family: var(--f-display); font-weight: 900; font-size: 40px; line-height: .95; text-transform: uppercase; }
+
+#toast { position: absolute; z-index: 50; left: 50%; bottom: calc(var(--tab-h) + 14px); transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 10px; background: var(--text); color: var(--ink); font-weight: 600; font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.4); animation: rise .25s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+  #feed { scroll-behavior: auto; }
+}
+@media (max-height: 700px) { .swipe-hint { display: none; } }
+@media (max-height: 640px) { .hook { font-size: 28px; } .card { gap: 10px; padding-top: 58px; } .btn-call { height: 48px; } }
+</style>
+
+<div id="app">
+  <main id="feed" class="view" aria-label="Case files feed"></main>
+  <div class="hud" id="hud" aria-live="polite">
+    <div class="depth" title="How deep you are"><b id="hudDepth">0</b><small>m · <span id="hudLevel">Surface</span></small></div>
+    <div class="gauge" aria-hidden="true"><i id="hudBar"></i></div>
+    <span class="pill" id="hudStreak" title="Daily streak"></span>
+  </div>
+  <section id="holes" class="view page" hidden aria-label="Holes"></section>
+  <section id="board" class="view page" hidden aria-label="Case board"></section>
+  <section id="me" class="view page" hidden aria-label="Your depth"></section>
+  <nav class="tabs" aria-label="Main">
+    <button data-tab="feed" aria-current="page"></button>
+    <button data-tab="holes"></button>
+    <button data-tab="board"></button>
+    <button data-tab="me"></button>
+  </nav>
+  <div id="onb" hidden></div>
+</div>
+
+<script>
+(() => {
+"use strict";
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+/* ---------- Brand ---------- */
+// The mark: a rabbit whose head is a keyhole, and inside the keyhole a tunnel that ends in one highlighted point.
+const MARK = (cls = "") => `<svg class="${cls}" viewBox="0 0 120 152" role="img" aria-label="Rabbit Hole">
+  <g fill="#efe3c4">
+    <ellipse cx="41" cy="38" rx="14" ry="36" transform="rotate(-13 41 38)"/>
+    <ellipse cx="79" cy="38" rx="14" ry="36" transform="rotate(13 79 38)"/>
+    <circle cx="60" cy="88" r="40"/>
+    <path d="M45 112 H75 L84 146 Q60 152 36 146 Z"/>
+  </g>
+  <g fill="#13101c">
+    <ellipse cx="40" cy="36" rx="5.5" ry="24" transform="rotate(-13 40 36)"/>
+    <ellipse cx="80" cy="36" rx="5.5" ry="24" transform="rotate(13 80 36)"/>
+    <circle cx="60" cy="88" r="31"/>
+    <path d="M51 110 H69 L76 140 Q60 144 44 140 Z"/>
+  </g>
+  <g fill="none" stroke="#efe3c4" stroke-width="2.2">
+    <circle cx="60" cy="91" r="24" opacity=".55"/>
+    <circle cx="60" cy="94" r="17.5" opacity=".42"/>
+    <circle cx="60" cy="96.5" r="11.5" opacity=".3"/>
+    <circle cx="60" cy="98.5" r="6" opacity=".22"/>
+  </g>
+  <circle cx="60" cy="99.5" r="2.8" fill="#f2e14c"/>
+</svg>`;
+const RINGS = `<svg class="o" viewBox="0 0 80 80" aria-hidden="true"><circle cx="40" cy="40" r="38" fill="#efe3c4"/><circle cx="40" cy="40" r="30" fill="#13101c"/><g fill="none" stroke="#efe3c4" stroke-width="2.4"><circle cx="40" cy="43" r="23" opacity=".55"/><circle cx="40" cy="46" r="16" opacity=".42"/><circle cx="40" cy="48.5" r="10" opacity=".3"/></g><circle cx="40" cy="50.5" r="3.4" fill="#f2e14c"/></svg>`;
+
+const I = {
+  feed: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="13.6" r="5.4"/><circle cx="12" cy="15" r="1.6" fill="currentColor"/>',
+  holes: '<ellipse cx="12" cy="7" rx="8" ry="3"/><path d="M4 7v4c0 1.7 3.6 3 8 3s8-1.3 8-3V7"/><path d="M4 11v4c0 1.7 3.6 3 8 3s8-1.3 8-3v-4"/>',
+  board: '<rect x="3" y="4" width="18" height="16" rx="1.5"/><circle cx="8" cy="9" r="1.2"/><circle cx="16" cy="9" r="1.2"/><circle cx="12" cy="15" r="1.2"/><path d="M8 9l8 0M8 9l4 6M16 9l-4 6"/>',
+  me: '<path d="M12 3v18M12 21l-5-5M12 21l5-5"/><path d="M5 4h14" opacity=".5"/>',
+  pin: '<path d="M9 3h6l-1 6 3 3H7l3-3-1-6z"/><path d="M12 12v9"/>',
+  share: '<path d="M12 15V3M7 8l5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/>',
+  deeper: '<ellipse cx="12" cy="18" rx="9" ry="3.4"/><ellipse cx="12" cy="18" rx="4.5" ry="1.5"/><path d="M12 2.5v11M7.5 9l4.5 4.5L16.5 9"/>',
+  source: '<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/>',
+  flame: '<path d="M12 22c4 0 7-2.7 7-7 0-4-3-6-4-9-1 2-2 3-3.5 3.5C11 6 10 4 10 2 7 5 5 9 5 15c0 4.3 3 7 7 7z"/>',
+  lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
+  check: '<path d="M5 12l5 5 9-10"/>'
+};
+const ico = (n, extra = "") => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" ${extra}>${I[n]}</svg>`;
+
+/* ---------- Content: real, sourced case files ---------- */
+const HOLES = {
+  mind:   { name: "Mind Games",          hue: 275, blurb: "LSD, psychic spies and a cat wired for sound." },
+  flags:  { name: "False Flags",         hue: 8,   blurb: "Staged attacks, fake witnesses, a corpse with secret plans." },
+  sky:    { name: "The Sky Files",       hue: 210, blurb: "Flying discs, Area 51 and signals from deep space." },
+  bureau: { name: "The Bureau",          hue: 150, blurb: "Wiretaps, poison-pen letters and the JFK verdict." },
+  bodies: { name: "Human Subjects",      hue: 38,  blurb: "When the government experimented on its own people." },
+  hoax:   { name: "Too Good to Be True", hue: 230, blurb: "The famous theories that fall apart when you dig." }
+};
+const SRC = t => "https://en.wikipedia.org/wiki/" + t;
+const CASES = [
+  { id: "mkultra", hole: "mind", year: "1953", ans: "true", hook: "The CIA secretly dosed Americans with *LSD* to learn mind control.",
+    ev: ["Approved in [[1953]] by CIA director [[Allen Dulles]].", "Run by chemist [[Sidney Gottlieb]] for about [[20 years]].", "In 1973 the director ordered the files [[destroyed]]."],
+    truth: "Project MKUltra ran from 1953 to 1973. The CIA gave LSD and other drugs to people, some of whom never knew, while searching for interrogation and mind-control methods. Most records were destroyed in 1973, but about 20,000 pages survived because they had been misfiled. They surfaced through a FOIA request and were aired at a 1977 Senate hearing.",
+    src: ["US Senate hearing on Project MKUltra, 1977", SRC("Project_MKUltra")] },
+  { id: "midnight", hole: "mind", year: "1955", ans: "true", ts: true, hook: "The CIA ran *safehouse brothels* to drug clients and watch what happened.",
+    ev: ["Narcotics agent [[George White]] ran the San Francisco flat.", "Men were slipped [[LSD]] without knowing.", "Agents watched through [[one-way mirrors]]."],
+    truth: "Operation Midnight Climax was an MKUltra subproject. From the mid-1950s into the 1960s, sex workers paid by the CIA brought men to safehouses in San Francisco and New York, where they were drugged while agents observed. It came to light in the 1977 Senate hearings.",
+    src: ["Senate MKUltra hearing, 1977", SRC("Operation_Midnight_Climax")] },
+  { id: "stargate", hole: "mind", year: "1978", ans: "true", ts: true, hook: "The US military paid *psychics* to spy on the Soviet Union.",
+    ev: ["Code names included [[Grill Flame]] and [[Star Gate]].", "Viewers tried to see [[distant targets]] with their minds.", "It ran for nearly [[two decades]]."],
+    truth: "From the 1970s to 1995 the Army, the Defense Intelligence Agency and the CIA funded \"remote viewing\" units. A 1995 review commissioned by the CIA found it had never produced intelligence anyone could act on, and the program was closed. The CIA posted thousands of pages online in 2017.",
+    src: ["CIA CREST archive, released 2017", SRC("Stargate_Project")] },
+  { id: "acoustickitty", hole: "mind", year: "1960s", ans: "true", hook: "The CIA tried to turn a *cat* into a walking microphone.",
+    ev: ["A microphone was implanted in the [[ear canal]].", "The antenna ran along the [[tail]].", "The project was dropped in [[1967]]."],
+    truth: "Acoustic Kitty was a real 1960s CIA project. A heavily redacted memo released in 2001, \"Views on Trained Cats\", says it worked technically but was impractical. The famous story that the cat was run over by a taxi on its first mission comes from a former official and is disputed.",
+    src: ["CIA memo \"Views on Trained Cats\", released 2001", SRC("Acoustic_Kitty")] },
+
+  { id: "northwoods", hole: "flags", year: "1962", ans: "true", hook: "America's top generals signed a plan to stage *fake terror attacks* to start a war.",
+    ev: ["Signed by Joint Chiefs chairman [[Lyman Lemnitzer]].", "Ideas included a fake [[hijacking]] and blowing up a ship at [[Guantanamo]].", "Every attack would be blamed on [[Cuba]]."],
+    truth: "Operation Northwoods was a March 1962 proposal from the Joint Chiefs of Staff to create pretexts for invading Cuba. The Kennedy administration rejected it. The document was declassified in 1997 by the Assassination Records Review Board.",
+    src: ["Joint Chiefs memo, declassified 1997", SRC("Operation_Northwoods")] },
+  { id: "tonkin", hole: "flags", year: "1964", ans: "true", hook: "The August 4 attack that pushed the US deeper into *Vietnam* never happened.",
+    ev: ["The ships were the [[USS Maddox]] and [[USS Turner Joy]].", "Congress passed the Tonkin resolution [[three days]] later.", "An [[NSA]] historian later found the intercepts were mishandled."],
+    truth: "An August 2 clash was real, but the reported second attack on August 4, 1964 almost certainly did not happen. The Gulf of Tonkin Resolution followed on August 7. A study by NSA historian Robert Hanyok, declassified in 2005, concluded the signals intelligence had been misread and misrepresented.",
+    src: ["NSA history by Robert Hanyok, declassified 2005", SRC("Gulf_of_Tonkin_incident")] },
+  { id: "nayirah", hole: "flags", year: "1990", ans: "true", hook: "The tearful teenage witness who helped sell the *Gulf War* was the ambassador's daughter.",
+    ev: ["She said soldiers took babies from [[incubators]].", "PR firm [[Hill & Knowlton]] helped prepare the testimony.", "Her father was Kuwait's [[ambassador to the US]]."],
+    truth: "In October 1990 a 15-year-old known only as Nayirah testified to a congressional caucus about atrocities in a Kuwaiti hospital. In 1992 it emerged she was the daughter of Kuwait's ambassador and that the hearing was tied to a PR campaign for Citizens for a Free Kuwait. Later investigations found no support for her account.",
+    src: ["Congressional Human Rights Caucus, 1990", SRC("Nayirah_testimony")] },
+  { id: "mincemeat", hole: "flags", year: "1943", ans: "true", hook: "British spies fooled Hitler with a *dead man* carrying fake invasion plans.",
+    ev: ["The body was dressed as \"Major [[William Martin]]\".", "It washed ashore in [[Spain]].", "The real target was [[Sicily]]."],
+    truth: "Operation Mincemeat put forged letters on the body of Glyndwr Michael and floated it off the Spanish coast. German intelligence believed the papers and moved forces toward Greece and Sardinia before the Allies invaded Sicily in July 1943.",
+    src: ["UK National Archives, Operation Mincemeat", SRC("Operation_Mincemeat")] },
+  { id: "ghostarmy", hole: "flags", year: "1944", ans: "true", ts: true, hook: "The US Army fought part of WWII with *inflatable tanks*.",
+    ev: ["The unit was the [[23rd Headquarters Special Troops]].", "It used rubber tanks, fake radio traffic and [[recorded sound]].", "Its work stayed secret for about [[50 years]]."],
+    truth: "The \"Ghost Army\" was about 1,100 artists, sound engineers and radio operators who staged fake units to mislead German forces in Europe. Its records stayed classified until the 1990s.",
+    src: ["US Army records, declassified 1996", SRC("Ghost_Army")] },
+
+  { id: "roswell", hole: "sky", year: "1947", ans: "true", hook: "The US Army announced it had captured a *flying disc*.",
+    ev: ["The press release came from [[Roswell Army Air Field]].", "The next day it became a [[weather balloon]].", "In 1994 the Air Force named it [[Project Mogul]]."],
+    truth: "On July 8, 1947 the base really did announce a \"flying disc\". The story was changed to a weather balloon the next day. In 1994 the Air Force said the debris came from Project Mogul, a classified balloon program built to listen for Soviet nuclear tests. There was a cover-up. It just wasn't about aliens.",
+    src: ["US Air Force Roswell report, 1994", SRC("Roswell_incident")] },
+  { id: "area51", hole: "sky", year: "2013", ans: "true", hook: "The CIA officially admitted *Area 51* exists.",
+    ev: ["It was built to test the [[U-2]] spy plane.", "The admission came through a [[FOIA]] request.", "Spy planes explain many [[UFO reports]] of the era."],
+    truth: "In 2013 a declassified CIA history of the U-2, obtained by the National Security Archive, named Area 51 and showed it on a map. A CIA study published in 1997 said high-flying reconnaissance planes accounted for many UFO reports in the late 1950s and 1960s.",
+    src: ["CIA U-2 history, released 2013", SRC("Area_51")] },
+  { id: "bluebook", hole: "sky", year: "1969", ans: "true", hook: "The US Air Force logged *701 UFOs* it could never explain.",
+    ev: ["The study was called [[Project Blue Book]].", "It collected [[12,618]] sighting reports.", "It was shut down in [[1969]]."],
+    truth: "Project Blue Book ran from 1952 to 1969. Of 12,618 reports, 701 stayed \"unidentified\". The Air Force said none showed a threat to national security or technology beyond known science. The records are held at the US National Archives.",
+    src: ["US National Archives, Project Blue Book", "https://www.archives.gov/research/military/air-force/ufos"] },
+  { id: "tictac", hole: "sky", year: "2004", ans: "unknown", hook: "Navy pilots chased a *Tic Tac-shaped* object that outflew their jets.",
+    ev: ["It happened near the carrier [[USS Nimitz]].", "The lead pilot was Commander [[David Fravor]].", "The Pentagon officially released the video in [[2020]]."],
+    truth: "In November 2004 Navy aviators off southern California reported a white, wingless object with no visible propulsion. The Defense Department formally released the infrared video in April 2020. The object remains officially unidentified.",
+    src: ["US Navy FLIR video, released 2020", SRC("USS_Nimitz_UFO_incident")] },
+  { id: "wow", hole: "sky", year: "1977", ans: "unknown", ts: true, hook: "A radio telescope caught a *72-second signal* from space that nobody can explain.",
+    ev: ["Detected by the [[Big Ear]] telescope in Ohio.", "An astronomer circled it and wrote \"[[Wow!]]\".", "It has never been [[detected again]]."],
+    truth: "The Wow! signal, recorded on August 15, 1977, was strong, narrow and close to the hydrogen line, exactly the kind of signal SETI looks for. It never repeated. Natural explanations have been proposed, including hydrogen clouds, but none is settled.",
+    src: ["Big Ear Radio Observatory, 1977", SRC("Wow!_signal")] },
+
+  { id: "cointelpro", hole: "bureau", year: "1964", ans: "true", hook: "The FBI mailed Martin Luther King Jr. an *anonymous letter* urging him to kill himself.",
+    ev: ["The program was called [[COINTELPRO]].", "It was exposed by a [[break-in]] at an FBI office in 1971.", "The burglars stayed anonymous for [[43 years]]."],
+    truth: "COINTELPRO ran from 1956 to 1971 and targeted civil rights, antiwar and other groups. In 1964 the FBI sent King a letter and tape widely read as urging suicide. The program was exposed after activists took files from an FBI office in Media, Pennsylvania, in March 1971, and the Church Committee later confirmed it.",
+    src: ["Church Committee final report, 1976", SRC("COINTELPRO")] },
+  { id: "mockingbird", hole: "bureau", year: "1977", ans: "mixed", hook: "The CIA had hundreds of *American journalists* secretly helping it.",
+    ev: ["A 1977 report counted about [[400]] journalists.", "The reporter was [[Carl Bernstein]].", "The name \"Mockingbird\" belonged to a [[1963 wiretap]]."],
+    truth: "The Church Committee confirmed the CIA had relationships with journalists and news organizations, and Carl Bernstein reported in 1977 that about 400 American journalists had secretly assisted the agency. Whether \"Operation Mockingbird\" was one big media-control program is disputed: in the CIA's own \"Family Jewels\" files, Project Mockingbird is a 1963 wiretap of two reporters.",
+    src: ["CIA \"Family Jewels\", released 2007", SRC("Operation_Mockingbird")] },
+  { id: "jfk", hole: "bureau", year: "1979", ans: "true", hook: "A US government committee concluded JFK was *probably killed in a conspiracy*.",
+    ev: ["It was the [[House Select Committee on Assassinations]].", "Its key evidence was a police [[audio recording]].", "In 1982 scientists said the audio [[didn't hold up]]."],
+    truth: "In 1979 the committee concluded Kennedy was \"probably assassinated as a result of a conspiracy\", mostly because of an acoustic analysis of a police dictabelt recording. A National Academy of Sciences panel rejected that analysis in 1982. The National Archives has since released most remaining JFK records, including a large batch in 2025.",
+    src: ["National Archives, JFK records", "https://www.archives.gov/research/jfk"] },
+
+  { id: "tuskegee", hole: "bodies", year: "1932", ans: "true", hook: "US health officials let hundreds of Black men go *untreated for syphilis* for 40 years.",
+    ev: ["The study ran from [[1932 to 1972]].", "[[Penicillin]] was the standard cure by the late 1940s.", "It ended after an [[AP reporter]] broke the story."],
+    truth: "The US Public Health Service study enrolled about 600 Black men in Alabama, 399 of whom had syphilis, and withheld treatment to watch the disease progress. Jean Heller of the Associated Press exposed it in 1972. President Clinton formally apologized in 1997.",
+    src: ["CDC, The Syphilis Study at Tuskegee", SRC("Tuskegee_Syphilis_Study")] },
+  { id: "seaspray", hole: "bodies", year: "1950", ans: "true", hook: "The US Navy secretly sprayed *bacteria* over San Francisco.",
+    ev: ["The test was called Operation [[Sea-Spray]].", "A ship released the bacteria [[off the coast]].", "Nobody in the city was [[told]]."],
+    truth: "In September 1950 the Navy released Serratia marcescens and Bacillus bacteria to see how a biological attack would spread over a city. Soon after, a cluster of rare Serratia infections appeared at a San Francisco hospital and one patient died, though a link was never proven. The test became public in the 1970s.",
+    src: ["US Senate hearings, 1977", SRC("Operation_Sea-Spray")] },
+  { id: "paperclip", hole: "bodies", year: "1945", ans: "true", ts: true, hook: "After WWII the US quietly hired *Nazi scientists* and cleaned up their records.",
+    ev: ["The program was Operation [[Paperclip]].", "More than [[1,600]] German scientists and engineers came over.", "The best known was rocket engineer [[Wernher von Braun]]."],
+    truth: "Operation Paperclip brought German scientists, many of them former Nazi Party members, to work for the US. Some background files were rewritten to get them past immigration rules. Von Braun went on to lead development of the Saturn V rocket that carried Apollo to the Moon.",
+    src: ["US National Archives, Paperclip records", SRC("Operation_Paperclip")] },
+
+  { id: "moon", hole: "hoax", year: "1969", ans: "false", hook: "The Moon landings were *filmed in a studio*.",
+    ev: ["Astronauts brought back [[382 kg]] of Moon rock.", "Mirrors left on the Moon are still hit by [[lasers]] today.", "A NASA orbiter [[photographed]] the landing sites from 2009."],
+    truth: "Six Apollo missions landed between 1969 and 1972. The samples, the laser reflectors and the Lunar Reconnaissance Orbiter photos of the descent stages and footpaths all point the same way. The Soviet Union tracked the missions and never disputed them.",
+    src: ["NASA Lunar Reconnaissance Orbiter", SRC("Moon_landing_conspiracy_theories")] },
+  { id: "philadelphia", hole: "hoax", year: "1943", ans: "false", hook: "In 1943 the Navy made a warship *invisible* and teleported it.",
+    ev: ["The ship was the destroyer escort [[USS Eldridge]].", "The story began with letters from \"[[Carlos Allende]]\".", "The Navy says its records [[don't match]]."],
+    truth: "The \"Philadelphia Experiment\" traces back to letters written in the 1950s by Carl Allen, who used the name Carlos Miguel Allende. The Navy says no such experiment took place, and the ship's records don't fit the story.",
+    src: ["US Naval History and Heritage Command", SRC("Philadelphia_Experiment")] },
+  { id: "bermuda", hole: "hoax", year: "1964", ans: "false", hook: "Ships and planes vanish in the *Bermuda Triangle* more than anywhere else.",
+    ev: ["Insurer [[Lloyd's of London]] doesn't treat it as extra risky.", "The US Coast Guard [[doesn't recognize]] it as a danger zone.", "It's one of the [[busiest]] stretches of ocean on Earth."],
+    truth: "Studies have found no more disappearances there than in other heavily travelled waters. Many famous cases were exaggerated, misdated or happened somewhere else. Storms and the Gulf Stream explain the real losses. The name itself was coined by a magazine writer in 1964.",
+    src: ["US Coast Guard; NOAA", SRC("Bermuda_Triangle")] },
+  { id: "pauldead", hole: "hoax", year: "1969", ans: "false", hook: "Paul McCartney *died in 1966* and was replaced by a lookalike.",
+    ev: ["Fans hunted for [[clues]] on album covers.", "The rumor peaked in [[1969]].", "Life magazine's cover: \"[[Paul is still with us]]\"."],
+    truth: "The \"Paul is dead\" rumor spread through US college papers and radio in 1969, fed by fans reading clues into album art and backwards lyrics. McCartney gave Life magazine an interview that November to deny it. He's still touring.",
+    src: ["Life magazine, November 1969", SRC("Paul_is_dead")] },
+  { id: "birds", hole: "hoax", year: "2017", ans: "false", hook: "*Birds aren't real.* They're government surveillance drones.",
+    ev: ["The movement began in [[2017]].", "Its founder is [[Peter McIndoe]].", "In 2021 he confirmed it was [[satire]]."],
+    truth: "Birds Aren't Real is a parody conspiracy theory made to mock misinformation. Its \"believers\" hold rallies and put up billboards. McIndoe said publicly in 2021 that it had been a joke from the start.",
+    src: ["The New York Times, 2021", SRC("Birds_Aren%27t_Real")] },
+  { id: "havana", hole: "hoax", year: "2016", ans: "unknown", hook: "US diplomats were hit by a secret *energy weapon* in Havana.",
+    ev: ["Symptoms were first reported in [[2016]].", "In 2023 most US spy agencies called a foreign attack [[very unlikely]].", "Many of those affected still [[disagree]]."],
+    truth: "Hundreds of US personnel reported headaches, dizziness and strange sounds. A 2023 intelligence assessment found a foreign adversary very unlikely to be responsible, and 2024 NIH studies found no evidence of brain injury. Some officials and many of those affected dispute those findings, so the case stays open.",
+    src: ["Office of the Director of National Intelligence, 2023", SRC("Havana_syndrome")] }
+];
+const byId = Object.fromEntries(CASES.map(c => [c.id, c]));
+for (const k in HOLES) HOLES[k].ids = CASES.filter(c => c.hole === k).map(c => c.id);
+const CROSS = [["paperclip", "moon"], ["northwoods", "jfk"], ["mockingbird", "nayirah"], ["mkultra", "seaspray"], ["area51", "bluebook"]];
+const LEVELS = [[0, "Surface"], [150, "Burrow"], [400, "Tunnel"], [800, "Warren"], [1500, "Deep Burrow"], [3000, "The Bottom"]];
+const VERDICT = { true: ["Real", "s-true", "var(--v-true)"], false: ["Fake", "s-false", "var(--v-false)"], mixed: ["Half true", "s-mixed", "var(--v-mixed)"], unknown: ["Unexplained", "s-unknown", "var(--v-unknown)"] };
+const fileNo = c => String(100 + (CASES.indexOf(c) * 373) % 9000).padStart(4, "0");
+const plain = s => s.replace(/\*/g, "");
+const hookHTML = s => esc(s).replace(/\*([^*]+)\*/g, "<mark>$1</mark>");
+const evHTML = s => esc(s).replace(/\[\[(.+?)\]\]/g, '<span class="rx" role="button" tabindex="0" aria-label="Redacted. Tap to lift the bar">$1</span>');
+
+/* ---------- State (this device only) ---------- */
+const KEY = "rabbithole:v1";
+const blank = () => ({ onboarded: false, picks: [], seen: {}, calls: {}, saved: [], depth: 0, streak: 0, lastDay: "", cleared: false, opened: 0 });
+let S = blank();
+try { Object.assign(S, JSON.parse(localStorage.getItem(KEY)) || {}); } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} };
+const dayKey = d => `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+(function streak() {
+  const today = dayKey(new Date()), yest = dayKey(new Date(Date.now() - 864e5));
+  if (S.lastDay === today) return;
+  S.streak = S.lastDay === yest ? S.streak + 1 : 1; S.lastDay = today; save();
+})();
+const levelOf = d => { let i = 0; LEVELS.forEach((l, j) => { if (d >= l[0]) i = j; }); return i; };
+
+/* ---------- HUD ---------- */
+function hud(gain) {
+  const li = levelOf(S.depth), next = LEVELS[li + 1];
+  $("#hudDepth").textContent = S.depth.toLocaleString();
+  $("#hudLevel").textContent = LEVELS[li][1];
+  $("#hudBar").style.width = next ? ((S.depth - LEVELS[li][0]) / (next[0] - LEVELS[li][0]) * 100) + "%" : "100%";
+  $("#hudStreak").innerHTML = ico("flame") + `${S.streak}-day streak`;
+  if (gain) { const p = document.createElement("div"); p.className = "depth-pop"; p.textContent = `+${gain} m`; $("#app").append(p); setTimeout(() => p.remove(), 1200); }
+}
+function addDepth(n) {
+  const before = levelOf(S.depth); S.depth += n; save(); hud(n);
+  const after = levelOf(S.depth);
+  if (after > before) toast(`New depth reached: ${LEVELS[after][1]}`);
+}
+let toastT;
+function toast(msg) { $("#toast")?.remove(); const t = document.createElement("div"); t.id = "toast"; t.setAttribute("role", "status"); t.textContent = msg; $("#app").append(t); clearTimeout(toastT); toastT = setTimeout(() => t.remove(), 2600); }
+
+/* ---------- Cards ---------- */
+const feed = $("#feed");
+const nextInHole = c => { const ids = HOLES[c.hole].ids; return byId[ids[(ids.indexOf(c.id) + 1) % ids.length]]; };
+const isLocked = c => c.ts && !S.cleared;
+
+function card(c, opt = {}) {
+  const el = document.createElement("article");
+  el.className = "card"; el.dataset.id = c.id; el.style.setProperty("--hue", HOLES[c.hole].hue);
+  if (isLocked(c)) return lockedCard(el, c);
+  const saved = S.saved.includes(c.id);
+  el.innerHTML = `<div class="bg"></div>
+    <div class="meta">${opt.daily ? `<span class="chip daily">Today's file</span><span>Next file in <span class="countdown"></span></span>` : `<span class="chip">${esc(HOLES[c.hole].name)}</span><span>File ${fileNo(c)} · ${esc(c.year)}</span>`}</div>
+    <h2 class="hook">${hookHTML(c.hook)}</h2>
+    <div class="doc"><div class="doc-head"><span>Case file ${fileNo(c)}</span><span>Evidence ${c.ev.length}</span></div>
+      <ol class="ev">${c.ev.map(e => `<li>${evHTML(e)}</li>`).join("")}</ol>
+      <p class="hint">Lift a black bar to see the evidence. Call it without looking for double depth.</p>
+      <div class="stamp ${VERDICT[c.ans][1]}">${VERDICT[c.ans][0]}</div></div>
+    <div class="call"><p class="q">Real or fake?</p><div class="btns">
+      <button class="btn-call real" data-g="real">Real</button><button class="btn-call fake" data-g="fake">Fake</button></div></div>
+    <aside class="rail">
+      <button data-act="save" aria-pressed="${saved}" aria-label="Pin to case board"><span class="disc">${ico("pin")}</span>Pin</button>
+      <button data-act="share" aria-label="Share this file"><span class="disc">${ico("share")}</span>Share</button>
+      <button data-act="deeper" aria-label="Go deeper"><span class="disc">${ico("deeper")}</span>Deeper</button>
+    </aside>${opt.first ? '<div class="swipe-hint">Swipe up for the next file</div>' : ""}`;
+  return el;
+}
+function lockedCard(el, c) {
+  el.classList.add("locked");
+  const words = plain(c.hook).split(" "); const cut = Math.max(3, Math.ceil(words.length * .55));
+  el.innerHTML = `<div class="bg"></div>
+    <div class="meta"><span class="chip">${esc(HOLES[c.hole].name)}</span><span>File ${fileNo(c)} · Top secret</span></div>
+    <h2 class="hook">${esc(words.slice(0, cut).join(" "))} <span class="redact-word">${esc(words.slice(cut).join(" "))}</span></h2>
+    <div class="doc" aria-hidden="true"><div class="doc-head"><span>Case file ${fileNo(c)}</span><span>Evidence ${c.ev.length}</span></div><ol class="ev">${c.ev.map(e => `<li>${esc(e.replace(/\[\[|\]\]/g, ""))}</li>`).join("")}</ol></div>
+    <div class="ts-stamp">TOP SECRET</div>
+    <button class="unlock" data-act="unlock">${ico("lock")} Get clearance to open this file</button>`;
+  return el;
+}
+
+function callIt(el, g) {
+  if (el.dataset.done) return; el.dataset.done = "1";
+  const c = byId[el.dataset.id], peeked = !!el.dataset.peeked;
+  const right = c.ans === "true" ? g === "real" : c.ans === "false" ? g === "fake" : null;
+  const gain = right === true ? (peeked ? 30 : 60) : right === false ? 10 : 25;
+  S.calls[c.id] = right; addDepth(gain);
+  $$(".rx", el).forEach(r => r.classList.add("open"));
+  $(".doc", el).classList.add("stamped"); $(".hint", el)?.remove(); $(".swipe-hint", el)?.remove(); el.classList.add("done");
+  try { navigator.vibrate?.(right === false ? [20, 40, 20] : 30); } catch (e) {}
+  const nx = nextInHole(c);
+  const line = right === true ? `<b style="color:var(--v-true)">Called it.</b>${peeked ? "+30 m" : "Gut call, double depth. +60 m"}`
+    : right === false ? `<b style="color:var(--v-false)">Wrong call.</b>It's ${VERDICT[c.ans][0].toLowerCase()}. +10 m for digging`
+    : `<b style="color:${VERDICT[c.ans][2]}">${VERDICT[c.ans][0]}.</b>Nobody can call this one yet. +25 m`;
+  const t = document.createElement("div"); t.className = "truth";
+  t.innerHTML = `<p class="verdict-line">${line}</p><p class="tt">${esc(c.truth)}</p>
+    <a class="src" href="${esc(c.src[1])}" target="_blank" rel="noopener">Source: ${esc(c.src[0])}</a>
+    <button class="deeper" data-act="deeper">${ico("deeper")}<span><small>Go deeper · ${esc(HOLES[c.hole].name)}</small>${esc(isLocked(nx) ? "A top secret file is waiting below" : plain(nx.hook))}</span></button>`;
+  $(".call", el).replaceWith(t);
+}
+
+function goDeeper(el) {
+  const c = byId[el.dataset.id], nx = nextInHole(c);
+  const d = document.createElement("div"); d.className = "dive"; $("#app").append(d); setTimeout(() => d.remove(), 750);
+  const n = card(nx); el.after(n); observe(n);
+  if (!el.dataset.dove) { el.dataset.dove = "1"; addDepth(40); }
+  setTimeout(() => n.scrollIntoView({ behavior: "smooth" }), 180);
+}
+
+async function share(el) {
+  const c = byId[el.dataset.id];
+  const text = `Real or fake? "${plain(c.hook)}" I'm ${S.depth} m down the Rabbit Hole.`;
+  try { if (navigator.share) { await navigator.share({ title: "Rabbit Hole", text, url: location.href }); return; } } catch (e) { if (e && e.name === "AbortError") return; }
+  try { await navigator.clipboard.writeText(text + " " + location.href); toast("Copied. Paste it anywhere."); }
+  catch (e) { toast(text); }
+}
+
+function toggleSave(el, btn) {
+  const id = el.dataset.id, i = S.saved.indexOf(id);
+  if (i >= 0) S.saved.splice(i, 1); else S.saved.push(id);
+  save(); btn.setAttribute("aria-pressed", i < 0);
+  toast(i < 0 ? "Pinned to your case board" : "Removed from your case board");
+}
+
+feed.addEventListener("click", e => {
+  const el = e.target.closest(".card"); if (!el) return;
+  const rx = e.target.closest(".rx");
+  if (rx && !rx.classList.contains("open")) { rx.classList.add("open"); el.dataset.peeked = "1"; return; }
+  const g = e.target.closest("[data-g]"); if (g) return callIt(el, g.dataset.g);
+  const a = e.target.closest("[data-act]"); if (!a) return;
+  ({ save: () => toggleSave(el, a), share: () => share(el), deeper: () => goDeeper(el), unlock: () => paywall() })[a.dataset.act]?.();
+});
+feed.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("rx")) { e.preventDefault(); e.target.click(); } });
+
+/* ---------- Feed queue ---------- */
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+let queue = [];
+function buildQueue(skip) {
+  const pref = shuffle(CASES.filter(c => S.picks.includes(c.hole) && !S.seen[c.id]));
+  const rest = shuffle(CASES.filter(c => !S.picks.includes(c.hole) && !S.seen[c.id]));
+  const out = [];
+  while (pref.length || rest.length) { if (pref.length) out.push(pref.shift()); if (pref.length) out.push(pref.shift()); if (rest.length) out.push(rest.shift()); }
+  out.push(...shuffle(CASES.filter(c => S.seen[c.id])));
+  return out.filter(c => c.id !== skip);
+}
+function more(n = 5) {
+  for (let i = 0; i < n; i++) {
+    if (!queue.length) queue = buildQueue();
+    const el = card(queue.shift()); feed.append(el); observe(el);
+  }
+}
+const dailyCase = () => { const free = CASES.filter(c => !c.ts); return free[Math.floor(Date.now() / 864e5 - new Date().getTimezoneOffset() / 1440) % free.length]; };
+
+const io = new IntersectionObserver(es => es.forEach(en => {
+  if (!en.isIntersecting) return;
+  const el = en.target;
+  if (!el.dataset.counted) { el.dataset.counted = "1"; S.seen[el.dataset.id] = 1; S.opened++; if (feed.firstElementChild !== el) addDepth(10); else save(); }
+  const cards = $$(".card", feed); if (cards.indexOf(el) >= cards.length - 3) more();
+}), { root: feed, threshold: .6 });
+const observe = el => io.observe(el);
+
+function startFeed(list) {
+  feed.innerHTML = ""; feed.scrollTop = 0;
+  const first = list ? list[0] : dailyCase();
+  const el = card(first, { daily: !list, first: true }); feed.append(el); observe(el);
+  queue = list ? [...list.slice(1), ...buildQueue(first.id)] : buildQueue(first.id);
+  more(4);
+}
+function tick() {
+  const now = new Date(), mid = new Date(now); mid.setHours(24, 0, 0, 0);
+  const s = Math.floor((mid - now) / 1000), f = n => String(n).padStart(2, "0");
+  $$(".countdown").forEach(x => x.textContent = `${f(Math.floor(s / 3600))}:${f(Math.floor(s / 60) % 60)}:${f(s % 60)}`);
+}
+setInterval(tick, 1000);
+
+document.addEventListener("keydown", e => {
+  if ($("#feed").hidden || $(".scrim") || !$("#onb").hidden || /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+  const cards = $$(".card", feed), h = feed.clientHeight, i = Math.round(feed.scrollTop / h);
+  if (e.key === "ArrowDown" || e.key === "j") { e.preventDefault(); cards[i + 1]?.scrollIntoView({ behavior: "smooth" }); }
+  if (e.key === "ArrowUp" || e.key === "k") { e.preventDefault(); cards[i - 1]?.scrollIntoView({ behavior: "smooth" }); }
+  if (e.key === "r" || e.key === "f") { const c = cards[i]; c && !c.classList.contains("locked") && callIt(c, e.key === "r" ? "real" : "fake"); }
+});
+
+/* ---------- Paywall ---------- */
+function paywall() {
+  if ($(".scrim")) return;
+  const s = document.createElement("div"); s.className = "scrim";
+  s.innerHTML = `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="pwT">
+    <button class="x" data-x>Not now</button>
+    <h2 id="pwT">Get clearance</h2>
+    <ul>
+      <li>${ico("check")}<span>Open every Top Secret file, including MKUltra's safehouses and the Wow! signal</span></li>
+      <li>${ico("check")}<span>Unlimited Go Deeper chains in every hole</span></li>
+      <li>${ico("check")}<span>A new declassified file every night, before free users</span></li>
+      <li>${ico("check")}<span>No ads, ever</span></li>
+    </ul>
+    <div class="plans" role="radiogroup" aria-label="Plan">
+      <label class="plan"><input type="radio" name="plan" id="planYear" checked><span><b>Yearly</b><small>$29.99 a year, about $0.58 a week</small></span><em>7 days free</em></label>
+      <label class="plan"><input type="radio" name="plan" id="planWeek"><span><b>Weekly</b><small>$4.99 a week</small></span></label>
+    </div>
+    <button class="cta" data-go>Start my clearance</button>
+    <p class="fine" id="fine">7 days free, then $29.99 a year. We remind you 2 days before the trial ends. Cancel anytime in Settings.<br>Prototype: no payment is taken.</p>
+  </div>`;
+  $("#app").append(s);
+  const fine = () => $("#fine", s).firstChild.textContent = $("#planYear", s).checked ? "7 days free, then $29.99 a year. We remind you 2 days before the trial ends. Cancel anytime in Settings." : "$4.99 a week, starting today. Cancel anytime in Settings.";
+  s.addEventListener("change", fine);
+  s.addEventListener("click", e => {
+    if (e.target === s || e.target.closest("[data-x]")) return s.remove();
+    if (e.target.closest("[data-go]")) {
+      S.cleared = true; save(); s.remove();
+      $$(".card.locked").forEach(el => { const n = card(byId[el.dataset.id]); n.dataset.counted = el.dataset.counted || ""; el.replaceWith(n); observe(n); });
+      toast("Clearance granted. Every file is open.");
+      if (!$("#me").hidden) renderMe();
+    }
+  });
+  $("[data-go]", s).focus();
+}
+
+/* ---------- Holes ---------- */
+function renderHoles() {
+  const v = $("#holes");
+  v.innerHTML = `<h1>Holes</h1><p class="lede">Each hole is a chain of connected files. Start one and keep going down.</p><div class="holes">${Object.entries(HOLES).map(([k, h]) => {
+    const seen = h.ids.filter(id => S.seen[id]).length;
+    return `<button class="hole" data-hole="${k}" style="--hue:${h.hue}"><h2>${esc(h.name)}</h2><p>${esc(h.blurb)}</p>
+      <div class="meter"><i style="width:${seen / h.ids.length * 100}%"></i></div>
+      <div class="row"><span>${seen} of ${h.ids.length} files opened</span><span class="go">${seen ? "Keep digging" : "Go down"}</span></div></button>`;
+  }).join("")}</div>`;
+}
+$("#holes").addEventListener("click", e => {
+  const b = e.target.closest("[data-hole]"); if (!b) return;
+  const h = HOLES[b.dataset.hole]; const start = h.ids.find(id => !S.seen[id]) || h.ids[0];
+  const ids = [...h.ids.slice(h.ids.indexOf(start)), ...h.ids.slice(0, h.ids.indexOf(start))];
+  tab("feed"); startFeed(ids.map(id => byId[id]));
+});
+
+/* ---------- Case board ---------- */
+function hash(s) { let h = 0; for (const ch of s) h = (h * 31 + ch.charCodeAt(0)) | 0; return h; }
+function renderBoard() {
+  const v = $("#board");
+  v.innerHTML = `<h1>Case board</h1><p class="lede">Every file you pin lands here. Red string joins files that belong to the same story.</p><div class="board" id="cork"></div>`;
+  const cork = $("#cork", v);
+  if (!S.saved.length) { cork.innerHTML = `<div class="board-empty"><b>Nothing pinned yet</b><span>Tap Pin on any file in the feed to start your board.</span></div>`; return; }
+  const W = cork.clientWidth, cw = 138, cols = Math.max(2, Math.floor((W - 12) / (cw + 12))), gapX = (W - cols * cw) / (cols + 1), rowH = 170;
+  const pos = {};
+  S.saved.forEach((id, i) => {
+    const c = byId[id]; if (!c) return;
+    const r = Math.floor(i / cols), col = i % cols, h = hash(id);
+    const x = gapX + col * (cw + gapX) + (h % 9), y = 18 + r * rowH + (Math.abs(h >> 3) % 22), rot = ((h % 7) - 3) * 1.1;
+    pos[id] = [x + cw / 2, y + 11];
+    const b = document.createElement("button"); b.className = "bcard"; b.dataset.open = id;
+    b.style.cssText = `left:${x}px;top:${y}px;transform:rotate(${rot}deg)`;
+    const call = S.calls[id];
+    b.innerHTML = `<span class="pin"></span><b class="${call === undefined ? "" : VERDICT[c.ans][1]}">${call === undefined ? "Uncalled" : VERDICT[c.ans][0]}</b><span class="h">${esc(plain(c.hook))}</span>`;
+    cork.append(b);
+  });
+  cork.style.height = (Math.ceil(S.saved.length / cols) * rowH + 40) + "px";
+  const pairs = [];
+  for (const k in HOLES) { const ids = HOLES[k].ids.filter(id => pos[id]); for (let i = 1; i < ids.length; i++) pairs.push([ids[i - 1], ids[i]]); }
+  CROSS.forEach(([a, b]) => pos[a] && pos[b] && pairs.push([a, b]));
+  const svg = pairs.map(([a, b]) => { const [x1, y1] = pos[a], [x2, y2] = pos[b], mx = (x1 + x2) / 2, my = Math.max(y1, y2) + 34;
+    return `<path d="M${x1} ${y1} Q${mx} ${my} ${x2} ${y2}" stroke="var(--string)" stroke-width="2" fill="none" opacity=".9"/>`; }).join("");
+  cork.insertAdjacentHTML("beforeend", `<svg class="strings" aria-hidden="true">${svg}</svg>`);
+}
+$("#board").addEventListener("click", e => {
+  const b = e.target.closest("[data-open]"); if (!b) return;
+  tab("feed"); startFeed([byId[b.dataset.open]]);
+});
+
+/* ---------- Me ---------- */
+function renderMe() {
+  const calls = Object.values(S.calls), scored = calls.filter(x => x !== null), right = scored.filter(Boolean).length;
+  const li = levelOf(S.depth);
+  $("#me").innerHTML = `<h1>Your depth</h1><p class="lede">Every file, call and chain takes you further down.</p>
+    <div class="big-depth"><b>${S.depth.toLocaleString()}</b><span>m</span></div>
+    <div class="stats">
+      <div class="stat"><b>${S.streak}</b><span>Day streak</span></div>
+      <div class="stat"><b>${scored.length ? Math.round(right / scored.length * 100) + "%" : "–"}</b><span>Calls right (${right}/${scored.length})</span></div>
+      <div class="stat"><b>${Object.keys(S.seen).length}</b><span>Files opened</span></div>
+      <div class="stat"><b>${S.saved.length}</b><span>Pinned</span></div>
+    </div>
+    <ol class="levels">${LEVELS.map((l, i) => `<li class="${i <= li ? "on" : ""} ${i === li ? "here" : ""}"><span>${l[1]}</span><span>${l[0].toLocaleString()} m</span></li>`).join("")}</ol>
+    <div class="clr"><span>${S.cleared ? "<b>Clearance active.</b> Every file is open." : "<b>Civilian access.</b> Top Secret files are locked."}</span>${S.cleared ? "" : '<button data-act="unlock">Get clearance</button>'}</div>
+    <button class="ghost" id="reset">Reset my progress on this device</button>`;
+}
+$("#me").addEventListener("click", e => {
+  if (e.target.closest("[data-act=unlock]")) return paywall();
+  const r = e.target.closest("#reset"); if (!r) return;
+  if (!r.dataset.armed) { r.dataset.armed = "1"; r.textContent = "Tap again to erase everything"; return; }
+  S = blank(); save(); location.reload();
+});
+
+/* ---------- Tabs ---------- */
+const TABS = { feed: ["feed", "Feed"], holes: ["holes", "Holes"], board: ["board", "Board"], me: ["me", "Depth"] };
+$$(".tabs button").forEach(b => { const [i, l] = TABS[b.dataset.tab]; b.innerHTML = ico(i) + l; });
+function tab(name) {
+  $$(".tabs button").forEach(b => b.dataset.tab === name ? b.setAttribute("aria-current", "page") : b.removeAttribute("aria-current"));
+  ["feed", "holes", "board", "me"].forEach(v => $("#" + v).hidden = v !== name);
+  $("#hud").hidden = name !== "feed";
+  if (name === "holes") renderHoles(); if (name === "board") renderBoard(); if (name === "me") renderMe();
+}
+$(".tabs").addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (b) tab(b.dataset.tab); });
+
+/* ---------- Onboarding ---------- */
+function onboarding() {
+  const o = $("#onb"); o.hidden = false;
+  o.innerHTML = `<canvas id="tunnel" aria-hidden="true"></canvas><div class="onb-step" id="step1">
+      ${MARK("onb-logo")}
+      <h1 class="wordmark">Rabbit<br>H${RINGS}le</h1>
+      <p class="tagline">Some of it was <mark>true.</mark></p>
+      <p class="onb-sub">Declassified files, cover-ups and famous hoaxes. Swipe, call it real or fake, then go deeper.</p>
+      <button class="go-btn" id="go1">Pick your first holes</button></div>`;
+  const cv = $("#tunnel", o), ctx = cv.getContext("2d"); let t = 0, raf, speed = 1;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function draw() {
+    const w = cv.width = cv.clientWidth * devicePixelRatio, h = cv.height = cv.clientHeight * devicePixelRatio;
+    ctx.fillStyle = "#13101c"; ctx.fillRect(0, 0, w, h);
+    const cx = w / 2, cy = h * .34, n = 26;
+    for (let i = n; i > 0; i--) {
+      const z = ((i - (t % 1)) / n), r = Math.pow(z, 2.2) * Math.max(w, h) * 1.1;
+      const ox = Math.sin(t * .35 + z * 3) * 30 * z * devicePixelRatio, oy = Math.cos(t * .27 + z * 2) * 22 * z * devicePixelRatio;
+      ctx.beginPath(); ctx.arc(cx + ox, cy + oy + (1 - z) * 30, Math.max(1, r), 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(239,227,196,${.05 + z * .28})`; ctx.lineWidth = (1 + z * 3) * devicePixelRatio; ctx.stroke();
+    }
+    ctx.beginPath(); ctx.arc(cx, cy + 30, 4 * devicePixelRatio, 0, Math.PI * 2); ctx.fillStyle = "#f2e14c"; ctx.fill();
+    t += .006 * speed; if (!reduce) raf = requestAnimationFrame(draw);
+  }
+  draw();
+  $("#go1", o).onclick = () => {
+    const picks = new Set(S.picks);
+    $("#step1", o).outerHTML = `<div class="onb-step" id="step2"><h2 class="onb-h">What keeps you up at night?</h2><p class="onb-sub">Pick at least one. We'll start you there.</p>
+      <div class="picks">${Object.entries(HOLES).map(([k, h]) => `<button class="pick" data-k="${k}" aria-pressed="${picks.has(k)}" style="--hue:${h.hue}"><b>${esc(h.name)}</b><small>${esc(h.blurb)}</small></button>`).join("")}</div>
+      <button class="go-btn" id="go2" ${picks.size ? "" : "disabled"}>Enter the hole</button></div>`;
+    const step = $("#step2", o);
+    step.addEventListener("click", e => {
+      const p = e.target.closest(".pick");
+      if (p) { const k = p.dataset.k; picks.has(k) ? picks.delete(k) : picks.add(k); p.setAttribute("aria-pressed", picks.has(k)); $("#go2", o).disabled = !picks.size; return; }
+      if (e.target.closest("#go2")) {
+        S.picks = [...picks]; S.onboarded = true; save();
+        speed = 9; step.style.transition = "opacity .5s"; step.style.opacity = 0;
+        startFeed();
+        setTimeout(() => { cancelAnimationFrame(raf); o.hidden = true; o.innerHTML = ""; }, reduce ? 0 : 900);
+      }
+    });
+  };
+}
+
+/* ---------- Boot ---------- */
+hud(); tab("feed");
+if (S.onboarded) startFeed(); else onboarding();
+tick();
+window.RabbitHole = { get state() { return S; }, CASES, HOLES, paywall, startFeed, tab };
+})();
+</script>
