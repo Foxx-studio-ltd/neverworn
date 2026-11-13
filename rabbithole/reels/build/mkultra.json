@@ -1,0 +1,594 @@
+{
+ "reel": "mkultra",
+ "voice": "am_michael",
+ "speed": 0.98,
+ "file": "0100",
+ "hole": "Mind Games",
+ "duration": 49.035,
+ "scenes": [
+  {
+   "scene": "date",
+   "text": "In 1953, the CIA started secretly drugging Americans. With LSD.",
+   "date": "1953",
+   "say": "In nineteen fifty-three, the C.I.A. started secretly drugging Americans. With L.S.D.",
+   "start": 0.35,
+   "voiceEnd": 6.092,
+   "end": 6.642,
+   "words": [
+    [
+     "In",
+     0.35,
+     0.625
+    ],
+    [
+     "1953,",
+     0.625,
+     1.038
+    ],
+    [
+     "the",
+     1.21,
+     1.553
+    ],
+    [
+     "CIA",
+     1.553,
+     1.897
+    ],
+    [
+     "started",
+     1.897,
+     2.516
+    ],
+    [
+     "secretly",
+     2.516,
+     3.204
+    ],
+    [
+     "drugging",
+     3.204,
+     3.891
+    ],
+    [
+     "Americans.",
+     3.891,
+     4.648
+    ],
+    [
+     "With",
+     4.992,
+     5.404
+    ],
+    [
+     "LSD.",
+     5.404,
+     5.748
+    ]
+   ]
+  },
+  {
+   "scene": "doc",
+   "text": "It was called Project MKUltra. The goal? Find a way to control the human mind.",
+   "title": "PROJECT MKULTRA",
+   "stamp": "TOP SECRET",
+   "say": "It was called Project M.K. Ultra. The goal? Find a way to control the human mind.",
+   "start": 6.642,
+   "voiceEnd": 12.459,
+   "end": 13.009,
+   "words": [
+    [
+     "It",
+     6.642,
+     6.861
+    ],
+    [
+     "was",
+     6.861,
+     7.136
+    ],
+    [
+     "called",
+     7.136,
+     7.575
+    ],
+    [
+     "Project",
+     7.575,
+     8.069
+    ],
+    [
+     "MKUltra.",
+     8.069,
+     8.563
+    ],
+    [
+     "The",
+     8.837,
+     9.112
+    ],
+    [
+     "goal?",
+     9.112,
+     9.441
+    ],
+    [
+     "Find",
+     9.715,
+     10.044
+    ],
+    [
+     "a",
+     10.044,
+     10.209
+    ],
+    [
+     "way",
+     10.209,
+     10.484
+    ],
+    [
+     "to",
+     10.484,
+     10.703
+    ],
+    [
+     "control",
+     10.703,
+     11.197
+    ],
+    [
+     "the",
+     11.197,
+     11.471
+    ],
+    [
+     "human",
+     11.471,
+     11.856
+    ],
+    [
+     "mind.",
+     11.856,
+     12.185
+    ]
+   ]
+  },
+  {
+   "scene": "people",
+   "text": "Agents dosed people who never agreed to it. Some never even knew.",
+   "start": 13.009,
+   "voiceEnd": 17.071,
+   "end": 17.621,
+   "words": [
+    [
+     "Agents",
+     13.009,
+     13.387
+    ],
+    [
+     "dosed",
+     13.387,
+     13.718
+    ],
+    [
+     "people",
+     13.718,
+     14.096
+    ],
+    [
+     "who",
+     14.096,
+     14.332
+    ],
+    [
+     "never",
+     14.332,
+     14.662
+    ],
+    [
+     "agreed",
+     14.662,
+     15.04
+    ],
+    [
+     "to",
+     15.04,
+     15.229
+    ],
+    [
+     "it.",
+     15.229,
+     15.418
+    ],
+    [
+     "Some",
+     15.654,
+     15.938
+    ],
+    [
+     "never",
+     15.938,
+     16.268
+    ],
+    [
+     "even",
+     16.268,
+     16.552
+    ],
+    [
+     "knew.",
+     16.552,
+     16.835
+    ]
+   ]
+  },
+  {
+   "scene": "mirror",
+   "text": "In San Francisco, the CIA ran safehouses where men were drugged, while agents watched through one-way mirrors.",
+   "say": "In San Francisco, the C.I.A. ran safehouses where men were drugged, while agents watched through one-way mirrors.",
+   "start": 17.621,
+   "voiceEnd": 25.028,
+   "end": 25.578,
+   "words": [
+    [
+     "In",
+     17.621,
+     17.842
+    ],
+    [
+     "San",
+     17.842,
+     18.119
+    ],
+    [
+     "Francisco,",
+     18.119,
+     18.727
+    ],
+    [
+     "the",
+     18.865,
+     19.141
+    ],
+    [
+     "CIA",
+     19.141,
+     19.418
+    ],
+    [
+     "ran",
+     19.418,
+     19.694
+    ],
+    [
+     "safehouses",
+     19.694,
+     20.357
+    ],
+    [
+     "where",
+     20.357,
+     20.744
+    ],
+    [
+     "men",
+     20.744,
+     21.021
+    ],
+    [
+     "were",
+     21.021,
+     21.352
+    ],
+    [
+     "drugged,",
+     21.352,
+     21.85
+    ],
+    [
+     "while",
+     21.988,
+     22.375
+    ],
+    [
+     "agents",
+     22.375,
+     22.817
+    ],
+    [
+     "watched",
+     22.817,
+     23.315
+    ],
+    [
+     "through",
+     23.315,
+     23.812
+    ],
+    [
+     "one-way",
+     23.812,
+     24.254
+    ],
+    [
+     "mirrors.",
+     24.254,
+     24.752
+    ]
+   ]
+  },
+  {
+   "scene": "destroy",
+   "text": "In 1973, the CIA director ordered the files destroyed.",
+   "say": "In nineteen seventy-three, the C.I.A. director ordered the files destroyed.",
+   "start": 25.578,
+   "voiceEnd": 30.681,
+   "end": 31.231,
+   "words": [
+    [
+     "In",
+     25.578,
+     25.872
+    ],
+    [
+     "1973,",
+     25.872,
+     26.312
+    ],
+    [
+     "the",
+     26.496,
+     26.863
+    ],
+    [
+     "CIA",
+     26.863,
+     27.23
+    ],
+    [
+     "director",
+     27.23,
+     27.964
+    ],
+    [
+     "ordered",
+     27.964,
+     28.625
+    ],
+    [
+     "the",
+     28.625,
+     28.992
+    ],
+    [
+     "files",
+     28.992,
+     29.506
+    ],
+    [
+     "destroyed.",
+     29.506,
+     30.314
+    ]
+   ]
+  },
+  {
+   "scene": "counter",
+   "text": "But about twenty thousand pages survived. They had been misfiled.",
+   "to": 20000,
+   "label": "PAGES SURVIVED",
+   "stamp": "MISFILED",
+   "start": 31.231,
+   "voiceEnd": 35.369,
+   "end": 35.919,
+   "words": [
+    [
+     "But",
+     31.231,
+     31.477
+    ],
+    [
+     "about",
+     31.477,
+     31.822
+    ],
+    [
+     "twenty",
+     31.822,
+     32.216
+    ],
+    [
+     "thousand",
+     32.216,
+     32.709
+    ],
+    [
+     "pages",
+     32.709,
+     33.054
+    ],
+    [
+     "survived.",
+     33.054,
+     33.546
+    ],
+    [
+     "They",
+     33.793,
+     34.088
+    ],
+    [
+     "had",
+     34.088,
+     34.335
+    ],
+    [
+     "been",
+     34.335,
+     34.63
+    ],
+    [
+     "misfiled.",
+     34.63,
+     35.123
+    ]
+   ]
+  },
+  {
+   "scene": "hearing",
+   "text": "In 1977, they were read out in the United States Senate.",
+   "date": "1977",
+   "say": "In nineteen seventy-seven, they were read out in the United States Senate.",
+   "start": 35.919,
+   "voiceEnd": 40.238,
+   "end": 40.788,
+   "words": [
+    [
+     "In",
+     35.919,
+     36.154
+    ],
+    [
+     "1977,",
+     36.154,
+     36.507
+    ],
+    [
+     "they",
+     36.654,
+     37.006
+    ],
+    [
+     "were",
+     37.006,
+     37.359
+    ],
+    [
+     "read",
+     37.359,
+     37.711
+    ],
+    [
+     "out",
+     37.711,
+     38.005
+    ],
+    [
+     "in",
+     38.005,
+     38.24
+    ],
+    [
+     "the",
+     38.24,
+     38.534
+    ],
+    [
+     "United",
+     38.534,
+     39.004
+    ],
+    [
+     "States",
+     39.004,
+     39.474
+    ],
+    [
+     "Senate.",
+     39.474,
+     39.944
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "verdict": "REAL",
+   "start": 40.788,
+   "voiceEnd": 42.176,
+   "end": 43.626,
+   "words": [
+    [
+     "So.",
+     40.788,
+     40.958
+    ],
+    [
+     "Real,",
+     41.172,
+     41.428
+    ],
+    [
+     "or",
+     41.535,
+     41.706
+    ],
+    [
+     "fake?",
+     41.706,
+     41.963
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "It's all on the record. Go deeper, on Rabbit Hole.",
+   "start": 43.626,
+   "voiceEnd": 46.685,
+   "end": 47.835,
+   "words": [
+    [
+     "It's",
+     43.626,
+     43.846
+    ],
+    [
+     "all",
+     43.846,
+     44.066
+    ],
+    [
+     "on",
+     44.066,
+     44.242
+    ],
+    [
+     "the",
+     44.242,
+     44.462
+    ],
+    [
+     "record.",
+     44.462,
+     44.815
+    ],
+    [
+     "Go",
+     45.035,
+     45.211
+    ],
+    [
+     "deeper,",
+     45.211,
+     45.563
+    ],
+    [
+     "on",
+     45.673,
+     45.849
+    ],
+    [
+     "Rabbit",
+     45.849,
+     46.201
+    ],
+    [
+     "Hole.",
+     46.201,
+     46.465
+    ]
+   ]
+  }
+ ]
+}

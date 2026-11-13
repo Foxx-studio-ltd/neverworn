@@ -1,0 +1,605 @@
+{
+ "reel": "northwoods",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "2338",
+ "hole": "False Flags",
+ "duration": 44.289,
+ "scenes": [
+  {
+   "scene": "date",
+   "text": "In 1962, America's top generals signed a plan to fake terror attacks against their own country.",
+   "date": "1962",
+   "say": "In nineteen sixty-two, America's top generals signed a plan to fake terror attacks against their own country.",
+   "start": 0.35,
+   "voiceEnd": 6.952,
+   "end": 7.502,
+   "words": [
+    [
+     "In",
+     0.35,
+     0.577
+    ],
+    [
+     "1962,",
+     0.577,
+     0.917
+    ],
+    [
+     "America's",
+     1.058,
+     1.625
+    ],
+    [
+     "top",
+     1.625,
+     1.909
+    ],
+    [
+     "generals",
+     1.909,
+     2.475
+    ],
+    [
+     "signed",
+     2.475,
+     2.929
+    ],
+    [
+     "a",
+     2.929,
+     3.099
+    ],
+    [
+     "plan",
+     3.099,
+     3.439
+    ],
+    [
+     "to",
+     3.439,
+     3.665
+    ],
+    [
+     "fake",
+     3.665,
+     4.005
+    ],
+    [
+     "terror",
+     4.005,
+     4.459
+    ],
+    [
+     "attacks",
+     4.459,
+     4.969
+    ],
+    [
+     "against",
+     4.969,
+     5.479
+    ],
+    [
+     "their",
+     5.479,
+     5.876
+    ],
+    [
+     "own",
+     5.876,
+     6.159
+    ],
+    [
+     "country.",
+     6.159,
+     6.669
+    ]
+   ]
+  },
+  {
+   "scene": "doc",
+   "text": "It was called Operation Northwoods.",
+   "title": "OPERATION NORTHWOODS",
+   "stamp": "TOP SECRET",
+   "start": 7.502,
+   "voiceEnd": 9.425,
+   "end": 9.975,
+   "words": [
+    [
+     "It",
+     7.502,
+     7.673
+    ],
+    [
+     "was",
+     7.673,
+     7.887
+    ],
+    [
+     "called",
+     7.887,
+     8.229
+    ],
+    [
+     "Operation",
+     8.229,
+     8.699
+    ],
+    [
+     "Northwoods.",
+     8.699,
+     9.211
+    ]
+   ]
+  },
+  {
+   "scene": "list",
+   "text": "The ideas? Blow up a US ship at Guantanamo. Fake the hijacking of a plane. Stage a terror campaign in Miami.",
+   "say": "The ideas? Blow up a U.S. ship at Guantanamo. Fake the hijacking of a plane. Stage a terror campaign in Miami.",
+   "start": 9.975,
+   "voiceEnd": 17.553,
+   "end": 18.104,
+   "words": [
+    [
+     "The",
+     9.975,
+     10.234
+    ],
+    [
+     "ideas?",
+     10.234,
+     10.598
+    ],
+    [
+     "Blow",
+     10.857,
+     11.169
+    ],
+    [
+     "up",
+     11.169,
+     11.376
+    ],
+    [
+     "a",
+     11.376,
+     11.532
+    ],
+    [
+     "US",
+     11.532,
+     11.74
+    ],
+    [
+     "ship",
+     11.74,
+     12.051
+    ],
+    [
+     "at",
+     12.051,
+     12.259
+    ],
+    [
+     "Guantanamo.",
+     12.259,
+     12.882
+    ],
+    [
+     "Fake",
+     13.141,
+     13.453
+    ],
+    [
+     "the",
+     13.453,
+     13.712
+    ],
+    [
+     "hijacking",
+     13.712,
+     14.283
+    ],
+    [
+     "of",
+     14.283,
+     14.491
+    ],
+    [
+     "a",
+     14.491,
+     14.647
+    ],
+    [
+     "plane.",
+     14.647,
+     15.01
+    ],
+    [
+     "Stage",
+     15.27,
+     15.633
+    ],
+    [
+     "a",
+     15.633,
+     15.789
+    ],
+    [
+     "terror",
+     15.789,
+     16.204
+    ],
+    [
+     "campaign",
+     16.204,
+     16.723
+    ],
+    [
+     "in",
+     16.723,
+     16.931
+    ],
+    [
+     "Miami.",
+     16.931,
+     17.294
+    ]
+   ]
+  },
+  {
+   "scene": "map",
+   "text": "Every attack would be blamed on Cuba, to justify an invasion.",
+   "start": 18.104,
+   "voiceEnd": 21.663,
+   "end": 22.213,
+   "words": [
+    [
+     "Every",
+     18.104,
+     18.421
+    ],
+    [
+     "attack",
+     18.421,
+     18.784
+    ],
+    [
+     "would",
+     18.784,
+     19.101
+    ],
+    [
+     "be",
+     19.101,
+     19.282
+    ],
+    [
+     "blamed",
+     19.282,
+     19.645
+    ],
+    [
+     "on",
+     19.645,
+     19.826
+    ],
+    [
+     "Cuba,",
+     19.826,
+     20.098
+    ],
+    [
+     "to",
+     20.212,
+     20.393
+    ],
+    [
+     "justify",
+     20.393,
+     20.801
+    ],
+    [
+     "an",
+     20.801,
+     20.983
+    ],
+    [
+     "invasion.",
+     20.983,
+     21.436
+    ]
+   ]
+  },
+  {
+   "scene": "sign",
+   "text": "It was signed by the chairman of the Joint Chiefs of Staff, General Lyman Lemnitzer.",
+   "start": 22.213,
+   "voiceEnd": 26.774,
+   "end": 27.324,
+   "words": [
+    [
+     "It",
+     22.213,
+     22.386
+    ],
+    [
+     "was",
+     22.386,
+     22.602
+    ],
+    [
+     "signed",
+     22.602,
+     22.948
+    ],
+    [
+     "by",
+     22.948,
+     23.121
+    ],
+    [
+     "the",
+     23.121,
+     23.337
+    ],
+    [
+     "chairman",
+     23.337,
+     23.769
+    ],
+    [
+     "of",
+     23.769,
+     23.942
+    ],
+    [
+     "the",
+     23.942,
+     24.158
+    ],
+    [
+     "Joint",
+     24.158,
+     24.461
+    ],
+    [
+     "Chiefs",
+     24.461,
+     24.807
+    ],
+    [
+     "of",
+     24.807,
+     24.98
+    ],
+    [
+     "Staff,",
+     24.98,
+     25.283
+    ],
+    [
+     "General",
+     25.391,
+     25.78
+    ],
+    [
+     "Lyman",
+     25.78,
+     26.082
+    ],
+    [
+     "Lemnitzer.",
+     26.082,
+     26.558
+    ]
+   ]
+  },
+  {
+   "scene": "reject",
+   "text": "President Kennedy's administration said no.",
+   "start": 27.324,
+   "voiceEnd": 29.756,
+   "end": 30.306,
+   "words": [
+    [
+     "President",
+     27.324,
+     27.839
+    ],
+    [
+     "Kennedy's",
+     27.839,
+     28.306
+    ],
+    [
+     "administration",
+     28.306,
+     29.054
+    ],
+    [
+     "said",
+     29.054,
+     29.335
+    ],
+    [
+     "no.",
+     29.335,
+     29.522
+    ]
+   ]
+  },
+  {
+   "scene": "years",
+   "text": "And the public didn't find out for thirty-five years. It was declassified in 1997.",
+   "from": 1962,
+   "to": 1997,
+   "say": "And the public didn't find out for thirty-five years. It was declassified in nineteen ninety-seven.",
+   "start": 30.306,
+   "voiceEnd": 35.833,
+   "end": 36.383,
+   "words": [
+    [
+     "And",
+     30.306,
+     30.574
+    ],
+    [
+     "the",
+     30.574,
+     30.842
+    ],
+    [
+     "public",
+     30.842,
+     31.272
+    ],
+    [
+     "didn't",
+     31.272,
+     31.647
+    ],
+    [
+     "find",
+     31.647,
+     31.969
+    ],
+    [
+     "out",
+     31.969,
+     32.238
+    ],
+    [
+     "for",
+     32.238,
+     32.506
+    ],
+    [
+     "thirty-five",
+     32.506,
+     33.15
+    ],
+    [
+     "years.",
+     33.15,
+     33.526
+    ],
+    [
+     "It",
+     33.794,
+     34.009
+    ],
+    [
+     "was",
+     34.009,
+     34.277
+    ],
+    [
+     "declassified",
+     34.277,
+     35.028
+    ],
+    [
+     "in",
+     35.028,
+     35.243
+    ],
+    [
+     "1997.",
+     35.243,
+     35.565
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "verdict": "REAL",
+   "start": 36.383,
+   "voiceEnd": 37.752,
+   "end": 39.202,
+   "words": [
+    [
+     "So.",
+     36.383,
+     36.552
+    ],
+    [
+     "Real,",
+     36.762,
+     37.015
+    ],
+    [
+     "or",
+     37.12,
+     37.288
+    ],
+    [
+     "fake?",
+     37.288,
+     37.541
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "It's all on the record. Go deeper, on Rabbit Hole.",
+   "start": 39.202,
+   "voiceEnd": 41.939,
+   "end": 43.089,
+   "words": [
+    [
+     "It's",
+     39.202,
+     39.399
+    ],
+    [
+     "all",
+     39.399,
+     39.596
+    ],
+    [
+     "on",
+     39.596,
+     39.753
+    ],
+    [
+     "the",
+     39.753,
+     39.95
+    ],
+    [
+     "record.",
+     39.95,
+     40.265
+    ],
+    [
+     "Go",
+     40.462,
+     40.619
+    ],
+    [
+     "deeper,",
+     40.619,
+     40.935
+    ],
+    [
+     "on",
+     41.033,
+     41.191
+    ],
+    [
+     "Rabbit",
+     41.191,
+     41.506
+    ],
+    [
+     "Hole.",
+     41.506,
+     41.742
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,112 @@
+{
+ "mkultra": {
+  "voice": "am_michael",
+  "speed": 0.98,
+  "file": "0100",
+  "hole": "Mind Games",
+  "lines": [
+   {
+    "scene": "date",
+    "text": "In 1953, the CIA started secretly drugging Americans. With LSD.",
+    "date": "1953",
+    "say": "In nineteen fifty-three, the C.I.A. started secretly drugging Americans. With L.S.D."
+   },
+   {
+    "scene": "doc",
+    "text": "It was called Project MKUltra. The goal? Find a way to control the human mind.",
+    "title": "PROJECT MKULTRA",
+    "stamp": "TOP SECRET",
+    "say": "It was called Project M.K. Ultra. The goal? Find a way to control the human mind."
+   },
+   {
+    "scene": "people",
+    "text": "Agents dosed people who never agreed to it. Some never even knew."
+   },
+   {
+    "scene": "mirror",
+    "text": "In San Francisco, the CIA ran safehouses where men were drugged, while agents watched through one-way mirrors.",
+    "say": "In San Francisco, the C.I.A. ran safehouses where men were drugged, while agents watched through one-way mirrors."
+   },
+   {
+    "scene": "destroy",
+    "text": "In 1973, the CIA director ordered the files destroyed.",
+    "say": "In nineteen seventy-three, the C.I.A. director ordered the files destroyed."
+   },
+   {
+    "scene": "counter",
+    "text": "But about twenty thousand pages survived. They had been misfiled.",
+    "to": 20000,
+    "label": "PAGES SURVIVED",
+    "stamp": "MISFILED"
+   },
+   {
+    "scene": "hearing",
+    "text": "In 1977, they were read out in the United States Senate.",
+    "date": "1977",
+    "say": "In nineteen seventy-seven, they were read out in the United States Senate."
+   },
+   {
+    "scene": "call",
+    "text": "So. Real, or fake?",
+    "verdict": "REAL"
+   },
+   {
+    "scene": "end",
+    "text": "It's all on the record. Go deeper, on Rabbit Hole."
+   }
+  ]
+ },
+ "northwoods": {
+  "voice": "af_heart",
+  "speed": 1.0,
+  "file": "2338",
+  "hole": "False Flags",
+  "lines": [
+   {
+    "scene": "date",
+    "text": "In 1962, America's top generals signed a plan to fake terror attacks against their own country.",
+    "date": "1962",
+    "say": "In nineteen sixty-two, America's top generals signed a plan to fake terror attacks against their own country."
+   },
+   {
+    "scene": "doc",
+    "text": "It was called Operation Northwoods.",
+    "title": "OPERATION NORTHWOODS",
+    "stamp": "TOP SECRET"
+   },
+   {
+    "scene": "list",
+    "text": "The ideas? Blow up a US ship at Guantanamo. Fake the hijacking of a plane. Stage a terror campaign in Miami.",
+    "say": "The ideas? Blow up a U.S. ship at Guantanamo. Fake the hijacking of a plane. Stage a terror campaign in Miami."
+   },
+   {
+    "scene": "map",
+    "text": "Every attack would be blamed on Cuba, to justify an invasion."
+   },
+   {
+    "scene": "sign",
+    "text": "It was signed by the chairman of the Joint Chiefs of Staff, General Lyman Lemnitzer."
+   },
+   {
+    "scene": "reject",
+    "text": "President Kennedy's administration said no."
+   },
+   {
+    "scene": "years",
+    "text": "And the public didn't find out for thirty-five years. It was declassified in 1997.",
+    "from": 1962,
+    "to": 1997,
+    "say": "And the public didn't find out for thirty-five years. It was declassified in nineteen ninety-seven."
+   },
+   {
+    "scene": "call",
+    "text": "So. Real, or fake?",
+    "verdict": "REAL"
+   },
+   {
+    "scene": "end",
+    "text": "It's all on the record. Go deeper, on Rabbit Hole."
+   }
+  ]
+ }
+}
