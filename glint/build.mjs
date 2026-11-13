@@ -7,11 +7,11 @@ const head = `<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#141413">
+<meta name="theme-color" content="#f4f5f8">
 <meta name="description" content="See it. Say it. Send it. Snap anything, say what you want, send it to your AI.">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Glint">
 <meta property="og:title" content="Glint">
 <meta property="og:description" content="See it. Say it. Send it.">
