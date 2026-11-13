@@ -1,0 +1,246 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Glint ad</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+:root{--bg:#141413;--surface:#1f1e1c;--line:#34322e;--fg:#f4f1ea;--muted:#a29d93;--accent:#f2c46d;--ink:#1a1408}
+html,body{margin:0;background:#000}
+#f{width:1080px;height:1920px;position:relative;overflow:hidden;background:var(--bg);color:var(--fg);font-family:"Instrument Sans",sans-serif}
+.abs{position:absolute}
+.serif{font-family:"Instrument Serif",serif;font-weight:400;letter-spacing:-.02em}
+.full{inset:0}
+.bgphoto{inset:-60px;background:url(../../assets/01-halo-puffer.jpg) center 30%/cover}
+.line{left:80px;right:80px;text-align:center;font-size:150px;line-height:1}
+.line i{color:var(--accent)}
+.steps{left:110px;right:110px;top:470px;font-size:58px;line-height:1.5}
+.steps div{display:flex;gap:28px;align-items:center}
+.steps s{text-decoration-color:var(--accent);text-decoration-thickness:5px}
+.tapn{right:96px;top:110px;font-size:40px;padding:14px 28px;border:2px solid var(--line);border-radius:999px;font-variant-numeric:tabular-nums}
+.spark{width:120px;height:120px}
+.wordmark{font-size:230px;font-style:italic;left:0;right:0;text-align:center;top:800px}
+/* phone */
+.phone{left:150px;top:230px;width:780px;height:1580px;border-radius:96px;background:#0b0b0a;border:2px solid #3b3934;box-shadow:0 60px 120px rgba(0,0,0,.6),inset 0 0 0 14px #0b0b0a}
+.screen{position:absolute;inset:16px;border-radius:82px;overflow:hidden;background:var(--bg)}
+.ptop{position:absolute;left:44px;right:44px;top:70px;display:flex;justify-content:space-between;align-items:center}
+.pmark{font-family:"Instrument Serif",serif;font-style:italic;font-size:54px;display:flex;align-items:center;gap:14px}
+.dots{display:flex;gap:14px}.dots span{width:68px;height:68px;border-radius:50%;background:var(--surface);border:2px solid var(--line)}
+.finder{position:absolute;left:22px;right:22px;top:170px;height:1040px;border-radius:30px;overflow:hidden;background:#222 url(../../assets/01-halo-puffer.jpg) center 35%/cover}
+.corner{position:absolute;width:44px;height:44px;border-color:var(--accent);border-style:solid}
+.shutter{position:absolute;left:50%;top:1290px;width:150px;height:150px;margin-left:-75px;border-radius:50%;border:5px solid var(--fg);display:grid;place-items:center}
+.shutter::after{content:"";width:118px;height:118px;border-radius:50%;background:var(--accent)}
+.hint{position:absolute;left:0;right:0;top:1232px;text-align:center;color:var(--muted);font-size:26px}
+.compose{position:absolute;inset:0;background:var(--bg)}
+.stage{position:absolute;left:115px;top:160px;width:520px;height:693px;border-radius:20px;overflow:hidden;background:url(../../assets/01-halo-puffer.jpg) center/cover;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.pin{position:absolute;width:62px;height:62px;margin:-31px 0 0 -31px;border-radius:50%;background:var(--accent);color:var(--ink);border:4px solid var(--ink);display:grid;place-items:center;font-weight:600;font-size:30px;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.sheet{position:absolute;left:0;right:0;bottom:0;height:640px;background:var(--surface);border-top:2px solid var(--line);border-radius:44px 44px 0 0;padding:40px 44px}
+.chips{display:flex;gap:12px}.chips span{border:2px solid var(--line);border-radius:999px;padding:10px 22px;font-size:26px}
+.chips span.on{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.note{position:absolute;left:44px;right:170px;top:130px;font-size:40px;line-height:1.4;min-height:170px}
+.caret{display:inline-block;width:3px;height:42px;background:var(--accent);vertical-align:-6px;margin-left:3px}
+.mic{position:absolute;right:44px;top:150px;width:100px;height:100px;border-radius:50%;background:var(--accent);display:grid;place-items:center}
+.mic svg{width:44px;height:44px}
+.ring{position:absolute;inset:-14px;border-radius:50%;border:4px solid var(--accent)}
+.wave{position:absolute;left:44px;top:340px;display:flex;gap:8px;align-items:center;height:80px}
+.wave i{display:block;width:8px;border-radius:4px;background:var(--accent)}
+.send{position:absolute;left:44px;right:44px;bottom:70px;height:110px;border-radius:999px;background:var(--fg);color:var(--bg);display:grid;place-items:center;font-size:38px;font-weight:600}
+.panel{position:absolute;left:0;right:0;bottom:0;height:1250px;background:var(--surface);border-radius:44px 44px 0 0;border-top:2px solid var(--line);padding:44px}
+.panel h4{margin:0 0 20px;color:var(--muted);font-size:24px;letter-spacing:.1em;font-weight:600}
+.cardp{width:100%;height:560px;border-radius:20px;background:#0f0f0e;border:2px solid var(--line);display:flex;gap:26px;padding:26px;box-sizing:border-box}
+.cardp .ph{width:300px;border-radius:12px;background:url(../../assets/01-halo-puffer.jpg) center/cover;position:relative;flex:none}
+.cardp .tx{font-size:30px;line-height:1.4;padding-top:10px}
+.dests{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.dests div{border:2px solid var(--line);border-radius:22px;padding:24px 28px;font-size:34px;font-weight:600}
+.dests div small{display:block;font-size:22px;color:var(--muted);font-weight:400;margin-top:4px}
+.dests div.p{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.dests div.p small{color:var(--ink);opacity:.7}
+.chat{position:absolute;inset:0;background:#262624;padding:150px 44px}
+.bub{border-radius:30px;padding:26px 30px;font-size:32px;line-height:1.4;max-width:560px}
+.bub.me{margin-left:auto;background:#3a3935}
+.bub.ai{color:#f4f1ea}
+.thumb{width:260px;height:346px;border-radius:18px;background:url(../../assets/01-halo-puffer.jpg) center/cover;margin:0 0 18px auto;position:relative}
+.finger{width:130px;height:130px;margin:-65px 0 0 -65px;border-radius:50%;background:rgba(255,255,255,.35);border:3px solid rgba(255,255,255,.8);box-shadow:0 0 0 0 rgba(255,255,255,.3)}
+.caption{left:0;right:0;top:96px;text-align:center;font-size:62px}
+.caption i{color:var(--accent)}
+.flash{inset:0;background:#fff}
+/* montage cards */
+.mcard{left:140px;top:300px;width:800px;border-radius:30px;background:var(--surface);overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.mcard .img{height:860px;position:relative;background-size:cover;background-position:center}
+.mcard .t{padding:40px 48px 50px;font-size:42px;line-height:1.35}
+.mcard .to{display:inline-block;margin-top:22px;font-size:28px;color:var(--ink);background:var(--accent);border-radius:999px;padding:8px 22px;font-weight:600}
+.wb{background:#f7f7f4}
+.wb svg{position:absolute;inset:0}
+.end1{left:0;right:0;top:520px;text-align:center;font-size:132px;line-height:1.05}
+.end1 i{color:var(--accent)}
+.end2{left:120px;right:120px;top:1010px;line-height:1.3;text-align:center;font-size:40px;color:var(--muted)}
+.endmark{left:0;right:0;top:1260px;display:flex;justify-content:center;align-items:center;gap:26px;font-size:120px;font-style:italic}
+.end3{left:0;right:0;top:1480px;text-align:center;font-size:32px;color:var(--muted);letter-spacing:.06em}
+</style></head><body>
+<div id="f">
+  <!-- S1-2 -->
+  <div class="abs bgphoto" id="bg1"></div>
+  <div class="abs full" id="dim1" style="background:#000"></div>
+  <div class="abs line serif" id="l1" style="top:820px">You see it.</div>
+  <div class="abs line serif" id="l2" style="top:820px">You <i>think</i> it.</div>
+  <svg class="abs spark" id="gl1" viewBox="0 0 100 100" style="left:560px;top:520px"><path d="M50 4 C53 38 62 47 96 50 C62 53 53 62 50 96 C47 62 38 53 4 50 C38 47 47 38 50 4Z" fill="#f2c46d"/></svg>
+  <!-- S3 friction -->
+  <div class="abs" id="s3" style="inset:0">
+    <div class="abs serif" style="left:110px;top:250px;font-size:84px">Then the friction.</div>
+    <div class="abs tapn" id="tapn">0 taps</div>
+    <div class="abs steps" id="steps"></div>
+    <div class="abs serif" id="gone" style="left:110px;right:110px;top:1500px;font-size:96px;line-height:1.05">…and the idea is <i style="color:var(--accent)">gone.</i></div>
+  </div>
+  <!-- S4 logo -->
+  <div class="abs" id="s4" style="inset:0">
+    <svg class="abs" id="bigspark" viewBox="0 0 100 100" style="left:440px;top:600px;width:200px;height:200px"><path d="M50 4 C53 38 62 47 96 50 C62 53 53 62 50 96 C47 62 38 53 4 50 C38 47 47 38 50 4Z" fill="#f2c46d"/></svg>
+    <div class="abs wordmark serif" id="wm">Glint</div>
+    <div class="abs serif" id="tag" style="left:0;right:0;text-align:center;top:1100px;font-size:64px;color:var(--muted)">From idea to AI in two taps.</div>
+  </div>
+  <!-- S5 phone demo -->
+  <div class="abs" id="s5" style="inset:0">
+    <div class="abs caption serif" id="cap5"></div>
+    <div class="abs phone" id="phone"><div class="screen">
+      <div class="ptop"><div class="pmark"><svg viewBox="0 0 100 100" width="34" height="34"><path d="M50 4 C53 38 62 47 96 50 C62 53 53 62 50 96 C47 62 38 53 4 50 C38 47 47 38 50 4Z" fill="#f2c46d"/></svg>Glint</div><div class="dots"><span></span><span></span></div></div>
+      <div class="finder" id="finder">
+        <span class="corner" style="top:24px;left:24px;border-width:4px 0 0 4px"></span><span class="corner" style="top:24px;right:24px;border-width:4px 4px 0 0"></span>
+        <span class="corner" style="bottom:24px;left:24px;border-width:0 0 4px 4px"></span><span class="corner" style="bottom:24px;right:24px;border-width:0 4px 4px 0"></span>
+      </div>
+      <div class="hint">Tap to shoot · Hold to shoot and talk</div>
+      <div class="shutter" id="shutter"></div>
+      <div class="compose" id="compose">
+        <div class="ptop"><div class="pmark"><svg viewBox="0 0 100 100" width="34" height="34"><path d="M50 4 C53 38 62 47 96 50 C62 53 53 62 50 96 C47 62 38 53 4 50 C38 47 47 38 50 4Z" fill="#f2c46d"/></svg>Glint</div><div class="dots"><span></span><span></span></div></div>
+        <div class="stage" id="stage"><div class="pin" id="pin1" style="left:57%;top:22%">1</div></div>
+        <div class="sheet">
+          <div class="chips"><span class="on">● Pin</span><span>✎ Draw</span><span>Undo</span></div>
+          <div class="note" id="note"></div>
+          <div class="mic" id="mic"><div class="ring" id="ring"></div><svg viewBox="0 0 24 24" fill="none" stroke="#1a1408" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+          <div class="wave" id="wave"></div>
+          <div class="send" id="sendb">Send</div>
+        </div>
+        <div class="panel" id="panel">
+          <h4>YOUR CARD</h4>
+          <div class="cardp"><div class="ph"><div class="pin" style="left:57%;top:22%;width:44px;height:44px;margin:-22px 0 0 -22px;font-size:22px">1</div></div>
+            <div class="tx">Make this in deep forest green.<br><br><span style="color:var(--accent)">①</span> Keep the collar exactly as it is.<div style="margin-top:60px;color:var(--muted);font-style:italic;font-family:'Instrument Serif'">✦ glint</div></div></div>
+          <div class="dests"><div class="p" id="dClaude">Claude<small>Opens with your prompt</small></div><div>ChatGPT<small>Opens with your prompt</small></div><div>Share…<small>Any app</small></div><div>Copy card<small>Paste anywhere</small></div></div>
+        </div>
+        <div class="chat" id="chat">
+          <div class="thumb"><div class="pin" style="left:57%;top:22%;width:40px;height:40px;margin:-20px 0 0 -20px;font-size:20px">1</div></div>
+          <div class="bub me">Make this in deep forest green. ① Keep the collar exactly as it is.</div>
+          <div class="bub ai" id="ai"></div>
+        </div>
+      </div>
+      <div class="abs flash" id="flash"></div>
+    </div></div>
+    <div class="abs finger" id="finger"></div>
+    <div class="abs tapn" id="tapn2" style="top:auto;bottom:40px;right:auto;left:50%;transform:translateX(-50%);border-color:var(--accent);color:var(--accent)">1 tap</div>
+  </div>
+  <!-- S6 montage -->
+  <div class="abs" id="s6" style="inset:0">
+    <div class="abs caption serif" id="cap6" style="top:120px">Screenshots. Sketches. <i>Real life.</i></div>
+    <div class="abs mcard" id="m1"><div class="img" id="m1img" style="background-color:#f6f6f8"></div><div class="t">① Make this button the brand brown, full width.<br><span class="to">→ Claude Code</span></div></div>
+    <div class="abs mcard" id="m2"><div class="img" style="background-image:url(../../assets/06-brand-mood.jpg)"><div class="pin" style="left:20%;top:62%">1</div><div class="pin" style="left:91%;top:22%">2</div></div><div class="t">① This quilting on the hood. ② This lilac for the lining.<br><span class="to">→ ChatGPT</span></div></div>
+    <div class="abs mcard" id="m3"><div class="img wb"><svg viewBox="0 0 800 860" fill="none" stroke="#2340e8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M90 110 L700 104 L706 760 L96 768 Z"/><path d="M90 220 L704 214"/><circle cx="160" cy="165" r="26"/><path d="M220 160 L420 158"/>
+      <path d="M140 290 L420 286 L424 520 L144 524 Z"/><path d="M150 300 L410 510 M410 300 L150 510" stroke-width="4"/>
+      <path d="M470 300 L660 298 M470 360 L640 358 M470 420 L600 418"/><path d="M140 600 L380 596 L382 680 L142 684 Z"/><path d="M200 640 L320 638"/>
+      <path d="M470 600 C520 560 600 560 640 610" stroke="#ff5a36"/><path d="M620 580 L642 612 L606 622" stroke="#ff5a36"/></svg>
+      <div class="pin" style="left:32%;top:74%">1</div></div><div class="t">Turn this sketch into a React component. ① Primary action.<br><span class="to">→ Claude</span></div></div>
+  </div>
+  <!-- S7 end -->
+  <div class="abs" id="s7" style="inset:0">
+    <div class="abs end1 serif" id="e1">See it.<br><i>Say it.</i><br>Send it.</div>
+    <div class="abs end2" id="e2">Works with Claude, ChatGPT, Gemini and any app you share to.</div>
+    <div class="abs endmark serif" id="e3"><svg viewBox="0 0 100 100" width="110" height="110"><path d="M50 4 C53 38 62 47 96 50 C62 53 53 62 50 96 C47 62 38 53 4 50 C38 47 47 38 50 4Z" fill="#f2c46d"/></svg>Glint</div>
+    <div class="abs end3" id="e4">TWO TAPS FROM IDEA TO AI</div>
+  </div>
+</div>
+<script>
+const $ = id => document.getElementById(id);
+const cl = v => Math.max(0, Math.min(1, v));
+const ease = t => t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
+const eo = t => 1 - Math.pow(1 - t, 3);
+const k = (t, a, b) => cl((t - a) / (b - a));
+const vis = (el, o, extra = "") => { el.style.opacity = o; el.style.display = o <= 0.001 ? "none" : ""; if (extra !== null) el.style.transform = extra; };
+const between = (t, a, b, fi = .35, fo = .35) => Math.min(eo(k(t, a, a + fi)), 1 - k(t, b - fo, b));
+const STEPS = ["Screenshot it","Find it in Photos","Open the AI app","Start a new chat","Attach. Scroll. Find it again","Type what you meant","Explain which part you meant"];
+$("steps").innerHTML = STEPS.map(s => `<div><span style="color:var(--muted);font-size:40px;width:40px">→</span><s>${s}</s></div>`).join("");
+const NOTE = "Make this in deep forest green. Keep the collar exactly as it is.";
+const AI = "Got it: forest green body, collar untouched. Here are four takes, from bottle green to moss…";
+$("wave").innerHTML = Array.from({length: 40}, () => "<i></i>").join("");
+// montage 1 image: same mock screen used by the app's sample
+(() => { const c = document.createElement("canvas"); c.width = 800; c.height = 860; const x = c.getContext("2d");
+  x.fillStyle = "#f6f6f8"; x.fillRect(0,0,800,860); x.fillStyle="#fff"; x.fillRect(0,0,800,110); x.fillStyle="#111"; x.font="600 40px system-ui"; x.fillText("Brewlist",50,70);
+  const g = x.createLinearGradient(0,140,800,520); g.addColorStop(0,"#3b2a1e"); g.addColorStop(1,"#a0673a"); x.fillStyle=g; x.beginPath(); x.roundRect(44,140,712,380,26); x.fill();
+  x.fillStyle="#fff"; x.font="700 58px system-ui"; x.fillText("Every bean,",84,410); x.fillText("one list.",84,476);
+  x.fillStyle="#e6e8ee"; x.beginPath(); x.roundRect(50,580,700,90,16); x.fill(); x.fillStyle="#8a8f99"; x.font="30px system-ui"; x.fillText("Email address",84,636);
+  x.fillStyle="#c8ccd4"; x.beginPath(); x.roundRect(490,710,260,80,40); x.fill(); x.fillStyle="#fff"; x.font="600 30px system-ui"; x.fillText("Join",590,760);
+  $("m1img").style.backgroundImage = `url(${c.toDataURL()})`; $("m1img").innerHTML = '<div class="pin" style="left:77%;top:87%">1</div>'; })();
+
+function render(t) {
+  // S1/S2: 0–6.4
+  const s12 = t < 6.6;
+  vis($("bg1"), s12 ? 1 : 0, `scale(${1.08 + t * .012}) translateY(${-t * 6}px)`);
+  $("bg1").style.filter = `blur(${Math.max(0, 14 - t * 5)}px) brightness(${.55 + .1 * Math.sin(t)})`;
+  vis($("dim1"), s12 ? 1 - .55 * eo(k(t, 0, 1.6)) - 0 + 0 : 0, null);
+  vis($("l1"), between(t, .4, 3.2), `translateY(${(1 - eo(k(t, .4, 1.2))) * 40}px)`);
+  vis($("l2"), between(t, 3.3, 6.4), `translateY(${(1 - eo(k(t, 3.3, 4.1))) * 40}px)`);
+  const g = k(t, 4.2, 5.6); vis($("gl1"), t > 4.2 && t < 6.4 ? Math.sin(g * Math.PI) : 0, `rotate(${g * 90}deg) scale(${.4 + Math.sin(g * Math.PI) * .9})`);
+  // S3: 6.4–11
+  vis($("s3"), between(t, 6.5, 11, .3, .4), null);
+  const steps = [...$("steps").children]; const per = .45;
+  steps.forEach((el, i) => { const a = 7 + i * per; el.style.opacity = eo(k(t, a, a + .25)); el.style.transform = `translateX(${(1 - eo(k(t, a, a + .25))) * -40}px)`;
+    el.querySelector("s").style.textDecorationLine = t > 7 + steps.length * per + .2 + i * .08 ? "line-through" : "none"; el.style.color = t > 7 + steps.length * per + .2 + i * .08 ? "var(--muted)" : "var(--fg)"; });
+  const taps = Math.min(11, Math.floor(Math.max(0, t - 7) / (per * 7 / 11)));
+  $("tapn").textContent = taps + (taps === 1 ? " tap" : " taps"); $("tapn").style.color = taps >= 11 ? "var(--accent)" : "var(--fg)";
+  vis($("gone"), eo(k(t, 10.2, 10.6)), `translateY(${(1 - eo(k(t, 10.2, 10.6))) * 30}px)`);
+  // S4: 11–13.4
+  vis($("s4"), between(t, 11, 13.6, .1, .35), null);
+  const sp = k(t, 11, 12); $("bigspark").style.transform = `translateY(${(1 - ease(k(t, 11.6, 12.3))) * 0 - ease(k(t, 11.6, 12.3)) * 330}px) rotate(${sp * 180}deg) scale(${eo(sp) * (1 - .55 * ease(k(t, 11.6, 12.3)))})`;
+  vis($("wm"), eo(k(t, 11.8, 12.4)), `translateY(${(1 - eo(k(t, 11.8, 12.4))) * 50}px)`); $("wm").style.letterSpacing = `${(1 - eo(k(t, 11.8, 12.8))) * 30 - 4}px`;
+  vis($("tag"), eo(k(t, 12.3, 12.8)), null);
+  // S5: 13.4–25
+  const s5 = between(t, 13.4, 25.2, .4, .4); vis($("s5"), s5, null);
+  $("phone").style.transform = `translateY(${(1 - eo(k(t, 13.4, 14.2))) * 200}px) scale(${1 - .02 * k(t, 13.4, 25)})`;
+  const caps5 = [[13.6, "Tap. Shoot.", 15.4], [15.4, "Hold, and <i>say it.</i>", 19.6], [19.6, "Tap. <i>Sent.</i>", 25]];
+  const c5 = caps5.find(([a, , b]) => t >= a && t < b); $("cap5").innerHTML = c5 ? c5[1] : ""; $("cap5").style.opacity = c5 ? eo(k(t, c5[0], c5[0] + .3)) : 0;
+  $("finder").style.backgroundSize = `${110 + Math.sin(t * 1.3) * 2}%`;
+  // finger: to shutter 14.2, press 14.6–19.3, to send 19.8 tap 20.1, to claude 21.2 tap 21.4
+  const sh = { x: 540, y: 1611 }, sd = { x: 540, y: 1669 }, dc = { x: 371, y: 1290 };
+  let fx = sh.x, fy = sh.y + 300, fo = 0, fs = 1;
+  if (t > 13.9 && t < 21.9) { fo = 1;
+    const m1 = ease(k(t, 13.9, 14.5)); fx = sh.x; fy = sh.y + 300 * (1 - m1);
+    if (t > 14.5) { fs = t < 19.3 ? .82 : 1; }
+    if (t > 19.3) { const m2 = ease(k(t, 19.4, 19.9)); fx = sh.x + (sd.x - sh.x) * m2; fy = sh.y + (sd.y - sh.y) * m2; fs = (t > 19.95 && t < 20.2) ? .8 : 1; }
+    if (t > 20.4) { const m3 = ease(k(t, 20.6, 21.1)); fx = sd.x + (dc.x - sd.x) * m3; fy = sd.y + (dc.y - sd.y) * m3; fs = (t > 21.15 && t < 21.4) ? .8 : 1; }
+    fo = Math.min(1, k(t, 13.9, 14.1)) * (1 - k(t, 21.6, 21.9)); }
+  vis($("finger"), fo, `scale(${fs})`);
+  $("finger").style.boxShadow = t > 14.6 && t < 19.3 ? `0 0 0 ${10 + ((t * 1.6) % 1) * 40}px rgba(242,196,109,${.5 - ((t * 1.6) % 1) * .5})` : "none"; $("finger").style.left = fx + "px"; $("finger").style.top = fy + "px";
+  $("shutter").style.transform = t > 14.5 && t < 14.9 ? "scale(.92)" : "none";
+  $("flash").style.opacity = t > 14.55 ? Math.max(0, .9 - (t - 14.55) * 3) : 0;
+  vis($("compose"), t > 14.75 ? 1 : 0, null);
+  // note types while held (15.1–19.1)
+  const nchars = Math.floor(NOTE.length * k(t, 15.2, 18.9)); const pinAt = 17.2;
+  $("note").innerHTML = NOTE.slice(0, nchars) + (t < 19.3 ? '<span class="caret"></span>' : "");
+  vis($("pin1"), t > pinAt ? 1 : 0, `scale(${t > pinAt ? Math.min(1.15, eo(k(t, pinAt, pinAt + .15)) * 1.15) - .15 * k(t, pinAt + .15, pinAt + .3) : 0})`);
+  const listening = t > 14.75 && t < 19.3;
+  $("ring").style.opacity = listening ? 1 - ((t * 1.1) % 1) : 0; $("ring").style.transform = `scale(${1 + ((t * 1.1) % 1) * .4})`;
+  [...$("wave").children].forEach((el, i) => { el.style.height = listening ? (12 + Math.abs(Math.sin(t * 9 + i * .7) * Math.sin(t * 3.1 + i * .23)) * 70) + "px" : "8px"; el.style.opacity = listening ? 1 : .3; });
+  $("sendb").textContent = t > 19.3 ? "Send · Claude" : "Send";
+  $("sendb").style.transform = t > 19.95 && t < 20.2 ? "scale(.96)" : "none";
+  const pu = eo(k(t, 20.1, 20.5)); vis($("panel"), t > 20.1 ? 1 : 0, `translateY(${(1 - pu) * 400}px)`);
+  $("dClaude").style.transform = t > 21.15 && t < 21.4 ? "scale(.95)" : "none";
+  vis($("chat"), t > 21.6 ? eo(k(t, 21.6, 21.9)) : 0, null);
+  $("ai").textContent = AI.slice(0, Math.floor(AI.length * k(t, 22.3, 24.4)));
+  $("tapn2").textContent = t > 20.05 ? "2 taps" : "1 tap"; vis($("tapn2"), t > 14.6 && t < 24.8 ? eo(k(t, 14.6, 14.9)) : 0, "translateX(-50%)");
+  // S6: 25–29.8 montage
+  vis($("s6"), between(t, 25, 29.9, .3, .4), null);
+  [["m1", 25.1], ["m2", 26.7], ["m3", 28.3]].forEach(([id, a], i) => { const p = eo(k(t, a, a + .45)); const out = k(t, a + 1.6, a + 1.9);
+    vis($(id), Math.min(p, 1 - out), `translateX(${(1 - p) * 500 - out * 500}px) rotate(${(1 - p) * 6 - out * 6 + (i - 1) * 1.5}deg)`); });
+  // S7: 29.8–34
+  vis($("s7"), eo(k(t, 29.8, 30.3)), null);
+  vis($("e1"), eo(k(t, 30, 30.6)), `translateY(${(1 - eo(k(t, 30, 30.6))) * 40}px)`);
+  vis($("e2"), eo(k(t, 30.8, 31.3)), null);
+  vis($("e3"), eo(k(t, 31.3, 31.9)), `scale(${.9 + .1 * eo(k(t, 31.3, 31.9))})`);
+  vis($("e4"), eo(k(t, 31.9, 32.4)), null);
+}
+window.render = render; window.DURATION = 34;
+render(0);
+</script></body></html>
