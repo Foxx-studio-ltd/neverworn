@@ -225,6 +225,42 @@ textarea::placeholder,.field::placeholder{color:var(--muted)}
   .view#v-compose .sheet{width:420px;border-radius:var(--r) 0 0 0;border-top:0;border-left:1px solid var(--line);justify-content:flex-end}
   .scroll>*{max-width:900px;margin-left:auto;margin-right:auto}
 }
+.cont{margin:8px max(12px,env(safe-area-inset-right,0px)) 0 max(12px,env(safe-area-inset-left,0px));display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:8px 12px 8px 8px;text-align:left;color:var(--fg);box-shadow:var(--shadow)}
+.cont img{width:44px;height:44px;border-radius:10px;object-fit:cover;flex:none}
+.cont span{flex:1;min-width:0;font-size:13px;line-height:1.3;color:var(--muted);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.cont b{display:block;color:var(--fg);font-size:14px}
+.cont em{font-style:normal;font-weight:600;color:var(--accent);font-size:14px;flex:none}
+.tabs{display:flex;gap:6px;margin:0 0 14px;flex-wrap:wrap}
+.item{position:relative}
+.star{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;color:#f5a000;font-size:16px;box-shadow:var(--shadow)}
+.ghostpt.spot{width:120px;height:120px;margin:-60px 0 0 -60px;border-width:4px;background:color-mix(in srgb,var(--people) 22%,transparent);animation:spot 1s ease-out infinite}
+.ghostpt.spot span{left:96px}
+@keyframes spot{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--people) 55%,transparent)}100%{box-shadow:0 0 0 40px transparent}}
+.sec{margin-top:22px}
+.sec h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin:0 0 10px;font-family:var(--f-ui)}
+.results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.res{border:1px solid var(--line);border-radius:var(--r-sm);overflow:hidden;background:var(--surface);display:flex;flex-direction:column;min-width:0}
+.res.lead{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+.res img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.res .rt{padding:10px;font-size:13px;line-height:1.4;max-height:180px;overflow:auto;flex:1}
+.res .rf{display:flex;gap:6px;align-items:center;justify-content:space-between;padding:8px 10px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.vote{border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--fg);padding:5px 10px;font-size:12px;font-weight:600}
+.vote.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.agent{border:1px solid var(--people);background:var(--people-soft);border-radius:var(--r-sm);padding:12px 14px;font-size:14px;line-height:1.5;white-space:pre-wrap}
+.agent b{color:var(--people);display:block;margin-bottom:4px;white-space:normal}
+.replies{margin-top:6px;display:flex;flex-direction:column;gap:6px;border-left:2px solid var(--line);padding-left:10px}
+.reply{font-size:14px}
+.reply small{display:inline;margin-left:2px}
+.mini-btn{border:0;background:none;color:var(--people);font-size:12px;font-weight:600;padding:2px 0;cursor:pointer}
+.week{background:linear-gradient(135deg,var(--accent),#ff8a4c);color:#fff;border:0}
+.week span{color:rgba(255,255,255,.88)}
+.winners{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.settings label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
+.steps-list{margin:0 0 12px;padding-left:20px;font-size:15px;line-height:1.5}
+.steps-list li{margin-bottom:8px}
+.pastebig{position:absolute;inset:0;display:grid;place-items:center;background:color-mix(in srgb,var(--bg) 94%,transparent);z-index:3}
+.lgs svg{width:18px;height:18px}
+.secondary .lgs{display:grid}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
@@ -232,6 +268,7 @@ textarea::placeholder,.field::placeholder{color:var(--muted)}
   <header class="top">
     <button class="mark" id="home" aria-label="Glint, back to camera"><svg class="spark" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 C53 38 62 47 96 50 C62 53 53 62 50 96 C47 62 38 53 4 50 C38 47 47 38 50 4Z"/></svg><i>Glint</i></button>
     <div class="top-r">
+      <button class="iconbtn" id="setBtn" aria-label="Settings" title="Settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button>
       <button class="iconbtn" id="dirBtn" aria-label="Change look" title="Change look">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
       </button>
@@ -259,7 +296,9 @@ textarea::placeholder,.field::placeholder{color:var(--muted)}
       </div>
       <span class="corner c1"></span><span class="corner c2"></span><span class="corner c3"></span><span class="corner c4"></span>
       <div class="flash" id="flash"></div>
+      <div class="pastebig" id="pasteBig" hidden><button class="primary" id="pasteBtn" style="height:64px;font-size:18px;padding:0 28px">Tap to paste your capture</button></div>
     </div>
+    <button class="cont" id="contBtn" hidden></button>
     <p class="hint" id="capHint">Tap the shutter to open your camera.</p>
     <div class="dock">
       <button class="docbtn l" id="inboxBtn" aria-label="Inbox"><span class="iconbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 14h5l1.5 2h5L16 14h5"/></svg><span class="badge" id="count" hidden>0</span></span>Inbox</button>
@@ -277,7 +316,10 @@ textarea::placeholder,.field::placeholder{color:var(--muted)}
       <div class="tools" role="toolbar" aria-label="Markup">
         <button class="chip on" data-mode="pin">● Pin</button>
         <button class="chip" data-mode="draw">✎ Draw</button>
+        <button class="chip" data-mode="blur">▦ Blur</button>
+        <button class="chip" id="autoBlur" hidden>Auto-blur</button>
         <span class="sep"></span>
+        <button class="chip" id="starBtn">☆ Bookmark</button>
         <button class="chip" id="undoBtn">Undo</button>
         <button class="chip" id="discardBtn">Discard</button>
       </div>
@@ -298,6 +340,7 @@ textarea::placeholder,.field::placeholder{color:var(--muted)}
     <div class="scroll">
       <h2 class="h2">Inbox</h2>
       <p class="sub">Saved on this device only. Nothing leaves it until you send.</p>
+      <div class="tabs" id="inTabs"></div>
       <div class="grid" id="grid"></div>
     </div>
   </section>
@@ -314,6 +357,9 @@ textarea::placeholder,.field::placeholder{color:var(--muted)}
   <!-- 5. one room -->
   <section class="view" id="v-room" aria-label="Room"><div class="scroll" id="roomBody"></div></section>
 
+  <!-- 7. settings -->
+  <section class="view" id="v-settings" aria-label="Settings"><div class="scroll" id="setBody"></div></section>
+
   <!-- 6. one post, live -->
   <section class="view" id="v-post" aria-label="Post"><div class="scroll" id="postBody"></div></section>
 
@@ -329,7 +375,7 @@ textarea::placeholder,.field::placeholder{color:var(--muted)}
         <p id="baMsg">Got a result back? Add it and get a side-by-side card to share.</p>
         <div class="row">
           <label class="secondary btn" for="resFile">Add result image<input type="file" id="resFile" accept="image/*" hidden></label>
-          <button class="secondary" id="resAnswer" hidden>Use Claude's answer</button>
+          <button class="secondary" id="resAnswer" hidden>Use this answer</button>
         </div>
       </div>
       <div class="row" style="justify-content:space-between">
@@ -350,7 +396,9 @@ const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const app = $("#app");
 const APP_URL = "https://claude.ai/artifact/43w6hWfMLSTT9aebzLvkzU"; // the shared Claude version (rooms live here)
 const IN_CLAUDE = !!window.claude;
+const PWA_URL = "https://foxx-studio-ltd.github.io/neverworn/glint/"; // the installable app
 const BASE_URL = IN_CLAUDE ? APP_URL : location.origin + location.pathname;
+const SDK_URL = new URL("vendor/anthropic-sdk-1.3.0.mjs", location.href).href; // official Anthropic SDK, bundled locally
 const DIRS = ["day", "lens", "signal"];
 const DIR_NAMES = { day: "Daylight", lens: "Lens", signal: "Signal" };
 const store = {
@@ -360,7 +408,7 @@ const store = {
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
 /* Brand marks, used only to label where a card goes (from @lobehub/icons, MIT). */
-const LOGOS = {"claude": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z\" fill=\"#D97757\" fill-rule=\"nonzero\"></path></svg>", "openai": "<svg aria-hidden=\"true\" fill=\"currentColor\" fill-rule=\"evenodd\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z\"></path></svg>", "grok": "<svg aria-hidden=\"true\" fill=\"currentColor\" fill-rule=\"evenodd\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M9.27 15.29l7.978-5.897c.391-.29.95-.177 1.137.272.98 2.369.542 5.215-1.41 7.169-1.951 1.954-4.667 2.382-7.149 1.406l-2.711 1.257c3.889 2.661 8.611 2.003 11.562-.953 2.341-2.344 3.066-5.539 2.388-8.42l.006.007c-.983-4.232.242-5.924 2.75-9.383.06-.082.12-.164.179-.248l-3.301 3.305v-.01L9.267 15.292M7.623 16.723c-2.792-2.67-2.31-6.801.071-9.184 1.761-1.763 4.647-2.483 7.166-1.425l2.705-1.25a7.808 7.808 0 00-1.829-1A8.975 8.975 0 005.984 5.83c-2.533 2.536-3.33 6.436-1.962 9.764 1.022 2.487-.653 4.246-2.34 6.022-.599.63-1.199 1.259-1.682 1.925l7.62-6.815\"></path></svg>", "gemini": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z\" fill=\"#3186FF\"></path><path d=\"M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z\" fill=\"url(#lobe-icons-gemini-0-_R_0_)\"></path><path d=\"M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z\" fill=\"url(#lobe-icons-gemini-1-_R_0_)\"></path><path d=\"M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z\" fill=\"url(#lobe-icons-gemini-2-_R_0_)\"></path><defs><linearGradient gradientUnits=\"userSpaceOnUse\" id=\"lobe-icons-gemini-0-_R_0_\" x1=\"7\" x2=\"11\" y1=\"15.5\" y2=\"12\"><stop stop-color=\"#08B962\"></stop><stop offset=\"1\" stop-color=\"#08B962\" stop-opacity=\"0\"></stop></linearGradient><linearGradient gradientUnits=\"userSpaceOnUse\" id=\"lobe-icons-gemini-1-_R_0_\" x1=\"8\" x2=\"11.5\" y1=\"5.5\" y2=\"11\"><stop stop-color=\"#F94543\"></stop><stop offset=\"1\" stop-color=\"#F94543\" stop-opacity=\"0\"></stop></linearGradient><linearGradient gradientUnits=\"userSpaceOnUse\" id=\"lobe-icons-gemini-2-_R_0_\" x1=\"3.5\" x2=\"17.5\" y1=\"13.5\" y2=\"12\"><stop stop-color=\"#FABC12\"></stop><stop offset=\".46\" stop-color=\"#FABC12\" stop-opacity=\"0\"></stop></linearGradient></defs></svg>", "perplexity": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M19.785 0v7.272H22.5V17.62h-2.935V24l-7.037-6.194v6.145h-1.091v-6.152L4.392 24v-6.465H1.5V7.188h2.884V0l7.053 6.494V.19h1.09v6.49L19.786 0zm-7.257 9.044v7.319l5.946 5.234V14.44l-5.946-5.397zm-1.099-.08l-5.946 5.398v7.235l5.946-5.234V8.965zm8.136 7.58h1.844V8.349H13.46l6.105 5.54v2.655zm-8.982-8.28H2.59v8.195h1.8v-2.576l6.192-5.62zM5.475 2.476v4.71h5.115l-5.115-4.71zm13.219 0l-5.115 4.71h5.115v-4.71z\" fill=\"#22B8CD\" fill-rule=\"nonzero\"></path></svg>"}; //@logos
+const LOGOS = {"claude": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z\" fill=\"#D97757\" fill-rule=\"nonzero\"></path></svg>", "openai": "<svg aria-hidden=\"true\" fill=\"currentColor\" fill-rule=\"evenodd\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z\"></path></svg>", "grok": "<svg aria-hidden=\"true\" fill=\"currentColor\" fill-rule=\"evenodd\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M9.27 15.29l7.978-5.897c.391-.29.95-.177 1.137.272.98 2.369.542 5.215-1.41 7.169-1.951 1.954-4.667 2.382-7.149 1.406l-2.711 1.257c3.889 2.661 8.611 2.003 11.562-.953 2.341-2.344 3.066-5.539 2.388-8.42l.006.007c-.983-4.232.242-5.924 2.75-9.383.06-.082.12-.164.179-.248l-3.301 3.305v-.01L9.267 15.292M7.623 16.723c-2.792-2.67-2.31-6.801.071-9.184 1.761-1.763 4.647-2.483 7.166-1.425l2.705-1.25a7.808 7.808 0 00-1.829-1A8.975 8.975 0 005.984 5.83c-2.533 2.536-3.33 6.436-1.962 9.764 1.022 2.487-.653 4.246-2.34 6.022-.599.63-1.199 1.259-1.682 1.925l7.62-6.815\"></path></svg>", "gemini": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z\" fill=\"#3186FF\"></path><path d=\"M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z\" fill=\"url(#lobe-icons-gemini-0-_R_0_)\"></path><path d=\"M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z\" fill=\"url(#lobe-icons-gemini-1-_R_0_)\"></path><path d=\"M20.616 10.835a14.147 14.147 0 01-4.45-3.001 14.111 14.111 0 01-3.678-6.452.503.503 0 00-.975 0 14.134 14.134 0 01-3.679 6.452 14.155 14.155 0 01-4.45 3.001c-.65.28-1.318.505-2.002.678a.502.502 0 000 .975c.684.172 1.35.397 2.002.677a14.147 14.147 0 014.45 3.001 14.112 14.112 0 013.679 6.453.502.502 0 00.975 0c.172-.685.397-1.351.677-2.003a14.145 14.145 0 013.001-4.45 14.113 14.113 0 016.453-3.678.503.503 0 000-.975 13.245 13.245 0 01-2.003-.678z\" fill=\"url(#lobe-icons-gemini-2-_R_0_)\"></path><defs><linearGradient gradientUnits=\"userSpaceOnUse\" id=\"lobe-icons-gemini-0-_R_0_\" x1=\"7\" x2=\"11\" y1=\"15.5\" y2=\"12\"><stop stop-color=\"#08B962\"></stop><stop offset=\"1\" stop-color=\"#08B962\" stop-opacity=\"0\"></stop></linearGradient><linearGradient gradientUnits=\"userSpaceOnUse\" id=\"lobe-icons-gemini-1-_R_0_\" x1=\"8\" x2=\"11.5\" y1=\"5.5\" y2=\"11\"><stop stop-color=\"#F94543\"></stop><stop offset=\"1\" stop-color=\"#F94543\" stop-opacity=\"0\"></stop></linearGradient><linearGradient gradientUnits=\"userSpaceOnUse\" id=\"lobe-icons-gemini-2-_R_0_\" x1=\"3.5\" x2=\"17.5\" y1=\"13.5\" y2=\"12\"><stop stop-color=\"#FABC12\"></stop><stop offset=\".46\" stop-color=\"#FABC12\" stop-opacity=\"0\"></stop></linearGradient></defs></svg>", "perplexity": "<svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M19.785 0v7.272H22.5V17.62h-2.935V24l-7.037-6.194v6.145h-1.091v-6.152L4.392 24v-6.465H1.5V7.188h2.884V0l7.053 6.494V.19h1.09v6.49L19.786 0zm-7.257 9.044v7.319l5.946 5.234V14.44l-5.946-5.397zm-1.099-.08l-5.946 5.398v7.235l5.946-5.234V8.965zm8.136 7.58h1.844V8.349H13.46l6.105 5.54v2.655zm-8.982-8.28H2.59v8.195h1.8v-2.576l6.192-5.62zM5.475 2.476v4.71h5.115l-5.115-4.71zm13.219 0l-5.115 4.71h5.115v-4.71z\" fill=\"#22B8CD\" fill-rule=\"nonzero\"></path></svg>", "slack": "<svg aria-hidden=\"true\" fill=\"#4A154B\" role=\"img\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z\"/></svg>"}; //@logos
 
 /* ---------- Platform: what this device/host can do ---------- */
 const P = {
@@ -386,7 +434,7 @@ const DB = (() => {
   return {
     async put(c) { mem.set(c.id, c); try { await tx("readwrite", s => s.put(c)); } catch {} },
     async del(id) { mem.delete(id); try { await tx("readwrite", s => s.delete(id)); } catch {} },
-    async all() { try { (await tx("readonly", s => s.getAll())).forEach(c => mem.set(c.id, c)); } catch {} return [...mem.values()].sort((a, b) => b.created - a.created); }
+    async all() { try { (await tx("readonly", s => s.getAll())).forEach(c => mem.set(c.id, c)); } catch {} return [...mem.values()].sort((a, b) => (b.updated || b.created) - (a.updated || a.created)); }
   };
 })();
 
@@ -395,7 +443,7 @@ const DB = (() => {
 let cap = null, target = "note", mode = "pin", pendingNote = "", template = null;
 const newId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 let saveT = 0;
-const save = () => { if (!cap || cap.ephemeral) return; clearTimeout(saveT); saveT = setTimeout(() => { DB.put(cap); refreshCount(); }, 250); };
+const save = () => { if (!cap || cap.ephemeral) return; clearTimeout(saveT); saveT = setTimeout(() => { cap.updated = Date.now(); DB.put(cap); refreshCount(); }, 250); };
 
 /* ---------- UI helpers ---------- */
 let toastT = 0;
@@ -404,7 +452,7 @@ const leaveHooks = [];
 function show(v) {
   while (leaveHooks.length) try { leaveHooks.pop()(); } catch {}
   $$(".view").forEach(x => x.classList.toggle("on", x.id === "v-" + v));
-  if (v === "capture") maybeStartCam(); else stopCam();
+  if (v === "capture") { maybeStartCam(); refreshCount(); } else stopCam();
   if (v === "compose") requestAnimationFrame(layoutStage);
 }
 function setDir(d) { if (!DIRS.includes(d)) d = "day"; app.dataset.dir = d; store.set("dir", d); }
@@ -489,7 +537,8 @@ let photoURL = null;
 async function openCompose() {
   if (photoURL) URL.revokeObjectURL(photoURL);
   photoURL = URL.createObjectURL(cap.img); const ph = $("#photo"); ph.src = photoURL; await ph.decode().catch(() => {});
-  show("compose"); layoutStage(); renderPins(); renderTargets(); syncNote(); drawInk(); updateSendLabel();
+  show("compose"); layoutStage(); renderPins(); renderTargets(); syncNote(); drawInk(); updateSendLabel(); syncStar();
+  $("#autoBlur").hidden = !("FaceDetector" in window || "TextDetector" in window);
 }
 function layoutStage() {
   if (!cap) return; const wrap = $("#stagewrap"), st = $("#stage");
@@ -505,7 +554,32 @@ function drawInk() {
   if (!cap) return; const cv = $("#ink"), ctx = cv.getContext("2d"); ctx.clearRect(0, 0, cv.width, cv.height);
   ctx.lineCap = ctx.lineJoin = "round"; ctx.strokeStyle = css("--ink"); ctx.lineWidth = Math.max(4, cv.width / 140);
   cap.strokes.forEach(s => strokePath(ctx, s, cv.width, cv.height));
+  const ph = $("#photo"); (cap.redact || []).map(normRect).forEach(r => { if (ph.naturalWidth) pixelate(ctx, ph, r, cv.width, cv.height, Math.max(10, cv.width / 16));
+    ctx.save(); ctx.setLineDash([8, 6]); ctx.lineWidth = 2; ctx.strokeStyle = "#fff"; ctx.strokeRect(r.x * cv.width, r.y * cv.height, r.w * cv.width, r.h * cv.height); ctx.restore(); });
 }
+/* Redaction: blur boxes are pixelated into every copy that leaves the device; the original stays untouched locally. */
+const normRect = r => ({ x: Math.min(r.x, r.x + r.w), y: Math.min(r.y, r.y + r.h), w: Math.abs(r.w), h: Math.abs(r.h) });
+function pixelate(ctx, src, r, W, H, block) {
+  const sw0 = src.naturalWidth || src.width, sh0 = src.naturalHeight || src.height, rw = r.w * W, rh = r.h * H; if (rw < 2 || rh < 2) return;
+  const t = document.createElement("canvas"); t.width = Math.max(1, Math.round(rw / block)); t.height = Math.max(1, Math.round(rh / block));
+  t.getContext("2d").drawImage(src, r.x * sw0, r.y * sh0, r.w * sw0, r.h * sh0, 0, 0, t.width, t.height);
+  const prev = ctx.imageSmoothingEnabled; ctx.imageSmoothingEnabled = false; ctx.drawImage(t, 0, 0, t.width, t.height, r.x * W, r.y * H, rw, rh); ctx.imageSmoothingEnabled = prev;
+}
+const flatCache = new WeakMap();
+async function flatBlob(c) {
+  const R = (c.redact || []).map(normRect).filter(r => r.w > .005 && r.h > .005); if (!R.length) return c.img;
+  const sig = JSON.stringify(R) + c.img.size; const hit = flatCache.get(c); if (hit && hit.sig === sig) return hit.blob;
+  const bmp = await createImageBitmap(c.img); const cv = document.createElement("canvas"); cv.width = bmp.width; cv.height = bmp.height; const x = cv.getContext("2d"); x.drawImage(bmp, 0, 0);
+  R.forEach(r => pixelate(x, bmp, r, cv.width, cv.height, Math.max(14, Math.min(cv.width, cv.height) / 28)));
+  const blob = await new Promise(res => cv.toBlob(res, "image/jpeg", .92)); flatCache.set(c, { sig, blob }); return blob;
+}
+$("#autoBlur").onclick = async () => {
+  const img = $("#photo"); let n = 0; cap.redact = cap.redact || [];
+  const addBox = b => { const pad = .01; cap.redact.push({ x: b.x / img.naturalWidth - pad, y: b.y / img.naturalHeight - pad, w: b.width / img.naturalWidth + pad * 2, h: b.height / img.naturalHeight + pad * 2 }); n++; };
+  try { if ("FaceDetector" in window) (await new FaceDetector({ fastMode: true }).detect(img)).forEach(f => addBox(f.boundingBox)); } catch {}
+  try { if ("TextDetector" in window) (await new TextDetector().detect(img)).filter(t => /@|\d{3,}|\d[\d\s-]{6,}\d/.test(t.rawValue || "")).forEach(t => addBox(t.boundingBox)); } catch {}
+  drawInk(); save(); toast(n ? `Blurred ${n} spot${n === 1 ? "" : "s"} (faces, emails, numbers). Check before sending.` : "Nothing found to blur. Drag with ▦ Blur to cover anything private.", 3500);
+};
 function renderPins() {
   const box = $("#pins"); box.innerHTML = "";
   cap.pins.forEach(p => { const b = document.createElement("button"); b.className = "pin" + (target === p.n ? " active" : "") + (p.by ? " mate" : ""); b.textContent = p.n;
@@ -524,18 +598,21 @@ function syncNote() { const t = $("#note"); t.value = curText(); t.placeholder =
 function selectTarget(id) { target = id; renderPins(); renderTargets(); syncNote(); }
 $("#note").addEventListener("input", e => { setCurText(e.target.value); if (target !== "note") renderTargets(); });
 
-$$(".tools [data-mode]").forEach(b => b.onclick = () => { mode = b.dataset.mode; $$(".tools [data-mode]").forEach(x => x.classList.toggle("on", x === b)); toast(mode === "pin" ? "Tap the picture to pin a spot" : "Draw on the picture"); });
+$$(".tools [data-mode]").forEach(b => b.onclick = () => { mode = b.dataset.mode; $$(".tools [data-mode]").forEach(x => x.classList.toggle("on", x === b)); toast(mode === "pin" ? "Tap the picture to pin a spot" : mode === "blur" ? "Drag over anything private. It's blurred in everything you send." : "Draw on the picture"); });
 const stage = $("#stage"); let drawing = null, downPt = null;
 const ptIn = (el, e) => { const r = el.getBoundingClientRect(); return { x: Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)), y: Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)) }; };
-stage.addEventListener("pointerdown", e => { stage.setPointerCapture(e.pointerId); downPt = ptIn(stage, e); if (mode === "draw") { drawing = [downPt]; cap.strokes.push(drawing); } });
-stage.addEventListener("pointermove", e => { if (drawing) { drawing.push(ptIn(stage, e)); drawInk(); } });
+let blurRect = null;
+stage.addEventListener("pointerdown", e => { stage.setPointerCapture(e.pointerId); downPt = ptIn(stage, e); if (mode === "draw") { drawing = [downPt]; cap.strokes.push(drawing); }
+  if (mode === "blur") { blurRect = { x: downPt.x, y: downPt.y, w: 0, h: 0 }; (cap.redact = cap.redact || []).push(blurRect); } });
+stage.addEventListener("pointermove", e => { if (drawing) { drawing.push(ptIn(stage, e)); drawInk(); } if (blurRect) { const p = ptIn(stage, e); blurRect.w = p.x - blurRect.x; blurRect.h = p.y - blurRect.y; drawInk(); } });
 stage.addEventListener("pointerup", () => {
+  if (blurRect) { const i = cap.redact.indexOf(blurRect), r = normRect(blurRect); if (r.w < .02 || r.h < .02) cap.redact.splice(i, 1); else cap.redact[i] = r; blurRect = null; downPt = null; drawInk(); save(); return; }
   if (drawing) { if (drawing.length < 2) cap.strokes.pop(); drawing = null; drawInk(); save(); return; }
   if (mode === "pin" && downPt) { const n = cap.pins.reduce((m, p) => Math.max(m, p.n), 0) + 1; cap.pins.push({ n, x: downPt.x, y: downPt.y, text: "" }); selectTarget(n); save(); if (navigator.vibrate) navigator.vibrate(8); }
   downPt = null;
 });
 $("#undoBtn").onclick = () => { const lastPin = cap.pins[cap.pins.length - 1]; const hasStroke = cap.strokes.length;
-  if (mode === "draw" && hasStroke) cap.strokes.pop(); else if (lastPin) { cap.pins.pop(); if (target === lastPin.n) target = "note"; } else if (hasStroke) cap.strokes.pop();
+  if (mode === "blur" && cap.redact?.length) cap.redact.pop(); else if (mode === "draw" && hasStroke) cap.strokes.pop(); else if (lastPin) { cap.pins.pop(); if (target === lastPin.n) target = "note"; } else if (hasStroke) cap.strokes.pop();
   renderPins(); renderTargets(); syncNote(); drawInk(); save(); };
 let discardArmed = 0;
 $("#discardBtn").onclick = async e => { if (Date.now() - discardArmed > 2500) { discardArmed = Date.now(); e.target.textContent = "Tap again to delete"; setTimeout(() => e.target.textContent = "Discard", 2500); return; }
@@ -602,7 +679,7 @@ function pinDot(x, cx, cy, n, r, mate) {
   x.fillStyle = mate ? "#fff" : css("--pin-ink"); x.font = `700 ${Math.round(r * 1.05)}px ${css("--f-ui")}`; x.textAlign = "center"; x.textBaseline = "middle"; x.fillText(String(n), cx, cy + 1); x.restore();
 }
 async function drawCapture(x, c, ox, oy, iw, ih) {
-  const bmp = await createImageBitmap(c.img); x.drawImage(bmp, ox, oy, iw, ih);
+  const bmp = await createImageBitmap(await flatBlob(c)); x.drawImage(bmp, ox, oy, iw, ih);
   x.save(); x.translate(ox, oy); x.lineCap = x.lineJoin = "round"; x.strokeStyle = css("--ink"); x.lineWidth = Math.max(5, iw / 140); c.strokes.forEach(s => strokePath(x, s, iw, ih)); x.restore();
   const r = Math.max(16, Math.min(30, iw / 34)); c.pins.forEach(p => pinDot(x, ox + p.x * iw, oy + p.y * ih, p.n, r, !!p.by));
 }
@@ -677,7 +754,9 @@ async function readHash() {
   if (h.startsWith("remix-")) { try { template = await unpackTemplate(h.slice(6)); const b = $("#remixBanner");
       b.innerHTML = `<span>✦</span><span><b>Remix from a friend.</b> ${template.pins.length} pin${template.pins.length === 1 ? "" : "s"}${template.note ? ", “" + esc(template.note.slice(0, 60)) + (template.note.length > 60 ? "…" : "") + "”" : ""}. Snap your own photo to use it.</span><button aria-label="Dismiss">×</button>`;
       b.hidden = false; b.querySelector("button").onclick = () => { template = null; b.hidden = true; }; show("capture"); } catch { toast("That remix link looks broken."); } }
-  if (h.startsWith("room-") && P.db) openRoom(h.slice(5));
+  if (h.startsWith("room-") && P.db) openRoom(decId(h.slice(5)));
+  if (h.startsWith("post-") && P.db) { const [a, b] = h.slice(5).split("-"); if (a && b) openPost(decId(a), decId(b)); }
+  if (h === "settings-iphone" || h === "iphone") openSettings();
 }
 
 /* ---------- Destinations: a registry of verbs. Adding one = adding an object. ---------- */
@@ -686,9 +765,14 @@ const SYS = {
   copy: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>',
   save: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>',
   remix: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>',
+  chat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H9l-5 4z"/></svg>',
   room: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="3.2"/><circle cx="16.5" cy="10" r="2.6"/><path d="M3.5 19c.8-3 3-4.6 5.5-4.6s4.7 1.6 5.5 4.6"/></svg>'
 };
 const DESTS = [
+  { id: "claude-key", verb: "Claude it", sub: "Your key · answer here", logo: "claude", when: () => !IN_CLAUDE && !!keys().anthropic, run: pkg => direct("anthropic", pkg) },
+  { id: "chatgpt-key", verb: "ChatGPT it", sub: "Your key · answer here", logo: "openai", when: () => !IN_CLAUDE && !!keys().openai, run: pkg => direct("openai", pkg) },
+  { id: "grok-key", verb: "Grok it", sub: "Your key · answer here", logo: "grok", when: () => !IN_CLAUDE && !!keys().xai, run: pkg => direct("xai", pkg) },
+  { id: "gemini-key", verb: "Gemini it", sub: "Your key · answer here", logo: "gemini", when: () => !IN_CLAUDE && !!keys().gemini, run: pkg => direct("gemini", pkg) },
   { id: "claude-here", verb: "Claude it", sub: "Answer right here", logo: "claude", when: () => P.sample && P.sampleImages, run: askInline },
   { id: "claude", verb: "Claude it", sub: "Opens Claude", logo: "claude", href: t => "https://claude.ai/new?q=" + encodeURIComponent(t) },
   { id: "chatgpt", verb: "ChatGPT it", sub: "Opens ChatGPT", logo: "openai", href: t => "https://chatgpt.com/?q=" + encodeURIComponent(t) },
@@ -711,6 +795,7 @@ async function copyPkg(pkg) {
   try { await navigator.clipboard.write([new ClipboardItem({ "image/png": pkg.card, "text/plain": new Blob([pkg.text], { type: "text/plain" }) })]); return true; }
   catch { try { await navigator.clipboard.write([new ClipboardItem({ "image/png": pkg.card })]); return true; } catch { try { await navigator.clipboard.writeText(pkg.text); return true; } catch { return false; } } }
 }
+const prefer = id => available().some(d => d.id === id + "-key") ? id + "-key" : id; // your own key beats a link
 const iconOf = d => d.logo ? (LOGOS[d.logo] || "") : (SYS[d.sys] || "");
 const available = () => DESTS.filter(d => !d.when || d.when());
 let pkg = null, answerText = "";
@@ -720,7 +805,7 @@ async function openSend() {
   pkg = { text: promptText(cap), card: await renderCard(cap, $("#wm").checked) };
   if (cap.result) pkg.card = await renderBA(cap, cap.result, $("#wm").checked);
   $("#cardPrev").src = URL.createObjectURL(pkg.card);
-  const last = store.get("last", "claude"); const list = available();
+  const last = prefer(store.get("last", "claude").replace(/-key$/, "")); const list = available();
   const hero = list.find(d => d.id === last) || list.find(d => d.id === "claude-here") || list.find(d => d.logo);
   const heroBox = $("#heroDest"); heroBox.innerHTML = ""; if (hero) heroBox.appendChild(destEl(hero, true));
   const box = $("#dests"); box.innerHTML = ""; list.filter(d => d !== hero).forEach(d => box.appendChild(destEl(d)));
@@ -735,7 +820,7 @@ function destEl(d, isHero) {
 }
 function mark(id) { store.set("last", id); if (cap && !cap.ephemeral) { cap.sent.push({ to: id, at: Date.now() }); save(); } updateSendLabel(); }
 function updateSendLabel() {
-  const list = available(); const d = list.find(x => x.id === store.get("last", "claude")) || list.find(x => x.id === "claude-here") || list.find(x => x.logo);
+  const list = available(); const d = list.find(x => x.id === prefer(store.get("last", "claude").replace(/-key$/, ""))) || list.find(x => x.id === "claude-here") || list.find(x => x.logo);
   $("#sendBtn").innerHTML = d ? `<span class="logo-chip">${iconOf(d)}</span>${esc(d.verb)}` : "Send";
 }
 $("#sendBtn").onclick = openSend;
@@ -754,86 +839,161 @@ async function askInline(pkg) {
   const ans = $("#answer"); ans.hidden = false; ans.textContent = "Thinking…"; $("#resAnswer").hidden = true;
   askCtl?.abort(); askCtl = new AbortController();
   const input = "The attached image is a photo or screenshot the user just captured. Numbered pins mark spots they refer to. Their note:\n\n" + pkg.text + "\n\nRespond directly and concretely to what they ask. Keep it tight.";
-  try { await P.sample(input, { images: [cap.img], onText: ({ text }) => { ans.textContent = text; answerText = text; }, signal: askCtl.signal, cache: false }); $("#resAnswer").hidden = !answerText; return ""; }
+  try { await P.sample(input, { images: [await flatBlob(cap)], onText: ({ text }) => { ans.textContent = text; answerText = text; }, signal: askCtl.signal, cache: false }); $("#resAnswer").hidden = !answerText; return ""; }
   catch (e) { ans.textContent = e?.code === "rate_limited" ? "Claude is busy. Try again in a moment." : e?.code === "not_granted" ? "Claude access is off for this page." : "Couldn't reach Claude. Try another option."; if (e?.code === "not_granted") P.sample = null; return ""; }
 }
 
-/* ---------- Inbox ---------- */
-async function refreshCount() { const all = await DB.all(); const b = $("#count"); b.hidden = !all.length; b.textContent = all.length; }
-$("#inboxBtn").onclick = async () => {
-  const all = await DB.all(); const g = $("#grid"); g.innerHTML = "";
-  if (!all.length) g.innerHTML = `<p class="empty-state">Nothing yet. Your captures land here.</p>`;
-  all.forEach(c => { const b = document.createElement("button"); b.className = "item"; const im = document.createElement("img"); im.alt = ""; im.src = URL.createObjectURL(c.img); b.appendChild(im);
-    const d = document.createElement("div"); d.innerHTML = (c.example ? `<span class="tag">Example</span>` : "") + (c.result ? `<span class="tag">Before → After</span>` : ""); d.append(c.note || c.pins.map(p => p.text).filter(Boolean).join(" · ") || "No note yet"); b.appendChild(d);
-    const s = document.createElement("small"); s.textContent = new Date(c.created).toLocaleString([], { month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" }) + (c.pins.length ? ` · ${c.pins.length} pin${c.pins.length > 1 ? "s" : ""}` : "") + (c.sent.length ? " · sent" : ""); b.appendChild(s);
-    b.onclick = () => { cap = c; target = "note"; openCompose(); }; g.appendChild(b); });
-  show("inbox");
-};
+/* ---------- History: inbox tabs, bookmarks, "pick up where you left off" ---------- */
+const relTime = ts => { const s = (Date.now() - ts) / 1000; if (s < 60) return "just now"; if (s < 3600) return Math.floor(s / 60) + "m ago"; if (s < 86400) return Math.floor(s / 3600) + "h ago"; if (s < 7 * 86400) return Math.floor(s / 86400) + "d ago"; return new Date(ts).toLocaleDateString([], { month: "short", day: "numeric" }); };
+const DEST_NAME = id => (DESTS.find(d => d.id === id)?.verb || id).replace(/ it$/, "");
+async function refreshCount() { const all = await DB.all(); const b = $("#count"); b.hidden = !all.length; b.textContent = all.length; refreshCont(all); }
+function unfinished(all) { return all.find(c => !c.example && !c.sent?.length && (c.note || c.pins.length) && Date.now() - (c.updated || c.created) < 14 * 86400000); }
+function refreshCont(all) {
+  const b = $("#contBtn"); const c = unfinished(all || []);
+  if (!c) { b.hidden = true; return; }
+  b.hidden = false; b.innerHTML = `<img alt="" src="${URL.createObjectURL(c.img)}"><span><b>Pick up where you left off</b>${esc(c.note || c.pins.map(p => p.text).filter(Boolean).join(" · ") || "Unsent capture")} · ${relTime(c.updated || c.created)}</span><em>Continue →</em>`;
+  b.onclick = () => { cap = c; target = "note"; openCompose(); };
+}
+const TABS = [["all", "All"], ["star", "★ Bookmarked"], ["open", "Unsent"], ["sent", "Sent"]];
+async function openInbox() {
+  const all = await DB.all(); let tab = store.get("tab", "all");
+  const draw = () => {
+    $("#inTabs").innerHTML = TABS.map(([k, l]) => `<button class="chip${k === tab ? " on" : ""}" data-k="${k}">${l}</button>`).join("");
+    $$("#inTabs .chip").forEach(b => b.onclick = () => { tab = b.dataset.k; store.set("tab", tab); draw(); });
+    const list = all.filter(c => tab === "star" ? c.star : tab === "open" ? !c.sent?.length : tab === "sent" ? c.sent?.length : true);
+    const g = $("#grid"); g.innerHTML = "";
+    if (!list.length) g.innerHTML = `<p class="empty-state" style="grid-column:1/-1">${tab === "star" ? "Nothing bookmarked yet. Tap ☆ Bookmark while editing to keep a capture handy." : tab === "open" ? "All caught up. Nothing unsent." : "Nothing here yet. Your captures land here."}</p>`;
+    list.forEach(c => { const b = document.createElement("button"); b.className = "item"; const im = document.createElement("img"); im.alt = ""; im.src = URL.createObjectURL(c.img); b.appendChild(im);
+      if (c.star) { const s = document.createElement("span"); s.className = "star"; s.textContent = "★"; b.appendChild(s); }
+      const d = document.createElement("div"); d.innerHTML = (c.example ? `<span class="tag">Example</span>` : "") + (c.result ? `<span class="tag">Before → After</span>` : ""); d.append(c.note || c.pins.map(p => p.text).filter(Boolean).join(" · ") || "No note yet"); b.appendChild(d);
+      const sent = [...new Set((c.sent || []).map(s => DEST_NAME(s.to)))];
+      const s = document.createElement("small"); s.textContent = "Edited " + relTime(c.updated || c.created) + (c.pins.length ? ` · ${c.pins.length} pin${c.pins.length > 1 ? "s" : ""}` : "") + (sent.length ? " · sent to " + sent.slice(0, 2).join(", ") : ""); b.appendChild(s);
+      b.onclick = () => { cap = c; target = "note"; openCompose(); }; g.appendChild(b); });
+  };
+  draw(); show("inbox");
+}
+$("#inboxBtn").onclick = openInbox;
+$("#starBtn").onclick = () => { if (!cap || cap.ephemeral) return; cap.star = !cap.star; syncStar(); save(); toast(cap.star ? "Bookmarked. Find it under Inbox → Bookmarked." : "Bookmark removed"); };
+function syncStar() { $("#starBtn").textContent = cap?.star ? "★ Bookmarked" : "☆ Bookmark"; $("#starBtn").classList.toggle("on", !!cap?.star); }
+// room history and saved posts (this device only)
+function pushRecent(item) { const r = store.get("recent", []).filter(x => !(x.rid === item.rid && x.pid === item.pid)); r.unshift({ ...item, at: Date.now() }); store.set("recent", r.slice(0, 10)); }
+const marks = () => store.get("marks", []);
+const isMarked = (rid, pid) => marks().some(m => m.rid === rid && m.pid === pid);
+function toggleMark(item) { let m = marks(); if (isMarked(item.rid, item.pid)) m = m.filter(x => !(x.rid === item.rid && x.pid === item.pid)); else m.unshift({ ...item, at: Date.now() }); store.set("marks", m.slice(0, 50)); return isMarked(item.rid, item.pid); }
 
-/* ---------- Together: live rooms (db + room + user capabilities in the Claude version) ---------- */
+/* ---------- Together: live rooms (db + room + user + sample + tts in the Claude version) ---------- */
 const CHALLENGES = ["Fix my room in two taps", "Outfit check", "Redesign this screen", "Bug bash: pin every bug", "What should we build here?"];
+const WEEKLY = ["Fix my room in two taps", "Outfit check", "Redesign an app screen you use daily", "Make my desk better", "Spot a design fail in the wild", "Reinvent a menu", "Bug bash: pin every bug", "Upgrade the packaging", "Glow up a poster", "Make this space work harder", "Rename and rebrand it", "Fix the worst form you've seen"];
+const PERSONAS = ["Design critic", "Engineer", "Stylist", "Helpful generalist"];
 const profiles = {};
 async function names(ids) { ids = [...new Set(ids.filter(Boolean))].filter(i => !profiles[i]); if (ids.length && P.user?.profiles) { try { Object.assign(profiles, await P.user.profiles(ids)); } catch {} } }
-const nameOf = id => (id && profiles[id]?.name) || (id && id === P.me ? "You" : "Someone");
+const nameOf = id => id === "agent" ? "Room agent" : (id && profiles[id]?.name) || (id && id === P.me ? "You" : "Someone");
 const colorOf = id => profiles[id]?.color || "#2f6bff";
 const initials = n => n.split(/\s+/).map(s => s[0]).join("").slice(0, 2).toUpperCase();
+const encId = id => /^[A-Za-z0-9]+$/.test(id) ? "a" + id : "h" + [...new TextEncoder().encode(id)].map(b => b.toString(16).padStart(2, "0")).join("");
+const decId = s => s[0] === "a" ? s.slice(1) : /^h(?:[0-9a-f]{2})+$/.test(s) ? new TextDecoder().decode(Uint8Array.from(s.slice(1).match(/../g), h => parseInt(h, 16))) : s;
+const roomLink = rid => APP_URL + "#room-" + encId(rid);
+const postLink = (rid, pid) => APP_URL + "#post-" + encId(rid) + "-" + encId(pid);
+function isoWeek(d = new Date()) { const t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())); const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day); const y = t.getUTCFullYear(); const w = Math.ceil(((t - Date.UTC(y, 0, 1)) / 86400000 + 1) / 7); return { y, w }; }
+const weekId = (o = 0) => { const d = new Date(Date.now() - o * 7 * 86400000); const { y, w } = isoWeek(d); return `wk-${y}-${String(w).padStart(2, "0")}`; };
+const weekPrompt = id => WEEKLY[(parseInt(id.slice(-2), 10) + parseInt(id.slice(3, 7), 10)) % WEEKLY.length];
+const daysLeft = () => { const d = new Date().getDay(); return d === 0 ? 0 : 7 - d; };
 function loadGuard(el, ms = 10000) { el.dataset.loading = 1; const t = setTimeout(() => { if (el.dataset.loading) el.innerHTML = `<p class="empty-state">Couldn't load. Check your connection and open Together again.</p>`; }, ms); return () => { clearTimeout(t); delete el.dataset.loading; }; }
+const speak = text => { if (P.tts) return P.tts.speak(text.slice(0, 2000)).catch(() => {}); try { speechSynthesis.cancel(); speechSynthesis.speak(new SpeechSynthesisUtterance(text)); } catch { toast("Read-aloud isn't available here."); } };
 $("#roomsBtn").onclick = openRooms;
+async function ensureWeekly() {
+  const id = weekId(); const ref = P.db.doc("rooms/" + id);
+  try { const s = await ref.get(); if (!s.exists) await ref.set({ title: "This week: " + weekPrompt(id), weekly: true, week: id, at: Date.now() }); } catch {}
+  return id;
+}
+let winnersCache = null;
+async function winners() {
+  if (winnersCache) return winnersCache; const out = [];
+  for (let o = 1; o <= 4; o++) { const id = weekId(o);
+    try { const r = await P.db.doc("rooms/" + id).get(); if (!r.exists) continue;
+      const posts = await P.db.collection(`rooms/${id}/posts`).limit(60).get(); let best = null;
+      for (const d of posts.docs) { const g = await P.db.collection(`rooms/${id}/posts/${d.id}/glints`).get(); if (!best || g.size > best.n) best = { n: g.size, pid: d.id, rid: id, img: d.data()?.img, by: d.data()?.by, title: r.data()?.title }; }
+      if (best && best.n > 0) out.push(best);
+    } catch {} }
+  return (winnersCache = out);
+}
 function openRooms() {
   show("rooms"); const body = $("#roomsBody");
   if (!P.db) {
     body.innerHTML = `<div class="empty-state">${IN_CLAUDE ? "Sign in to Claude to start or join a room." : `Live rooms run in the shared Claude version of Glint.<br><br><a class="secondary" href="${APP_URL}" target="_blank" rel="noopener">Open Glint in Claude</a><br><br>Here you can still send friends a <b>Remix link</b> from any card. They open it and your pins become their template.`}</div>`;
     return;
   }
-  body.innerHTML = `<div class="form"><b>Start a challenge</b><input class="field" id="roomTitle" maxlength="80" placeholder="Name it, e.g. Living room refresh"><div class="suggest" id="sugg"></div><button class="primary" id="mkRoom">Start room</button></div><div class="rooms" id="roomList"><p class="empty-state">Loading rooms…</p></div>`;
+  const recent = store.get("recent", []), saved = marks();
+  body.innerHTML = `<div id="weekly"></div>
+    ${recent.length ? `<div class="sec"><h3>Jump back in</h3><div class="suggest" id="recentRow"></div></div>` : ""}
+    ${saved.length ? `<div class="sec"><h3>★ Saved posts</h3><div class="suggest" id="savedRow"></div></div>` : ""}
+    <div class="sec"><h3>Start a room</h3><div class="form"><input class="field" id="roomTitle" maxlength="80" placeholder="Name it, e.g. Living room refresh"><div class="suggest" id="sugg"></div><button class="primary" id="mkRoom">Start room</button></div></div>
+    <div class="sec"><h3>Rooms</h3><div class="rooms" id="roomList"><p class="empty-state">Loading rooms…</p></div></div>
+    <div class="sec" id="winSec" hidden><h3>Winners' wall</h3><div class="winners" id="winList"></div></div>`;
+  const chip = (it, i, key) => `<button class="chip" data-i="${i}" data-key="${key}">${it.pid ? "Post · " : ""}${esc((it.title || "Room").slice(0, 34))}</button>`;
+  if (recent.length) { $("#recentRow").innerHTML = recent.slice(0, 6).map((it, i) => chip(it, i, "recent")).join(""); }
+  if (saved.length) { $("#savedRow").innerHTML = saved.slice(0, 8).map((it, i) => chip(it, i, "marks")).join(""); }
+  $$("#recentRow .chip, #savedRow .chip").forEach(b => b.onclick = () => { const it = store.get(b.dataset.key, [])[+b.dataset.i]; it.pid ? openPost(it.rid, it.pid) : openRoom(it.rid); });
   $("#sugg").innerHTML = CHALLENGES.map(c => `<button class="chip">${esc(c)}</button>`).join("");
   $$("#sugg .chip").forEach(b => b.onclick = () => { $("#roomTitle").value = b.textContent; });
   $("#mkRoom").onclick = async () => { const title = $("#roomTitle").value.trim() || CHALLENGES[0];
     try { const ref = await P.db.collection("rooms").add({ title: title.slice(0, 80), by: P.me, at: Date.now() }); toast("Room started. Copy the invite link for your team."); openRoom(ref.id); } catch { toast("Couldn't start a room. You may only have view access."); } };
+  ensureWeekly().then(id => { const w = $("#weekly"); if (!w) return; const left = daysLeft();
+    w.innerHTML = `<button class="room week" id="weekBtn"><b>✦ This week's challenge: ${esc(weekPrompt(id))}</b><span>${left ? left + " day" + (left === 1 ? "" : "s") + " left" : "Last day"} · most ✦ Glints wins · tap to join</span></button>`;
+    $("#weekBtn").onclick = () => openRoom(id); });
   const list = $("#roomList"); const done = loadGuard(list);
   const un = P.db.collection("rooms").orderBy("at", "desc").limit(50).onSnapshot(async snap => { done();
     await names(snap.docs.map(d => d.data()?.by));
-    list.innerHTML = snap.empty ? `<p class="empty-state">No rooms yet. Start the first one above.</p>` : "";
-    snap.docs.forEach(d => { const r = d.data() || {}; const b = document.createElement("button"); b.className = "room";
-      b.innerHTML = `<b>${esc(r.title || "Untitled")}</b><span>${r.by ? "Started by " + esc(nameOf(r.by)) + " · " : ""}${new Date(r.at || 0).toLocaleDateString([], { month: "short", day: "numeric" })}</span>`; b.onclick = () => openRoom(d.id); list.appendChild(b); });
+    const docs = snap.docs.filter(d => !d.data()?.weekly);
+    list.innerHTML = docs.length ? "" : `<p class="empty-state">No rooms yet. Start the first one above.</p>`;
+    docs.forEach(d => { const r = d.data() || {}; const b = document.createElement("button"); b.className = "room";
+      b.innerHTML = `<b>${esc(r.title || "Untitled")}</b><span>${r.by ? "Started by " + esc(nameOf(r.by)) + " · " : ""}${new Date(r.at || 0).toLocaleDateString([], { month: "short", day: "numeric" })}${r.agent?.on ? " · ✦ agent on" : ""}</span>`; b.onclick = () => openRoom(d.id); list.appendChild(b); });
   }, () => { done(); list.innerHTML = `<p class="empty-state">Couldn't load rooms.</p>`; });
   leaveHooks.push(un);
+  winners().then(ws => { if (!ws.length || !$("#winList")) return; $("#winSec").hidden = false;
+    $("#winList").innerHTML = ws.map((w, i) => `<button class="item" data-i="${i}"><img alt="" src="${esc(w.img)}"><div>${esc(w.title.replace("This week: ", ""))}</div><small>✦ ${w.n} · ${esc(nameOf(w.by))}</small></button>`).join("");
+    $$("#winList .item").forEach(b => b.onclick = () => { const w = ws[+b.dataset.i]; openPost(w.rid, w.pid); }); });
 }
-function presenceFor(rid, pid) { if (P.room) P.room.presence({ rid, pid: pid || null, pt: null }).catch(() => {}); }
+function presenceFor(rid, pid) { if (P.room) P.room.presence({ rid, pid: pid || null, pt: null, point: false }).catch(() => {}); }
 function peersHere(rid, pid) { try { return P.room ? P.room.peers().filter(p => !p.isMe && p.presence?.rid === rid && (!pid || p.presence?.pid === pid)) : []; } catch { return []; } }
 async function avatars(peers) { await names(peers.map(p => p.by)); const ids = [P.me, ...new Set(peers.map(p => p.by))].filter(Boolean);
   return `<span class="people">${ids.slice(0, 5).map(id => `<span class="av" style="background:${esc(colorOf(id))}" title="${esc(nameOf(id))}">${esc(initials(nameOf(id)))}</span>`).join("")}<span>${peers.length ? peers.length + 1 + " here now" : "Just you right now"}</span></span>`; }
 async function openRoom(rid) {
   store.set("room", rid); show("room"); presenceFor(rid, null); const body = $("#roomBody"); body.innerHTML = `<p class="empty-state">Loading…</p>`; const done = loadGuard(body);
   let room = null, posts = [], busy = false, again = false;
-  const unRoom = P.db.doc("rooms/" + rid).onSnapshot(s => { if (!s.exists) { done(); body.innerHTML = `<p class="empty-state">This room was deleted.</p>`; return; } room = s.data(); draw(); }, () => { done(); body.innerHTML = `<p class="empty-state">Couldn't open this room.</p>`; });
+  const unRoom = P.db.doc("rooms/" + rid).onSnapshot(s => { if (!s.exists) { done(); body.innerHTML = `<p class="empty-state">This room was deleted.</p>`; return; } room = s.data(); pushRecent({ rid, title: room.title }); draw(); }, () => { done(); body.innerHTML = `<p class="empty-state">Couldn't open this room.</p>`; });
   const unPosts = P.db.collection(`rooms/${rid}/posts`).orderBy("at", "desc").limit(60).onSnapshot(async snap => { posts = snap.docs.map(d => ({ id: d.id, ...d.data() })); await names(posts.map(p => p.by)); draw(); });
   const unPeers = P.room ? P.room.onPeers(() => draw()) : () => {};
   async function draw() {
     if (!room) return; if (busy) { again = true; return; } busy = true; done();
     const ppl = await avatars(peersHere(rid));
     if (!$("#v-room").classList.contains("on")) { busy = false; return; }
+    const ag = room.agent?.on ? room.agent.persona : null;
     body.innerHTML = `<button class="chip" id="backRooms">← All rooms</button>
       <h2 class="h2" style="margin-top:12px">${esc(room.title)}</h2>
-      <div class="row" style="margin-bottom:14px">${ppl}<span class="live">Live</span></div>
-      <div class="row" style="margin-bottom:16px"><button class="primary" id="postNew">＋ Post a capture</button><button class="secondary" id="copyRoom">${SYS.remix} Invite link</button></div>
+      <div class="row" style="margin-bottom:12px">${ppl}<span class="live">Live</span></div>
+      <div class="row" style="margin-bottom:16px"><button class="primary" id="postNew">＋ Post a capture</button><button class="secondary" id="copyRoom">${SYS.remix} Invite link</button>
+        <button class="secondary" id="agentBtn" title="An AI member that answers every new post">${LOGOS.claude || ""} ${ag ? "Agent: " + esc(ag) : "Add room agent"}</button></div>
       <div class="grid" id="feed"></div>`;
     $("#backRooms").onclick = openRooms;
     $("#postNew").onclick = () => { show("capture"); toast("Shoot it, then choose Post to room"); };
-    $("#copyRoom").onclick = async () => { const url = APP_URL + "#room-" + rid; try { await navigator.clipboard.writeText(url); toast("Invite link copied. Share Glint with them in Claude too.", 3500); } catch { toast(url, 5000); } };
+    $("#copyRoom").onclick = async () => { const url = roomLink(rid); try { await navigator.clipboard.writeText(url); toast("Invite link copied. Share Glint with them in Claude too.", 3500); } catch { toast(url, 5000); } };
+    $("#agentBtn").onclick = async () => { const i = ag ? PERSONAS.indexOf(ag) : -1; const next = i + 1 < PERSONAS.length ? PERSONAS[i + 1] : null;
+      try { await P.db.doc("rooms/" + rid).set({ ...room, agent: next ? { on: true, persona: next, by: P.me } : { on: false } }); toast(next ? "Room agent: " + next + ". It answers each new post." : "Room agent off"); } catch { toast("Only people who can edit can change this."); } };
     const feed = $("#feed");
     if (!posts.length) feed.innerHTML = `<p class="empty-state" style="grid-column:1/-1">Nobody has posted yet. Be first: snap something and post it here.</p>`;
     posts.forEach(p => { const b = document.createElement("button"); b.className = "item";
-      b.innerHTML = `<img alt="" src="${esc(p.img)}"><div>${esc(p.note || "No note")}</div><small>${esc(nameOf(p.by))} · ${(p.pins || []).length} pin${(p.pins || []).length === 1 ? "" : "s"}</small>`;
+      b.innerHTML = `<img alt="" src="${esc(p.img)}">${isMarked(rid, p.id) ? '<span class="star">★</span>' : ""}<div>${esc(p.note || "No note")}</div><small>${esc(nameOf(p.by))} · ${(p.pins || []).length} pin${(p.pins || []).length === 1 ? "" : "s"} · ${relTime(p.at || 0)}</small>`;
       b.onclick = () => openPost(rid, p.id); feed.appendChild(b); });
     busy = false; if (again) { again = false; draw(); }
   }
   leaveHooks.push(() => { unRoom(); unPosts(); unPeers(); });
 }
-async function shrinkForRoom(c) {
+async function dataURL(blob) { return new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(blob); }); }
+async function shrinkBlob(blob) {
   // stay under the shared store's 256 KiB document limit
   for (const [edge, q] of [[1000, .78], [820, .7], [640, .62], [480, .55]]) {
-    const n = await normalise(c.img, edge, "image/jpeg", q); const url = await new Promise(r => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(n.blob); });
+    const n = await normalise(blob, edge, "image/jpeg", q); const url = await dataURL(n.blob);
     if (url.length < 190000) return { url, w: n.w, h: n.h };
   }
   return null;
@@ -841,58 +1001,214 @@ async function shrinkForRoom(c) {
 async function postToRoomFlow() {
   const rid = store.get("room", null);
   if (!rid) { $("#scrim").classList.remove("on"); openRooms(); return "Pick or start a room, then post from there."; }
-  const img = await shrinkForRoom(cap); if (!img) return "That picture is too big to post.";
+  const img = await shrinkBlob(await flatBlob(cap)); if (!img) return "That picture is too big to post.";
   try { const ref = await P.db.collection(`rooms/${rid}/posts`).add({ by: P.me, at: Date.now(), img: img.url, w: img.w, h: img.h, note: cap.note.slice(0, 1000), pins: cap.pins.map(p => ({ n: p.n, x: p.x, y: p.y, text: p.text.slice(0, 300) })) });
     $("#scrim").classList.remove("on"); openPost(rid, ref.id); return "Posted. Your team sees it now.";
   } catch { return "Couldn't post. You may only have view access."; }
 }
+async function runAgent(rid, pid, post, pins, persona, force) {
+  if (!P.sample || !P.sampleImages) return false;
+  const lock = P.db.doc(`rooms/${rid}/posts/${pid}/agent/lock`);
+  try { const r = await lock.acquire({ holder: P.me || "viewer", ttlMs: 90000 }); if (!r?.acquired) return false; } catch { return false; }
+  const ref = P.db.doc(`rooms/${rid}/posts/${pid}/results/agent`);
+  if (!force) { try { if ((await ref.get()).exists) return false; } catch {} }
+  const brief = promptText({ note: post.note || "", pins });
+  const input = `You are the AI member of a team room on Glint, acting as a ${persona}. The team posted the attached picture. Numbered pins mark spots; names say who pinned what.\n\nTeam brief:\n${brief}\n\nReply to the team with concrete, specific suggestions they can act on. Refer to pins by number. Under 150 words, plain text.`;
+  try { const blob = await (await fetch(post.img)).blob();
+    const res = await P.sample(input, { images: [blob], cache: false });
+    await ref.set({ kind: "agent", by: "agent", persona, text: (res.text || "").slice(0, 4000), at: Date.now(), pins: pins.length });
+    return true;
+  } catch { return false; }
+}
 async function openPost(rid, pid) {
   show("post"); presenceFor(rid, pid); const body = $("#postBody"); body.innerHTML = `<p class="empty-state">Loading…</p>`; const done = loadGuard(body);
-  let post = null, notes = [], glints = [], built = false, pending = null;
+  let post = null, room = null, notes = [], glints = [], results = [], votes = [], replies = [], built = false, pending = null, replyKey = null;
+  P.db.doc("rooms/" + rid).get().then(s => { room = s.data() || {}; maybeAgent(); }).catch(() => {});
   const unP = P.db.doc(`rooms/${rid}/posts/${pid}`).onSnapshot(s => { post = s.exists ? { id: pid, ...s.data() } : null; build(); }, () => { done(); body.innerHTML = `<p class="empty-state">Couldn't open this post.</p>`; });
-  const unN = P.db.collection(`rooms/${rid}/posts/${pid}/notes`).orderBy("at").limit(200).onSnapshot(async s => {
+  const sub = (name, order, cb) => P.db.collection(`rooms/${rid}/posts/${pid}/${name}`).orderBy(order).limit(200).onSnapshot(cb, () => {});
+  const unN = sub("notes", "at", async s => {
     const before = notes.length; notes = s.docs.map(d => ({ id: d.id, ...d.data() })); await names(notes.map(n => n.by));
     const last = notes[notes.length - 1]; if (before && notes.length > before && last && last.by !== P.me) { toast(nameOf(last.by) + " pinned: " + (last.text || "").slice(0, 40)); if (navigator.vibrate) navigator.vibrate(12); }
     paintNotes(); });
-  const unG = P.db.collection(`rooms/${rid}/posts/${pid}/glints`).onSnapshot(s => { glints = s.docs.map(d => d.id); paintGlint(); });
+  const unG = P.db.collection(`rooms/${rid}/posts/${pid}/glints`).onSnapshot(s => { glints = s.docs.map(d => d.id); paintGlint(); }, () => {});
+  const unR = sub("results", "at", async s => { results = s.docs.map(d => ({ id: d.id, ...d.data() })); await names(results.map(r => r.by)); paintResults(); });
+  const unV = P.db.collection(`rooms/${rid}/posts/${pid}/votes`).onSnapshot(s => { votes = s.docs.map(d => ({ id: d.id, ...d.data() })); paintResults(); }, () => {});
+  const unY = sub("replies", "at", async s => { replies = s.docs.map(d => ({ id: d.id, ...d.data() })); await names(replies.map(r => r.by)); paintNotes(); });
   const unPeers = P.room ? P.room.onPeers(() => paintPeers()) : () => {};
-  leaveHooks.push(() => { unP(); unN(); unG(); unPeers(); presenceFor(rid, null); });
-  function allPins() { const own = (post.pins || []).map(p => ({ ...p, by: null })); const base = own.length; return own.concat(notes.map((n, i) => ({ n: base + i + 1, x: n.x, y: n.y, text: n.text, by: n.by, byName: nameOf(n.by) }))); }
+  leaveHooks.push(() => { unP(); unN(); unG(); unR(); unV(); unY(); unPeers(); presenceFor(rid, null); });
+  function allPins() { const own = (post.pins || []).map(p => ({ ...p, by: null, key: "p" + p.n })); const base = own.length; return own.concat(notes.map((n, i) => ({ n: base + i + 1, x: n.x, y: n.y, text: n.text, by: n.by, byName: nameOf(n.by), key: n.id }))); }
+  function teamCap(blob) { return { id: "room-" + pid, ephemeral: true, created: Date.now(), img: blob, w: post.w, h: post.h, note: post.note || "", pins: allPins(), strokes: [], sent: [] }; }
+  let agentTried = false;
+  function maybeAgent(force) { if (!post || !room?.agent?.on || (agentTried && !force)) return; agentTried = true;
+    if (!force && results.some(r => r.id === "agent")) return;
+    if (!P.sample) { if (force) toast("The room agent needs Claude access on this page."); return; }
+    const el = $("#agentState"); if (el) el.textContent = "Room agent is thinking…";
+    runAgent(rid, pid, post, allPins(), room.agent.persona, force).then(ok => { const e = $("#agentState"); if (e) e.textContent = ok ? "" : ""; }); }
   async function build() {
     if (!post) { done(); body.innerHTML = `<p class="empty-state">This post was deleted.</p>`; return; }
     if (built) return; built = true; done(); await names([post.by]);
+    pushRecent({ rid, pid, title: (post.note || "Post").slice(0, 40) });
     body.innerHTML = `<div class="post-hd"><button class="chip" id="backRoom">← Room</button><span id="ppl"></span></div>
-      <div class="postimg" id="pimg"><img alt="Shared capture" src="${esc(post.img)}"><div id="ppins"></div><div id="ghosts"></div></div>
+      <div class="postimg" id="pimg"><img alt="Shared capture" src="${esc(post.img)}"><div id="ppins"></div><div id="ghosts"></div><div id="myspot"></div></div>
       <p class="sub" style="margin:12px 0 4px"><b style="color:var(--fg)">${esc(nameOf(post.by))}</b>: ${esc(post.note || "No note")}</p>
       <div class="sheet" id="addBox" hidden style="border-radius:var(--r-sm);border:1px solid var(--line);margin-top:8px;padding:12px">
         <div class="noterow"><textarea id="pnote" rows="2" placeholder="What about this spot? Hold the mic or type."></textarea><button class="mic" id="pmic" aria-label="Hold to talk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button></div>
         <div class="row"><button class="primary" id="addPin">Add pin</button><button class="secondary" id="cancelPin">Cancel</button></div></div>
-      <p class="hint" style="text-align:left;padding:6px 0 0">Tap the picture to add your pin. Everyone here sees it land.</p>
+      <p class="hint" style="text-align:left;padding:6px 0 0">Tap to pin. Press and hold to point: everyone here sees a spotlight where your finger is.</p>
       <div class="notes" id="pnotes"></div>
-      <div class="row" style="margin-top:18px"><button class="secondary" id="glintBtn">✦ Glint</button><button class="secondary" id="remixPost">${SYS.remix} Remix</button><button class="primary" id="teamSend">Send team brief</button></div>`;
+      <div class="row" style="margin-top:18px"><button class="secondary" id="glintBtn">✦ Glint</button><button class="secondary" id="markBtn">☆ Save</button><button class="secondary" id="remixPost">${SYS.remix} Remix</button><button class="primary" id="teamSend">Send team brief</button></div>
+      <div class="row" style="margin-top:10px"><button class="secondary" id="slackBtn"><span class="lgs">${LOGOS.slack || ""}</span>Slack</button><a class="secondary" id="teamsBtn" target="_blank" rel="noopener" href="#">${SYS.chat} Teams</a><button class="secondary" id="linkBtn">${SYS.remix} Post link</button></div>
+      <div class="sec"><h3>Room agent</h3><div id="agentBox"></div><p class="hint" id="agentState" style="text-align:left;padding:4px 0 0"></p></div>
+      <div class="sec"><h3>Results · vote for the best</h3><div class="results" id="resList"></div>
+        <div class="row" style="margin-top:10px"><label class="secondary btn" for="resUp">＋ Add a result<input type="file" id="resUp" accept="image/*" hidden></label></div></div>`;
     $("#backRoom").onclick = () => openRoom(rid);
-    const pimg = $("#pimg");
-    pimg.addEventListener("click", e => { if (e.target.closest(".pin")) return; pending = ptIn(pimg, e); $("#addBox").hidden = false; paintNotes(); P.room?.presence({ pt: [pending.x, pending.y] }).catch(() => {}); $("#pnote").focus({ preventScroll: true }); });
-    pimg.addEventListener("pointermove", e => { if (P.room && e.pointerType === "mouse" && !pending) { const p = ptIn(pimg, e); P.room.presence({ pt: [Math.round(p.x * 1000) / 1000, Math.round(p.y * 1000) / 1000] }).catch(() => {}); } });
-    pimg.addEventListener("pointerleave", () => { if (!pending) P.room?.presence({ pt: null }).catch(() => {}); });
+    const pimg = $("#pimg"); let holdT = 0, pointing = false, startPt = null, suppress = false, lastSend = 0;
+    const sendPt = (p, point) => { const now = Date.now(); if (now - lastSend < 50 && point) return; lastSend = now; P.room?.presence({ pt: p ? [Math.round(p.x * 1000) / 1000, Math.round(p.y * 1000) / 1000] : null, point: !!point }).catch(() => {}); };
+    const mySpot = p => { $("#myspot").innerHTML = p ? `<div class="ghostpt spot" style="left:${p.x * 100}%;top:${p.y * 100}%"><span>You</span></div>` : ""; };
+    pimg.addEventListener("pointerdown", e => { if (e.target.closest(".pin")) return; startPt = ptIn(pimg, e); clearTimeout(holdT);
+      holdT = setTimeout(() => { pointing = true; suppress = true; if (navigator.vibrate) navigator.vibrate(15); mySpot(startPt); sendPt(startPt, true); }, 380); });
+    pimg.addEventListener("pointermove", e => { const p = ptIn(pimg, e);
+      if (pointing) { e.preventDefault(); mySpot(p); sendPt(p, true); return; }
+      if (startPt && Math.hypot((p.x - startPt.x) * pimg.clientWidth, (p.y - startPt.y) * pimg.clientHeight) > 12) clearTimeout(holdT);
+      if (P.room && e.pointerType === "mouse" && !pending) sendPt(p, false); });
+    const endPoint = () => { clearTimeout(holdT); startPt = null; if (pointing) { pointing = false; mySpot(null); sendPt(null, false); } };
+    pimg.addEventListener("pointerup", endPoint); pimg.addEventListener("pointercancel", endPoint);
+    pimg.addEventListener("pointerleave", () => { endPoint(); if (!pending) sendPt(null, false); });
+    pimg.style.touchAction = "pan-y";
+    pimg.addEventListener("contextmenu", e => e.preventDefault());
+    pimg.addEventListener("click", e => { if (suppress) { suppress = false; return; } if (e.target.closest(".pin")) return; pending = ptIn(pimg, e); $("#addBox").hidden = false; paintNotes(); P.room?.presence({ pt: [pending.x, pending.y], point: false }).catch(() => {}); $("#pnote").focus({ preventScroll: true }); });
     Voice.bind($("#pmic"), { sink: { get: () => $("#pnote").value, set: v => { $("#pnote").value = v; } }, focus: $("#pnote") });
-    $("#cancelPin").onclick = () => { pending = null; $("#addBox").hidden = true; Voice.stop(); paintNotes(); P.room?.presence({ pt: null }).catch(() => {}); };
+    $("#cancelPin").onclick = () => { pending = null; $("#addBox").hidden = true; Voice.stop(); paintNotes(); sendPt(null, false); };
     $("#addPin").onclick = async () => { const text = $("#pnote").value.trim(); if (!pending || !text) return toast(pending ? "Say or type something first" : "Tap the picture first");
       Voice.stop(); const pt = pending; pending = null; $("#addBox").hidden = true; $("#pnote").value = "";
-      try { await P.db.collection(`rooms/${rid}/posts/${pid}/notes`).add({ by: P.me, at: Date.now(), x: pt.x, y: pt.y, text: text.slice(0, 300) }); P.room?.presence({ pt: null }).catch(() => {}); } catch { toast("Couldn't add your pin. You may only have view access."); } };
+      try { await P.db.collection(`rooms/${rid}/posts/${pid}/notes`).add({ by: P.me, at: Date.now(), x: pt.x, y: pt.y, text: text.slice(0, 300) }); sendPt(null, false); } catch { toast("Couldn't add your pin. You may only have view access."); } };
     $("#glintBtn").onclick = async () => { const ref = P.db.doc(`rooms/${rid}/posts/${pid}/glints/${P.me}`); try { glints.includes(P.me) ? await ref.delete() : await ref.set({ at: Date.now() }); } catch { toast("Couldn't react here."); } };
+    const syncMark = () => { $("#markBtn").textContent = isMarked(rid, pid) ? "★ Saved" : "☆ Save"; };
+    $("#markBtn").onclick = () => { const on = toggleMark({ rid, pid, title: (post.note || "Post").slice(0, 40) }); syncMark(); toast(on ? "Saved. Find it under Together → Saved posts." : "Removed from saved"); }; syncMark();
     $("#remixPost").onclick = async () => { const blob = await (await fetch(post.img)).blob(); await loadBlob(blob, { note: post.note || "", pins: allPins().map(p => ({ n: p.n, x: p.x, y: p.y, text: p.text, by: p.by || undefined, byName: p.by ? p.byName : undefined })) }); toast("Remixing. Your copy is in your inbox."); };
-    $("#teamSend").onclick = async () => { const blob = await (await fetch(post.img)).blob(); cap = { id: "room-" + pid, ephemeral: true, created: Date.now(), img: blob, w: post.w, h: post.h, note: post.note || "", pins: allPins(), strokes: [], sent: [] }; await openSend(); };
-    paintNotes(); paintGlint(); paintPeers();
+    $("#teamSend").onclick = async () => { cap = teamCap(await (await fetch(post.img)).blob()); await openSend(); };
+    const shareText = () => `${room?.title ? room.title + ": " : ""}${post.note || "Have a look"}\n${allPins().filter(p => p.text).map(p => `${p.n}. ${p.text}`).join("\n")}\nPin it with us: ${postLink(rid, pid)}`;
+    const cardPkg = async () => { const c = teamCap(await (await fetch(post.img)).blob()); return { text: shareText(), card: await renderCard(c, true) }; };
+    $("#slackBtn").onclick = async () => { const ok = await copyPkg(await cardPkg()); toast(ok ? "Card + link copied. Paste into a Slack channel." : "Couldn't copy here. Use Post link.", 3500); };
+    $("#teamsBtn").href = "https://teams.microsoft.com/share?href=" + encodeURIComponent(postLink(rid, pid)) + "&msgText=" + encodeURIComponent(shareText().slice(0, 900));
+    $("#teamsBtn").onclick = () => { cardPkg().then(copyPkg); toast("Opening Teams. The card is copied too: paste it in.", 3500); };
+    $("#linkBtn").onclick = async () => { try { await navigator.clipboard.writeText(postLink(rid, pid)); toast("Post link copied. Teammates open it straight to this picture."); } catch { toast(postLink(rid, pid), 5000); } };
+    $("#resUp").onchange = async e => { const f = e.target.files[0]; e.target.value = ""; if (!f) return; const img = await shrinkBlob(f); if (!img) return toast("That picture is too big.");
+      try { await P.db.collection(`rooms/${rid}/posts/${pid}/results`).add({ kind: "image", by: P.me, at: Date.now(), img: img.url }); toast("Result added. The room can vote now."); } catch { toast("Couldn't add a result."); } };
+    paintNotes(); paintGlint(); paintPeers(); paintResults(); maybeAgent();
   }
   function paintNotes() {
     if (!built || !post || !$("#ppins")) return; const pins = allPins();
     $("#ppins").innerHTML = pins.map(p => `<span class="pin${p.by ? " mate" : ""}" style="left:${p.x * 100}%;top:${p.y * 100}%" title="${esc(p.text)}">${p.n}</span>`).join("") + (pending ? `<span class="pin active" style="left:${pending.x * 100}%;top:${pending.y * 100}%">＋</span>` : "");
-    $("#pnotes").innerHTML = pins.filter(p => p.text).map(p => `<div class="nt"><span class="pin${p.by ? " mate" : ""}">${p.n}</span><div>${esc(p.text)}<small>${esc(p.by ? p.byName : nameOf(post.by))}</small></div></div>`).join("") || `<p class="hint" style="text-align:left;padding:0">No pins yet.</p>`;
+    const rep = k => replies.filter(r => r.pin === k);
+    $("#pnotes").innerHTML = pins.filter(p => p.text).map(p => `<div class="nt"><span class="pin${p.by ? " mate" : ""}">${p.n}</span><div style="flex:1;min-width:0">${esc(p.text)}<small>${esc(p.by ? p.byName : nameOf(post.by))} · <button class="mini-btn" data-say="${esc(p.text)}">🔊 Play</button> · <button class="mini-btn" data-reply="${esc(p.key)}">Reply</button></small>
+      ${rep(p.key).length ? `<div class="replies">${rep(p.key).map(r => `<div class="reply">${esc(r.text)} <small>— ${esc(nameOf(r.by))} · <button class="mini-btn" data-say="${esc(r.text)}">🔊</button></small></div>`).join("")}</div>` : ""}
+      ${replyKey === p.key ? `<div class="noterow" style="margin-top:8px"><textarea id="rnote" rows="1" placeholder="Reply by voice: hold the mic" style="min-height:40px;font-size:15px"></textarea><button class="mic" id="rmic" style="width:44px;height:44px" aria-label="Hold to talk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><button class="primary" id="rsend" style="height:44px">Reply</button></div>` : ""}</div></div>`).join("") || `<p class="hint" style="text-align:left;padding:0">No pins yet.</p>`;
+    $$("#pnotes [data-say]").forEach(b => b.onclick = () => speak(b.dataset.say));
+    $$("#pnotes [data-reply]").forEach(b => b.onclick = () => { replyKey = replyKey === b.dataset.reply ? null : b.dataset.reply; paintNotes(); $("#rnote")?.focus({ preventScroll: true }); });
+    if ($("#rmic")) { Voice.bind($("#rmic"), { sink: { get: () => $("#rnote").value, set: v => { $("#rnote").value = v; } }, focus: $("#rnote") });
+      $("#rsend").onclick = async () => { const t = $("#rnote").value.trim(); if (!t) return toast("Say or type a reply first"); Voice.stop(); const key = replyKey; replyKey = null;
+        try { await P.db.collection(`rooms/${rid}/posts/${pid}/replies`).add({ by: P.me, at: Date.now(), pin: key, text: t.slice(0, 600) }); } catch { toast("Couldn't reply here."); } paintNotes(); }; }
   }
   function paintGlint() { const b = $("#glintBtn"); if (b) { b.textContent = glints.length ? `✦ ${glints.length} Glint${glints.length === 1 ? "" : "s"}` : "✦ Glint"; b.style.borderColor = glints.includes(P.me) ? "var(--accent)" : ""; } }
+  function paintResults() {
+    const box = $("#resList"); if (!box) return;
+    const ag = results.find(r => r.id === "agent"), others = results.filter(r => r.id !== "agent");
+    const pinsNow = post ? allPins().length : 0;
+    $("#agentBox").innerHTML = room?.agent?.on ? (ag ? `<div class="agent"><b>✦ ${esc(ag.persona || "Room agent")} (Claude) · ${relTime(ag.at)}</b>${esc(ag.text)}</div>
+        <div class="row" style="margin-top:8px"><button class="secondary" id="agentAgain">Ask again${pinsNow > (ag.pins || 0) ? ` with ${pinsNow - (ag.pins || 0)} new pin${pinsNow - (ag.pins || 0) === 1 ? "" : "s"}` : ""}</button><button class="secondary" id="agentSay">🔊 Play</button></div>`
+        : `<p class="hint" style="text-align:left;padding:0">${P.sample ? "The room agent answers this post in a moment." : "The room agent is on. It answers when someone with Claude access opens this post."}</p><button class="secondary" id="agentAgain" style="margin-top:8px">Ask the agent now</button>`)
+      : `<p class="hint" style="text-align:left;padding:0">No agent in this room. Turn one on from the room page.</p>`;
+    $("#agentAgain") && ($("#agentAgain").onclick = () => { agentTried = false; maybeAgent(true); });
+    $("#agentSay") && ($("#agentSay").onclick = () => speak(ag.text));
+    const cands = [...(ag ? [ag] : []), ...others];
+    const tally = id => votes.filter(v => v.pick === id).length; const mine = votes.find(v => v.id === P.me)?.pick;
+    const top = Math.max(0, ...cands.map(c => tally(c.id)));
+    box.innerHTML = cands.length ? cands.map(r => `<div class="res${top && tally(r.id) === top ? " lead" : ""}">${r.img ? `<img alt="Result" src="${esc(r.img)}">` : `<div class="rt"><b>${esc(r.persona || "Room agent")}</b><br>${esc(r.text)}</div>`}
+        <div class="rf"><span>${esc(nameOf(r.by))}${top && tally(r.id) === top ? " · Room pick" : ""}</span><span class="row" style="gap:4px"><button class="vote${mine === r.id ? " on" : ""}" data-v="${esc(r.id)}">▲ ${tally(r.id)}</button><button class="vote" data-ba="${esc(r.id)}">B→A</button></span></div></div>`).join("")
+      : `<p class="hint" style="text-align:left;padding:0;grid-column:1/-1">Add the results you got back (or let the room agent answer), then vote. Two or more makes it a vote.</p>`;
+    $$("#resList [data-v]").forEach(b => b.onclick = async () => { const ref = P.db.doc(`rooms/${rid}/posts/${pid}/votes/${P.me}`); try { mine === b.dataset.v ? await ref.delete() : await ref.set({ pick: b.dataset.v, at: Date.now() }); } catch { toast("Couldn't vote here."); } });
+    $$("#resList [data-ba]").forEach(b => b.onclick = async () => { const r = cands.find(c => c.id === b.dataset.ba); cap = teamCap(await (await fetch(post.img)).blob());
+      cap.result = r.img ? { img: await (await fetch(r.img)).blob() } : { text: r.text }; await openSend(); });
+  }
   async function paintPeers() { if (!built) return; const peers = peersHere(rid, pid); const html = await avatars(peers); if (!$("#ppl")) return; $("#ppl").innerHTML = html;
-    $("#ghosts").innerHTML = peers.filter(p => Array.isArray(p.presence?.pt)).map(p => `<div class="ghostpt" style="left:${+p.presence.pt[0] * 100}%;top:${+p.presence.pt[1] * 100}%"><span>${esc(nameOf(p.by))}</span></div>`).join(""); }
+    $("#ghosts").innerHTML = peers.filter(p => Array.isArray(p.presence?.pt)).map(p => `<div class="ghostpt${p.presence.point ? " spot" : ""}" style="left:${+p.presence.pt[0] * 100}%;top:${+p.presence.pt[1] * 100}%"><span>${esc(nameOf(p.by))}${p.presence.point ? " is pointing" : ""}</span></div>`).join(""); }
+}
+
+/* ---------- Settings: your own API keys, iPhone shortcut ---------- */
+const PROVIDERS = [
+  ["anthropic", "Anthropic (Claude)", "claude-opus-5-5"], ["openai", "OpenAI (ChatGPT)", "gpt-5"], ["xai", "xAI (Grok)", "grok-4"], ["gemini", "Google (Gemini)", "gemini-2.5-flash"]];
+const keys = () => store.get("keys", {});
+const models = () => ({ ...Object.fromEntries(PROVIDERS.map(p => [p[0], p[2]])), ...store.get("models", {}) });
+function openSettings() {
+  show("settings"); const b = $("#setBody"); const k = keys(), m = models();
+  const url = (IN_CLAUDE ? PWA_URL : BASE_URL) + "?paste=1";
+  b.innerHTML = `<h2 class="h2">Settings</h2>
+    <div class="sec"><h3>Send direct with your own API key</h3>
+    ${IN_CLAUDE ? `<p class="sub">Direct sending works in the installed app, not inside Claude. Open <a href="${PWA_URL}" target="_blank" rel="noopener">the Glint app</a> to add keys.</p>` : `
+      <p class="sub">Add a key and that AI answers right inside Glint. No app switching, no pasting. Keys stay on this device (browser storage) and go only to that company's API. Anyone with this phone unlocked could use them.</p>
+      <div class="form settings">${PROVIDERS.map(([id, label]) => `<label>${label} key<input class="field" type="password" autocomplete="off" id="k-${id}" value="${esc(k[id] || "")}" placeholder="Paste key"></label><label>Model<input class="field" id="m-${id}" value="${esc(m[id])}"></label>`).join("")}
+      <div class="row"><button class="primary" id="saveKeys">Save keys</button><button class="secondary" id="clearKeys">Remove all keys</button></div></div>`}</div>
+    <div class="sec"><h3>iPhone: Share → Glint, Action button, Back Tap</h3>
+      <p class="sub">Set it up once in the Shortcuts app, about 1 minute. After that, pressing the Action button (or double-tapping the back of your phone) takes a screenshot and opens Glint, ready to paste.</p>
+      <ol class="steps-list">
+        <li>Open <b>Shortcuts</b>, tap <b>＋</b>, and name it <b>Glint it</b>.</li>
+        <li>Add the action <b>Take Screenshot</b> (or <b>Take Photo</b> for the camera).</li>
+        <li>Add <b>Copy to Clipboard</b>.</li>
+        <li>Add <b>Open URLs</b> with this address: <code style="word-break:break-all">${esc(url)}</code> <button class="mini-btn" id="copyUrl">Copy</button></li>
+        <li>Tap <b>ⓘ</b> and turn on <b>Show in Share Sheet</b>. Set it to receive <b>Images</b>, and in the screenshot step choose <b>Shortcut Input</b> if one was shared. Now any photo's Share button shows <b>Glint it</b>.</li>
+        <li><b>Action button</b> (iPhone 15 Pro and later): Settings → Action Button → Shortcut → <b>Glint it</b>. <b>Back Tap</b> (any recent iPhone): Settings → Accessibility → Touch → Back Tap → Double Tap → <b>Glint it</b>.</li>
+      </ol>
+      <p class="sub">Glint opens with a big <b>Tap to paste</b> button. One tap and your screenshot is in. A native share extension needs an App Store app; this shortcut gives you the same flow today.</p>
+      <p class="sub"><b>Android:</b> install Glint from Chrome (⋮ → Install app). It then appears in every Share menu.</p></div>`;
+  $("#copyUrl").onclick = async () => { try { await navigator.clipboard.writeText(url); toast("Copied"); } catch { toast(url, 5000); } };
+  if (!IN_CLAUDE) {
+    $("#saveKeys").onclick = () => { const nk = {}, nm = {}; PROVIDERS.forEach(([id, , def]) => { const v = $("#k-" + id).value.trim(); if (v) nk[id] = v; const mv = $("#m-" + id).value.trim(); if (mv && mv !== def) nm[id] = mv; }); store.set("keys", nk); store.set("models", nm); updateSendLabel(); toast(Object.keys(nk).length ? "Saved. Those AIs now answer inside Glint." : "No keys saved."); };
+    $("#clearKeys").onclick = () => { store.set("keys", {}); PROVIDERS.forEach(([id]) => $("#k-" + id).value = ""); updateSendLabel(); toast("Keys removed from this device."); };
+  }
+}
+$("#setBtn").onclick = openSettings;
+// direct calls: Anthropic through the official SDK (bundled locally), others through their HTTP APIs
+let anthropicMod = null;
+async function direct(provider, pkg) {
+  const ans = $("#answer"); ans.hidden = false; ans.textContent = "Thinking…"; $("#resAnswer").hidden = true; answerText = "";
+  const key = keys()[provider], model = models()[provider];
+  const blob = await flatBlob(cap); const jpeg = (await normalise(blob, 1600, "image/jpeg", .88)).blob; const durl = await dataURL(jpeg); const b64 = durl.split(",")[1];
+  const prompt = "The attached image is a photo or screenshot I just captured. Numbered pins mark spots I refer to.\n\n" + pkg.text;
+  try {
+    if (provider === "anthropic") {
+      if (!anthropicMod) anthropicMod = await import(SDK_URL);
+      const { Anthropic } = anthropicMod;
+      const client = new Anthropic({ apiKey: key, dangerouslyAllowBrowser: true });
+      try {
+        const res = await client.beta.messages.create({ model, max_tokens: 16000, betas: ["server-side-fallback-2026-07-01"], fallbacks: "default",
+          messages: [{ role: "user", content: [{ type: "image", source: { type: "base64", media_type: "image/jpeg", data: b64 } }, { type: "text", text: prompt }] }] });
+        if (res.stop_reason === "refusal") throw new Error("Claude declined this one" + (res.stop_details?.explanation ? ": " + res.stop_details.explanation : "."));
+        answerText = res.content.filter(b => b.type === "text").map(b => b.text).join("\n").trim();
+      } catch (e) {
+        if (e instanceof Anthropic.AuthenticationError) throw new Error("Anthropic rejected that key. Check it in Settings.");
+        if (e instanceof Anthropic.RateLimitError) throw new Error("Rate limited by Anthropic. Try again in a moment.");
+        if (e instanceof Anthropic.BadRequestError) throw new Error("Anthropic couldn't take this request (" + e.message + "). Check the model name in Settings.");
+        if (e instanceof Anthropic.APIError) throw new Error("Anthropic error " + (e.status || "") + ". Try again.");
+        throw e;
+      }
+    } else if (provider === "openai" || provider === "xai") {
+      const url = provider === "openai" ? "https://api.openai.com/v1/chat/completions" : "https://api.x.ai/v1/chat/completions";
+      const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json", Authorization: "Bearer " + key },
+        body: JSON.stringify({ model, messages: [{ role: "user", content: [{ type: "text", text: prompt }, { type: "image_url", image_url: { url: durl } }] }] }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error((provider === "openai" ? "OpenAI" : "xAI") + ": " + (j.error?.message || r.status));
+      answerText = (j.choices?.[0]?.message?.content || "").trim();
+    } else if (provider === "gemini") {
+      const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`, { method: "POST", headers: { "Content-Type": "application/json", "x-goog-api-key": key },
+        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }, { inline_data: { mime_type: "image/jpeg", data: b64 } }] }] }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error("Gemini: " + (j.error?.message || r.status));
+      answerText = (j.candidates?.[0]?.content?.parts || []).map(p => p.text || "").join("").trim();
+    }
+    ans.textContent = answerText || "No answer came back."; $("#resAnswer").hidden = !answerText; $("#resAnswer").textContent = "Use this answer";
+    return "";
+  } catch (e) { ans.textContent = e?.message?.startsWith("Failed to fetch") ? "Couldn't reach the API. Check your connection." : (e?.message || "That didn't go through."); return ""; }
 }
 
 /* ---------- Sample (example capture so the tool shows what it does) ---------- */
@@ -918,6 +1234,12 @@ async function loadSample(open = true) {
   if (open) { cap = c; target = "note"; await openCompose(); }
 }
 $("#sampleBtn").onclick = () => loadSample(true);
+$("#pasteBtn").onclick = async () => {
+  try { const items = await navigator.clipboard.read(); for (const it of items) { const t = it.types.find(t => t.startsWith("image/")); if (t) { $("#pasteBig").hidden = true; await loadBlob(await it.getType(t)); return; } }
+    toast("No picture on the clipboard. Pick one from Photos instead."); }
+  catch { toast("Paste was blocked. Long-press here and choose Paste, or pick from Photos.", 3500); }
+  $("#pasteBig").hidden = true;
+};
 
 /* ---------- Boot ---------- */
 (async () => {
@@ -928,19 +1250,21 @@ $("#sampleBtn").onclick = () => loadSample(true);
   refreshCount(); updateSendLabel(); maybeStartCam();
   if (location.search.includes("shared=1") && "caches" in window) { try { const c = await caches.open("glint-share"); const r = await c.match("shared-image"); if (r) { await c.delete("shared-image"); loadBlob(await r.blob()); } } catch {} }
   readHash(); window.addEventListener("hashchange", readHash);
+  if (new URLSearchParams(location.search).has("paste")) { $("#pasteBig").hidden = false; try { history.replaceState(null, "", location.pathname + location.hash); } catch {} }
   if (window.claude?.use) {
     const use = n => window.claude.use(n).catch(() => null);
-    const [d, s, dl, db, user, room] = await Promise.all(["dictation", "sample", "downloads", "db", "user", "room"].map(use));
+    const [d, s, dl, db, user, room, tts] = await Promise.all(["dictation", "sample", "downloads", "db", "user", "room", "tts"].map(use));
+    if (tts) P.tts = tts;
     if (d) { P.dictation = d; Voice.wireDictation(d); }
     if (s) { P.sample = s; try { const lim = await s.limits(); P.sampleImages = !!lim?.images; } catch {} }
     if (dl) P.downloads = dl;
     if (user) { P.user = user; try { P.me = await user.id(); } catch {} }
     if (db && P.me) P.db = db;
     if (room) P.room = room;
-    updateSendLabel(); if (location.hash.startsWith("#room-")) readHash();
+    updateSendLabel(); if (/^#(room|post)-/.test(location.hash)) readHash();
   }
 })();
-window.Glint = { get cap() { return cap; }, promptText, renderCard, renderBA, loadSample, packTemplate, unpackTemplate, P };
+window.Glint = { get cap() { return cap; }, promptText, renderCard, renderBA, loadSample, packTemplate, unpackTemplate, flatBlob, P };
 })();
 </script>
 
