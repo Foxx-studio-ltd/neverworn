@@ -30,3 +30,15 @@ The files are real and sourced. Most are declassified government records, plus a
 - **Storage:** progress lives in localStorage on this device only.
 - **Social proof:** the "% of diggers" figures need a backend, so the prototype only tracks your own record.
 - **Notifications:** the push alert for the daily file needs a push server.
+
+## Reels (`reels/`)
+These are short promo videos in the style of the Bible apps' reels: narration, word-by-word captions, animated archive documents and a "Real or fake?" verdict that leads into the app.
+- `rabbithole-mkultra.mp4` (49s, male voice) and `rabbithole-northwoods.mp4` (44s, female voice). Both are 1080x1920 at 30 fps, mastered to -14 LUFS.
+- **Pipeline:**
+  - `scripts.json` holds the script.
+  - `voice.py` generates the narration with Kokoro (open-weights TTS, Apache-2.0).
+  - `reel.html` draws each frame.
+  - `render.cjs` captures the frames.
+  - `sound.py` synthesises the score and ducks it under the voice.
+  - `make.sh` runs everything.
+- To add a reel, add an entry to `scripts.json` and, if it needs new visuals, a scene renderer in `reel.html`.
