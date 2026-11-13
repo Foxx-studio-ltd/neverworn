@@ -811,10 +811,30 @@ async function openSend() {
   const box = $("#dests"); box.innerHTML = ""; list.filter(d => d !== hero).forEach(d => box.appendChild(destEl(d)));
   $("#scrim").classList.add("on");
 }
+// Phones: AI verbs go through the system share sheet with the picture file + prompt (the app gets both).
+// Inside the Claude mobile app, the downloads capability hands the card to the native share sheet.
+// Desktop: open the AI with the prompt pre-filled and put the picture on the clipboard to paste.
+const MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+const viaShare = d => !!d.href && (P.shareFiles || (MOBILE && IN_CLAUDE && !!P.downloads));
+const appName = d => d.verb.replace(/ it$/, "");
+async function shareTo(d, pkg) {
+  const file = new File([pkg.card], "glint.png", { type: "image/png" });
+  if (P.shareFiles) { await navigator.share({ files: [file], text: pkg.text, title: "Glint" }); return; }
+  await P.downloads.save({ filename: "glint-for-" + appName(d).toLowerCase() + ".png", data: pkg.card });
+}
 function destEl(d, isHero) {
-  const el = document.createElement(d.href ? "a" : "button"); el.className = isHero ? "hero-dest" : "dest" + (d.sys ? " sys" : "");
-  el.innerHTML = isHero ? `<span class="logo-chip">${iconOf(d)}</span><span><b>${esc(d.verb)}</b><span>${esc(d.sub)}${d.href && d.id !== "gemini" ? " with your prompt" : ""}</span></span>` : `<span class="lg">${iconOf(d)}</span>${esc(d.verb)}<small>${esc(d.sub)}</small>`;
-  if (d.href) { el.href = d.href(pkg.text); el.target = "_blank"; el.rel = "noopener"; el.onclick = () => { copyPkg(pkg); mark(d.id); toast("Card copied. Paste it in the chat to attach the picture.", 3500); }; }
+  const share = viaShare(d);
+  const sub = share ? `Share menu → pick ${appName(d)}` : d.href ? (d.id === "gemini" ? "Opens, then paste the picture" : "Opens with your prompt + picture to paste") : d.sub;
+  const el = document.createElement(d.href && !share ? "a" : "button"); el.className = isHero ? "hero-dest" : "dest" + (d.sys ? " sys" : "");
+  el.innerHTML = isHero ? `<span class="logo-chip">${iconOf(d)}</span><span><b>${esc(d.verb)}</b><span>${esc(sub)}</span></span>` : `<span class="lg">${iconOf(d)}</span>${esc(d.verb)}<small>${esc(sub)}</small>`;
+  if (share) el.onclick = async () => {
+    toast(`Pick ${appName(d)} in the share menu. The picture and your prompt go together.`, 4000);
+    try { await shareTo(d, pkg); mark(d.id); }
+    catch (err) { if (err?.name === "AbortError" || err?.code === "declined") return;
+      copyPkg(pkg).then(ok => toast(ok ? `Couldn't open the share menu. The card is copied: open ${appName(d)} and paste it.` : "Couldn't share from here. Use Save, then attach it in the app.", 5000)); }
+  };
+  else if (d.href) { el.href = d.href(pkg.text); el.target = "_blank"; el.rel = "noopener";
+    el.onclick = () => { mark(d.id); copyPkg(pkg).then(ok => toast(ok ? `Picture copied. In ${appName(d)}, paste (Ctrl/⌘+V or long-press → Paste) to attach it.` : `Couldn't copy the picture here. Use Save, then attach it in ${appName(d)}.`, 6000)); }; }
   else el.onclick = async () => { try { const msg = await d.run(pkg); if (d.id !== "remix") mark(d.id); if (msg) toast(msg, 3000); } catch (err) { if (err?.name !== "AbortError" && err?.code !== "declined") toast("That didn't go through. Try another option."); } };
   return el;
 }
