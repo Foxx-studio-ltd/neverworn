@@ -43,6 +43,15 @@ const FAKE = (opts) => {
   ok(await p.evaluate(() => { const v = document.querySelector('#watch .reel video'); return v && !v.paused; }), 'Home episodes play automatically');
   ok(await p.evaluate(() => RabbitHole.state.streak) === 1, 'opening the drop starts the streak');
   ok(await p.locator('#watch .reel').first().locator('[data-act="debate"]').isVisible(), 'Discuss is on the playing clip');
+  const homeIds = await p.evaluate(() => [...document.querySelectorAll('#watch .reel')].map(r => r.dataset.id));
+  ok(homeIds[0] === drop && new Set(homeIds).size === homeIds.length, "Home starts on today's drop, then never repeats a clip");
+  await p.click('[data-tab="people"]'); await p.waitForTimeout(800);
+  const postKeys = await p.evaluate(() => [...document.querySelectorAll('#people .post-reel')].map(r => r.dataset.key));
+  ok(postKeys.length >= 10 && new Set(postKeys).size === postKeys.length, 'Community plays every clip once, no repeats');
+  await p.locator('#people .post-reel .reel-info .handle').first().click(); await p.waitForTimeout(300);
+  ok(/@/.test(await p.textContent('.sheet h2')) && /Fictional character/.test(await p.textContent('.sheet')), "tapping the handle on a playing clip opens that user's profile");
+  await p.screenshot({ path: `${out}/2b-profile.png` });
+  await p.click('.sheet [data-x]'); await p.click('[data-tab="watch"]'); await p.waitForTimeout(300);
   await p.evaluate(() => document.querySelector('#watch .reel video').dispatchEvent(new Event('ended'))); await p.waitForTimeout(300);
   ok(/Go further/.test(await p.textContent('#watch .nextup')) && /Next file in/.test(await p.textContent('#watch .nextup')), 'episode ends with Go further and a 2-second countdown');
   await shot('2-home-end');
@@ -217,7 +226,7 @@ const FAKE = (opts) => {
   await o.click('.compose-sheet [data-k="case"]');
   await o.fill('#cpTitle', 'The Taos Hum'); await o.fill('#cpText', 'Residents in Taos have reported a low hum since the 1990s.'); await o.click('.compose-sheet .cta'); await o.waitForTimeout(300);
   ok(await o.evaluate(() => window.__fake.docs.get('posts/mod1').items.some(x => x.type === 'case' && x.title === 'The Taos Hum' && x.status === 'pending')), 'new case proposals go to moderation');
-  await o.locator('#people [data-pact="profile"]').first().click(); await o.waitForTimeout(300);
+  await o.locator('#people .post-reel:has-text("groomlake_watcher") .rail [data-pact="profile"]').first().click(); await o.waitForTimeout(300);
   ok(/I read declassified/.test(await o.textContent('.sheet')), 'profiles show the bio and published posts');
   await o.screenshot({ path: `${out}/12-community.png` });
   ok(await o.evaluate(() => { const c = document.querySelector('meta[name=viewport]'); return getComputedStyle(document.body).touchAction === 'manipulation'; }), 'the app blocks zoom gestures');

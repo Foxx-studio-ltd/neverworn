@@ -387,6 +387,33 @@ button.src { text-align: left; text-decoration: none; color: var(--mark); font-w
 .autopill { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); padding: 8px 14px; border-radius: 999px; background: var(--text); color: var(--ink); font-weight: 700; font-size: 13px; z-index: 3; white-space: nowrap; }
 .tog-row input { width: 22px; height: 22px; accent-color: var(--mark); }
 
+/* ---------- Liquid glass: translucent, blurred, with a light edge and a top highlight ---------- */
+.pill, .rail .disc, .sound, .ghost, .filters button, .chips button, .btn-call, .door, .two .deeper, .cf-sibs button, .caselink, .trail .crumbs button,
+.why button, .mq .acts button, .x, .hole, .pick, .plan, .autopill, .row-btns .ghost, .nextup, .callbox, .watch-top .pill, .reel-info .chip, .handle {
+  background: linear-gradient(160deg, rgba(255,255,255,.17), rgba(255,255,255,.05) 55%, rgba(255,255,255,.1)), rgba(30,25,41,.36) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%); backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255,255,255,.24) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.42), inset 0 -8px 16px rgba(255,255,255,.035), 0 8px 22px rgba(0,0,0,.32);
+  color: var(--text);
+}
+.handle { padding: 4px 10px; border-radius: 999px; }
+.btn-call.real { box-shadow: inset 0 1px 0 rgba(255,255,255,.42), inset 0 0 0 2px rgba(95,214,142,.55), 0 8px 22px rgba(0,0,0,.32); }
+.btn-call.fake { box-shadow: inset 0 1px 0 rgba(255,255,255,.42), inset 0 0 0 2px rgba(255,93,79,.55), 0 8px 22px rgba(0,0,0,.32); }
+.filters button[aria-pressed="true"], .pick[aria-pressed="true"], .plan:has(input:checked) { background: linear-gradient(160deg, rgba(255,250,210,.4), rgba(242,225,76,.18)), rgba(30,25,41,.4) !important; border-color: rgba(242,225,76,.7) !important; color: var(--text); }
+.rail button[aria-pressed="true"] .disc { background: linear-gradient(160deg, rgba(255,160,150,.55), rgba(208,55,44,.75)) !important; border-color: rgba(255,200,190,.6) !important; }
+.cta, .dig, .deeper, .unlock, .go-btn, .ask .cta, .post, .mq .acts .ok {
+  background: linear-gradient(165deg, rgba(255,251,214,.96), rgba(242,225,76,.86) 45%, rgba(214,188,40,.9)) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%); backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255,255,230,.7) !important; color: var(--ink) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.85), inset 0 -10px 18px rgba(150,120,0,.18), 0 10px 26px rgba(0,0,0,.35);
+}
+.two .deeper { color: var(--text) !important; }
+.dig small, .cta small, .deeper:not(.two .deeper) small { color: rgba(19,16,28,.68) !important; opacity: 1; }
+.tabs { background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)), rgba(19,16,28,.62) !important; -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%); border-top: 1px solid rgba(255,255,255,.16); box-shadow: inset 0 1px 0 rgba(255,255,255,.12); }
+.tabs button[aria-current="page"] { background: radial-gradient(60% 70% at 50% 40%, rgba(242,225,76,.16), transparent 70%); }
+button:active, .pill:active, .disc:active { transform: scale(.96); filter: brightness(1.15); }
+.autopill { color: var(--text) !important; }
+
 #toast { position: absolute; z-index: 50; left: 50%; bottom: calc(var(--tab-h) + 14px); transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 10px; background: var(--text); color: var(--ink); font-weight: 600; font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.4); animation: rise .25s; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1606,8 +1633,12 @@ const Feed = (() => {
     const cast = F.cast.map(x => ({ kind: "video", key: "cast:" + x.id, by: "cast:" + x.handle, handle: x.handle, caseId: x.caseId, src: x.mp4, poster: x.poster, text: x.caption, at: x.at, fictional: true }));
     const ugc = Community.on ? Community.allPub().map(x => ({ kind: x.asset ? "video" : "text", key: x.key, by: x.by, handle: (Community.nm(x.by) || "").replace(/^@/, ""), caseId: byId[x.caseId] ? x.caseId : null, src: x.asset && x.asset.url,
       text: x.title ? x.title + ". " + (x.text || "") : x.text, source: x.source, at: x.ok || x.at, type: x.type })) : [];
-    return [...ugc, ...cast].sort((a, b) => b.at - a.at);
+    // new since the last refresh first, then unwatched at random, then the ones watched longest ago
+    const at = S.postSeen || {}, all = [...ugc, ...cast].filter((x, i, a) => a.findIndex(y => y.key === x.key) === i);
+    const fresh = all.filter(x => freshKeys.has(x.key)), unseen = shuffle(all.filter(x => !freshKeys.has(x.key) && !at[x.key])), seen = all.filter(x => !freshKeys.has(x.key) && at[x.key]).sort((a, b) => at[a.key] - at[b.key]);
+    return [...fresh, ...unseen, ...seen];
   }
+  let freshKeys = new Set();
   function card(it) {
     const el = document.createElement("article"); el.className = "reel post-reel"; el.dataset.key = it.key; if (it.caseId) el.dataset.id = it.caseId;
     const c = it.caseId && byId[it.caseId]; if (c) el.style.setProperty("--hue", HOLES[c.hole].hue);
@@ -1626,12 +1657,12 @@ const Feed = (() => {
     io.observe(el); return el;
   }
   const io = new IntersectionObserver(es => es.forEach(en => { const vid = $("video", en.target);
-    if (en.isIntersecting && on) { if (vid) { vid.preload = "auto"; playVid(vid); } }
+    if (en.isIntersecting && on) { (S.postSeen = S.postSeen || {})[en.target.dataset.key] = Date.now(); save(); if (vid) { vid.preload = "auto"; playVid(vid); } }
     else if (vid) vid.pause(); }), { root: v, threshold: .7 });
   function topbar() { return `<div class="watch-top"><div><span class="pill">${ico("debate")}Community</span>
       ${Community.on ? `<button class="pill" data-post>+ Post</button>` : ""}<button class="pill" data-refresh aria-label="Refresh">↻ Refresh</button></div></div><div class="ptr" aria-hidden="true">Pull to refresh</div>`; }
   function render(force) {
-    const list = items(), key = list.map(x => x.key).join("|");
+    const list = items(), key = list.map(x => x.key).sort().join("|");
     if (built && !force && key === sig) return; built = true; sig = key;
     v.innerHTML = topbar();
     if (!list.length) { v.insertAdjacentHTML("beforeend", `<div class="watch-empty"><b>Nothing here yet</b><span>Tap Refresh to check for new posts.</span></div>`); return; }
@@ -1642,9 +1673,9 @@ const Feed = (() => {
     const btn = $("[data-refresh]", v); if (btn) btn.textContent = "↻ Checking…";
     const before = new Set(items().map(x => x.key));
     try { const r = await fetch("data/community.json?ts=" + Date.now(), { cache: "no-store" }); if (r.ok) { const j = await r.json(); if (j && j.posts) F.cast = j.posts; } } catch (e) {}
-    const now = items(), fresh = now.filter(x => !before.has(x.key)).length;
-    render(true); v.scrollTo({ top: 0 });
-    toast(fresh ? `${fresh} new post${fresh > 1 ? "s" : ""}` : "You're all caught up");
+    const now = items(), freshL = now.filter(x => !before.has(x.key)); freshKeys = new Set(freshL.map(x => x.key)); const fresh = freshL.length;
+    render(true); v.scrollTop = 0;
+    toast(fresh ? `${fresh} new post${fresh > 1 ? "s" : ""}` : "Fresh mix. You're all caught up");
   }
   // pull to refresh
   let y0 = null;
@@ -1669,6 +1700,14 @@ const Feed = (() => {
     active(x) { on = x; if (!x) { $$(".reel video", v).forEach(vd => vd.pause()); clearTimeout(timer); } else $$(".reel", v).forEach(el => { io.unobserve(el); io.observe(el); }); } };
 })();
 
+/* ---------- Pull to refresh (Home and Community) ---------- */
+function pullToRefresh(view, onRefresh) {
+  let y0 = null;
+  view.addEventListener("touchstart", e => { y0 = view.scrollTop <= 0 ? e.touches[0].clientY : null; }, { passive: true });
+  view.addEventListener("touchmove", e => { if (y0 == null) return; const d = e.touches[0].clientY - y0, p = $(".ptr", view); if (p) { p.style.opacity = Math.min(1, d / 80); p.textContent = d > 80 ? "Release to refresh" : "Pull to refresh"; } }, { passive: true });
+  view.addEventListener("touchend", e => { if (y0 == null) return; const d = ((e.changedTouches[0] || {}).clientY || y0) - y0; y0 = null; const p = $(".ptr", view); if (p) p.style.opacity = 0; if (d > 80) { FX.tap(); onRefresh(); } });
+}
+
 /* ---------- Video playback shared by Home and Community ---------- */
 // Clips start on their own (muted autoplay is always allowed). The first tap anywhere turns sound on for every clip after it.
 const Media = { sound: false };
@@ -1682,12 +1721,15 @@ function playVid(vid) { vid.muted = !Media.sound; const p = vid.play(); if (p &&
 const Watch = (() => {
   const v = $("#watch"); let built = false, on = false, timer = 0;
   const has = c => (MEDIA.reels || {})[c.id];
-  function list() { const d = dropNow().c, out = [d, ...chainFrom(d.id)].filter(has); return out.filter((c, i) => out.indexOf(c) === i); }
+  // today's drop first, then everything else at random: unwatched clips first, then the ones watched longest ago
+  function list() { const d = dropNow().c, at = S.seenAt || {}, rest = CASES.filter(c => c !== d && has(c));
+    const fresh = shuffle(rest.filter(c => !at[c.id])), old = rest.filter(c => at[c.id]).sort((a, b) => at[a.id] - at[b.id]);
+    return [d, ...fresh, ...old].filter(has); }
   const io = new IntersectionObserver(es => es.forEach(en => { const vid = $("video", en.target); if (!vid) return;
-    if (en.isIntersecting && on) { vid.preload = "auto"; playVid(vid); S.seen[en.target.dataset.id] = 1; if (en.target.dataset.id === dropNow().c.id) markDrop(); save(); }
+    if (en.isIntersecting && on) { vid.preload = "auto"; playVid(vid); S.seen[en.target.dataset.id] = 1; (S.seenAt = S.seenAt || {})[en.target.dataset.id] = Date.now(); if (en.target.dataset.id === dropNow().c.id) markDrop(); save(); }
     else { vid.pause(); $(".nextup", en.target)?.remove(); clearTimeout(timer); } }), { root: v, threshold: .7 });
   function render() {
-    if (built) return; built = true; v.innerHTML = `<div class="watch-top"><div><span class="pill streak-pill">${ico("flame")}${S.streak}-day streak</span><button class="pill" data-ask aria-label="Ask Alice">${ico("search")}Ask Alice</button><span class="pill">Next drop <span class="countdown"></span></span></div></div>`; tick();
+    if (built) return; built = true; v.innerHTML = `<div class="ptr" aria-hidden="true">Pull to refresh</div><div class="watch-top"><div><span class="pill streak-pill">${ico("flame")}${S.streak}-day streak</span><button class="pill" data-ask aria-label="Ask Alice">${ico("search")}Ask Alice</button><span class="pill">Next drop <span class="countdown"></span></span></div></div>`; tick();
     const L = list();
     if (!L.length) { v.innerHTML = `<div class="watch-empty"><b>No episodes here yet</b><span>Alice's episodes play in the installed Rabbit Hole app.</span></div>`; return; }
     L.forEach((c, i) => {
@@ -1729,6 +1771,7 @@ const Watch = (() => {
     if (e.target.closest("[data-sound]")) { Media.sound = true; vid.muted = false; vid.play().catch(() => {}); $$("[data-sound]").forEach(b => b.hidden = true); return; }
     vid.paused ? vid.play().catch(() => {}) : vid.pause();
   });
+  pullToRefresh(v, () => { built = false; render(); v.scrollTop = 0; toast("Fresh mix of episodes"); });
   return { render, home() { v.scrollTop = 0; }, reset() { built = false; if (!v.hidden) render(); },
     active(x) { on = x; if (!x) { $$(".reel video", v).forEach(vd => vd.pause()); clearTimeout(timer); } else $$(".reel", v).forEach(el => { io.unobserve(el); io.observe(el); }); } };
 })();
