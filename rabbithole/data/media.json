@@ -341,15 +341,25 @@
    "mp4": "reels/lib/starfish.mp4",
    "poster": "reels/lib/starfish.jpg"
   },
+  "mkultra": {
+   "mp4": "reels/lib/mkultra.mp4",
+   "poster": "reels/lib/mkultra.jpg"
+  },
   "moon": {
    "mp4": "reels/lib/moon.mp4",
    "poster": "reels/lib/moon.jpg"
+  },
+  "northwoods": {
+   "mp4": "reels/lib/northwoods.mp4",
+   "poster": "reels/lib/northwoods.jpg"
   }
  },
  "artifactReels": [
   "dyatlov",
   "roswell",
   "starfish",
-  "moon"
+  "mkultra",
+  "moon",
+  "northwoods"
  ]
 }
