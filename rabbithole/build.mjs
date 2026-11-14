@@ -7,6 +7,7 @@ const data = JSON.parse(readFileSync(new URL("data/cases.json", dir), "utf8"));
 try { data.deep = JSON.parse(readFileSync(new URL("data/deep.json", dir), "utf8")); } catch {}
 try { data.community = JSON.parse(readFileSync(new URL("data/community.json", dir), "utf8")); } catch {}
 try { data.intro = JSON.parse(readFileSync(new URL("data/intro.json", dir), "utf8")); } catch {}
+try { data.verdicts = JSON.parse(readFileSync(new URL("data/verdicts.json", dir), "utf8")); } catch {}
 let media = {}; try { media = JSON.parse(readFileSync(new URL("data/media.json", dir), "utf8")); } catch {}
 const inline = d => JSON.stringify(d).replace(/</g, "\\u003c");
 const anim = readFileSync(new URL("reels/anim.js", dir), "utf8");

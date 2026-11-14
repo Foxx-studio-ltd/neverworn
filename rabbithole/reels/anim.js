@@ -28,6 +28,36 @@ function snow(c, t, n = 160, sp = 120, drift = 40) { c.fillStyle = 'rgba(239,227
 function scan(c, t) { c.fillStyle = 'rgba(0,0,0,.08)'; for (let y = (t * 60) % 6; y < H; y += 6) c.fillRect(0, y, W, 2); }
 
 const ART = {
+  motorcade(c, t, P) { sky(c, '#9cc3dc', '#e8eef0'); glow(c, 860, 260, 220, 'rgba(255,240,200,.7)');
+    c.fillStyle = '#6f9a5a'; c.beginPath(); c.moveTo(0, 900); c.quadraticCurveTo(540, 760, W, 880); c.lineTo(W, H); c.lineTo(0, H); c.fill();
+    c.fillStyle = '#5b8549'; c.beginPath(); c.moveTo(600, 860); c.quadraticCurveTo(820, 760, W, 790); c.lineTo(W, 1000); c.lineTo(600, 1000); c.fill();
+    c.fillStyle = '#c9a77a'; c.fillRect(780, 720, 240, 110); c.fillStyle = '#b08d62'; for (let i = 0; i < 5; i++) c.fillRect(790 + i * 46, 735, 30, 40);
+    c.fillStyle = '#a9a39a'; c.beginPath(); c.moveTo(0, 1180); c.quadraticCurveTo(540, 1000, W, 1080); c.lineTo(W, 1260); c.quadraticCurveTo(540, 1180, 0, 1360); c.fill();
+    c.fillStyle = '#b5532f'; c.fillRect(80, 520, 300, 420); c.fillStyle = '#8f3f22'; for (let r = 0; r < 6; r++) for (let k = 0; k < 4; k++) c.fillRect(105 + k * 70, 545 + r * 64, 40, 40);
+    c.fillStyle = MARK; c.fillRect(105 + 3 * 70, 545 + 5 * 64, 40, 40);
+    const u = cl((t - 2) / 3); const x = -260 + u * 1300, y = 1170 - u * 120 + Math.sin(u * 3) * 10;
+    c.save(); c.translate(x, y); c.rotate(-.1); c.fillStyle = '#1f2a44'; c.fillRect(-150, -40, 300, 60); c.fillRect(-80, -70, 150, 34); c.fillStyle = INK; c.beginPath(); c.arc(-95, 22, 22, 0, TAU); c.arc(95, 22, 22, 0, TAU); c.fill(); c.fillStyle = PAPER; c.beginPath(); c.arc(-20, -78, 12, 0, TAU); c.fill(); c.fillStyle = '#e48aa8'; c.beginPath(); c.arc(20, -78, 12, 0, TAU); c.fill(); c.restore();
+    if (P.mode === 'umbrella') { person(c, 640, 1080, 1.4); const o = cl((t - 3.2) * 2); c.fillStyle = INK; c.beginPath(); c.moveTo(640 - 70 * o, 1000 - 20 * o); c.quadraticCurveTo(640, 930 - 40 * o, 640 + 70 * o, 1000 - 20 * o); c.fill(); c.strokeStyle = INK; c.lineWidth = 4; c.beginPath(); c.moveTo(640, 1005); c.lineTo(640, 960 - 30 * o); c.stroke(); if (o > .5) glow(c, 640, 960, 120, 'rgba(242,225,76,.35)'); }
+    if (t > 3.5 && t < 4.1) { c.fillStyle = 'rgba(255,255,255,.5)'; c.fillRect(0, 0, W, H); }
+    txt(c, P.text || 'DALLAS · NOV 22 1963 · 12:30', W / 2, 1450, 44, INK, 'Courier Prime', 700); },
+  folders(c, t, P) { sky(c, '#2a2433', '#15111c'); c.fillStyle = 'rgba(0,0,0,.25)'; c.fillRect(0, 1150, W, H);
+    for (let i = 0; i < 6; i++) { const d = eo((t - i * .35) / 1.2), x = 200 + (i % 3) * 230 + Math.sin(i) * 30, y = 1300 - d * (560 - Math.floor(i / 3) * 260) ;
+      c.save(); c.translate(x, y); c.rotate((rnd(i) - .5) * .25); c.fillStyle = '#d8b878'; c.fillRect(-150, -110, 300, 220); c.fillRect(-150, -135, 110, 30); c.fillStyle = '#c4a262'; c.fillRect(-150, -20, 300, 4);
+      c.fillStyle = INK; for (let l = 0; l < 4; l++) { const red = rnd(i * 7 + l) > .4; c.globalAlpha = red ? 1 : .35; c.fillRect(-120, -70 + l * 40, red ? 160 + rnd(l + i) * 80 : 220, red ? 22 : 8); } c.globalAlpha = 1;
+      c.strokeStyle = RED; c.lineWidth = 6; c.strokeRect(-100, 40, 200, 50); txt(c, i % 2 ? 'REDACTED' : 'CLASSIFIED', 0, 66, 34, RED, 'Inter Tight', 900); c.restore(); }
+    txt(c, P.text || 'RELEASED · REDACTED', W / 2, 330, 56, MARK, 'Courier Prime', 700); },
+  cell(c, t, P) { sky(c, '#1d1a22', '#0d0b10'); c.fillStyle = '#2b2733'; c.fillRect(140, 380, 800, 900); c.fillStyle = '#3a3542'; c.fillRect(200, 1050, 420, 70); c.fillRect(200, 1120, 30, 120);
+    c.fillStyle = '#4a4552'; for (let i = 0; i < 9; i++) c.fillRect(170 + i * 92, 360, 22, 940); c.fillRect(140, 360, 800, 30); c.fillRect(140, 1270, 800, 30);
+    const h = (t * 40) % 360; c.fillStyle = PAPER; c.beginPath(); c.arc(860, 240, 90, 0, TAU); c.fill(); c.strokeStyle = INK; c.lineWidth = 8; c.beginPath(); c.moveTo(860, 240); c.lineTo(860 + Math.sin(h * Math.PI / 180) * 70, 240 - Math.cos(h * Math.PI / 180) * 70); c.moveTo(860, 240); c.lineTo(860, 190); c.stroke();
+    c.fillStyle = INK; c.fillRect(150, 180, 160, 90); c.beginPath(); c.arc(320, 225, 34, 0, TAU); c.fill(); const on = Math.sin(t * 5) > 0 && t < 3.5; c.fillStyle = on ? RED : '#3a3542'; c.beginPath(); c.arc(180, 205, 12, 0, TAU); c.fill();
+    if (t > 3.5) txt(c, 'NO SIGNAL', 230, 320, 30, RED, 'Courier Prime', 700);
+    txt(c, P.text || 'MCC NEW YORK · AUG 10 2019', W / 2, 1460, 42, 'rgba(239,227,196,.7)', 'Courier Prime', 700); },
+  bullet(c, t, P) { sky(c, '#efe3c4', '#ddcfa8'); c.strokeStyle = 'rgba(19,16,28,.25)'; c.lineWidth = 2; for (let y = 300; y < 1500; y += 60) { c.beginPath(); c.moveTo(80, y); c.lineTo(1000, y); c.stroke(); }
+    const pts = [[140, 420], [420, 700], [520, 760], [600, 900], [700, 980], [820, 1160]]; c.strokeStyle = RED; c.lineWidth = 6; c.setLineDash([18, 14]); c.beginPath(); const u = cl(t / 4) * (pts.length - 1);
+    c.moveTo(...pts[0]); for (let i = 1; i <= Math.floor(u); i++) c.lineTo(...pts[i]); const f = u - Math.floor(u), a = pts[Math.floor(u)], b = pts[Math.min(pts.length - 1, Math.floor(u) + 1)]; const hx = a[0] + (b[0] - a[0]) * f, hy = a[1] + (b[1] - a[1]) * f; c.lineTo(hx, hy); c.stroke(); c.setLineDash([]);
+    pts.slice(1, Math.floor(u) + 1).forEach(([x, y], i) => { c.fillStyle = MARK; c.beginPath(); c.arc(x, y, 18, 0, TAU); c.fill(); txt(c, String(i + 1), x, y + 1, 22, INK, 'Inter Tight', 900); });
+    c.save(); c.translate(hx, hy); c.rotate(Math.atan2(b[1] - a[1], b[0] - a[0])); c.fillStyle = '#b08d3c'; c.beginPath(); c.moveTo(34, 0); c.quadraticCurveTo(20, -12, -20, -12); c.lineTo(-20, 12); c.quadraticCurveTo(20, 12, 34, 0); c.fill(); c.restore();
+    txt(c, P.text || 'CE 399 · SEVEN WOUNDS?', W / 2, 1400, 54, INK, 'Courier Prime', 700); },
   spyplane(c, t, P) { nightBase(c, t, P, 3); moon(c, 820, 330, 70);
     for (let i = 0; i < 2; i++) { const a = -Math.PI / 2 + Math.sin(t * .6 + i * 2) * .5 + (i ? .25 : -.25); rays(c, 300 + i * 420, 1080, a, .05, 1300, 'rgba(242,225,76,.10)'); }
     hills(c, 1060, 120, '#1b1626', 2, .003); c.fillStyle = '#100d18'; c.fillRect(0, 1060, W, H);
@@ -225,7 +255,7 @@ const MAP = {
   mkultra: ['spiral', { text: 'PROJECT MKULTRA' }], midnight: ['mirror'], stargate: ['spiral', { text: 'REMOTE VIEWING' }], acoustickitty: ['cat'],
   northwoods: ['pentagon', { text: 'OPERATION NORTHWOODS' }], tonkin: ['radar', { mode: 'ghost', text: 'AUG 4 1964 · CONTACTS?' }], nayirah: ['mic', { text: 'OCTOBER 1990' }], mincemeat: ['briefcase'], ghostarmy: ['tanks'],
   roswell: ['saucer', { mode: 'balloon', text: 'ROSWELL · 1947' }], area51: ['spyplane'], bluebook: ['saucer', { text: '12,618 REPORTS' }], tictac: ['tictac'], wow: ['telescope'],
-  cointelpro: ['envelope', { text: 'NO RETURN ADDRESS' }], mockingbird: ['press'], jfk: ['waveform'],
+  cointelpro: ['envelope', { text: 'NO RETURN ADDRESS' }], mockingbird: ['press'], jfk: ['motorcade'],
   tuskegee: ['calendar'], seaspray: ['spray'], paperclip: ['rocket'],
   moon: ['moonland'], philadelphia: ['ghostship', { mode: 'vanish', text: 'USS ELDRIDGE?' }], bermuda: ['triangle'], pauldead: ['record'], birds: ['birds'], havana: ['sound'],
   starfish: ['nukespace'], a119: ['moonnuke'], iceworm: ['ice'], azorian: ['sub'], habakkuk: ['ice', { mode: 'ship' }], washtub: ['cabin'], gladio: ['cabin'], popeye: ['rain'],
@@ -235,6 +265,8 @@ const MAP = {
   dyatlov: ['tent'], rendlesham: ['saucer', { text: 'RENDLESHAM FOREST · 1980' }], somerton: ['beach'],
   nessie: ['lake', { mode: 'reveal' }], cropcircles: ['crop'], titanic: ['titanic'], haarp: ['antenna'], greatwall: ['wall'], chemtrails: ['contrail'],
   phoenix: ['lights'], bigfoot: ['forest'], yeti: ['snowprint'], chupacabra: ['goat'], mothman: ['wings'], flatearth: ['horizon'], illuminati: ['pyramid'], elvis: ['mic', { text: 'ELVIS HAS LEFT THE BUILDING' }], grusch: ['mic', { text: 'UNDER OATH · JULY 2023' }], ajax: ['oil'], castro: ['cigar'], irancontra: ['crates'], sunshine: ['geiger'], plutonium: ['geiger', { text: 'Pu-239' }],
+  jfkruby: ['mic', { text: 'NOV 24 1963 · LIVE ON TV' }], jfkmexico: ['eye', { text: 'MEXICO CITY · OCT 1963' }], jfkumbrella: ['motorcade', { mode: 'umbrella' }], jfkfiles: ['folders', { text: 'JFK RECORDS · 1992–2025' }], jfkbullet: ['bullet'],
+  epsteindeath: ['cell'], epsteindeal: ['folders', { text: 'NON-PROSECUTION AGREEMENT · 2008' }], epsteinlist: ['folders', { text: 'THE "CLIENT LIST"' }], epsteinminute: ['cell', { text: '11:58:58 PM → 12:00:00 AM' }],
 };
 window.RHART = { ART, MAP, draw(c, id, t, hueN) { const m = MAP[id]; if (!m || !ART[m[0]]) return false; c.save(); ART[m[0]](c, t, { hue: hueN, ...(m[1] || {}) }); c.restore(); return true; } };
 })();

@@ -40,7 +40,7 @@ const cl = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x)), eo = x => 1 - Math.
 const rnd = n => { const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
 const R = new URLSearchParams(location.search).get('r');
 let T, L, CHUNKS = [];
-const HUES = { mind: 275, flags: 8, sky: 210, bureau: 150, bodies: 38, hoax: 230, cold: 185, watch: 125, corp: 75, unsolved: 320 };
+const HUES = { mind: 275, flags: 8, sky: 210, bureau: 150, bodies: 38, hoax: 230, cold: 185, watch: 125, corp: 75, unsolved: 320, cryptid: 100, dallas: 28, epstein: 345 };
 function shade(hex, k) { const n = parseInt(hex.slice(1), 16), f = c => Math.max(0, Math.min(255, Math.round(c * k))); return `rgb(${f(n >> 16)},${f((n >> 8) & 255)},${f(n & 255)})`; }
 
 // ---------- the character ----------
@@ -107,12 +107,19 @@ const bg = document.getElementById('bg').getContext('2d'), ch = document.getElem
 const NOISE = Array.from({ length: 6 }, (_, k) => { const c = document.createElement('canvas'); c.width = 540; c.height = 960; const x = c.getContext('2d'), im = x.createImageData(540, 960);
   for (let i = 0; i < im.data.length; i += 4) { const v = rnd(i * .37 + k * 1000) * 255; im.data[i] = im.data[i + 1] = im.data[i + 2] = v; im.data[i + 3] = 50; } x.putImageData(im, 0, 0); return c; });
 const amp = t => { const e = T.env, i = Math.floor(t * 30); return e[i] || 0; };
+// cutaways: every other sentence the story's animation fills the screen and the speaker shrinks into a corner circle
+let SENT = [];
+function cutMix(t) { let k = -1; for (let i = 0; i < SENT.length; i++) if (t >= SENT[i]) k = i; if (k < 0) return 0;
+  const on = i => i >= 0 && i % 2 === 1 && i < SENT.length - 1 ? 1 : 0, a = on(k - 1), b = on(k); return a + (b - a) * cl((t - SENT[k]) / .35); }
 function render(t) {
-  bg.clearRect(0, 0, 1080, 1920); RHART.draw(bg, T.case.id, t, HUES[T.case.hole] || 275);
-  const g = bg.createLinearGradient(0, 0, 0, 1920); g.addColorStop(0, 'rgba(19,16,28,.55)'); g.addColorStop(.45, 'rgba(19,16,28,.35)'); g.addColorStop(.75, 'rgba(19,16,28,.85)'); g.addColorStop(1, '#13101c'); bg.fillStyle = g; bg.fillRect(0, 0, 1080, 1920);
+  const endAt = T.duration - 2.6, fade = cl((t - endAt) / .4), m = cl(cutMix(t) - fade);
+  bg.clearRect(0, 0, 1080, 1920); bg.save(); const z = 1 + .07 * m + .02 * Math.sin(t * .3); bg.translate(540, 900); bg.scale(z, z); bg.translate(-540, -900); RHART.draw(bg, T.case.id, t, HUES[T.case.hole] || 275); bg.restore();
+  const g = bg.createLinearGradient(0, 0, 0, 1920), k = 1 - m * .85; g.addColorStop(0, `rgba(19,16,28,${.55 * k})`); g.addColorStop(.45, `rgba(19,16,28,${.35 * k})`); g.addColorStop(.75, `rgba(19,16,28,${.85 - .35 * m})`); g.addColorStop(1, '#13101c'); bg.fillStyle = g; bg.fillRect(0, 0, 1080, 1920);
   ch.clearRect(0, 0, 1080, 1920); const a = (amp(t) + amp(t - 1 / 30)) / 2;
-  const endAt = T.duration - 2.6, fade = cl((t - endAt) / .4);
-  drawChar(ch, 540, 1000, 1.5, t, a, L); if (fade > 0) { ch.fillStyle = `rgba(19,16,28,${fade * .65})`; ch.fillRect(0, 0, 1080, 1920); }
+  if (m < 1) { ch.save(); ch.globalAlpha = 1 - m; drawChar(ch, 540, 1000 + m * 260, 1.5, t, a, L); ch.restore(); }
+  if (m > 0) { const R = 150, x = 860, y = 1360; ch.save(); ch.globalAlpha = m; ch.beginPath(); ch.arc(x, y, R, 0, 7); ch.fillStyle = '#1e1929'; ch.fill(); ch.clip(); drawChar(ch, x, y + 40, .52, t, a, L); ch.restore();
+    ch.save(); ch.globalAlpha = m; ch.strokeStyle = '#f2e14c'; ch.lineWidth = 8; ch.beginPath(); ch.arc(x, y, R, 0, 7); ch.stroke(); ch.restore(); }
+  if (fade > 0) { ch.fillStyle = `rgba(19,16,28,${fade * .65})`; ch.fillRect(0, 0, 1080, 1920); }
   const av = document.getElementById('av').getContext('2d'); av.clearRect(0, 0, 192, 192); av.fillStyle = '#1e1929'; av.fillRect(0, 0, 192, 192); drawChar(av, 96, 96, .34, t, a, L);
   document.getElementById('cap').innerHTML = t < endAt ? caption(t) : '';
   document.getElementById('about').style.opacity = cl((t - 1) / .4);
@@ -123,6 +130,6 @@ window.ready = fetch(`build/${R}.json`).then(r => r.json()).then(j => {
   T = j; L = j.char.look; window.DURATION = j.duration; window.SLAMS = []; window.SCENESTARTS = [];
   document.getElementById('handle').textContent = '@' + j.char.handle;
   document.getElementById('about').textContent = 'About: ' + j.case.title.replace(/^the /, '');
-  buildChunks(); render(0);
+  buildChunks(); T.words.forEach((w, i) => { if (i === 0 || /[.?!]$/.test(T.words[i - 1][0])) SENT.push(w[1] - .1); }); render(0);
 });
 </script></body></html>

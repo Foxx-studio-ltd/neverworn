@@ -54,6 +54,16 @@
    "name": "Cryptids",
    "hue": 100,
    "blurb": "Bigfoot's cousins: the Yeti, the Chupacabra and the Mothman."
+  },
+  "dallas": {
+   "name": "Dallas, 1963",
+   "hue": 28,
+   "blurb": "Two shooters? One bullet? Sixty years of secret files."
+  },
+  "epstein": {
+   "name": "The Epstein Files",
+   "hue": 345,
+   "blurb": "A sweetheart deal, a jail cell, a missing minute."
   }
  },
  "cases": [
@@ -383,7 +393,7 @@
   },
   {
    "id": "jfk",
-   "hole": "bureau",
+   "hole": "dallas",
    "year": "1979",
    "ans": "true",
    "hook": "A US government committee concluded JFK was *probably killed in a conspiracy*.",
@@ -399,7 +409,8 @@
    ],
    "reveal": "The House committee said probably a conspiracy in 1979. Scientists later rejected the audio evidence it relied on.",
    "title": "the JFK verdict",
-   "tease": "a government committee said JFK was probably killed in a conspiracy"
+   "tease": "a government committee said JFK was probably killed in a conspiracy",
+   "wiki": "Assassination_of_John_F._Kennedy"
   },
   {
    "id": "tuskegee",
@@ -1441,6 +1452,195 @@
    ],
    "title": "the Mothman",
    "tease": "a winged figure with red eyes haunted a small town"
+  },
+  {
+   "id": "jfkruby",
+   "hole": "dallas",
+   "year": "1963",
+   "ans": "true",
+   "hook": "The only suspect in JFK's murder was *shot dead on live TV* two days later.",
+   "ev": [
+    "The shooter was nightclub owner [[Jack Ruby]].",
+    "It happened in the basement of [[Dallas police headquarters]].",
+    "Ruby died in jail in [[1967]], before a retrial."
+   ],
+   "truth": "On November 24, 1963, Jack Ruby shot Lee Harvey Oswald as police moved him through the basement of Dallas police headquarters, in front of live television cameras. Ruby was convicted of murder, the verdict was overturned on appeal, and he died of cancer in January 1967 before a new trial. The Warren Commission found no evidence that Ruby was part of a conspiracy, but Oswald never stood trial.",
+   "reveal": "Jack Ruby shot Oswald on live television. Investigators found no proof he was part of a plot, but Oswald never got his day in court.",
+   "src": [
+    "Warren Commission Report, 1964",
+    "https://en.wikipedia.org/wiki/Jack_Ruby"
+   ],
+   "title": "the man who shot Oswald",
+   "tease": "the only suspect was shot dead on live TV",
+   "wiki": "Jack_Ruby"
+  },
+  {
+   "id": "jfkmexico",
+   "hole": "dallas",
+   "year": "1963",
+   "ans": "true",
+   "hook": "Weeks before Dallas, the *CIA was watching Oswald* in Mexico City.",
+   "ev": [
+    "He visited the [[Cuban and Soviet]] embassies.",
+    "CIA cameras and wiretaps covered [[both buildings]].",
+    "Files on the trip were [[still being released]] decades later."
+   ],
+   "truth": "In late September and early October 1963, Oswald visited the Cuban consulate and the Soviet embassy in Mexico City, trying to get visas. The CIA's Mexico City station had both under photo and telephone surveillance and reported his contact with the Soviet embassy to headquarters in October 1963. What the CIA knew, and what it shared, was examined by the House Select Committee on Assassinations and is still a focus of released records.",
+   "reveal": "The CIA reported Oswald's visit to the Soviet embassy weeks before the assassination.",
+   "src": [
+    "House Select Committee on Assassinations, 1979",
+    "https://en.wikipedia.org/wiki/Lee_Harvey_Oswald"
+   ],
+   "title": "the CIA and Oswald",
+   "tease": "the CIA was watching Oswald weeks before Dallas",
+   "wiki": "Lee_Harvey_Oswald"
+  },
+  {
+   "id": "jfkumbrella",
+   "hole": "dallas",
+   "year": "1963",
+   "ans": "false",
+   "hook": "The man with an *umbrella on a sunny day* was signalling JFK's shooters.",
+   "ev": [
+    "He opened it as the [[shots rang out]].",
+    "Theorists called it a [[signal]], or even a weapon.",
+    "In [[1978]] he came forward and testified."
+   ],
+   "truth": "Films show a man holding an open black umbrella in Dealey Plaza as the motorcade passed. In 1978 Louie Steven Witt told the House Select Committee on Assassinations he was the Umbrella Man, and that it was a protest aimed at the president's father, Joseph Kennedy, over his support for appeasing Hitler. No evidence connects him to the shooting.",
+   "reveal": "The Umbrella Man came forward in 1978. He said it was a protest aimed at Kennedy's father, and nothing ties him to the shooting.",
+   "src": [
+    "HSCA testimony, 1978",
+    "https://en.wikipedia.org/wiki/Umbrella_Man_(JFK_assassination)"
+   ],
+   "title": "the umbrella man",
+   "tease": "a man opened an umbrella on a sunny day as the shots rang out",
+   "wiki": "Umbrella_man_(JFK_assassination)"
+  },
+  {
+   "id": "jfkfiles",
+   "hole": "dallas",
+   "year": "2025",
+   "ans": "true",
+   "hook": "Some JFK files stayed *secret for more than sixty years*.",
+   "ev": [
+    "A [[1992]] law said release them by 2017.",
+    "Presidents [[delayed]] the deadline again and again.",
+    "Tens of thousands of pages came out in [[2025]]."
+   ],
+   "truth": "The JFK Assassination Records Collection Act of 1992 required the records to be released by October 2017 unless the president approved a delay, and delays were approved more than once. In March 2025 the National Archives released tens of thousands of pages with most remaining redactions removed. Historians found new detail on CIA operations, but no proof that anyone besides Oswald took part.",
+   "reveal": "The deadline was 2017, and most of the last files only came out in 2025, more than sixty years after Dallas.",
+   "src": [
+    "National Archives, JFK Records Collection",
+    "https://www.archives.gov/research/jfk"
+   ],
+   "title": "the secret JFK files",
+   "tease": "some JFK files stayed secret for sixty years",
+   "wiki": "John_F._Kennedy_assassination_conspiracy_theories"
+  },
+  {
+   "id": "jfkbullet",
+   "hole": "dallas",
+   "year": "1964",
+   "ans": "mixed",
+   "hook": "One bullet *made seven wounds* in two men and came out almost untouched.",
+   "ev": [
+    "Critics named it the [[magic bullet]].",
+    "Its evidence number is [[CE 399]].",
+    "Later reconstructions found the path [[possible]]."
+   ],
+   "truth": "The Warren Commission concluded that one bullet passed through President Kennedy and wounded Governor John Connally, causing seven entry and exit wounds. Critics argued the nearly intact bullet made that impossible and pointed to a second shooter. The House committee accepted the single-bullet finding in 1979, and several later reconstructions found the path matched how the two men were seated. Doubters remain.",
+   "reveal": "Both the Warren Commission and Congress backed the single bullet. Critics still say it's impossible.",
+   "src": [
+    "Warren Commission Report, 1964",
+    "https://en.wikipedia.org/wiki/Single-bullet_theory"
+   ],
+   "title": "the magic bullet",
+   "tease": "one bullet made seven wounds",
+   "wiki": "Single-bullet_theory"
+  },
+  {
+   "id": "epsteindeath",
+   "hole": "epstein",
+   "year": "2019",
+   "ans": "mixed",
+   "hook": "*Epstein didn't kill himself.*",
+   "ev": [
+    "His guards [[skipped checks]] and falsified records.",
+    "Cameras near his cell [[failed]] that night.",
+    "The medical examiner ruled it [[suicide]]."
+   ],
+   "truth": "Jeffrey Epstein was found hanged in his cell at the Metropolitan Correctional Center in New York on August 10, 2019, while awaiting trial on federal sex trafficking charges. The city medical examiner ruled it suicide. A 2023 Justice Department inspector general report found serious misconduct and failures, including guards who skipped required checks and a cellmate who had been moved out, but no evidence that anyone else was involved.",
+   "reveal": "The failures were real: skipped checks, falsified logs, broken cameras. But every official inquiry found he took his own life.",
+   "src": [
+    "DOJ Inspector General report, 2023",
+    "https://en.wikipedia.org/wiki/Death_of_Jeffrey_Epstein"
+   ],
+   "title": "Epstein's last night",
+   "tease": "Epstein's guards skipped their checks the night he died",
+   "wiki": "Death_of_Jeffrey_Epstein"
+  },
+  {
+   "id": "epsteindeal",
+   "hole": "epstein",
+   "year": "2008",
+   "ans": "true",
+   "hook": "Epstein got a deal that let him *leave jail six days a week*.",
+   "ev": [
+    "He pleaded guilty to [[state charges]] in Florida.",
+    "Federal prosecutors signed a [[non-prosecution agreement]].",
+    "He served about [[13 months]], mostly on work release."
+   ],
+   "truth": "In 2008 Epstein pleaded guilty to two Florida state charges, one involving a minor, under a deal in which federal prosecutors agreed not to bring federal charges. He served about 13 months in jail and was let out on work release for up to 12 hours a day, six days a week. His victims weren't told about the deal. A judge ruled in 2019 that this broke the law, though an appeals court reversed that ruling in 2020.",
+   "reveal": "The 2008 deal let him out on work release six days a week, and his victims weren't told about it.",
+   "src": [
+    "Miami Herald, Perversion of Justice, 2018",
+    "https://en.wikipedia.org/wiki/Jeffrey_Epstein"
+   ],
+   "title": "the sweetheart deal",
+   "tease": "Epstein got a deal that let him out of jail six days a week",
+   "wiki": "Jeffrey_Epstein"
+  },
+  {
+   "id": "epsteinlist",
+   "hole": "epstein",
+   "year": "2025",
+   "ans": "mixed",
+   "hook": "There's an Epstein *client list*, and the government is hiding it.",
+   "ev": [
+    "His [[flight logs]] and address book are public.",
+    "In [[2025]] the Justice Department said no client list exists.",
+    "Congress then voted to [[force the files out]]."
+   ],
+   "truth": "Flight logs from Epstein's planes and his address book became public through court cases, and they include many famous names. Being named in them is not evidence of a crime. In July 2025 the Justice Department and FBI said a review found no incriminating client list. In November 2025 Congress passed the Epstein Files Transparency Act, ordering the department to release its files.",
+   "reveal": "The flight logs and address book are real. The Justice Department says a formal client list doesn't exist, and Congress voted to make it release its files.",
+   "src": [
+    "Epstein Files Transparency Act, 2025",
+    "https://en.wikipedia.org/wiki/Epstein_files"
+   ],
+   "title": "the client list",
+   "tease": "the Epstein client list",
+   "wiki": "Epstein_files"
+  },
+  {
+   "id": "epsteinminute",
+   "hole": "epstein",
+   "year": "2025",
+   "ans": "true",
+   "hook": "The jail video released to prove suicide is *missing a minute*.",
+   "ev": [
+    "The Justice Department released it in [[July 2025]].",
+    "The clock jumps from [[11:58:58]] to midnight.",
+    "Officials said the system [[resets nightly]]."
+   ],
+   "truth": "To support its finding of suicide, the Justice Department released surveillance video from outside Epstein's unit. Viewers noticed the timestamp jumps from 11:58:58 p.m. to 12:00:00 a.m. The Attorney General said the system reset every night and the same minute was missing from every night's recording. Reporters later found the file had been put together from more than one clip, which fed the doubts.",
+   "reveal": "A minute really is missing from the released video. Officials blame a nightly system reset.",
+   "src": [
+    "US Justice Department, July 2025",
+    "https://en.wikipedia.org/wiki/Death_of_Jeffrey_Epstein"
+   ],
+   "title": "the missing minute",
+   "tease": "the jail video is missing a minute",
+   "wiki": "Metropolitan_Correctional_Center,_New_York"
   }
  ],
  "chain": [
@@ -1465,6 +1665,15 @@
   "cointelpro",
   "mockingbird",
   "jfk",
+  "jfkruby",
+  "jfkbullet",
+  "jfkumbrella",
+  "jfkmexico",
+  "jfkfiles",
+  "epsteindeal",
+  "epsteindeath",
+  "epsteinminute",
+  "epsteinlist",
   "irancontra",
   "tuskegee",
   "seaspray",
@@ -1520,14 +1729,18 @@
   "order": [
    "dyatlov",
    "roswell",
+   "epsteindeath",
    "starfish",
    "bigfoot",
    "mkultra",
    "yeti",
+   "jfkruby",
    "moon",
    "northwoods",
    "shamrock",
    "phoebus",
+   "jfkfiles",
+   "epsteinminute",
    "cointelpro",
    "flatearth",
    "tuskegee",
@@ -1586,7 +1799,12 @@
    "titanic",
    "haarp",
    "greatwall",
-   "chemtrails"
+   "chemtrails",
+   "jfkbullet",
+   "epsteindeal",
+   "jfkmexico",
+   "jfkumbrella",
+   "epsteinlist"
   ]
  }
 }

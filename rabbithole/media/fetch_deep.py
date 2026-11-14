@@ -3,7 +3,7 @@
 import json, re, sys, time, urllib.request, urllib.parse, urllib.error
 UA = {"User-Agent": "RabbitHolePrototype/0.1 (case research)"}
 D = json.load(open("data/cases.json"))
-EXTRA = {"bluebook": "Project_Blue_Book", "jfk": "House_Select_Committee_on_Assassinations"}
+EXTRA = {"bluebook": "Project_Blue_Book", "jfk": "House_Select_Committee_on_Assassinations", "jfkfiles": "President_John_F._Kennedy_Assassination_Records_Collection_Act_of_1992", "jfkmexico": "Lee_Harvey_Oswald", "epsteinminute": "Metropolitan_Correctional_Center,_New_York"}
 def title(c):
     if c["id"] in EXTRA: return EXTRA[c["id"]]
     u = c["src"][1]; return urllib.parse.unquote(u.split("/wiki/")[1])

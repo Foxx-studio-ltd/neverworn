@@ -498,6 +498,48 @@ button:active, .pill:active, .disc:active { transform: scale(.96); filter: brigh
 #me .me-head, #me .me-row { box-shadow: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
 .rail button.burst .disc { animation: burst .45s ease-out; } @keyframes burst { 40% { transform: scale(1.3) } }
 
+.x[aria-label="Close"] { width: 38px; height: 38px; padding: 0 !important; border-radius: 50% !important; font-size: 24px; line-height: 1; display: inline-grid; place-items: center; font-weight: 400; }
+
+.verdict-ov { position: absolute; inset: 0; z-index: 4; display: grid; align-content: center; justify-items: center; gap: 14px; padding: 0 24px 180px; background: radial-gradient(circle at 50% 42%, rgba(19,16,28,.55), rgba(19,16,28,.9)); text-align: center; animation: vin .3s ease-out; }
+@keyframes vin { from { opacity: 0 } }
+.verdict-ov .v-q { font-family: var(--f-display); font-weight: 900; font-size: 54px; text-transform: uppercase; margin: 0; line-height: .95; animation: vq 1s ease-in-out infinite alternate; }
+@keyframes vq { to { transform: scale(1.06); color: var(--mark); } }
+.verdict-ov .v-guess { display: flex; gap: 10px; width: 100%; max-width: 320px; } .verdict-ov .v-guess .btn-call { flex: 1; height: 50px; }
+.verdict-ov .v-guess .btn-call[aria-pressed="true"] { outline: 3px solid var(--mark); }
+.verdict-ov .v-stamp .stamp-chip { font-size: 64px; padding: 8px 22px; border-width: 6px; animation: slam .35s cubic-bezier(.2,1.6,.4,1); }
+@keyframes slam { from { transform: scale(2.4) rotate(-12deg); opacity: 0 } to { transform: scale(1) rotate(-4deg); opacity: 1 } }
+.verdict-ov .v-reveal { font-size: 18px; font-weight: 600; line-height: 1.35; margin: 0; max-width: 340px; animation: vin .5s .2s both; }
+.verdict-ov .v-line { margin: 0; font-size: 14px; }
+.verdict-ov.more { align-content: start; padding-top: 100px; transition: padding .3s; } .verdict-ov.more .v-stamp .stamp-chip { font-size: 44px; } .verdict-ov.more .v-reveal { font-size: 16px; }
+.verdict-ov.hit { animation: shake .3s; } @keyframes shake { 30% { transform: translateX(-6px) } 60% { transform: translateX(5px) } }
+.reel .nextup { z-index: 5; }
+
+.rp-sheet { display: grid; gap: 6px; padding-bottom: 18px; } .rp-sheet header { display: flex; justify-content: space-between; align-items: center; }
+.rp-opt { display: flex; gap: 14px; align-items: center; text-align: left; padding: 14px 8px; background: none !important; border: 0 !important; box-shadow: none !important; color: inherit; border-radius: 12px; }
+.rp-opt .ico { width: 24px; height: 24px; } .rp-opt b { display: block; font-size: 16px; } .rp-opt small { color: var(--muted); font-size: 13px; }
+.cta.sm, .ghost.sm { padding: 7px 14px; font-size: 14px; width: auto; margin: 0; display: inline-flex; align-items: center; gap: 4px; } .cta.sm .ico { width: 16px; height: 16px; }
+.q-row { display: flex; gap: 10px; align-items: flex-start; } .q-row textarea { flex: 1; background: none; border: 0; color: inherit; font: inherit; font-size: 17px; resize: none; outline: none; }
+.q-card { display: flex; gap: 10px; border: 1px solid var(--line); border-radius: 14px; padding: 10px; } .q-card img { width: 64px; height: 96px; object-fit: cover; border-radius: 8px; } .q-card p { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
+.mp-media video, .mp-media img { width: 100%; max-height: 260px; object-fit: cover; border-radius: 14px; }
+.rp-head { position: absolute; top: 56px; left: 16px; right: 70px; z-index: 3; display: flex; gap: 6px; align-items: center; font-size: 13px; font-weight: 700; color: var(--muted); }
+.rp-head .ico { width: 16px; height: 16px; } .rp-head b { color: var(--text); }
+.rp-head:has(b) { display: block; background: rgba(19,16,28,.78); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; font-size: 15px; font-weight: 500; color: var(--text); backdrop-filter: blur(8px); }
+.post-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
+.me-page { margin: -16px -16px 0; } #me .pf-depth { padding: 0 16px; }
+.pf-banner { height: 110px; background: linear-gradient(135deg, hsl(var(--hue) 45% 30%), hsl(calc(var(--hue) + 60) 40% 16%)); }
+.profile-page .pf-banner { margin: 0 -16px; border-radius: 0; }
+.pf-top { display: flex; justify-content: space-between; align-items: flex-end; padding: 0 16px; margin-top: -38px; }
+.pf-top .ava { border: 4px solid var(--ink); box-sizing: content-box; } .pf-acts { display: flex; gap: 8px; padding-bottom: 4px; }
+.pf-id { padding: 6px 16px 0; display: grid; gap: 2px; } .pf-name { margin: 0; font-size: 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 4px; font-family: var(--f-ui); text-transform: none; letter-spacing: 0; }
+.pf-name .tick { width: 19px; height: 19px; } .pf-handle { color: var(--muted); font-size: 15px; } .pf-id .pf-bio { margin: 8px 0 0; }
+.pf-fol { display: flex; gap: 14px; margin: 8px 0 0; } .pf-fol button { background: none !important; border: 0 !important; box-shadow: none !important; padding: 0; color: var(--muted); font-size: 14px; } .pf-fol b { color: var(--text); }
+.pf-tabs2 { display: flex; border-bottom: 1px solid var(--line); margin-top: 12px; } .pf-tabs2 button { flex: 1; padding: 12px 0; background: none !important; border: 0 !important; box-shadow: none !important; border-radius: 0; color: var(--muted); font-weight: 700; font-size: 15px; position: relative; }
+.pf-tabs2 button[aria-selected="true"] { color: var(--text); } .pf-tabs2 button[aria-selected="true"]::after { content: ""; position: absolute; left: 30%; right: 30%; bottom: 0; height: 4px; border-radius: 2px; background: #1d9bf0; }
+.pf-body { padding: 10px 16px 24px; } .profile-page .pf-top, .profile-page .pf-id, .profile-page .pf-body { padding-left: 0; padding-right: 0; }
+.pf-tile { position: relative; } .pf-tile q { position: absolute; left: 4px; right: 4px; top: 4px; font-size: 11px; background: rgba(19,16,28,.8); padding: 3px 5px; border-radius: 6px; quotes: none; }
+.pf-tile video { width: 100%; height: 100%; object-fit: cover; } .pf-tile .tb { position: absolute; right: 4px; top: 4px; background: rgba(19,16,28,.8); border-radius: 50%; width: 22px; height: 22px; display: grid; place-items: center; } .pf-tile .tb .ico { width: 14px; height: 14px; }
+.pf-empty { text-align: center; padding: 24px 8px; }
+
 #toast { position: absolute; z-index: 50; left: 50%; bottom: calc(var(--tab-h) + 14px); transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 10px; background: var(--text); color: var(--ink); font-weight: 600; font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.4); animation: rise .25s; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -571,6 +613,10 @@ const I = {
   me: '<path d="M12 3v18M12 21l-5-5M12 21l5-5"/><path d="M5 4h14" opacity=".5"/>',
   pin: '<path d="M9 3h6l-1 6 3 3H7l3-3-1-6z"/><path d="M12 12v9"/>',
   share: '<path d="M12 15V3M7 8l5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/>',
+  repost: '<path d="M4 9V7a2 2 0 0 1 2-2h12l-3-3M20 15v2a2 2 0 0 1-2 2H6l3 3"/>',
+  quote: '<path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/>',
+  link: '<path d="M10 14a4 4 0 0 0 6 0l3-3a4 4 0 0 0-6-6l-1 1"/><path d="M14 10a4 4 0 0 0-6 0l-3 3a4 4 0 0 0 6 6l1-1"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
   deeper: '<ellipse cx="12" cy="18" rx="9" ry="3.4"/><ellipse cx="12" cy="18" rx="4.5" ry="1.5"/><path d="M12 2.5v11M7.5 9l4.5 4.5L16.5 9"/>',
   source: '<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/>',
   flame: '<path d="M12 22c4 0 7-2.7 7-7 0-4-3-6-4-9-1 2-2 3-3.5 3.5C11 6 10 4 10 2 7 5 5 9 5 15c0 4.3 3 7 7 7z"/>',
@@ -611,7 +657,7 @@ const evHTML = s => esc(s).replace(/\[\[(.+?)\]\]/g, '<span class="rx" role="but
 
 /* ---------- State (this device only) ---------- */
 const KEY = "rabbithole:v1";
-const blank = () => ({ notes: {}, dug: {}, onboarded: false, picks: [], seen: {}, calls: {}, saved: [], depth: 0, streak: 0, lastDrop: null, skips: 1, kept: {}, cleared: false, opened: 0, notify: false, rulesOk: false, lastSeenDrop: null });
+const blank = () => ({ joined: Date.now(),  notes: {}, dug: {}, onboarded: false, picks: [], seen: {}, calls: {}, saved: [], depth: 0, streak: 0, lastDrop: null, skips: 1, kept: {}, cleared: false, opened: 0, notify: false, rulesOk: false, lastSeenDrop: null });
 let S = blank();
 try { Object.assign(S, JSON.parse(localStorage.getItem(KEY)) || {}); } catch (e) {}
 S.notes = S.notes || {}; S.dug = S.dug || {};
@@ -652,13 +698,17 @@ const FX = (() => {
   // iPhone has no vibrate(); toggling a native switch gives a tap of haptic feedback (iOS 18+)
   let sw = null;
   function iosTap() { if (!sw) { const l = document.createElement("label"); l.setAttribute("aria-hidden", "true"); l.style.cssText = "position:fixed;left:-99px;top:0;opacity:0;pointer-events:none"; l.innerHTML = '<input type="checkbox" switch tabindex="-1">'; document.body.append(l); sw = l; } sw.click(); }
-  function buzz(pattern) { try { if (navigator.vibrate) navigator.vibrate(pattern); else { iosTap(); if (Array.isArray(pattern) && pattern.length > 2) setTimeout(iosTap, 90); } } catch (e) {} }
+  let last = 0;
+  function buzz(pattern) { const now = Date.now(); if (now - last < 70) return; last = now; try { if (navigator.vibrate) navigator.vibrate(pattern); else { iosTap(); if (Array.isArray(pattern) && pattern.length > 2) setTimeout(iosTap, 90); } } catch (e) {} }
   document.addEventListener("click", () => { ctx(); }, { once: true, capture: true });
+  // like X: a light tick whenever a button is pressed
+  document.addEventListener("pointerdown", e => { if (!e.isTrusted || !ok()) return; if (e.target.closest("button, [role=button], .rx, summary, a.cf-link")) buzz([8]); }, { capture: true, passive: true });
   return {
     gain(n) { if (!ok() || !n) return; const notes = n >= 60 ? [523, 659, 784, 1047] : n >= 25 ? [587, 740, 880] : n >= 15 ? [659, 880] : [880];
       notes.forEach((f, i) => tone(f, i * .065, .22)); tone(notes[notes.length - 1] * 2, notes.length * .065, .35, "sine", .05); buzz(n >= 60 ? [18, 40, 18, 40, 30] : n >= 25 ? [18, 40, 22] : [16]); },
     level() { if (!ok()) return; [392, 523, 659, 784, 1047].forEach((f, i) => tone(f, i * .09, .4, "square", .05)); [523, 659, 784].forEach(f => tone(f, .5, .9, "triangle", .07)); buzz([30, 60, 30, 60, 80]); },
     tap() { if (ok()) buzz([12]); },
+    beat() { if (!ok()) return; [0, .22, .9, 1.12].forEach(at => tone(55, at, .18, "sine", .5)); buzz([20, 180, 20]); },
     lose() { if (!ok()) return; [523, 392, 311].forEach((f, i) => tone(f, i * .09, .28, "sine", .11)); buzz([40, 30, 40]); }
   };
 })();
@@ -708,7 +758,7 @@ function card(c, opt = {}) {
       <button data-act="save" aria-pressed="${saved}" aria-label="Pin to case board"><span class="disc">${ico("pin")}</span>Pin</button>
       <button data-act="debate" aria-label="Open the discussion"><span class="disc">${ico("debate")}</span><span class="count" data-count="${c.id}">${Debate.count(c.id) || "Discuss"}</span></button>
       <button data-act="casefile" aria-label="Open the full case file"><span class="disc">${ico("file")}</span>Case</button>
-      <button data-act="share" aria-label="Share this file"><span class="disc">${ico("share")}</span>Share</button>
+      <button data-act="repost" aria-pressed="${!!(S.reposts || {})["ep:" + c.id]}" aria-label="Repost or quote"><span class="disc">${ico("repost")}</span><span class="count" data-reposts>${Social.fmt(Social.reposts("ep:" + c.id))}</span></button>
       <button data-act="deeper" aria-label="Go deeper"><span class="disc">${ico("deeper")}</span>Deeper</button>
     </aside>${opt.first ? '<div class="swipe-hint">Swipe up for the next file</div>' : ""}`;
   return el;
@@ -788,7 +838,7 @@ feed.addEventListener("click", e => {
   if (rx && !rx.classList.contains("open")) { rx.classList.add("open"); el.dataset.peeked = "1"; return; }
   const g = e.target.closest("[data-g]"); if (g) return callIt(el, g.dataset.g);
   const a = e.target.closest("[data-act]"); if (!a) return;
-  ({ save: () => toggleSave(el, a), share: () => share(el), deeper: () => goDeeper(el), unlock: () => paywall(), alerts: () => Alerts.enable(), casefile: () => CaseFile.open(el.dataset.id), dig: () => CaseFile.open(el.dataset.id, 2), debate: () => Debate.open(el.dataset.id) })[a.dataset.act]?.();
+  ({ save: () => toggleSave(el, a), share: () => share(el), repost: () => Social.repostSheet("ep:" + el.dataset.id, () => { a.setAttribute("aria-pressed", !!S.reposts["ep:" + el.dataset.id]); $("[data-reposts]", a).textContent = Social.fmt(Social.reposts("ep:" + el.dataset.id)); }), deeper: () => goDeeper(el), unlock: () => paywall(), alerts: () => Alerts.enable(), casefile: () => CaseFile.open(el.dataset.id), dig: () => CaseFile.open(el.dataset.id, 2), debate: () => Debate.open(el.dataset.id) })[a.dataset.act]?.();
 });
 feed.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("rx")) { e.preventDefault(); e.target.click(); } });
 
@@ -813,19 +863,25 @@ const CaseFile = (() => {
     if (i === 4) return `<p class="credit">Three ways to keep going from here:</p><div class="doors">${Explore.doors(c, []).map(([label, d]) => `<button class="door" data-open="${esc(d.id)}"><small>${label}</small><b>${esc(capFirst(d.tease))}</b></button>`).join("")}</div>`;
     if (i === 5) return `<div class="studio" data-case="${esc(c.id)}"></div><label class="fld">Private notes<textarea id="cfNotes" rows="3" placeholder="What doesn't add up? Only you can see this.">${esc(S.notes[c.id] || "")}</textarea></label><p class="credit" id="cfSaved"></p><div class="cf-community"></div>`;
   }
-  // one layer on screen at a time
-  function show(i, dir = 0) {
-    shown = i; const body = $(".layers", s); body.innerHTML = "";
-    const sec = document.createElement("section"); sec.className = "layer" + (dir > 0 ? " layer-in" : dir < 0 ? " layer-back" : ""); sec.dataset.layer = i;
+  // layers open one at a time, in order, and stay stacked on one screen: scroll up to read the earlier ones
+  function add(i, anim) {
+    const sec = document.createElement("section"); sec.className = "layer" + (anim ? " layer-in" : ""); sec.dataset.layer = i;
     sec.innerHTML = `<h3><span>Layer ${i + 1} of ${LAYERS.length}</span>${LAYERS[i]}${i === 3 && !S.cleared ? ` ${ico("lock")}` : ""}</h3>` + layer(i);
-    body.append(sec);
+    $(".layers", s).append(sec);
     if (i === 5) { Studio.mount($(".studio", sec), c.id); Contrib.mountCase($(".cf-community", sec), c.id); }
-    $(".sheet", s).scrollTop = 0; foot();
+    return sec;
+  }
+  function show(i, dir = 0) {
+    const have = $$(".layers .layer", s).length;
+    for (let k = have; k <= i; k++) add(k, dir > 0 && k === i);
+    shown = Math.max(shown, i); foot();
+    const el = $(`.layers .layer[data-layer="${i}"]`, s), sh = $(".sheet", s);
+    if (i === 0 || !el) sh.scrollTop = 0; else requestAnimationFrame(() => sh.scrollTo({ top: sh.scrollTop + el.getBoundingClientRect().top - sh.getBoundingClientRect().top - 60, behavior: dir ? "smooth" : "auto" }));
   }
   function foot() {
     const called = c.id in S.calls, f = $(".cf-foot", s), nx = chainNext(c), reached = Math.max(shown, S.dug[c.id] || 0);
     $(".dots", s).innerHTML = LAYERS.map((n, k) => `<button data-goto="${k}" class="${k <= reached ? "on" : ""}${k === shown ? " here" : ""}" aria-label="Layer ${k + 1}: ${n}" ${k <= reached ? "" : "disabled"}></button>`).join("");
-    const back = shown > 0 ? `<button class="ghost" data-up aria-label="Back up a layer">‹ Up</button>` : "";
+    const back = "";
     if (shown >= LAYERS.length - 1) { f.innerHTML = `<p class="credit">You've reached the bottom of this file.</p><div class="cf-pager">${back}<button class="deeper" data-open="${esc(nx.id)}"><span><small>Next file</small>${esc(capFirst(nx.tease))}</span></button></div>`; return; }
     f.innerHTML = !called && shown === 0 ? `<button class="ghost" data-show>Just show me</button>` :
       `<div class="cf-pager">${back}<button class="dig" data-dig>${ico("deeper")}<span><small>Layer ${shown + 2} of ${LAYERS.length}${shown + 1 === 3 && !S.cleared ? " · Clearance" : ""}</small>Dig deeper: ${LAYERS[shown + 1].toLowerCase()}</span></button></div>`;
@@ -839,9 +895,9 @@ const CaseFile = (() => {
     if (force) { if (!(id in S.calls)) S.calls[id] = null; } else if (!(id in S.calls)) to = 0;
     s = document.createElement("div"); s.className = "scrim";
     s.innerHTML = `<div class="sheet casefile" role="dialog" aria-modal="true" aria-label="Case file" style="--hue:${HOLES[c.hole].hue}">
-      <header><span class="chip">${esc(HOLES[c.hole].name)}</span><span class="credit">File ${fileNo(c)} · ${esc(c.year)}</span><button class="x" data-x>Close</button></header>
+      <header><span class="chip">${esc(HOLES[c.hole].name)}</span><span class="credit">File ${fileNo(c)} · ${esc(c.year)}</span><button class="x" data-x aria-label="Close">×</button></header>
       <div class="dots"></div><div class="layers"></div><div class="cf-foot"></div></div>`;
-    $("#app").append(s);
+    $("#app").append(s); shown = 0;
     show(Math.max(0, to));
     s.addEventListener("input", e => { if (e.target.id === "cfNotes") { S.notes[c.id] = e.target.value.slice(0, 4000); save(); $("#cfSaved", s).textContent = "Saved on this device"; } });
     s.addEventListener("click", e => {
@@ -849,7 +905,6 @@ const CaseFile = (() => {
       const cc = e.target.closest("[data-cfcall]"); if (cc) { const r = scoreCall(c, cc.dataset.cfcall, false); $(".cf-verdict", s).innerHTML = stamp(c) + `<p class="verdict-line">${r.line}</p>`; return foot(); }
       if (e.target.closest("[data-show]")) { S.calls[c.id] = null; save(); $(".cf-verdict", s).innerHTML = stamp(c); return dig(); }
       if (e.target.closest("[data-dig]")) return dig();
-      if (e.target.closest("[data-up]")) return show(shown - 1, -1);
       const g = e.target.closest("[data-goto]"); if (g) { const k = +g.dataset.goto; return show(k, k > shown ? 1 : -1); }
       if (e.target.closest("[data-act=unlock]")) return paywall();
       const o = e.target.closest("[data-open]"); if (o) return open(o.dataset.open);
@@ -905,7 +960,7 @@ const Studio = (() => {
     });
     draw();
   }
-  return { mount };
+  return { mount, put, get, del };
 })();
 
 /* ---------- Feed queue: follow the chain ---------- */
@@ -1044,7 +1099,7 @@ function paywall() {
 // one file at a time, each offering three doors, so a case can be explored from several angles.
 const Explore = (() => {
   const STOP = new Set("i im the a an is are was were be been heard hear that about of in on to and or it its this these those what who whom did do does really true fake real is it if they them their there my me you your we our us any some can could would should with for from by at as not no yes so just like".split(" "));
-  const SYN = { alien: "alien ufo uap non-human saucer flying disc", aliens: "alien ufo uap non-human saucer", ufo: "ufo uap saucer flying disc alien", ufos: "ufo uap saucer alien", moon: "moon apollo lunar", fake: "hoax studio", faked: "hoax studio", mind: "mind lsd mkultra psychic", control: "control mind", spy: "spy surveillance nsa cia", spying: "spy surveillance nsa", nuke: "nuclear bomb", nuclear: "nuclear bomb", poison: "poison bacteria radium plutonium", government: "cia fbi nsa army navy pentagon", weather: "weather cloud rain", plane: "plane jet aircraft", ship: "ship navy submarine", phone: "data nsa surveillance", internet: "data google facebook prism", tobacco: "industry", sugar: "sugar fat harvard", lightbulb: "bulb", lightbulbs: "bulb", bulb: "bulb", jfk: "kennedy jfk", kennedy: "kennedy jfk", nazi: "nazi german", hitler: "hitler german", code: "cipher code", killer: "killer zodiac", mystery: "unsolved unexplained mystery", monster: "monster loch ness", ghost: "ghost ship army", war: "war vietnam gulf cuba", sasquatch: "bigfoot", yeti: "bigfoot", bigfoot: "bigfoot ape", ape: "bigfoot", flat: "flat earth", earth: "earth", round: "earth", globe: "earth", illuminati: "illuminati", elvis: "elvis presley", presley: "elvis", secret: "secret society", society: "society" };
+  const SYN = { alien: "alien ufo uap non-human saucer flying disc", aliens: "alien ufo uap non-human saucer", ufo: "ufo uap saucer flying disc alien", ufos: "ufo uap saucer alien", moon: "moon apollo lunar", fake: "hoax studio", faked: "hoax studio", mind: "mind lsd mkultra psychic", control: "control mind", spy: "spy surveillance nsa cia", spying: "spy surveillance nsa", nuke: "nuclear bomb", nuclear: "nuclear bomb", poison: "poison bacteria radium plutonium", government: "cia fbi nsa army navy pentagon", weather: "weather cloud rain", plane: "plane jet aircraft", ship: "ship navy submarine", phone: "data nsa surveillance", internet: "data google facebook prism", tobacco: "industry", sugar: "sugar fat harvard", lightbulb: "bulb", lightbulbs: "bulb", bulb: "bulb", jfk: "kennedy jfk", kennedy: "kennedy jfk", nazi: "nazi german", hitler: "hitler german", code: "cipher code", killer: "killer zodiac", mystery: "unsolved unexplained mystery", monster: "monster loch ness", ghost: "ghost ship army", war: "war vietnam gulf cuba", sasquatch: "bigfoot", yeti: "bigfoot", bigfoot: "bigfoot ape", ape: "bigfoot", flat: "flat earth", earth: "earth", round: "earth", globe: "earth", illuminati: "illuminati", elvis: "elvis presley", presley: "elvis", epstein: "epstein", jeffrey: "epstein", oswald: "oswald kennedy jfk", dallas: "dallas kennedy jfk", assassination: "kennedy jfk oswald", assassinated: "kennedy jfk oswald", ruby: "ruby oswald", bullet: "bullet kennedy", umbrella: "umbrella kennedy", maxwell: "epstein", island: "epstein", pedophile: "epstein", trafficking: "epstein", secret: "secret society", society: "society" };
   const stem = w => w.length > 4 ? w.replace(/(ings|ing|ers|ed|es|s)$/, "") : w;
   const words = t => (t.toLowerCase().match(/[a-z0-9-]+/g) || []).filter(w => !STOP.has(w));
   const IDX = CASES.map(c => { const f = { title: words(c.title), hook: words(plain(c.hook) + " " + c.tease), rest: words([...c.ev, c.truth, HOLES[c.hole].name, c.year].join(" ").replace(/\[\[|\]\]/g, "")) };
@@ -1052,7 +1107,15 @@ const Explore = (() => {
   // theories that target real people or groups with no evidence never get a file
   const NOFILE = /\b(lizards?|reptil\w*|shape-?shift\w*|jews?|jewish|zionis\w*|rothschilds?|soros|bloodlines?|globalists?)\b/i;
   // keyword search: each word you type is matched inside every file (title, hook, evidence, record), and every match is listed
+  // spelling slips: "Kenedy" finds Kennedy, "Epstien" finds Epstein
+  const VOCAB = new Set([...IDX.flatMap(({ f }) => [...f.title, ...f.hook, ...f.rest]), ...Object.keys(SYN)].filter(w => w.length > 3));
+  function lev(a, b) { if (Math.abs(a.length - b.length) > 2) return 9; const d = Array.from({ length: a.length + 1 }, (_, i) => [i]); for (let j = 1; j <= b.length; j++) d[0][j] = j;
+    for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++) { d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); if (i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) d[i][j] = Math.min(d[i][j], d[i - 2][j - 2] + 1); }
+    return d[a.length][b.length]; }
+  function spell(q) { return q.replace(/[A-Za-z]{4,}/g, w => { const l = w.toLowerCase(); if (VOCAB.has(l) || STOP.has(l)) return w; let best = null, bd = l.length >= 7 ? 3 : 2;
+    VOCAB.forEach(v => { if (v[0] !== l[0] && l.length < 7) return; const d = lev(l, v); if (d < bd) { bd = d; best = v; } }); return best || w; }); }
   function search(q) {
+    q = spell(q);
     if (NOFILE.test(q)) return [];
     const kw = [...new Set((q.toLowerCase().match(/[a-z0-9]+/g) || []).filter(w => w.length > 1 && !STOP.has(w)))];
     const jw = (q.toLowerCase().match(/[a-z0-9]+/g) || []).slice(1).map((w, i, a) => (q.toLowerCase().match(/[a-z0-9]+/g) || [])[i] + w);
@@ -1172,15 +1235,14 @@ $("#board").addEventListener("click", e => {
 });
 
 /* ---------- Me ---------- */
-function renderMe() {
+let meTab = "posts";
+function renderMe(t) {
+  if (t) meTab = t;
   const calls = Object.values(S.calls), scored = calls.filter(x => x !== null), right = scored.filter(Boolean).length;
   const li = levelOf(S.depth);
-  const me = Social.meId(), pf = Community.profileOf(me) || {}, nm = pf.handle ? "@" + pf.handle : "You";
-  $("#me").innerHTML = `<button class="me-head" data-myprofile aria-label="Open my profile">${Social.avatar(me, 44)}<span class="me-id"><span class="me-name">${esc(pf.name || nm.replace("@", ""))}<svg class="tick" viewBox="0 0 24 24" aria-label="Member"><path fill="#1d9bf0" d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81C14.67 2.63 13.43 1.75 12 1.75s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34z"/><path fill="#fff" d="M10.6 15.9 7.1 12.4l1.4-1.4 2.1 2.1 5-5 1.4 1.4z"/></svg></span>
-      <span class="me-handle">${pf.handle ? esc(nm) : "Tap to set up your profile"}</span>
-      <span class="me-fol"><b>${Social.following(me).length}</b> Following <b>${Social.followers(me).length}</b> Followers</span></span><span class="me-chev">›</span></button>
-    <button class="me-row" data-board>${ico("pin")}<span>Case board</span><em>${S.saved.length}</em><span class="me-chev">›</span></button>
-    <h1>Your depth</h1><p class="lede">Every file, call and chain takes you further down.</p>
+  $("#me").innerHTML = `<div class="me-page">${Social.profileHTML(Social.meId(), meTab, true)}</div>`;
+  const d = $("#me .pf-depth"); if (!d) return;
+  d.innerHTML = `<button class="me-row" data-board>${ico("pin")}<span>Case board</span><em>${S.saved.length}</em><span class="me-chev">›</span></button>
     <div class="big-depth"><b>${S.depth.toLocaleString()}</b><span>m</span></div>
     <div class="stats">
       <div class="stat"><b>${S.streak}</b><span>Day streak${S.skips ? " · 1 skip left" : ""}</span></div>
@@ -1198,7 +1260,7 @@ $("#me").addEventListener("click", e => {
   if (e.target.closest("[data-act=unlock]")) return paywall();
   if (e.target.closest("[data-act=alerts]")) return Alerts.enable();
   if (e.target.closest("[data-board]")) return tab("board");
-  if (e.target.closest("[data-myprofile]")) return Social.profile(Social.meId());
+  if (Social.profileClick(e, Social.meId(), t => renderMe(t))) return;
   if (e.target.id === "fxOn") { S.fx = e.target.checked; save(); if (S.fx) FX.gain(25); }
   const r = e.target.closest("#reset"); if (!r) return;
   if (!r.dataset.armed) { r.dataset.armed = "1"; r.textContent = "Tap again to erase everything"; return; }
@@ -1363,7 +1425,7 @@ const Community = (() => {
     const c = byId[caseId]; openId = caseId; replyTo = null; side = c.ans === "false" ? "fake" : "real";
     const s = document.createElement("div"); s.className = "scrim";
     s.innerHTML = `<div class="sheet debate" role="dialog" aria-modal="true" aria-labelledby="dbT">
-      <header><div><h2 id="dbT">Comments</h2><span class="credit dcount"></span></div><button class="x" data-x>Close</button></header>
+      <header><div><h2 id="dbT">Comments</h2><span class="credit dcount"></span></div><button class="x" data-x aria-label="Close">×</button></header>
       <p class="credit" style="margin:-6px 0 0">${esc(capFirst(c.title))}</p>
       <div class="filters dsort"><button data-sort="top">Top</button><button data-sort="new">Newest</button></div>
       <ol class="thread" aria-live="polite"></ol>
@@ -1558,7 +1620,7 @@ const Contrib = (() => {
     const cast = id.startsWith("cast:") ? CAST().find(x => "cast:" + x.handle === id) : null;
     const p = cast ? { bio: cast.bio } : C.profileOf(id) || {}, posts = cast ? [] : C.allPub().filter(x => x.by === id);
     const s = document.createElement("div"); s.className = "scrim";
-    s.innerHTML = `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="prT"><button class="x" data-x>Close</button>
+    s.innerHTML = `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="prT"><button class="x" data-x aria-label="Close">×</button>
       <h2 id="prT">${esc(cast ? "@" + cast.handle : C.nm(id))}</h2>${cast ? `<span class="badge wait" style="justify-self:start">Fictional character · Rabbit Hole original</span>` : ""}
       ${p.bio ? `<p class="onb-sub" style="margin:0">${esc(p.bio)}</p>` : ""}
       ${cast ? `<p class="credit" style="margin:0">${esc(cast.name)} is part of Rabbit Hole's cast. Their stories are dramatised; the facts come from the case file.</p>
@@ -1580,35 +1642,40 @@ const Feed = (() => {
     const cast = F.cast.map(x => ({ kind: "video", key: "cast:" + x.id, by: "cast:" + x.handle, handle: x.handle, caseId: x.caseId, src: x.mp4, poster: x.poster, text: x.caption, at: x.at, fictional: true }));
     const ugc = Community.on ? Community.allPub().map(x => ({ kind: x.asset ? "video" : "text", key: x.key, by: x.by, handle: (Community.nm(x.by) || "").replace(/^@/, ""), caseId: byId[x.caseId] ? x.caseId : null, src: x.asset && x.asset.url,
       text: x.title ? x.title + ". " + (x.text || "") : x.text, source: x.source, at: x.ok || x.at, type: x.type })) : [];
-    // new since the last refresh first, then unwatched at random, then the ones watched longest ago
-    const at = S.postSeen || {}, all = [...ugc, ...cast].filter((x, i, a) => a.findIndex(y => y.key === x.key) === i);
-    const fresh = all.filter(x => freshKeys.has(x.key)), unseen = shuffle(all.filter(x => !freshKeys.has(x.key) && !at[x.key])), seen = all.filter(x => !freshKeys.has(x.key) && at[x.key]).sort((a, b) => at[a.key] - at[b.key]);
+    // new since the last refresh first, then the most liked unwatched one, then unwatched at random, then the ones watched longest ago
+    const at = S.postSeen || {}, all = [...Social.poolItems(), ...ugc, ...cast].filter((x, i, a) => a.findIndex(y => y.key === x.key) === i);
+    const fresh = all.filter(x => freshKeys.has(x.key)), un = all.filter(x => !freshKeys.has(x.key) && !at[x.key]), seen = all.filter(x => !freshKeys.has(x.key) && at[x.key]).sort((a, b) => at[a.key] - at[b.key]);
+    const lk = x => Social.likes(x.orig ? x.orig.key : x.key) + Social.reposts(x.orig ? x.orig.key : x.key);
+    const top = un.slice().sort((a, b) => lk(b) - lk(a))[0], unseen = top ? [top, ...shuffle(un.filter(x => x !== top))] : [];
     return [...fresh, ...unseen, ...seen];
   }
   let freshKeys = new Set();
   function card(it) {
     const el = document.createElement("article"); el.className = "reel post-reel"; el.dataset.key = it.key; if (it.caseId) el.dataset.id = it.caseId;
     const c = it.caseId && byId[it.caseId]; if (c) el.style.setProperty("--hue", HOLES[c.hole].hue);
-    el.innerHTML = `${it.kind === "video" ? `<video src="${esc(it.src)}" ${it.poster ? `poster="${esc(it.poster)}"` : ""} muted autoplay playsinline preload="metadata"></video>` :
+    const img = it.kind === "video" && /^image/.test(it.mediaType || "");
+    el.innerHTML = `${it.repost || it.quote ? `<div class="rp-head">${it.repost ? `${ico("repost")} @${esc(it.handle)} reposted` : `<b>@${esc(it.handle)}</b> ${esc(it.quote)}`}</div>` : ""}${img ? `<img class="post-img" src="${esc(it.src)}" alt="">` : it.kind === "video" ? `<video data-src="${esc(it.src)}" ${it.poster ? `poster="${esc(it.poster)}"` : ""} muted autoplay playsinline preload="metadata"></video>` :
         `<div class="textpost"><span class="badge wait">${{ tip: "Evidence", case: "New case" }[it.type] || "Post"}</span><p>${esc(it.text || "")}</p>${it.source ? `<a class="cf-link" href="${esc(it.source)}" target="_blank" rel="noopener nofollow ugc">Source ↗</a>` : ""}</div>`}
       <aside class="rail">
         <button data-pact="profile" aria-label="Open @${esc(it.handle)}'s profile"><span class="disc ava-disc">${esc((it.handle || "?").charAt(0).toUpperCase())}</span>${Social.isFollowing(it.by) ? "Following" : "Profile"}</button>
         <button data-pact="like" aria-pressed="${!!S.liked[it.key]}" aria-label="Like"><span class="disc">${ico("heart")}</span><span class="count" data-likes="${esc(it.key)}">${Social.fmt(Social.likes(it.key))}</span></button>
         ${c ? `<button data-act="debate" aria-label="Open the discussion"><span class="disc">${ico("debate")}</span><span class="count" data-count="${c.id}">${Community.count(c.id) || "Discuss"}</span></button>` : ""}
-        <button data-pact="share" aria-label="Share"><span class="disc">${ico("share")}</span><span class="count" data-shares="${esc(it.key)}">${Social.fmt(Social.shares(it.key))}</span></button>
+        <button data-pact="repost" aria-pressed="${!!S.reposts[it.orig ? it.orig.key : it.key]}" aria-label="Repost or quote"><span class="disc">${ico("repost")}</span><span class="count" data-reposts>${Social.fmt(Social.reposts(it.orig ? it.orig.key : it.key))}</span></button>
         ${c ? `<button data-act="file" aria-label="Open the case file"><span class="disc">${ico("file")}</span>File</button>` : ""}</aside>
-      <div class="reel-info"><button class="handle" data-pact="profile">@${esc(it.handle)}</button>${it.fictional ? `<span class="badge wait" style="justify-self:start">Fictional character · Rabbit Hole original</span>` : ""}
+      <div class="reel-info"><button class="handle" data-pact="profile">@${esc(it.orig ? it.orig.handle : it.handle)}</button>${(it.orig ? it.orig.fictional : it.fictional) ? `<span class="badge wait" style="justify-self:start">Fictional character · Rabbit Hole original</span>` : ""}${it.mine && it.text ? `<b>${esc(it.text)}</b>` : ""}
         ${c ? `<span class="credit">About: ${esc(capFirst(c.title))}</span>` : ""}</div>${it.kind === "video" ? '<div class="reel-bar"><i></i></div>' : ""}`;
     const vid = $("video", el);
     if (vid) { vid.addEventListener("timeupdate", () => { $(".reel-bar i", el).style.width = (vid.currentTime / (vid.duration || 1) * 100) + "%"; }); vid.addEventListener("ended", () => { timer = setTimeout(() => el.nextElementSibling?.scrollIntoView({ behavior: "smooth" }), 2000); }); }
     io.observe(el); return el;
   }
+  function near(el) { const all = $$(".reel", v), i = all.indexOf(el);
+    all.forEach((r, k) => { const vd = $("video", r); if (!vd) return; if (Math.abs(k - i) <= 2) { if (!vd.getAttribute("src")) vd.src = vd.dataset.src; } else if (vd.getAttribute("src")) { vd.pause(); vd.removeAttribute("src"); vd.load(); } }); }
   const io = new IntersectionObserver(es => es.forEach(en => { const vid = $("video", en.target);
-    if (en.isIntersecting && on) { (S.postSeen = S.postSeen || {})[en.target.dataset.key] = Date.now(); save(); if (vid) { vid.preload = "auto"; playVid(vid); } }
+    if (en.isIntersecting && on) { near(en.target); (S.postSeen = S.postSeen || {})[en.target.dataset.key] = Date.now(); save(); if (vid) { vid.preload = "auto"; playVid(vid); } }
     else if (vid) vid.pause(); }), { root: v, threshold: .7 });
   let mode = "foryou";
   function topbar() { return `<div class="watch-top"><div><span class="seg"><button class="pill" data-mode="foryou" aria-pressed="${mode === "foryou"}">For you</button><button class="pill" data-mode="following" aria-pressed="${mode === "following"}">Following</button></span>
-      ${Community.on ? `<button class="pill" data-post>+ Post</button>` : ""}<button class="pill" data-refresh aria-label="Refresh">↻ Refresh</button></div></div><div class="ptr" aria-hidden="true">Pull to refresh</div>`; }
+      <button class="pill" data-post>+ Post</button><button class="pill" data-refresh aria-label="Refresh">↻</button></div></div><div class="ptr" aria-hidden="true">Pull to refresh</div>`; }
   function render(force) {
     const list = mode === "following" ? items().filter(x => Social.isFollowing(x.by)) : items(), key = mode + list.map(x => x.key).sort().join("|");
     if (built && !force && key === sig) return; built = true; sig = key;
@@ -1633,13 +1700,13 @@ const Feed = (() => {
   v.addEventListener("click", e => {
     if (e.target.closest("[data-refresh]")) return refresh();
     const md = e.target.closest("[data-mode]"); if (md) { mode = md.dataset.mode; return render(true); }
-    if (e.target.closest("[data-post]")) return Contrib.compose("_cases", "video");
+    if (e.target.closest("[data-post]")) return Social.composer();
     const el = e.target.closest(".reel"); if (!el) return;
     const pa = e.target.closest("[data-pact]");
     if (pa) { const it = items().find(x => x.key === el.dataset.key); if (!it) return;
-      if (pa.dataset.pact === "profile") return Contrib.profile(it.by);
+      if (pa.dataset.pact === "profile") return Contrib.profile(it.orig ? it.orig.by : it.by);
       if (pa.dataset.pact === "like") { const on = Social.like(it.key); pa.setAttribute("aria-pressed", on); $("[data-likes]", pa).textContent = Social.fmt(Social.likes(it.key)); return; }
-      if (pa.dataset.pact === "share") { Social.shared(it.key); $("[data-shares]", pa).textContent = Social.fmt(Social.shares(it.key)); return share({ dataset: { id: it.caseId || "dyatlov" } }); } }
+      if (pa.dataset.pact === "repost") { const k = it.orig ? it.orig.key : it.key; return Social.repostSheet(k, () => { pa.setAttribute("aria-pressed", !!S.reposts[k]); $("[data-reposts]", pa).textContent = Social.fmt(Social.reposts(k)); }); } }
     const a = e.target.closest("[data-act]");
     if (a) return ({ save: () => toggleSave(el, a), debate: () => Community.open(el.dataset.id), file: () => CaseFile.open(el.dataset.id) })[a.dataset.act]?.();
     const vid = $("video", el); if (!vid) return;
@@ -1656,21 +1723,102 @@ const Feed = (() => {
 // Your follows, likes and shares live in social/<your id> so other members' counts include you.
 const Social = (() => {
   const CAST = (DATA.community && DATA.community.posts) || [];
+  const PEOPLE = CAST.filter((c, i, a) => a.findIndex(x => x.handle === c.handle) === i);   // one per character (each has several clips)
   const hsh = s => { let x = 7; for (const ch of String(s)) x = (x * 31 + ch.charCodeAt(0)) | 0; return Math.abs(x); };
   const cid = c => "cast:" + c.handle, castOf = id => CAST.find(c => cid(c) === id);
-  S.following = S.following || []; S.liked = S.liked || {}; S.shared = S.shared || {};
+  S.following = S.following || []; S.liked = S.liked || {}; S.shared = S.shared || {}; S.reposts = S.reposts || {}; S.quotes = S.quotes || []; S.myPosts = S.myPosts || [];
   let remote = {}, wired = false;
   const meId = () => Community.live ? Community.me : "you";
   // the cast's own follows, likes and shares are fixed choices each character makes
-  const castFollows = c => CAST.filter(o => o !== c && hsh(c.id + ">" + o.id) % 3 !== 0).map(cid);
+  const castFollows = c => PEOPLE.filter(o => o !== c && hsh(c.id + ">" + o.id) % 3 !== 0).map(cid);
   const castLikes = (key, c) => !key.endsWith(":" + c.id) && hsh(key + "♥" + c.id) % 10 < 6;
   const castShares = (key, c) => !key.endsWith(":" + c.id) && hsh(key + "↗" + c.id) % 10 < 2;
   const others = () => Object.entries(remote).filter(([u]) => u !== meId());
   function following(id) { if (id === meId()) return S.following.slice(); const c = castOf(id); if (c) return castFollows(c); return (remote[id] && remote[id].following) || []; }
-  function followers(id) { const out = CAST.filter(c => castFollows(c).includes(id)).map(cid); if (S.following.includes(id)) out.push(meId()); others().forEach(([u, r]) => (r.following || []).includes(id) && out.push(u)); return out; }
-  const likes = key => CAST.filter(c => castLikes(key, c)).length + (S.liked[key] ? 1 : 0) + others().filter(([, r]) => (r.liked || []).includes(key)).length;
-  const shares = key => CAST.filter(c => castShares(key, c)).length + (S.shared[key] || 0) + others().reduce((n, [, r]) => n + ((r.shared || {})[key] || 0), 0);
-  function sync() { if (!Community.live || !Community.db) return; Community.db.doc("social/" + Community.me).set({ following: S.following, liked: Object.keys(S.liked).filter(k => S.liked[k]), shared: S.shared }).catch(() => {}); }
+  function followers(id) { const out = PEOPLE.filter(c => castFollows(c).includes(id)).map(cid); if (S.following.includes(id)) out.push(meId()); others().forEach(([u, r]) => (r.following || []).includes(id) && out.push(u)); return out; }
+  const likes = key => PEOPLE.filter(c => castLikes(key, c)).length + (S.liked[key] ? 1 : 0) + others().filter(([, r]) => (r.liked || []).includes(key)).length;
+  const shares = key => PEOPLE.filter(c => castShares(key, c)).length + (S.shared[key] || 0) + others().reduce((n, [, r]) => n + ((r.shared || {})[key] || 0), 0);
+  function sync() { if (!Community.live || !Community.db) return; Community.db.doc("social/" + Community.me).set({ following: S.following, liked: Object.keys(S.liked).filter(k => S.liked[k]), shared: S.shared,
+    reposts: Object.keys(S.reposts), quotes: S.quotes.slice(0, 50).map(q => ({ id: q.id, of: q.of, text: q.text, at: q.at })) }).catch(() => {}); }
+  // reposts and quotes: the cast's are fixed choices, plus yours and every member's
+  const castReposts = (key, c) => !key.endsWith(":" + c.id) && hsh(key + "↻" + c.id) % 10 < 3;
+  const reposts = key => PEOPLE.filter(c => castReposts(key, c)).length + (S.reposts[key] ? 1 : 0) + S.quotes.filter(q => q.of === key).length
+    + others().reduce((n, [, r]) => n + ((r.reposts || []).includes(key) ? 1 : 0) + (r.quotes || []).filter(q => q.of === key).length, 0);
+  const rid = () => Math.random().toString(36).slice(2, 10);
+  function repost(key) { if (S.reposts[key]) delete S.reposts[key]; else { S.reposts[key] = Date.now(); FX.gain(5); } save(); sync(); return !!S.reposts[key]; }
+  function quote(key, text) { S.quotes.unshift({ id: rid(), of: key, text, at: Date.now() }); save(); sync(); addDepth(10); }
+  // what a key points at: an episode, a cast clip, or one of your own posts
+  function target(key) {
+    const [k, id] = [key.split(":")[0], key.slice(key.indexOf(":") + 1)];
+    if (k === "ep" && byId[id]) { const r = (MEDIA.reels || {})[id], c = byId[id]; return { key, kind: r ? "video" : "text", src: r && r.mp4, poster: r && r.poster, caseId: id, by: "alice", handle: "rabbithole", text: plain(c.hook) }; }
+    if (k === "cast") { const c = CAST.find(x => x.id === id); if (c) return { key, kind: "video", src: c.mp4, poster: c.poster, caseId: c.caseId, by: cid(c), handle: c.handle, text: c.caption, fictional: true }; }
+    if (k === "mp") { const m = S.myPosts.find(x => x.id === id); if (m) return { key, kind: m.media ? "video" : "text", src: blobs[m.id], caseId: m.caseId, by: meId(), handle: (nameOf(meId()) || "you").replace("@", ""), text: m.text, mine: true, mediaType: m.mediaType }; }
+    return null;
+  }
+  // your recorded or uploaded posts live on this device; their files are loaded once
+  const blobs = {};
+  (async () => { for (const m of S.myPosts) if (m.media) { try { const b = await Studio.get("post:" + m.id); if (b) blobs[m.id] = URL.createObjectURL(b); } catch (e) {} } })();
+  // reposts, quotes and posts as Community items (yours, the cast's choices stay out of the pool, members' come from their profiles)
+  function poolItems() {
+    const out = [], me = meId(), myH = (nameOf(me) || "you").replace("@", "");
+    const add = (by, handle, key, extra) => { const t = target(key); if (t) out.push({ ...t, ...extra, by, handle, orig: t }); };
+    Object.entries(S.reposts).forEach(([key, at]) => add(me, myH, key, { key: "rp:" + me + ":" + key, repost: true, at }));
+    S.quotes.forEach(q => add(me, myH, q.of, { key: "q:" + q.id, quote: q.text, at: q.at }));
+    S.myPosts.forEach(m => { const t = target("mp:" + m.id); if (t && (t.kind === "text" || t.src)) out.push({ ...t, key: "mp:" + m.id, at: m.at }); });
+    others().forEach(([u, r]) => { const h = (nameOf(u) || "member").replace("@", "");
+      (r.reposts || []).forEach(key => add(u, h, key, { key: "rp:" + u + ":" + key, repost: true, at: 0 }));
+      (r.quotes || []).forEach(q => add(u, h, q.of, { key: "q:" + q.id, quote: q.text, at: q.at })); });
+    return out;
+  }
+  // the repost menu, like X: Repost, Quote, or send a link
+  function repostSheet(key, onDone) {
+    $(".scrim")?.remove(); const t = target(key); if (!t) return;
+    const s = document.createElement("div"); s.className = "scrim";
+    const menu = () => `<div class="sheet rp-sheet" role="dialog" aria-modal="true" aria-label="Repost">
+      <button class="rp-opt" data-rp>${ico("repost")}<span><b>${S.reposts[key] ? "Undo repost" : "Repost"}</b><small>${S.reposts[key] ? "Take it off your profile" : "Show it on your profile and in Community"}</small></span></button>
+      <button class="rp-opt" data-quote>${ico("quote")}<span><b>Quote</b><small>Add your take on top</small></span></button>
+      <button class="rp-opt" data-link>${ico("link")}<span><b>Send a link</b><small>Share outside Rabbit Hole</small></span></button>
+      <button class="ghost" data-x>Cancel</button></div>`;
+    s.innerHTML = menu(); $("#app").append(s);
+    s.addEventListener("click", e => {
+      if (e.target === s || e.target.closest("[data-x]")) return s.remove();
+      if (e.target.closest("[data-rp]")) { const on = repost(key); s.remove(); toast(on ? "Reposted. It's on your profile and in Community." : "Repost removed"); return onDone && onDone(); }
+      if (e.target.closest("[data-link]")) { s.remove(); shared(key); onDone && onDone(); return share({ dataset: { id: t.caseId || "dyatlov" } }); }
+      if (e.target.closest("[data-quote]")) {
+        $(".sheet", s).outerHTML = `<form class="sheet rp-sheet" role="dialog" aria-modal="true" aria-label="Quote"><header><button type="button" class="x" data-x aria-label="Close">×</button><button class="cta sm" type="submit">Post</button></header>
+          <div class="q-row">${avatar(meId(), 36)}<textarea id="qText" rows="3" maxlength="280" placeholder="Add a comment" autofocus></textarea></div>
+          <div class="q-card">${t.poster ? `<img src="${esc(t.poster)}" alt="">` : ""}<div><b>@${esc(t.handle)}</b><p>${esc(t.text || "")}</p></div></div></form>`;
+        setTimeout(() => $("#qText", s)?.focus(), 50);
+      }
+    });
+    s.addEventListener("submit", e => { e.preventDefault(); const text = $("#qText", s).value.trim(); if (!text) return toast("Add a comment to quote it.");
+      const f = Filter(text, []); if (f.block.length) return toast(`This can't be posted: ${f.block.join(", ")}.`);
+      quote(key, text); s.remove(); toast("Quoted. It's on your profile and in Community."); onDone && onDone(); });
+  }
+  // make a post: record or upload a video or photo, add a caption, pick a file it's about
+  function composer() {
+    $(".scrim")?.remove(); let file = null;
+    const s = document.createElement("div"); s.className = "scrim";
+    s.innerHTML = `<form class="sheet rp-sheet" role="dialog" aria-modal="true" aria-label="New post"><header><button type="button" class="x" data-x aria-label="Close">×</button><button class="cta sm" type="submit">Post</button></header>
+      <div class="q-row">${avatar(meId(), 36)}<textarea id="mpText" rows="3" maxlength="500" placeholder="What did you find?"></textarea></div>
+      <div class="mp-media"></div>
+      <div class="studio-tools"><label class="tool">${ico("watch")}<span>Record video</span><input type="file" accept="video/*" capture="user" data-mp hidden></label>
+        <label class="tool">${ico("camera")}<span>Take photo</span><input type="file" accept="image/*" capture="environment" data-mp hidden></label>
+        <label class="tool">${ico("upload")}<span>Upload</span><input type="file" accept="image/*,video/*" data-mp hidden></label></div>
+      <label class="fld">About a file (optional)<select id="mpCase"><option value="">No file</option>${CASES.slice().sort((a, b) => a.title.localeCompare(b.title)).map(c => `<option value="${c.id}">${esc(capFirst(c.title))}</option>`).join("")}</select></label></form>`;
+    $("#app").append(s);
+    s.addEventListener("click", e => { if (e.target === s || e.target.closest("[data-x]")) s.remove(); });
+    s.addEventListener("change", e => { if (!e.target.matches("[data-mp]")) return; const f = e.target.files[0]; if (!f) return; if (f.size > 60 * 1024 * 1024) return toast("Files must be under 60 MB.");
+      file = f; const u = URL.createObjectURL(f); $(".mp-media", s).innerHTML = f.type.startsWith("video") ? `<video src="${u}" muted playsinline controls></video>` : `<img src="${u}" alt="">`; });
+    s.addEventListener("submit", async e => { e.preventDefault(); const text = $("#mpText", s).value.trim(), caseId = $("#mpCase", s).value || null;
+      if (!text && !file) return toast("Record a video, add a photo, or write something.");
+      const f = Filter(text, []); if (f.block.length) return toast(`This can't be posted: ${f.block.join(", ")}.`);
+      const id = rid(), m = { id, text, caseId, at: Date.now(), media: !!file, mediaType: file ? file.type : null };
+      if (file) { try { await Studio.put("post:" + id, file); blobs[id] = URL.createObjectURL(file); } catch (er) { return toast("Couldn't save the file on this device."); } }
+      S.myPosts.unshift(m); save(); addDepth(25);
+      if (Community.on) { try { const asset = file && Community.canUpload ? await Community.upload(file) : undefined; Community.submit({ type: file ? "video" : "tip", caseId: caseId || "_cases", text, ...(asset ? { asset } : {}) }); } catch (er) {} }
+      s.remove(); toast("Posted. It's on your profile and in Community."); renderMe(); });
+  }
   function wire() { if (wired || !Community.live || !Community.db) return; wired = true; Community.db.collection("social").onSnapshot(sn => { const n = {}; sn.docs.forEach(x => { n[x.id] = x.data(); }); remote = n; $$("[data-likes]").forEach(el => el.textContent = fmt(likes(el.dataset.likes))); }, () => {}); }
   setInterval(wire, 1000);
   const fmt = n => n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, "") + "K" : String(n);
@@ -1685,51 +1833,79 @@ const Social = (() => {
     mixed: ["Half of this is true, and that's the half nobody talks about.", "Read the whole file before you pick a side."], unknown: ["Honestly? Nobody knows. That's what keeps me up.", "Every explanation has a hole in it somewhere."] };
   function castComments(caseId) {
     const c = byId[caseId]; if (!c || !CAST.length) return [];
-    const own = CAST.find(x => x.caseId === caseId), picks = [...(own ? [own] : []), ...CAST.filter(x => x !== own).sort((a, b) => hsh(caseId + a.id) - hsh(caseId + b.id)).slice(0, own ? 2 : 3)];
+    const own = CAST.find(x => x.caseId === caseId), picks = [...(own ? [own] : []), ...PEOPLE.filter(x => !own || x.handle !== own.handle).sort((a, b) => hsh(caseId + a.id) - hsh(caseId + b.id)).slice(0, own ? 2 : 3)];
     const ev = c.ev.map(e => e.replace(/\[\[|\]\]/g, "")), base = Date.now() - (hsh(caseId) % 72) * 3600e3;
     const out = picks.map((p, i) => ({ key: "castc:" + caseId + ":" + p.id, by: cid(p), cast: true, side: c.ans === "false" ? "fake" : c.ans === "true" ? "real" : (i % 2 ? "fake" : "real"),
       text: p === own ? `I made a whole clip about this one. ${p.caption}` : i % 2 ? `The detail that gets me: ${ev[(hsh(p.id + caseId) % ev.length)].replace(/\.$/, "")}.` : LINES[c.ans][hsh(p.id + caseId) % 2] + (i === 2 ? ` Source: ${c.src[0]}.` : ""),
       at: base - i * 5400e3, parent: null }));
     const REPLY = { true: ["Same. The paper trail is the scary part.", "And it was all written down. That's what gets me."], false: ["Fair. Still a great story, though.", "Exactly. Follow the evidence, not the vibes."],
       mixed: ["The true half is wild enough on its own.", "This is why I read the source first."], unknown: ["Same. Every theory leaves something out.", "That's the honest answer. Nobody knows yet."] };
-    const replier = CAST.filter(x => !picks.includes(x)).sort((a, b) => hsh(caseId + b.id) - hsh(caseId + a.id))[0];
+    const replier = PEOPLE.filter(x => !picks.some(p => p.handle === x.handle)).sort((a, b) => hsh(caseId + b.id) - hsh(caseId + a.id))[0];
     if (replier && out.length) out.push({ key: "castc:" + caseId + ":r", by: cid(replier), cast: true, side: out[0].side, text: REPLY[c.ans][hsh(caseId) % 2], at: out[0].at + 1800e3, parent: out[0].key });
     return out;
   }
-  // the profile page
   function avatar(id, size = 72) { const c = castOf(id); const letter = nameOf(id).replace("@", "").charAt(0).toUpperCase();
     return c ? `<span class="ava" style="width:${size}px;height:${size}px;background-image:url('${esc(c.poster)}')"></span>` : `<span class="ava letter" style="width:${size}px;height:${size}px;font-size:${size * .42}px">${esc(letter)}</span>`; }
-  function profile(id, tab = "posts") {
-    $(".scrim")?.remove();
-    const c = castOf(id), mine = id === meId(), p = c ? { bio: c.bio, name: c.name } : Community.profileOf(id) || {};
-    const posts = postsOf(id), fl = followers(id), fg = following(id), liked = posts.reduce((n, x) => n + likes(x.key), 0);
-    const s = document.createElement("div"); s.className = "scrim";
-    s.innerHTML = `<div class="sheet profile-page" role="dialog" aria-modal="true" aria-labelledby="pfName">
-      <header><button class="x" data-x>Close</button></header>
-      <div class="pf-head">${avatar(id, 88)}<div><h2 id="pfName">${esc(nameOf(id))}</h2>${p.name ? `<p class="credit" style="margin:0">${esc(p.name)}</p>` : ""}${c ? '<span class="badge wait">Fictional character · Rabbit Hole original</span>' : ""}</div></div>
-      ${p.bio ? `<p class="pf-bio">${esc(p.bio)}</p>` : ""}
-      <div class="pf-stats"><button data-pt="posts"><b>${posts.length}</b><span>Posts</span></button><button data-pt="followers"><b>${fmt(fl.length)}</b><span>Followers</span></button><button data-pt="following"><b>${fmt(fg.length)}</b><span>Following</span></button><div><b>${fmt(liked)}</b><span>Likes</span></div></div>
-      <div class="row-btns">${mine ? `<button class="cta" data-editpf>${p.handle || c ? "Edit profile" : "Create your profile"}</button>` : `<button class="cta${S.following.includes(id) ? " following" : ""}" data-follow="${esc(id)}">${S.following.includes(id) ? "Following" : "Follow"}</button>`}<button class="ghost" data-sharepf>${ico("share")} Share</button></div>
-      <div class="filters pf-tabs" role="tablist">${["posts", "followers", "following"].map(t => `<button data-pt="${t}" aria-pressed="${t === tab}">${capFirst(t)}</button>`).join("")}</div>
-      <div class="pf-body">${tab === "posts" ? (posts.length ? `<div class="pf-grid">${posts.map(x => `<button class="pf-tile" data-openpost="${esc(x.key)}" data-case="${esc(x.caseId || "")}">${x.poster ? `<img src="${esc(x.poster)}" alt="">` : `<span>${esc((x.text || "").slice(0, 90))}</span>`}<em>${ico("heart")} ${fmt(likes(x.key))}</em></button>`).join("")}</div>` : `<p class="credit">No posts yet.</p>`)
-        : (tab === "followers" ? fl : fg).map(u => `<div class="pf-row">${avatar(u, 40)}<button class="handle-link" data-who="${esc(u)}">${esc(nameOf(u))}</button>${u !== meId() ? `<button class="ghost sm" data-follow="${esc(u)}">${S.following.includes(u) ? "Following" : "Follow"}</button>` : ""}</div>`).join("") || `<p class="credit">Nobody here yet.</p>`}</div></div>`;
-    $("#app").append(s);
-    s.addEventListener("click", e => {
-      if (e.target === s || e.target.closest("[data-x]")) return s.remove();
-      const pt = e.target.closest("[data-pt]"); if (pt) return profile(id, pt.dataset.pt);
-      const f = e.target.closest("[data-follow]"); if (f) { const now = toggleFollow(f.dataset.follow); toast(now ? `Following ${nameOf(f.dataset.follow)}. Their posts show in your Following feed.` : `Unfollowed ${nameOf(f.dataset.follow)}`); return profile(id, tab); }
-      const w = e.target.closest("[data-who]"); if (w) return profile(w.dataset.who);
-      if (e.target.closest("[data-editpf]")) { s.remove(); return Contrib.makeProfile(() => profile(id)); }
-      if (e.target.closest("[data-sharepf]")) { const t = `${nameOf(id)} on Rabbit Hole`; try { navigator.share ? navigator.share({ title: t, text: t, url: location.href }) : navigator.clipboard.writeText(t + " " + location.href).then(() => toast("Link copied")); } catch (er) {} return; }
-      const op = e.target.closest("[data-openpost]"); if (op) { s.remove(); tab_people(op.dataset.openpost); }
-    });
+  const TICK = `<svg class="tick" viewBox="0 0 24 24" aria-label="Member"><path fill="#1d9bf0" d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81C14.67 2.63 13.43 1.75 12 1.75s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34z"/><path fill="#fff" d="M10.6 15.9 7.1 12.4l1.4-1.4 2.1 2.1 5-5 1.4 1.4z"/></svg>`;
+  // a person's posts, reposts and likes as tiles
+  function lists(id) {
+    const c = castOf(id), mine = id === meId(), r = remote[id] || {};
+    const posts = c ? CAST.filter(x => x.handle === c.handle).map(x => ({ key: "cast:" + x.id, t: target("cast:" + x.id) }))
+      : mine ? [...S.quotes.map(q => ({ key: "q:" + q.id, quote: q.text, t: target(q.of), at: q.at })), ...S.myPosts.map(m => ({ key: "mp:" + m.id, t: target("mp:" + m.id), at: m.at })),
+          ...Community.allPub().filter(x => x.by === id).map(x => ({ key: x.key, t: { text: x.title || x.text, caseId: x.caseId }, at: x.ok || x.at }))].sort((a, b) => b.at - a.at)
+      : [...(r.quotes || []).map(q => ({ key: "q:" + q.id, quote: q.text, t: target(q.of) })), ...Community.allPub().filter(x => x.by === id).map(x => ({ key: x.key, t: { text: x.title || x.text, caseId: x.caseId } }))];
+    const rp = c ? CASES.map(x => "ep:" + x.id).filter(k => castReposts(k, c)).slice(0, 12) : mine ? Object.keys(S.reposts).sort((a, b) => S.reposts[b] - S.reposts[a]) : (r.reposts || []);
+    const lk = c ? CASES.map(x => "ep:" + x.id).filter(k => castLikes(k, c)).slice(0, 12) : mine ? Object.keys(S.liked).filter(k => S.liked[k] && /^(ep|cast):/.test(k)) : (r.liked || []).filter(k => /^(ep|cast):/.test(k));
+    return { posts: posts.filter(x => x.t), reposts: rp.map(k => ({ key: k, t: target(k) })).filter(x => x.t), likes: lk.map(k => ({ key: k, t: target(k) })).filter(x => x.t) };
   }
+  const tile = (x, badge) => `<button class="pf-tile" data-tile="${esc(x.key)}">${x.t.poster ? `<img src="${esc(x.t.poster)}" alt="" loading="lazy">` : x.t.src && /video/.test(x.t.mediaType || "") ? `<video src="${esc(x.t.src)}" muted playsinline preload="metadata"></video>` : x.t.src ? `<img src="${esc(x.t.src)}" alt="">` : `<span>${esc((x.t.text || "").slice(0, 90))}</span>`}
+    ${x.quote ? `<q>${esc(x.quote.slice(0, 70))}</q>` : ""}${badge ? `<i class="tb">${ico(badge)}</i>` : ""}<em>${ico("heart")} ${fmt(likes(x.t.key || x.key))}</em></button>`;
+  function profileHTML(id, tab = "posts", inline = false) {
+    const c = castOf(id), mine = id === meId(), p = c ? { bio: c.bio, name: c.name } : Community.profileOf(id) || {};
+    const L = lists(id), fl = followers(id), fg = following(id), nm = nameOf(id);
+    const tabs = ["posts", "reposts", "likes", ...(mine && inline ? ["depth"] : [])];
+    const body = tab === "followers" || tab === "following" ? ((tab === "followers" ? fl : fg).map(u => `<div class="pf-row">${avatar(u, 40)}<button class="handle-link" data-who="${esc(u)}">${esc(nameOf(u))}</button>${u !== meId() ? `<button class="ghost sm" data-follow="${esc(u)}">${S.following.includes(u) ? "Following" : "Follow"}</button>` : ""}</div>`).join("") || `<p class="credit">Nobody here yet.</p>`)
+      : tab === "depth" ? `<div class="pf-depth"></div>`
+      : (L[tab].length ? `<div class="pf-grid">${L[tab].map(x => tile(x, tab === "reposts" ? "repost" : x.quote ? "quote" : "")).join("")}</div>`
+        : `<p class="credit pf-empty">${mine ? { posts: "Record a video or quote an episode. It shows here and in Community.", reposts: "Tap ↻ on any clip to repost it here.", likes: "Clips you like show up here." }[tab] : "Nothing here yet."}</p>`);
+    return `<div class="pf-banner" style="--hue:${c ? hsh(c.id) % 360 : 48}"></div>
+      <div class="pf-top">${avatar(id, 76)}${mine ? `<span class="pf-acts"><button class="ghost sm" data-editpf>${p.handle || c ? "Edit profile" : "Set up profile"}</button><button class="cta sm" data-newpost>${ico("plus")} Post</button></span>`
+        : `<span class="pf-acts"><button class="ghost sm" data-sharepf aria-label="Share profile">${ico("share")}</button><button class="cta sm${S.following.includes(id) ? " following" : ""}" data-follow="${esc(id)}">${S.following.includes(id) ? "Following" : "Follow"}</button></span>`}</div>
+      <div class="pf-id"><h2 class="pf-name">${esc(p.name || nm.replace("@", ""))}${c ? "" : TICK}</h2><span class="pf-handle">${esc(nm.startsWith("@") ? nm : "@" + (p.handle || "you"))}</span>
+        ${c ? '<span class="badge wait">Fictional character · Rabbit Hole original</span>' : ""}${p.bio ? `<p class="pf-bio">${esc(p.bio)}</p>` : mine ? `<p class="pf-bio credit">Deep in the hole since ${new Date(S.joined || Date.now()).toLocaleDateString(undefined, { month: "long", year: "numeric" })}.</p>` : ""}
+        <p class="pf-fol"><button data-pt="following"><b>${fmt(fg.length)}</b> Following</button><button data-pt="followers"><b>${fmt(fl.length)}</b> Followers</button>${mine ? `<button data-pt="depth"><b>${S.depth.toLocaleString()} m</b> deep</button>` : ""}</p></div>
+      <div class="pf-tabs2" role="tablist">${tabs.map(t => `<button data-pt="${t}" role="tab" aria-selected="${t === tab}">${capFirst(t)}</button>`).join("")}</div>
+      <div class="pf-body">${body}</div>`;
+  }
+  // one click handler for both places a profile shows
+  function profileClick(e, id, redraw, close) {
+    const pt = e.target.closest("[data-pt]"); if (pt) return redraw(pt.dataset.pt), true;
+    const f = e.target.closest("[data-follow]"); if (f) { const now = toggleFollow(f.dataset.follow); toast(now ? `Following ${nameOf(f.dataset.follow)}. Their posts show in your Following feed.` : `Unfollowed ${nameOf(f.dataset.follow)}`); redraw(); return true; }
+    const w = e.target.closest("[data-who]"); if (w) { close && close(); profile(w.dataset.who); return true; }
+    if (e.target.closest("[data-editpf]")) { close && close(); Contrib.makeProfile(() => redraw()); return true; }
+    if (e.target.closest("[data-newpost]")) { composer(); return true; }
+    if (e.target.closest("[data-sharepf]")) { const t = `${nameOf(id)} on Rabbit Hole`; try { navigator.share ? navigator.share({ title: t, text: t, url: location.href }) : navigator.clipboard.writeText(t + " " + location.href).then(() => toast("Link copied")); } catch (er) {} return true; }
+    const tl = e.target.closest("[data-tile]"); if (tl) { const k = tl.dataset.tile; close && close();
+      if (k.startsWith("ep:")) { Watch.playCase(k.slice(3)); return true; }
+      const fk = k.startsWith("cast:") ? k : k.startsWith("q:") || k.startsWith("mp:") ? k : "rp:" + id + ":" + k; tab_people(fk); return true; }
+    return false;
+  }
+  function profile(id, tab = "posts") {
+    if (id === meId()) { $(".scrim")?.remove(); tab_me(tab); return; }
+    $(".scrim")?.remove();
+    const s = document.createElement("div"); s.className = "scrim";
+    const draw = (t = tab) => { tab = t; s.innerHTML = `<div class="sheet profile-page" role="dialog" aria-modal="true" aria-label="Profile"><header><button class="x" data-x aria-label="Close">×</button></header>${profileHTML(id, tab)}</div>`; };
+    draw(); $("#app").append(s);
+    s.addEventListener("click", e => { if (e.target === s || e.target.closest("[data-x]")) return s.remove(); profileClick(e, id, t => draw(t || tab), () => s.remove()); });
+  }
+  function tab_me(t) { tab("me"); renderMe(t); }
   function tab_people(key) { tab("people"); setTimeout(() => { const el = $(`#people .post-reel[data-key="${CSS.escape(key)}"]`); if (el) el.scrollIntoView(); }, 120); }
   // views: the cast who read a comment, plus you once it has been on your screen
   S.viewed = S.viewed || {};
-  const views = key => CAST.filter(c => hsh(key + "👁" + c.id) % 10 < 8).length + (S.viewed[key] ? 1 : 0) + others().length;
+  const views = key => PEOPLE.filter(c => hsh(key + "👁" + c.id) % 10 < 8).length + (S.viewed[key] ? 1 : 0) + others().length;
   function seen(key) { if (!S.viewed[key]) { S.viewed[key] = 1; save(); } }
-  return { meId, following, followers, likes, shares, like, shared, toggleFollow, nameOf, profile, castComments, fmt, views, seen, avatar, isFollowing: id => S.following.includes(id), sync };
+  return { meId, following, followers, likes, shares, like, shared, toggleFollow, nameOf, profile, castComments, fmt, views, seen, avatar, isFollowing: id => S.following.includes(id), sync,
+    reposts, repost, repostSheet, quote, poolItems, profileHTML, profileClick, composer, target, get remoteCount() { return others().length; } };
 })();
 
 /* ---------- Streak: what it is, the last 7 days, the weekly skip and the next badge ---------- */
@@ -1738,7 +1914,7 @@ function streakSheet() {
   const days = Array.from({ length: 7 }, (_, i) => { const idx = d.idx - 6 + i; const on = S.lastDrop != null && idx <= S.lastDrop && idx > S.lastDrop - S.streak; const dt = new Date(); dt.setDate(dt.getDate() - (6 - i));
     return `<div class="sday${on ? " on" : ""}${i === 6 ? " today" : ""}"><b>${ico(on ? "flame" : "check")}</b><span>${dt.toLocaleDateString([], { weekday: "narrow" })}</span></div>`; }).join("");
   const s = document.createElement("div"); s.className = "scrim";
-  s.innerHTML = `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="stT"><button class="x" data-x>Close</button>
+  s.innerHTML = `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="stT"><button class="x" data-x aria-label="Close">×</button>
     <h2 id="stT">${S.streak}-day streak</h2>
     <p class="onb-sub" style="margin:0">A day counts when you open that day's drop. A new file lands every day at ${hourLabel()}.</p>
     <div class="sdays">${days}</div>
@@ -1760,6 +1936,8 @@ function pullToRefresh(view, onRefresh) {
 }
 
 /* ---------- Video playback shared by Home and Community ---------- */
+// one voice at a time: anything that starts playing pauses every other clip or sound
+document.addEventListener("play", e => { $$("video, audio").forEach(m => { if (m !== e.target && !m.paused) m.pause(); }); }, true);
 // Clips start on their own (muted autoplay is always allowed). The first tap anywhere turns sound on for every clip after it.
 const Media = { sound: false };
 function playVid(vid) { vid.muted = !Media.sound; const p = vid.play(); if (p && p.catch) p.catch(() => { vid.muted = true; vid.play().catch(() => {}); $$("[data-sound]").forEach(b => b.hidden = false); }); }
@@ -1790,7 +1968,7 @@ const Watch = (() => {
       else if (vd.getAttribute("src")) { vd.pause(); vd.removeAttribute("src"); vd.load(); } }); }
   const io = new IntersectionObserver(es => es.forEach(en => { const vid = $("video", en.target); if (!vid) return;
     if (en.isIntersecting && on) { near(en.target); vid.preload = "auto"; playVid(vid); Social.seen("ep:" + en.target.dataset.id); const vw = $("[data-views]", en.target); if (vw) vw.textContent = Social.fmt(Social.views("ep:" + en.target.dataset.id)); S.seen[en.target.dataset.id] = 1; (S.seenAt = S.seenAt || {})[en.target.dataset.id] = Date.now(); if (en.target.dataset.id === dropNow().c.id) markDrop(); save(); }
-    else { vid.pause(); $(".nextup", en.target)?.remove(); clearTimeout(timer); } }), { root: v, threshold: .7 });
+    else { vid.pause(); en.target._stopVerdict?.(); $(".nextup", en.target)?.remove(); $(".verdict-ov", en.target)?.remove(); clearTimeout(timer); } }), { root: v, threshold: .7 });
   function render() {
     if (built) return; built = true; v.innerHTML = `<div class="ptr" aria-hidden="true">Pull to refresh</div><div class="watch-top"><div><span class="pill streak-pill" aria-label="Your streak">${ico("flame")}${S.streak}</span><button class="pill" data-ask aria-label="Ask Alice">${ico("search")}Ask Alice</button><button class="pill" data-refresh aria-label="Refresh">↻</button><span class="pill">Next <span class="countdown"></span></span></div></div>`; tick();
     const L = list();
@@ -1803,37 +1981,64 @@ const Watch = (() => {
         <aside class="rail">
           <button data-act="like" aria-pressed="${!!S.liked[k]}" aria-label="Like"><span class="disc">${ico("heart")}</span><span class="count" data-likes="${k}">${Social.fmt(Social.likes(k))}</span></button>
           <button data-act="debate" aria-label="Open the discussion"><span class="disc">${ico("debate")}</span><span class="count" data-count="${c.id}">${Community.count(c.id) || "Discuss"}</span></button>
-          <button data-act="share" aria-label="Share"><span class="disc">${ico("share")}</span><span class="count" data-shares="${k}">${Social.fmt(Social.shares(k)) || "Share"}</span></button>
+          <button data-act="repost" aria-pressed="${!!S.reposts[k]}" aria-label="Repost or quote"><span class="disc">${ico("repost")}</span><span class="count" data-reposts="${k}">${Social.fmt(Social.reposts(k))}</span></button>
           <button data-act="save" aria-pressed="${S.saved.includes(c.id)}" aria-label="Pin to case board"><span class="disc">${ico("pin")}</span>Pin</button>
           <button data-act="file" aria-label="Open the case file"><span class="disc">${ico("file")}</span>File</button></aside>
         <div class="reel-info"><span class="chip" style="justify-self:start">${c.id === dropNow().c.id ? "Today's Rabbit Hole" : esc(HOLES[c.hole].name)}</span><b>${esc(plain(c.hook))}</b><span class="credit">Rabbit Hole · File ${fileNo(c)} · with Alice · <span class="views">${ico("eye")} <span data-views>${Social.fmt(Social.views(k))}</span> views</span></span></div><div class="reel-bar"><i></i></div>`;
       const vid = $("video", el);
       vid.addEventListener("timeupdate", () => { $(".reel-bar i", el).style.width = (vid.currentTime / (vid.duration || 1) * 100) + "%"; });
-      vid.addEventListener("ended", () => nextUp(el));
+      vid.addEventListener("ended", () => verdict(el));
       v.append(el); io.observe(el);
     });
   }
-  // the end of an episode: go further into the file, or the next one starts in 2 seconds
-  function nextUp(el) {
-    const nx = el.nextElementSibling, c = byId[el.dataset.id]; let n = 2;
+  // the end of an episode: Alice asks "real or fake?", a beat of suspense, she gives the verdict, then "want to know more?"
+  const VD = DATA.verdicts || {};
+  function verdict(el) {
+    const c = byId[el.dataset.id], vd = VD[c.id]; if (!vd || $(".verdict-ov", el)) return nextUp(el);
+    const ov = document.createElement("div"); ov.className = "verdict-ov";
+    ov.innerHTML = `<p class="v-q">Real or fake?</p><div class="v-guess"><button class="btn-call real" data-guess="real">Real</button><button class="btn-call fake" data-guess="fake">Fake</button></div>
+      <div class="v-stamp" hidden><span class="stamp-chip ${VERDICT[c.ans][1]}">${VERDICT[c.ans][0]}</span></div><p class="v-reveal" hidden>${esc(c.reveal)}</p><p class="v-line" hidden></p>`;
+    el.append(ov); FX.beat && FX.beat();
+    const au = new Audio(vd.f); au.muted = !Media.sound; let t0 = performance.now(), stage = 0, raf;
+    const now = () => Media.sound && !au.paused && au.currentTime ? au.currentTime : (performance.now() - t0) / 1000;
+    function step() {
+      const t = now();
+      if (stage === 0 && t >= vd.verdict) { stage = 1; $(".v-q", ov).hidden = true; $(".v-guess", ov).hidden = true; $(".v-stamp", ov).hidden = false; $(".v-reveal", ov).hidden = false; ov.classList.add("hit");
+        const g = ov.dataset.guess; if (g) { const r = scoreCall(c, g, false); $(".v-line", ov).innerHTML = r.line; $(".v-line", ov).hidden = false; } else FX.tap(); }
+      if (stage === 1 && t >= vd.more) { stage = 2; ov.classList.add("more"); nextUp(el, true); }
+      if (stage === 2 && t >= vd.dur) { stage = 3; startCount(el); return; }
+      raf = requestAnimationFrame(step);
+    }
+    ov.addEventListener("click", e => { const g = e.target.closest("[data-guess]"); if (!g || stage) return; ov.dataset.guess = g.dataset.guess; $$("[data-guess]", ov).forEach(b => b.setAttribute("aria-pressed", b === g)); FX.tap(); });
+    au.play().then(() => { t0 = performance.now() - au.currentTime * 1000; }).catch(() => {});
+    el._stopVerdict = () => { cancelAnimationFrame(raf); au.pause(); };
+    raf = requestAnimationFrame(step);
+  }
+  function startCount(el) {
+    const box = $(".nextup", el), nx = el.nextElementSibling; if (!box || !nx) return; let n = 3; const sp = $(".n", box); if (sp) sp.textContent = n;
+    const tick = () => { n--; if (n <= 0) { box.remove(); $(".verdict-ov", el)?.remove(); nx.scrollIntoView({ behavior: "smooth" }); return; } if (sp) sp.textContent = n; timer = setTimeout(tick, 1000); };
+    timer = setTimeout(tick, 1000);
+  }
+  function nextUp(el, held) {
+    const nx = el.nextElementSibling, c = byId[el.dataset.id]; let n = held ? 3 : 2;
     const box = document.createElement("div"); box.className = "nextup";
-    box.innerHTML = `<small>Want the whole story?</small><b>${esc(capFirst(c.title))}</b>
+    box.innerHTML = `<small>Want to know more?</small><b>${esc(capFirst(c.title))}</b>
       <div class="two"><button class="dig" data-digreel>${ico("deeper")}<span><small>Layer by layer</small>Go further into this file</span></button>${nx ? `<button class="deeper" data-skipnext><span><small>Next file in <span class="n">${n}</span></small>${esc(capFirst(byId[nx.dataset.id].tease))}</span></button>` : ""}</div>`;
     el.append(box);
-    if (!nx) return;
+    if (!nx || held) return;
     const step = () => { n--; if (n <= 0) { box.remove(); nx.scrollIntoView({ behavior: "smooth" }); return; } $(".n", box).textContent = n; timer = setTimeout(step, 1000); };
     timer = setTimeout(step, 1000);
   }
   v.addEventListener("click", e => {
     if (e.target.closest("[data-ask]")) { tab("holes"); return setTimeout(() => $("#askQ")?.focus(), 50); }
     const el = e.target.closest(".reel"); if (!el) return;
-    if (e.target.closest("[data-digreel]")) { clearTimeout(timer); $(".nextup", el)?.remove(); return CaseFile.open(el.dataset.id, 0); }
-    if (e.target.closest("[data-skipnext]")) { clearTimeout(timer); $(".nextup", el)?.remove(); return el.nextElementSibling?.scrollIntoView({ behavior: "smooth" }); }
-    if (e.target.closest(".nextup")) return;
+    if (e.target.closest("[data-digreel]")) { clearTimeout(timer); el._stopVerdict?.(); $(".nextup", el)?.remove(); $(".verdict-ov", el)?.remove(); return CaseFile.open(el.dataset.id, 0); }
+    if (e.target.closest("[data-skipnext]")) { clearTimeout(timer); el._stopVerdict?.(); $(".nextup", el)?.remove(); $(".verdict-ov", el)?.remove(); return el.nextElementSibling?.scrollIntoView({ behavior: "smooth" }); }
+    if (e.target.closest(".nextup, .verdict-ov")) return;
     const a = e.target.closest("[data-act]");
     const k = "ep:" + el.dataset.id;
     if (a) return ({ like: () => { const on = Social.like(k); a.setAttribute("aria-pressed", on); $("[data-likes]", a).textContent = Social.fmt(Social.likes(k)); if (on) { a.classList.remove("burst"); void a.offsetWidth; a.classList.add("burst"); } },
-      save: () => toggleSave(el, a), debate: () => Community.open(el.dataset.id), share: () => { Social.shared(k); $("[data-shares]", a).textContent = Social.fmt(Social.shares(k)); share(el); }, file: () => CaseFile.open(el.dataset.id) })[a.dataset.act]?.();
+      save: () => toggleSave(el, a), debate: () => Community.open(el.dataset.id), repost: () => Social.repostSheet(k, () => { a.setAttribute("aria-pressed", !!S.reposts[k]); $("[data-reposts]", a).textContent = Social.fmt(Social.reposts(k)); }), file: () => CaseFile.open(el.dataset.id) })[a.dataset.act]?.();
     const vid = $("video", el);
     if (e.target.closest("[data-sound]")) { Media.sound = true; vid.muted = false; vid.play().catch(() => {}); $$("[data-sound]").forEach(b => b.hidden = true); return; }
     if (Media.justUnlocked) { if (vid.paused) playVid(vid); return; }   // the tap that turned sound on never pauses
