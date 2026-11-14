@@ -108,5 +108,64 @@
     "text": "It's all on the record. Go deeper, on Rabbit Hole."
    }
   ]
+ },
+ "area51": {
+  "voice": "am_michael",
+  "speed": 0.98,
+  "file": "",
+  "hole": "The Sky Files",
+  "hue": 210,
+  "caseId": "area51",
+  "lines": [
+   {
+    "scene": "hook",
+    "text": "For almost sixty years, the US government wouldn't admit that Area 51 existed.",
+    "date": "1955",
+    "label": "Groom Lake, Nevada"
+   },
+   {
+    "scene": "ev",
+    "n": 1,
+    "of": 4,
+    "raw": "It was built in [[1955]] to test a secret spy plane, the [[U-2]].",
+    "text": "It was built in 1955 to test a secret spy plane, the U-2."
+   },
+   {
+    "scene": "ev",
+    "n": 2,
+    "of": 4,
+    "raw": "The U-2 flew [[higher than any airliner]] of its day.",
+    "text": "The U-2 flew higher than any airliner of its day."
+   },
+   {
+    "scene": "ev",
+    "n": 3,
+    "of": 4,
+    "raw": "Pilots and the public started reporting [[UFOs]].",
+    "text": "Pilots and the public started reporting UFOs."
+   },
+   {
+    "scene": "ev",
+    "n": 4,
+    "of": 4,
+    "raw": "In 2013, a declassified CIA history finally [[named Area 51]].",
+    "text": "In 2013, a declassified CIA history finally named Area 51."
+   },
+   {
+    "scene": "call",
+    "text": "So. Real, or fake?"
+   },
+   {
+    "scene": "verdict",
+    "text": "Real. Area 51 exists, and so did the UFO sightings. A lot of them were America's own spy planes.",
+    "verdict": "REAL",
+    "cls": "grn",
+    "source": "CIA U-2 history, released 2013"
+   },
+   {
+    "scene": "end",
+    "text": "Go deeper, on Rabbit Hole."
+   }
+  ]
  }
 }

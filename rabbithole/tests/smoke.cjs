@@ -67,7 +67,7 @@ const ok = (c, l) => { console.log((c ? 'PASS ' : 'FAIL ') + l); if (!c) errs.pu
   await p.locator('.card').first().locator('[data-act="save"]').click();
   // Holes
   await p.click('[data-tab="holes"]'); await p.waitForTimeout(300);
-  ok(await p.locator('.hole').count() === 6, 'six holes listed');
+  ok(await p.locator('.hole').count() === 10, 'ten holes listed');
   await shot('8-holes');
   // Board
   await p.evaluate(() => { const s = RabbitHole.state; ['mkultra', 'stargate', 'acoustickitty', 'paperclip', 'moon'].forEach(id => s.saved.includes(id) || s.saved.push(id)); });
@@ -91,6 +91,50 @@ const ok = (c, l) => { console.log((c ? 'PASS ' : 'FAIL ') + l); if (!c) errs.pu
   const fit = await sp.evaluate(() => { const c = document.querySelector('.card'), btn = c.querySelector('.btn-call'); return btn && btn.getBoundingClientRect().bottom <= c.getBoundingClientRect().bottom + 1; });
   ok(fit, 'call buttons fit on a 360x640 phone');
   await sp.screenshot({ path: `${out}/11-small.png` });
+  // Debate, this-device mode
+  await p.click('[data-tab="feed"]'); await p.evaluate(() => RabbitHole.startFeed([RabbitHole.CASES.find(c => c.id === 'northwoods')])); await p.waitForTimeout(300);
+  await p.locator('.card').first().locator('[data-act="debate"]').click(); await p.waitForTimeout(300);
+  ok(await p.isVisible('.debate'), 'debate sheet opens from the feed');
+  ok(await p.isDisabled('.debate .post'), 'posting needs a side and text');
+  await p.click('.pick-side .real'); await p.fill('#argText', 'The memo is on the National Archives site. Read it.');
+  await p.click('.debate .post'); await p.waitForTimeout(300);
+  ok(await p.locator('.thread .cmt').count() === 1, 'argument appears in the thread');
+  ok(/1 vote/.test(await p.textContent('.tally')), 'picking a side counts in the tally');
+  await p.click('.thread [data-reply]'); await p.click('.pick-side .fake'); await p.fill('#argText', 'A memo is not a crime. It was rejected.');
+  await p.click('.debate .post'); await p.waitForTimeout(300);
+  ok(await p.locator('.thread ol .badge.reb').count() === 1, 'a reply from the other side is marked as a rebuttal');
+  await p.locator('.thread [data-like]').first().click(); await p.waitForTimeout(200);
+  ok(/Convincing · 1/.test(await p.locator('.thread [data-like]').first().textContent()), 'convincing votes count');
+  await shot('12-debate');
+  await p.click('.debate [data-x]');
+  ok((await p.locator('.card').first().locator('[data-count]').textContent()).trim() === '2', 'rail shows the argument count');
+  // Watch tab
+  await p.click('[data-tab="watch"]'); await p.waitForTimeout(800);
+  const reels = await p.locator('.reel video').count();
+  ok(reels > 0 || await p.isVisible('.watch-empty'), 'watch tab shows reels or an empty state');
+  if (reels) { await p.locator('.reel').first().click(); await p.waitForTimeout(1200); ok(await p.evaluate(() => { const v = document.querySelector('.reel video'); return !v.paused && !v.muted; }), 'first reel plays with sound after a tap'); }
+  await shot('13-watch');
+  // Debate, shared mode on a fake Claude host (two people)
+  const ctx2 = await b.newContext({ ...devices['iPhone 13'] });
+  await ctx2.addInitScript(() => {
+    const docs = new Map([['posts/u2', { items: [{ id: 'a1', caseId: 'moon', side: 'fake', text: 'The shadows are wrong.', at: Date.now() - 6e5, parent: null }], likes: [], sides: { moon: 'fake' } }]]);
+    const subs = new Set(); const snap = () => ({ docs: [...docs].filter(([k]) => k.startsWith('posts/')).map(([k, v]) => ({ id: k.split('/')[1], exists: true, data: () => v })) });
+    const db = { collection: () => ({ onSnapshot(n) { subs.add(n); setTimeout(() => n(snap()), 0); return () => subs.delete(n); } }),
+      doc: path => ({ set: async d => { docs.set(path, d); window.__writes = (window.__writes || 0) + 1; subs.forEach(n => n(snap())); } }) };
+    const user = { id: async () => 'u1', isOwner: () => false, profiles: async ids => Object.fromEntries(ids.map(i => [i, { name: i === 'u2' ? 'Sam Rivera' : 'Ada' }])) };
+    window.claude = { use: async n => ({ db, user }[n] || null) };
+    localStorage.setItem('rabbithole:v1', JSON.stringify({ onboarded: true, picks: ['hoax'] }));
+  });
+  const q = await ctx2.newPage(); q.on('pageerror', e => errs.push('B pageerror ' + e.message));
+  await q.goto(URL0); await q.waitForTimeout(1500);
+  await q.evaluate(() => RabbitHole.startFeed([RabbitHole.CASES.find(c => c.id === 'moon')])); await q.waitForTimeout(300);
+  await q.locator('.card').first().locator('[data-act="debate"]').click(); await q.waitForTimeout(600);
+  ok(/Sam Rivera/.test(await q.textContent('.thread')), "shared mode shows other people's arguments with their names");
+  await q.click('.pick-side .real'); await q.click('.thread [data-reply]'); await q.fill('#argText', 'Shadows look odd on uneven ground. Lasers still bounce off the mirrors.');
+  await q.click('.debate .post'); await q.waitForTimeout(400);
+  ok(await q.evaluate(() => window.__writes >= 2), 'shared mode writes to the store');
+  ok(await q.locator('.thread ol .badge.reb').count() === 1, 'shared rebuttal threads under the other person');
+  await q.screenshot({ path: `${out}/14-debate-shared.png` });
   await b.close();
   console.log(errs.length ? '\nERRORS:\n' + errs.join('\n') : '\nAll good.');
   process.exit(errs.length ? 1 : 0);

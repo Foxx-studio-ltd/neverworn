@@ -2,7 +2,12 @@
 // The same src/app.html is published as-is as the Claude artifact.
 import { readFileSync, writeFileSync } from "node:fs";
 const dir = new URL(".", import.meta.url);
-const src = readFileSync(new URL("src/app.html", dir), "utf8");
+// Case library lives in data/cases.json; media manifest (photos, reels) in data/media.json.
+const data = JSON.parse(readFileSync(new URL("data/cases.json", dir), "utf8"));
+let media = {}; try { media = JSON.parse(readFileSync(new URL("data/media.json", dir), "utf8")); } catch {}
+const inline = d => JSON.stringify(d).replace(/</g, "\\u003c");
+const fill = (m) => readFileSync(new URL("src/app.html", dir), "utf8").replace(/\/\*DATA\*\/[\s\S]*?\/\*END\*\//, "/*DATA*/" + inline({ ...data, media: m }) + "/*END*/");
+const src = fill(media);
 const head = `<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8">
@@ -27,4 +32,7 @@ const tail = `
 </body></html>
 `;
 writeFileSync(new URL("index.html", dir), head + src + tail);
-console.log("built rabbithole/index.html");
+// Artifact copy: same page; the artifact only carries the reels listed in media.artifactReels.
+const am = { ...media, reels: Object.fromEntries(Object.entries(media.reels || {}).filter(([k]) => (media.artifactReels || []).includes(k))) };
+writeFileSync(new URL("artifact.html", dir), fill(am));
+console.log("built rabbithole/index.html and rabbithole/artifact.html");

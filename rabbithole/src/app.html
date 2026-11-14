@@ -55,6 +55,8 @@ a { color: inherit; }
   radial-gradient(120% 70% at 50% 115%, hsla(var(--hue), 55%, 42%, .55), transparent 70%),
   radial-gradient(80% 50% at 0% 0%, hsla(var(--hue), 40%, 30%, .25), transparent 70%), var(--ink); }
 .card .bg::after { content: ""; position: absolute; inset: 0; opacity: .5; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E"); }
+.card .photo { position: absolute; inset: 0; z-index: -1; background-size: cover; background-position: center 30%; filter: grayscale(.45) sepia(.15) brightness(.5) contrast(1.08); -webkit-mask-image: linear-gradient(#000 0 30%, transparent 78%); mask-image: linear-gradient(#000 0 30%, transparent 78%); }
+.credit { font-size: 11px; color: var(--muted); }
 .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .chip { padding: 3px 8px; border-radius: 4px; background: hsla(var(--hue), 50%, 55%, .22); color: hsl(var(--hue), 70%, 84%); }
 .chip.daily { background: var(--mark); color: var(--ink); }
@@ -156,7 +158,7 @@ a { color: inherit; }
 .clr button { padding: 8px 14px; border-radius: 999px; background: var(--text); color: var(--ink); font-weight: 700; }
 
 /* ---------- Tab bar ---------- */
-.tabs { position: absolute; left: 0; right: 0; bottom: 0; height: var(--tab-h); display: grid; grid-template-columns: repeat(4, 1fr); background: var(--ink); border-top: 1px solid var(--line); padding: 0 max(0px, env(safe-area-inset-right, 0px)) 0 max(0px, env(safe-area-inset-left, 0px)); z-index: 8; }
+.tabs { position: absolute; left: 0; right: 0; bottom: 0; height: var(--tab-h); display: grid; grid-template-columns: repeat(5, 1fr); background: var(--ink); border-top: 1px solid var(--line); padding: 0 max(0px, env(safe-area-inset-right, 0px)) 0 max(0px, env(safe-area-inset-left, 0px)); z-index: 8; }
 .tabs button { display: grid; justify-items: center; align-content: center; gap: 2px; font-size: 11px; font-weight: 600; color: var(--muted); }
 .tabs button[aria-current="page"] { color: var(--text); }
 .tabs button[aria-current="page"] .ico { color: var(--mark); }
@@ -200,6 +202,58 @@ a { color: inherit; }
 .pick[aria-pressed="true"] { border-color: var(--mark); }
 .onb-h { margin: 0; font-family: var(--f-display); font-weight: 900; font-size: 40px; line-height: .95; text-transform: uppercase; }
 
+/* ---------- Watch (reels) ---------- */
+#watch { overflow-y: auto; scroll-snap-type: y mandatory; scrollbar-width: none; background: #000; }
+#watch::-webkit-scrollbar { display: none; }
+.reel { position: relative; height: 100%; scroll-snap-align: start; scroll-snap-stop: always; overflow: hidden; display: grid; place-items: center; background: #000; }
+.reel video { width: 100%; height: 100%; object-fit: contain; background: #000; }
+.reel .rail { bottom: 120px; }
+.reel-info { position: absolute; left: max(16px, env(safe-area-inset-left, 0px)); right: 70px; bottom: 16px; display: grid; gap: 6px; pointer-events: none; text-shadow: 0 1px 4px rgba(0,0,0,.8); }
+.reel-info b { font-size: 15px; line-height: 1.3; }
+.sound { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); padding: 7px 14px; border-radius: 999px; background: rgba(19,16,28,.75); border: 1px solid var(--line); font-size: 13px; font-weight: 600; backdrop-filter: blur(6px); }
+.reel-bar { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(255,255,255,.15); }
+.reel-bar i { display: block; height: 100%; width: 0; background: var(--mark); }
+.watch-empty { height: 100%; display: grid; place-content: center; gap: 10px; text-align: center; padding: 24px; color: var(--muted); }
+.watch-empty b { font-family: var(--f-display); font-size: 30px; color: var(--text); text-transform: uppercase; }
+.count { font-variant-numeric: tabular-nums; }
+
+/* ---------- Debate ---------- */
+.debate { max-height: 88%; gap: 12px; padding-bottom: 14px; }
+.debate header { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.debate h2 { font-size: 34px; }
+.prompt { margin: 0; padding: 12px 14px; border-radius: 12px; background: var(--ink); border: 1px solid var(--line); font-size: 14px; }
+.prompt b { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--mark); margin-bottom: 4px; }
+.tally .bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: var(--line); }
+.tally .bar i { display: block; height: 100%; transition: width .5s; }
+.tally .row { display: flex; justify-content: space-between; margin-top: 6px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; font-variant-numeric: tabular-nums; }
+.side-real { color: var(--v-true); } .side-fake { color: var(--v-false); }
+.filters { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.filters button { flex: none; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); font-size: 13px; font-weight: 600; color: var(--muted); }
+.filters button[aria-pressed="true"] { background: var(--text); color: var(--ink); border-color: var(--text); }
+.thread { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; overflow-y: auto; min-height: 80px; max-height: 38vh; }
+.thread ol { list-style: none; margin: 8px 0 0 14px; padding: 0 0 0 12px; border-left: 2px solid var(--line); display: grid; gap: 10px; }
+.debate li.cmt { display: grid; gap: 4px; align-items: start; }
+.debate li.empty-thread { display: block; }
+.cmt .who { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+.cmt .who b { color: var(--text); font-size: 13px; }
+.badge { padding: 1px 7px; border-radius: 4px; font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.badge.real { background: rgba(95,214,142,.18); color: var(--v-true); } .badge.fake { background: rgba(255,93,79,.18); color: var(--v-false); }
+.badge.reb { background: rgba(242,225,76,.16); color: var(--mark); }
+.cmt p { margin: 0; font-size: 14.5px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.cmt .acts { display: flex; gap: 14px; font-size: 12.5px; font-weight: 600; color: var(--muted); }
+.cmt .acts button[aria-pressed="true"] { color: var(--mark); }
+.compose { display: grid; gap: 8px; border-top: 1px solid var(--line); padding-top: 12px; }
+.pick-side { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pick-side button { padding: 9px; border-radius: 10px; border: 2px solid var(--line); font-weight: 700; font-size: 14px; }
+.pick-side button.real[aria-pressed="true"] { border-color: var(--v-true); background: rgba(95,214,142,.14); }
+.pick-side button.fake[aria-pressed="true"] { border-color: var(--v-false); background: rgba(255,93,79,.14); }
+.compose textarea { width: 100%; box-sizing: border-box; min-height: 64px; resize: vertical; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--ink); color: var(--text); font: 15px/1.4 var(--f-ui); }
+.compose .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 12px; color: var(--muted); }
+.compose .post { padding: 9px 18px; border-radius: 10px; background: var(--mark); color: var(--ink); font-weight: 700; }
+.compose .post:disabled { opacity: .4; cursor: default; }
+.replying { display: flex; justify-content: space-between; gap: 8px; font-size: 12.5px; color: var(--muted); }
+.empty-thread { color: var(--muted); font-size: 14px; padding: 8px 0; }
+
 #toast { position: absolute; z-index: 50; left: 50%; bottom: calc(var(--tab-h) + 14px); transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 10px; background: var(--text); color: var(--ink); font-weight: 600; font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.4); animation: rise .25s; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -217,11 +271,13 @@ a { color: inherit; }
     <div class="gauge" aria-hidden="true"><i id="hudBar"></i></div>
     <span class="pill" id="hudStreak" title="Daily streak"></span>
   </div>
+  <section id="watch" class="view" hidden aria-label="Reels"></section>
   <section id="holes" class="view page" hidden aria-label="Holes"></section>
   <section id="board" class="view page" hidden aria-label="Case board"></section>
   <section id="me" class="view page" hidden aria-label="Your depth"></section>
   <nav class="tabs" aria-label="Main">
     <button data-tab="feed" aria-current="page"></button>
+    <button data-tab="watch"></button>
     <button data-tab="holes"></button>
     <button data-tab="board"></button>
     <button data-tab="me"></button>
@@ -271,131 +327,17 @@ const I = {
   source: '<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/>',
   flame: '<path d="M12 22c4 0 7-2.7 7-7 0-4-3-6-4-9-1 2-2 3-3.5 3.5C11 6 10 4 10 2 7 5 5 9 5 15c0 4.3 3 7 7 7z"/>',
   lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
-  check: '<path d="M5 12l5 5 9-10"/>'
+  check: '<path d="M5 12l5 5 9-10"/>',
+  watch: '<rect x="4" y="3" width="16" height="18" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor"/>',
+  debate: '<path d="M3 5h11v8H8l-4 3v-3H3z"/><path d="M14 9h7v8h-1v3l-4-3h-5v-3"/>',
+  file: '<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/>'
 };
 const ico = (n, extra = "") => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" ${extra}>${I[n]}</svg>`;
 
 /* ---------- Content: real, sourced case files ---------- */
-const HOLES = {
-  mind:   { name: "Mind Games",          hue: 275, blurb: "LSD, psychic spies and a cat wired for sound." },
-  flags:  { name: "False Flags",         hue: 8,   blurb: "Staged attacks, fake witnesses, a corpse with secret plans." },
-  sky:    { name: "The Sky Files",       hue: 210, blurb: "Flying discs, Area 51 and signals from deep space." },
-  bureau: { name: "The Bureau",          hue: 150, blurb: "Wiretaps, poison-pen letters and the JFK verdict." },
-  bodies: { name: "Human Subjects",      hue: 38,  blurb: "When the government experimented on its own people." },
-  hoax:   { name: "Too Good to Be True", hue: 230, blurb: "The famous theories that fall apart when you dig." }
-};
-const SRC = t => "https://en.wikipedia.org/wiki/" + t;
-const CASES = [
-  { id: "mkultra", hole: "mind", year: "1953", ans: "true", hook: "The CIA secretly dosed Americans with *LSD* to learn mind control.",
-    ev: ["Approved in [[1953]] by CIA director [[Allen Dulles]].", "Run by chemist [[Sidney Gottlieb]] for about [[20 years]].", "In 1973 the director ordered the files [[destroyed]]."],
-    truth: "Project MKUltra ran from 1953 to 1973. The CIA gave LSD and other drugs to people, some of whom never knew, while searching for interrogation and mind-control methods. Most records were destroyed in 1973, but about 20,000 pages survived because they had been misfiled. They surfaced through a FOIA request and were aired at a 1977 Senate hearing.",
-    src: ["US Senate hearing on Project MKUltra, 1977", SRC("Project_MKUltra")] },
-  { id: "midnight", hole: "mind", year: "1955", ans: "true", ts: true, hook: "The CIA ran *safehouse brothels* to drug clients and watch what happened.",
-    ev: ["Narcotics agent [[George White]] ran the San Francisco flat.", "Men were slipped [[LSD]] without knowing.", "Agents watched through [[one-way mirrors]]."],
-    truth: "Operation Midnight Climax was an MKUltra subproject. From the mid-1950s into the 1960s, sex workers paid by the CIA brought men to safehouses in San Francisco and New York, where they were drugged while agents observed. It came to light in the 1977 Senate hearings.",
-    src: ["Senate MKUltra hearing, 1977", SRC("Operation_Midnight_Climax")] },
-  { id: "stargate", hole: "mind", year: "1978", ans: "true", ts: true, hook: "The US military paid *psychics* to spy on the Soviet Union.",
-    ev: ["Code names included [[Grill Flame]] and [[Star Gate]].", "Viewers tried to see [[distant targets]] with their minds.", "It ran for nearly [[two decades]]."],
-    truth: "From the 1970s to 1995 the Army, the Defense Intelligence Agency and the CIA funded \"remote viewing\" units. A 1995 review commissioned by the CIA found it had never produced intelligence anyone could act on, and the program was closed. The CIA posted thousands of pages online in 2017.",
-    src: ["CIA CREST archive, released 2017", SRC("Stargate_Project")] },
-  { id: "acoustickitty", hole: "mind", year: "1960s", ans: "true", hook: "The CIA tried to turn a *cat* into a walking microphone.",
-    ev: ["A microphone was implanted in the [[ear canal]].", "The antenna ran along the [[tail]].", "The project was dropped in [[1967]]."],
-    truth: "Acoustic Kitty was a real 1960s CIA project. A heavily redacted memo released in 2001, \"Views on Trained Cats\", says it worked technically but was impractical. The famous story that the cat was run over by a taxi on its first mission comes from a former official and is disputed.",
-    src: ["CIA memo \"Views on Trained Cats\", released 2001", SRC("Acoustic_Kitty")] },
-
-  { id: "northwoods", hole: "flags", year: "1962", ans: "true", hook: "America's top generals signed a plan to stage *fake terror attacks* to start a war.",
-    ev: ["Signed by Joint Chiefs chairman [[Lyman Lemnitzer]].", "Ideas included a fake [[hijacking]] and blowing up a ship at [[Guantanamo]].", "Every attack would be blamed on [[Cuba]]."],
-    truth: "Operation Northwoods was a March 1962 proposal from the Joint Chiefs of Staff to create pretexts for invading Cuba. The Kennedy administration rejected it. The document was declassified in 1997 by the Assassination Records Review Board.",
-    src: ["Joint Chiefs memo, declassified 1997", SRC("Operation_Northwoods")] },
-  { id: "tonkin", hole: "flags", year: "1964", ans: "true", hook: "The August 4 attack that pushed the US deeper into *Vietnam* never happened.",
-    ev: ["The ships were the [[USS Maddox]] and [[USS Turner Joy]].", "Congress passed the Tonkin resolution [[three days]] later.", "An [[NSA]] historian later found the intercepts were mishandled."],
-    truth: "An August 2 clash was real, but the reported second attack on August 4, 1964 almost certainly did not happen. The Gulf of Tonkin Resolution followed on August 7. A study by NSA historian Robert Hanyok, declassified in 2005, concluded the signals intelligence had been misread and misrepresented.",
-    src: ["NSA history by Robert Hanyok, declassified 2005", SRC("Gulf_of_Tonkin_incident")] },
-  { id: "nayirah", hole: "flags", year: "1990", ans: "true", hook: "The tearful teenage witness who helped sell the *Gulf War* was the ambassador's daughter.",
-    ev: ["She said soldiers took babies from [[incubators]].", "PR firm [[Hill & Knowlton]] helped prepare the testimony.", "Her father was Kuwait's [[ambassador to the US]]."],
-    truth: "In October 1990 a 15-year-old known only as Nayirah testified to a congressional caucus about atrocities in a Kuwaiti hospital. In 1992 it emerged she was the daughter of Kuwait's ambassador and that the hearing was tied to a PR campaign for Citizens for a Free Kuwait. Later investigations found no support for her account.",
-    src: ["Congressional Human Rights Caucus, 1990", SRC("Nayirah_testimony")] },
-  { id: "mincemeat", hole: "flags", year: "1943", ans: "true", hook: "British spies fooled Hitler with a *dead man* carrying fake invasion plans.",
-    ev: ["The body was dressed as \"Major [[William Martin]]\".", "It washed ashore in [[Spain]].", "The real target was [[Sicily]]."],
-    truth: "Operation Mincemeat put forged letters on the body of Glyndwr Michael and floated it off the Spanish coast. German intelligence believed the papers and moved forces toward Greece and Sardinia before the Allies invaded Sicily in July 1943.",
-    src: ["UK National Archives, Operation Mincemeat", SRC("Operation_Mincemeat")] },
-  { id: "ghostarmy", hole: "flags", year: "1944", ans: "true", ts: true, hook: "The US Army fought part of WWII with *inflatable tanks*.",
-    ev: ["The unit was the [[23rd Headquarters Special Troops]].", "It used rubber tanks, fake radio traffic and [[recorded sound]].", "Its work stayed secret for about [[50 years]]."],
-    truth: "The \"Ghost Army\" was about 1,100 artists, sound engineers and radio operators who staged fake units to mislead German forces in Europe. Its records stayed classified until the 1990s.",
-    src: ["US Army records, declassified 1996", SRC("Ghost_Army")] },
-
-  { id: "roswell", hole: "sky", year: "1947", ans: "true", hook: "The US Army announced it had captured a *flying disc*.",
-    ev: ["The press release came from [[Roswell Army Air Field]].", "The next day it became a [[weather balloon]].", "In 1994 the Air Force named it [[Project Mogul]]."],
-    truth: "On July 8, 1947 the base really did announce a \"flying disc\". The story was changed to a weather balloon the next day. In 1994 the Air Force said the debris came from Project Mogul, a classified balloon program built to listen for Soviet nuclear tests. There was a cover-up. It just wasn't about aliens.",
-    src: ["US Air Force Roswell report, 1994", SRC("Roswell_incident")] },
-  { id: "area51", hole: "sky", year: "2013", ans: "true", hook: "The CIA officially admitted *Area 51* exists.",
-    ev: ["It was built to test the [[U-2]] spy plane.", "The admission came through a [[FOIA]] request.", "Spy planes explain many [[UFO reports]] of the era."],
-    truth: "In 2013 a declassified CIA history of the U-2, obtained by the National Security Archive, named Area 51 and showed it on a map. A CIA study published in 1997 said high-flying reconnaissance planes accounted for many UFO reports in the late 1950s and 1960s.",
-    src: ["CIA U-2 history, released 2013", SRC("Area_51")] },
-  { id: "bluebook", hole: "sky", year: "1969", ans: "true", hook: "The US Air Force logged *701 UFOs* it could never explain.",
-    ev: ["The study was called [[Project Blue Book]].", "It collected [[12,618]] sighting reports.", "It was shut down in [[1969]]."],
-    truth: "Project Blue Book ran from 1952 to 1969. Of 12,618 reports, 701 stayed \"unidentified\". The Air Force said none showed a threat to national security or technology beyond known science. The records are held at the US National Archives.",
-    src: ["US National Archives, Project Blue Book", "https://www.archives.gov/research/military/air-force/ufos"] },
-  { id: "tictac", hole: "sky", year: "2004", ans: "unknown", hook: "Navy pilots chased a *Tic Tac-shaped* object that outflew their jets.",
-    ev: ["It happened near the carrier [[USS Nimitz]].", "The lead pilot was Commander [[David Fravor]].", "The Pentagon officially released the video in [[2020]]."],
-    truth: "In November 2004 Navy aviators off southern California reported a white, wingless object with no visible propulsion. The Defense Department formally released the infrared video in April 2020. The object remains officially unidentified.",
-    src: ["US Navy FLIR video, released 2020", SRC("USS_Nimitz_UFO_incident")] },
-  { id: "wow", hole: "sky", year: "1977", ans: "unknown", ts: true, hook: "A radio telescope caught a *72-second signal* from space that nobody can explain.",
-    ev: ["Detected by the [[Big Ear]] telescope in Ohio.", "An astronomer circled it and wrote \"[[Wow!]]\".", "It has never been [[detected again]]."],
-    truth: "The Wow! signal, recorded on August 15, 1977, was strong, narrow and close to the hydrogen line, exactly the kind of signal SETI looks for. It never repeated. Natural explanations have been proposed, including hydrogen clouds, but none is settled.",
-    src: ["Big Ear Radio Observatory, 1977", SRC("Wow!_signal")] },
-
-  { id: "cointelpro", hole: "bureau", year: "1964", ans: "true", hook: "The FBI mailed Martin Luther King Jr. an *anonymous letter* urging him to kill himself.",
-    ev: ["The program was called [[COINTELPRO]].", "It was exposed by a [[break-in]] at an FBI office in 1971.", "The burglars stayed anonymous for [[43 years]]."],
-    truth: "COINTELPRO ran from 1956 to 1971 and targeted civil rights, antiwar and other groups. In 1964 the FBI sent King a letter and tape widely read as urging suicide. The program was exposed after activists took files from an FBI office in Media, Pennsylvania, in March 1971, and the Church Committee later confirmed it.",
-    src: ["Church Committee final report, 1976", SRC("COINTELPRO")] },
-  { id: "mockingbird", hole: "bureau", year: "1977", ans: "mixed", hook: "The CIA had hundreds of *American journalists* secretly helping it.",
-    ev: ["A 1977 report counted about [[400]] journalists.", "The reporter was [[Carl Bernstein]].", "The name \"Mockingbird\" belonged to a [[1963 wiretap]]."],
-    truth: "The Church Committee confirmed the CIA had relationships with journalists and news organizations, and Carl Bernstein reported in 1977 that about 400 American journalists had secretly assisted the agency. Whether \"Operation Mockingbird\" was one big media-control program is disputed: in the CIA's own \"Family Jewels\" files, Project Mockingbird is a 1963 wiretap of two reporters.",
-    src: ["CIA \"Family Jewels\", released 2007", SRC("Operation_Mockingbird")] },
-  { id: "jfk", hole: "bureau", year: "1979", ans: "true", hook: "A US government committee concluded JFK was *probably killed in a conspiracy*.",
-    ev: ["It was the [[House Select Committee on Assassinations]].", "Its key evidence was a police [[audio recording]].", "In 1982 scientists said the audio [[didn't hold up]]."],
-    truth: "In 1979 the committee concluded Kennedy was \"probably assassinated as a result of a conspiracy\", mostly because of an acoustic analysis of a police dictabelt recording. A National Academy of Sciences panel rejected that analysis in 1982. The National Archives has since released most remaining JFK records, including a large batch in 2025.",
-    src: ["National Archives, JFK records", "https://www.archives.gov/research/jfk"] },
-
-  { id: "tuskegee", hole: "bodies", year: "1932", ans: "true", hook: "US health officials let hundreds of Black men go *untreated for syphilis* for 40 years.",
-    ev: ["The study ran from [[1932 to 1972]].", "[[Penicillin]] was the standard cure by the late 1940s.", "It ended after an [[AP reporter]] broke the story."],
-    truth: "The US Public Health Service study enrolled about 600 Black men in Alabama, 399 of whom had syphilis, and withheld treatment to watch the disease progress. Jean Heller of the Associated Press exposed it in 1972. President Clinton formally apologized in 1997.",
-    src: ["CDC, The Syphilis Study at Tuskegee", SRC("Tuskegee_Syphilis_Study")] },
-  { id: "seaspray", hole: "bodies", year: "1950", ans: "true", hook: "The US Navy secretly sprayed *bacteria* over San Francisco.",
-    ev: ["The test was called Operation [[Sea-Spray]].", "A ship released the bacteria [[off the coast]].", "Nobody in the city was [[told]]."],
-    truth: "In September 1950 the Navy released Serratia marcescens and Bacillus bacteria to see how a biological attack would spread over a city. Soon after, a cluster of rare Serratia infections appeared at a San Francisco hospital and one patient died, though a link was never proven. The test became public in the 1970s.",
-    src: ["US Senate hearings, 1977", SRC("Operation_Sea-Spray")] },
-  { id: "paperclip", hole: "bodies", year: "1945", ans: "true", ts: true, hook: "After WWII the US quietly hired *Nazi scientists* and cleaned up their records.",
-    ev: ["The program was Operation [[Paperclip]].", "More than [[1,600]] German scientists and engineers came over.", "The best known was rocket engineer [[Wernher von Braun]]."],
-    truth: "Operation Paperclip brought German scientists, many of them former Nazi Party members, to work for the US. Some background files were rewritten to get them past immigration rules. Von Braun went on to lead development of the Saturn V rocket that carried Apollo to the Moon.",
-    src: ["US National Archives, Paperclip records", SRC("Operation_Paperclip")] },
-
-  { id: "moon", hole: "hoax", year: "1969", ans: "false", hook: "The Moon landings were *filmed in a studio*.",
-    ev: ["Astronauts brought back [[382 kg]] of Moon rock.", "Mirrors left on the Moon are still hit by [[lasers]] today.", "A NASA orbiter [[photographed]] the landing sites from 2009."],
-    truth: "Six Apollo missions landed between 1969 and 1972. The samples, the laser reflectors and the Lunar Reconnaissance Orbiter photos of the descent stages and footpaths all point the same way. The Soviet Union tracked the missions and never disputed them.",
-    src: ["NASA Lunar Reconnaissance Orbiter", SRC("Moon_landing_conspiracy_theories")] },
-  { id: "philadelphia", hole: "hoax", year: "1943", ans: "false", hook: "In 1943 the Navy made a warship *invisible* and teleported it.",
-    ev: ["The ship was the destroyer escort [[USS Eldridge]].", "The story began with letters from \"[[Carlos Allende]]\".", "The Navy says its records [[don't match]]."],
-    truth: "The \"Philadelphia Experiment\" traces back to letters written in the 1950s by Carl Allen, who used the name Carlos Miguel Allende. The Navy says no such experiment took place, and the ship's records don't fit the story.",
-    src: ["US Naval History and Heritage Command", SRC("Philadelphia_Experiment")] },
-  { id: "bermuda", hole: "hoax", year: "1964", ans: "false", hook: "Ships and planes vanish in the *Bermuda Triangle* more than anywhere else.",
-    ev: ["Insurer [[Lloyd's of London]] doesn't treat it as extra risky.", "The US Coast Guard [[doesn't recognize]] it as a danger zone.", "It's one of the [[busiest]] stretches of ocean on Earth."],
-    truth: "Studies have found no more disappearances there than in other heavily travelled waters. Many famous cases were exaggerated, misdated or happened somewhere else. Storms and the Gulf Stream explain the real losses. The name itself was coined by a magazine writer in 1964.",
-    src: ["US Coast Guard; NOAA", SRC("Bermuda_Triangle")] },
-  { id: "pauldead", hole: "hoax", year: "1969", ans: "false", hook: "Paul McCartney *died in 1966* and was replaced by a lookalike.",
-    ev: ["Fans hunted for [[clues]] on album covers.", "The rumor peaked in [[1969]].", "Life magazine's cover: \"[[Paul is still with us]]\"."],
-    truth: "The \"Paul is dead\" rumor spread through US college papers and radio in 1969, fed by fans reading clues into album art and backwards lyrics. McCartney gave Life magazine an interview that November to deny it. He's still touring.",
-    src: ["Life magazine, November 1969", SRC("Paul_is_dead")] },
-  { id: "birds", hole: "hoax", year: "2017", ans: "false", hook: "*Birds aren't real.* They're government surveillance drones.",
-    ev: ["The movement began in [[2017]].", "Its founder is [[Peter McIndoe]].", "In 2021 he confirmed it was [[satire]]."],
-    truth: "Birds Aren't Real is a parody conspiracy theory made to mock misinformation. Its \"believers\" hold rallies and put up billboards. McIndoe said publicly in 2021 that it had been a joke from the start.",
-    src: ["The New York Times, 2021", SRC("Birds_Aren%27t_Real")] },
-  { id: "havana", hole: "hoax", year: "2016", ans: "unknown", hook: "US diplomats were hit by a secret *energy weapon* in Havana.",
-    ev: ["Symptoms were first reported in [[2016]].", "In 2023 most US spy agencies called a foreign attack [[very unlikely]].", "Many of those affected still [[disagree]]."],
-    truth: "Hundreds of US personnel reported headaches, dizziness and strange sounds. A 2023 intelligence assessment found a foreign adversary very unlikely to be responsible, and 2024 NIH studies found no evidence of brain injury. Some officials and many of those affected dispute those findings, so the case stays open.",
-    src: ["Office of the Director of National Intelligence, 2023", SRC("Havana_syndrome")] }
-];
+const DATA = /*DATA*/{"holes":{},"cases":[]}/*END*/;
+const HOLES = DATA.holes, CASES = DATA.cases, MEDIA = DATA.media || {};
+const photoOf = c => ((MEDIA.photos || {})[c.id] || [])[0] || null;
 const byId = Object.fromEntries(CASES.map(c => [c.id, c]));
 for (const k in HOLES) HOLES[k].ids = CASES.filter(c => c.hole === k).map(c => c.id);
 const CROSS = [["paperclip", "moon"], ["northwoods", "jfk"], ["mockingbird", "nayirah"], ["mkultra", "seaspray"], ["area51", "bluebook"]];
@@ -447,7 +389,8 @@ function card(c, opt = {}) {
   el.className = "card"; el.dataset.id = c.id; el.style.setProperty("--hue", HOLES[c.hole].hue);
   if (isLocked(c)) return lockedCard(el, c);
   const saved = S.saved.includes(c.id);
-  el.innerHTML = `<div class="bg"></div>
+  const ph = photoOf(c);
+  el.innerHTML = `<div class="bg"></div>${ph ? `<div class="photo" style="background-image:url('${esc(ph.f)}')"></div>` : ""}
     <div class="meta">${opt.daily ? `<span class="chip daily">Today's file</span><span>Next file in <span class="countdown"></span></span>` : `<span class="chip">${esc(HOLES[c.hole].name)}</span><span>File ${fileNo(c)} · ${esc(c.year)}</span>`}</div>
     <h2 class="hook">${hookHTML(c.hook)}</h2>
     <div class="doc"><div class="doc-head"><span>Case file ${fileNo(c)}</span><span>Evidence ${c.ev.length}</span></div>
@@ -458,6 +401,7 @@ function card(c, opt = {}) {
       <button class="btn-call real" data-g="real">Real</button><button class="btn-call fake" data-g="fake">Fake</button></div></div>
     <aside class="rail">
       <button data-act="save" aria-pressed="${saved}" aria-label="Pin to case board"><span class="disc">${ico("pin")}</span>Pin</button>
+      <button data-act="debate" aria-label="Open the debate"><span class="disc">${ico("debate")}</span><span class="count" data-count="${c.id}">${Debate.count(c.id) || "Argue"}</span></button>
       <button data-act="share" aria-label="Share this file"><span class="disc">${ico("share")}</span>Share</button>
       <button data-act="deeper" aria-label="Go deeper"><span class="disc">${ico("deeper")}</span>Deeper</button>
     </aside>${opt.first ? '<div class="swipe-hint">Swipe up for the next file</div>' : ""}`;
@@ -490,7 +434,7 @@ function callIt(el, g) {
     : `<b style="color:${VERDICT[c.ans][2]}">${VERDICT[c.ans][0]}.</b>Nobody can call this one yet. +25 m`;
   const t = document.createElement("div"); t.className = "truth";
   t.innerHTML = `<p class="verdict-line">${line}</p><p class="tt">${esc(c.truth)}</p>
-    <a class="src" href="${esc(c.src[1])}" target="_blank" rel="noopener">Source: ${esc(c.src[0])}</a>
+    <a class="src" href="${esc(c.src[1])}" target="_blank" rel="noopener">Source: ${esc(c.src[0])}</a>${photoOf(c) ? `<span class="credit">Photo: ${esc(photoOf(c).credit)}</span>` : ""}
     <button class="deeper" data-act="deeper">${ico("deeper")}<span><small>Go deeper · ${esc(HOLES[c.hole].name)}</small>${esc(isLocked(nx) ? "A top secret file is waiting below" : plain(nx.hook))}</span></button>`;
   $(".call", el).replaceWith(t);
 }
@@ -524,7 +468,7 @@ feed.addEventListener("click", e => {
   if (rx && !rx.classList.contains("open")) { rx.classList.add("open"); el.dataset.peeked = "1"; return; }
   const g = e.target.closest("[data-g]"); if (g) return callIt(el, g.dataset.g);
   const a = e.target.closest("[data-act]"); if (!a) return;
-  ({ save: () => toggleSave(el, a), share: () => share(el), deeper: () => goDeeper(el), unlock: () => paywall() })[a.dataset.act]?.();
+  ({ save: () => toggleSave(el, a), share: () => share(el), deeper: () => goDeeper(el), unlock: () => paywall(), debate: () => Debate.open(el.dataset.id) })[a.dataset.act]?.();
 });
 feed.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("rx")) { e.preventDefault(); e.target.click(); } });
 
@@ -685,14 +629,154 @@ $("#me").addEventListener("click", e => {
   S = blank(); save(); location.reload();
 });
 
+/* ---------- Debate: pick a side, argue, upvote the most convincing ---------- */
+// Each person's arguments live in one record, posts/<their id>: everyone reads every record,
+// each person writes only their own, and the artifact owner can remove anything.
+// Inside Claude this is shared (db capability). Elsewhere it falls back to this device only until a backend is connected.
+const Debate = (() => {
+  const LKEY = "rabbithole:debate:v1", blankRec = () => ({ items: [], likes: [], sides: {} });
+  let db = null, user = null, me = "you", isOwner = false, mode = "local", all = {}, queue = Promise.resolve(), names = {}, openId = null, filter = "all", replyTo = null, side = null;
+  try { all = { you: JSON.parse(localStorage.getItem(LKEY)) || blankRec() }; } catch (e) { all = { you: blankRec() }; }
+  const rec = id => all[id] || blankRec();
+  const PROMPT = { true: "This one really happened. Was it a one-off, or is something like it still going on?", false: "Debunked. So why do so many people still believe it? Make your case.",
+    mixed: "Part of it is true. Which part matters more? Make your case.", unknown: "Nobody can prove it either way. What do you think happened?" };
+  function items(caseId) { const out = []; for (const by in all) for (const it of (all[by].items || [])) if (it.caseId === caseId) out.push({ ...it, by, key: by + ":" + it.id }); return out; }
+  const likes = key => Object.values(all).reduce((n, r) => n + ((r.likes || []).includes(key) ? 1 : 0), 0);
+  const sides = caseId => { const t = { real: 0, fake: 0 }; for (const by in all) { const v = (all[by].sides || {})[caseId]; if (v) t[v]++; } return t; };
+  function changed() {
+    $$("[data-count]").forEach(x => x.textContent = items(x.dataset.count).length || "Argue");
+    if (openId) renderThread();
+  }
+  function write(mut, who = me) {
+    const doc = JSON.parse(JSON.stringify(rec(who))); mut(doc); all[who] = doc; changed();
+    if (mode === "local") { try { localStorage.setItem(LKEY, JSON.stringify(doc)); } catch (e) {} return; }
+    queue = queue.then(() => db.doc("posts/" + who).set(doc)).catch(e => toast(e && e.code === "quota_exceeded" ? "The debate is full right now." : "Couldn't save that. You may only have read access here."));
+  }
+  async function connect() {
+    for (let i = 0; i < 20 && !window.claude?.use; i++) await new Promise(r => setTimeout(r, 300));
+    if (!window.claude?.use) return;
+    const [d, u] = await Promise.all([claude.use("db"), claude.use("user")]);
+    if (!d || !u) return;
+    const id = await u.id(); if (!id) return;
+    db = d; user = u; me = id; mode = "shared"; isOwner = !!u.isOwner(); all = {};
+    db.collection("posts").onSnapshot(snap => { const next = {}; snap.docs.forEach(x => { next[x.id] = x.data(); }); all = next; changed(); }, () => {});
+  }
+  async function nameOf(ids) {
+    const need = ids.filter(i => !(i in names)); if (!need.length) return;
+    if (mode === "local") { need.forEach(i => names[i] = "You"); return; }
+    try { const ps = await user.profiles(need); need.forEach(i => names[i] = (i === me ? "You" : (ps[i] && ps[i].name) || "Digger " + i.slice(-4))); } catch (e) { need.forEach(i => names[i] = "Digger"); }
+    renderThread();
+  }
+  const ago = t => { const s = (Date.now() - t) / 1000; return s < 60 ? "now" : s < 3600 ? Math.floor(s / 60) + "m" : s < 86400 ? Math.floor(s / 3600) + "h" : Math.floor(s / 86400) + "d"; };
+  function cmtHTML(it, parent) {
+    const n = likes(it.key), liked = (rec(me).likes || []).includes(it.key), reb = parent && parent.side !== it.side;
+    return `<li class="cmt"><div class="who"><b>${esc(names[it.by] || "…")}</b><span class="badge ${it.side}">${it.side}</span>${reb ? '<span class="badge reb">Rebuttal</span>' : ""}<span>${ago(it.at)}</span></div>
+      <p>${esc(it.text)}</p><div class="acts"><button data-like="${esc(it.key)}" aria-pressed="${liked}">Convincing${n ? " · " + n : ""}</button>${parent ? "" : `<button data-reply="${esc(it.key)}">Reply</button>`}${it.by === me || isOwner ? `<button data-del="${esc(it.key)}">Remove</button>` : ""}</div>`;
+  }
+  function renderThread() {
+    const sc = $(".debate"); if (!sc) return;
+    const all_ = items(openId), tops = all_.filter(x => !x.parent), kids = all_.filter(x => x.parent);
+    let list = tops.slice();
+    if (filter === "real" || filter === "fake") list = list.filter(x => x.side === filter);
+    list.sort(filter === "top" ? (a, b) => likes(b.key) - likes(a.key) || b.at - a.at : (a, b) => b.at - a.at);
+    const t = sides(openId), tot = t.real + t.fake, pr = tot ? Math.round(t.real / tot * 100) : 50;
+    $(".tally", sc).innerHTML = `<div class="bar"><i style="width:${pr}%;background:var(--v-true)"></i><i style="width:${100 - pr}%;background:var(--v-false)"></i></div>
+      <div class="row"><span class="side-real">Real ${tot ? pr + "%" : ""} · ${t.real}</span><span>${tot} ${tot === 1 ? "vote" : "votes"}</span><span class="side-fake">Fake ${tot ? 100 - pr + "%" : ""} · ${t.fake}</span></div>`;
+    $(".thread", sc).innerHTML = list.length ? list.map(it => cmtHTML(it) + (kids.some(k => k.parent === it.key) ? `<ol>${kids.filter(k => k.parent === it.key).sort((a, b) => a.at - b.at).map(k => cmtHTML(k, it) + "</li>").join("")}</ol>` : "") + "</li>").join("")
+      : `<li class="empty-thread">${filter === "all" || filter === "top" ? "No arguments yet. Pick a side and make the first one." : "Nobody on this side has spoken up yet."}</li>`;
+    $$(".filters button", sc).forEach(b => b.setAttribute("aria-pressed", b.dataset.f === filter));
+    $$(".pick-side button", sc).forEach(b => b.setAttribute("aria-pressed", b.dataset.side === side));
+    const rt = replyTo && all_.find(x => x.key === replyTo);
+    $(".replying", sc).hidden = !rt; if (rt) $(".replying span", sc).textContent = `Replying to ${names[rt.by] || "them"} (${rt.side})`;
+    $(".post", sc).disabled = !side || !$("#argText", sc).value.trim();
+    nameOf([...new Set(all_.map(x => x.by))]);
+  }
+  function open(caseId) {
+    if ($(".scrim")) return;
+    const c = byId[caseId]; openId = caseId; filter = "all"; replyTo = null; side = (rec(me).sides || {})[caseId] || null;
+    const s = document.createElement("div"); s.className = "scrim";
+    s.innerHTML = `<div class="sheet debate" role="dialog" aria-modal="true" aria-labelledby="dbT">
+      <header><h2 id="dbT">The debate</h2><button class="x" data-x>Close</button></header>
+      <p class="prompt"><b>Rabbit Hole asks</b>${esc(plain(c.hook))} ${esc(PROMPT[c.ans])}</p>
+      <div class="tally"></div>
+      <div class="filters" role="group" aria-label="Show"><button data-f="all">Newest</button><button data-f="top">Most convincing</button><button data-f="real">Real side</button><button data-f="fake">Fake side</button></div>
+      <ol class="thread" aria-live="polite"></ol>
+      <form class="compose"><div class="pick-side" role="group" aria-label="Your side"><button type="button" class="real" data-side="real">I say Real</button><button type="button" class="fake" data-side="fake">I say Fake</button></div>
+        <div class="replying" hidden><span></span><button type="button" data-cancel>Cancel</button></div>
+        <label class="sr" for="argText" hidden>Your argument</label><textarea id="argText" maxlength="280" placeholder="Make your case. Keep it about the evidence."></textarea>
+        <div class="row"><span>${mode === "shared" ? "Everyone who opens this page can read the debate." : "Saved on this device only for now."}</span><button class="post" type="submit">Post</button></div></form></div>`;
+    $("#app").append(s);
+    s.addEventListener("input", () => $(".post", s).disabled = !side || !$("#argText", s).value.trim());
+    s.addEventListener("click", e => {
+      if (e.target === s || e.target.closest("[data-x]")) { openId = null; return s.remove(); }
+      const f = e.target.closest("[data-f]"); if (f) { filter = f.dataset.f; return renderThread(); }
+      const sd = e.target.closest("[data-side]"); if (sd) { side = sd.dataset.side; write(d => { d.sides = { ...(d.sides || {}), [caseId]: side }; }); return renderThread(); }
+      const lk = e.target.closest("[data-like]"); if (lk) { const k = lk.dataset.like; write(d => { d.likes = (d.likes || []).includes(k) ? d.likes.filter(x => x !== k) : [...(d.likes || []), k]; }); return; }
+      const rp = e.target.closest("[data-reply]"); if (rp) { replyTo = rp.dataset.reply; renderThread(); return $("#argText", s).focus(); }
+      if (e.target.closest("[data-cancel]")) { replyTo = null; return renderThread(); }
+      const del = e.target.closest("[data-del]");
+      if (del) { if (!del.dataset.armed) { del.dataset.armed = "1"; del.textContent = "Tap to confirm"; return; }
+        const [by, id] = del.dataset.del.split(":"); write(d => { d.items = (d.items || []).filter(x => x.id !== id && x.parent !== del.dataset.del); }, by); }
+    });
+    s.addEventListener("submit", e => {
+      e.preventDefault(); const ta = $("#argText", s), text = ta.value.trim().slice(0, 280); if (!text || !side) return;
+      const it = { id: Math.random().toString(36).slice(2, 10), caseId, side, text, at: Date.now(), parent: replyTo || null };
+      write(d => { d.items = [...(d.items || []), it].slice(-400); d.sides = { ...(d.sides || {}), [caseId]: side }; });
+      ta.value = ""; replyTo = null; filter = "all"; renderThread(); toast("Argument posted");
+    });
+    renderThread();
+  }
+  connect();
+  return { open, count: id => items(id).length, get mode() { return mode; } };
+})();
+
+/* ---------- Watch: the reels ---------- */
+const Watch = (() => {
+  const v = $("#watch"); let built = false, sound = false, on = false;
+  const ids = () => { const ok = CASES.filter(c => (MEDIA.reels || {})[c.id]); const pref = ok.filter(c => S.picks.includes(c.hole)), rest = ok.filter(c => !S.picks.includes(c.hole));
+    return [...(ok.includes(byId.area51) ? [byId.area51] : []), ...shuffle(pref), ...shuffle(rest)].filter((c, i, a) => a.indexOf(c) === i); };
+  const io = new IntersectionObserver(es => es.forEach(en => { const vid = $("video", en.target); if (!vid) return;
+    if (en.isIntersecting && on) { if (vid.preload !== "auto") vid.preload = "auto"; vid.muted = !sound; vid.play().catch(() => {}); S.seen[en.target.dataset.id] = 1; }
+    else vid.pause(); }), { root: v, threshold: .7 });
+  function render() {
+    if (built) return;
+    built = true;
+    const list = ids();
+    if (!list.length) { v.innerHTML = `<div class="watch-empty"><b>No reels here yet</b><span>Reels play in the installed Rabbit Hole app.</span></div>`; return; }
+    list.forEach(c => {
+      const r = MEDIA.reels[c.id], el = document.createElement("article"); el.className = "reel"; el.dataset.id = c.id; el.style.setProperty("--hue", HOLES[c.hole].hue);
+      el.innerHTML = `<video src="${esc(r.mp4)}" poster="${esc(r.poster || "")}" playsinline loop muted preload="none" aria-label="${esc(plain(c.hook))}"></video>
+        <button class="sound" data-sound>${sound ? "Sound on" : "Tap for sound"}</button>
+        <aside class="rail">
+          <button data-act="save" aria-pressed="${S.saved.includes(c.id)}" aria-label="Pin to case board"><span class="disc">${ico("pin")}</span>Pin</button>
+          <button data-act="debate" aria-label="Open the debate"><span class="disc">${ico("debate")}</span><span class="count" data-count="${c.id}">${Debate.count(c.id) || "Argue"}</span></button>
+          <button data-act="share" aria-label="Share"><span class="disc">${ico("share")}</span>Share</button>
+          <button data-act="file" aria-label="Open the case file"><span class="disc">${ico("file")}</span>File</button></aside>
+        <div class="reel-info"><span class="chip" style="justify-self:start">${esc(HOLES[c.hole].name)}</span><b>${esc(plain(c.hook))}</b></div><div class="reel-bar"><i></i></div>`;
+      const vid = $("video", el); vid.addEventListener("timeupdate", () => { $(".reel-bar i", el).style.width = (vid.currentTime / (vid.duration || 1) * 100) + "%"; });
+      v.append(el); io.observe(el);
+    });
+  }
+  v.addEventListener("click", e => {
+    const el = e.target.closest(".reel"); if (!el) return;
+    const a = e.target.closest("[data-act]");
+    if (a) return ({ save: () => toggleSave(el, a), debate: () => Debate.open(el.dataset.id), share: () => share(el), file: () => { tab("feed"); startFeed([byId[el.dataset.id]]); } })[a.dataset.act]?.();
+    const vid = $("video", el);
+    if (e.target.closest("[data-sound]") || !sound) { sound = true; $$(".reel video", v).forEach(x => x.muted = false); $$("[data-sound]", v).forEach(b => b.hidden = true); vid.play().catch(() => {}); return; }
+    vid.paused ? vid.play().catch(() => {}) : vid.pause();
+  });
+  return { render, active(x) { on = x; if (!x) $$(".reel video", v).forEach(vd => vd.pause()); else $$(".reel", v).forEach(el => { io.unobserve(el); io.observe(el); }); } };
+})();
+
 /* ---------- Tabs ---------- */
-const TABS = { feed: ["feed", "Feed"], holes: ["holes", "Holes"], board: ["board", "Board"], me: ["me", "Depth"] };
+const TABS = { feed: ["feed", "Feed"], watch: ["watch", "Watch"], holes: ["holes", "Holes"], board: ["board", "Board"], me: ["me", "Depth"] };
 $$(".tabs button").forEach(b => { const [i, l] = TABS[b.dataset.tab]; b.innerHTML = ico(i) + l; });
 function tab(name) {
   $$(".tabs button").forEach(b => b.dataset.tab === name ? b.setAttribute("aria-current", "page") : b.removeAttribute("aria-current"));
-  ["feed", "holes", "board", "me"].forEach(v => $("#" + v).hidden = v !== name);
+  ["feed", "watch", "holes", "board", "me"].forEach(v => $("#" + v).hidden = v !== name);
+  Watch.active(name === "watch");
   $("#hud").hidden = name !== "feed";
-  if (name === "holes") renderHoles(); if (name === "board") renderBoard(); if (name === "me") renderMe();
+  if (name === "watch") Watch.render(); if (name === "holes") renderHoles(); if (name === "board") renderBoard(); if (name === "me") renderMe();
 }
 $(".tabs").addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (b) tab(b.dataset.tab); });
 
@@ -744,6 +828,6 @@ function onboarding() {
 hud(); tab("feed");
 if (S.onboarded) startFeed(); else onboarding();
 tick();
-window.RabbitHole = { get state() { return S; }, CASES, HOLES, paywall, startFeed, tab };
+window.RabbitHole = { get state() { return S; }, CASES, HOLES, MEDIA, paywall, startFeed, tab, Debate, Watch };
 })();
 </script>

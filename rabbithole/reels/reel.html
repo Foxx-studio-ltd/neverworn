@@ -18,6 +18,15 @@ html,body { margin:0; background:#000; }
 .chiprow { display:flex; align-items:center; gap:18px; margin-top:30px; font-weight:700; font-size:30px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
 .chiprow svg { width:58px; height:74px; }
 .chip { padding:6px 14px; border-radius:8px; background:hsla(var(--hue),50%,55%,.25); color:hsl(var(--hue),70%,84%); }
+#photo { position:absolute; inset:0; z-index:1; overflow:hidden; }
+#photo .ph { position:absolute; inset:-4%; background-size:cover; background-position:center 35%; filter:grayscale(.35) contrast(1.1) brightness(.78) sepia(.12); }
+#photo::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(19,16,28,.7) 0%, rgba(19,16,28,.1) 22%, rgba(19,16,28,.15) 48%, rgba(19,16,28,.88) 70%, rgba(19,16,28,.97) 100%), linear-gradient(hsla(var(--hue),60%,30%,.28), hsla(var(--hue),60%,30%,.28)); mix-blend-mode:normal; }
+.credit { position:absolute; z-index:11; right:56px; top:190px; max-width:640px; text-align:right; font-size:21px; font-weight:600; letter-spacing:.04em; color:rgba(243,238,226,.6); text-shadow:0 2px 6px rgba(0,0,0,.8); }
+.slip { position:relative; width:900px; box-sizing:border-box; padding:46px 54px 54px; background:var(--paper); color:var(--pink); font-family:"Courier Prime",monospace; box-shadow:0 40px 90px rgba(0,0,0,.65); }
+.slip .hd { display:flex; justify-content:space-between; font-weight:700; font-size:26px; letter-spacing:.16em; margin-bottom:26px; }
+.slip .tx { font-size:56px; font-weight:700; line-height:1.28; }
+.slip .r { border-radius:6px; padding:0 .12em; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+.hookyear { font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:900; font-size:300px; line-height:.8; text-shadow:0 20px 60px rgba(0,0,0,.7); }
 #stage { position:absolute; z-index:5; left:0; right:0; top:250px; height:1060px; display:grid; place-items:center; }
 #cap { position:absolute; z-index:12; left:70px; right:70px; top:1380px; height:330px; display:flex; align-items:center; justify-content:center; text-align:center; }
 #cap p { margin:0; font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:900; font-size:118px; line-height:1.02; text-transform:uppercase; letter-spacing:.005em; text-wrap:balance; text-shadow:0 6px 0 rgba(0,0,0,.55), 0 0 40px rgba(0,0,0,.6); }
@@ -46,9 +55,11 @@ html,body { margin:0; background:#000; }
 </style></head><body>
 <div id="f" style="--hue:275">
   <canvas id="bg" width="540" height="960"></canvas>
+  <div id="photo"></div>
   <div id="shake">
     <div class="top"><div class="bars" id="bars"></div><div class="chiprow" id="chips"></div></div>
     <div id="stage"></div>
+    <div class="credit" id="credit"></div>
     <div id="cap"></div>
     <div class="foot">Rabbit Hole · Go deeper</div>
   </div>
@@ -187,7 +198,29 @@ const SCENES = {
       <div class="big" style="font-size:150px;line-height:.9;text-align:center">Real<br>or fake?</div>
       <div style="display:flex;gap:40px"><div class="btn" style="border-color:${lt > tap ? '#5fd68e' : 'rgba(95,214,142,.55)'};background:${lt > tap ? 'rgba(95,214,142,.2)' : 'var(--ink2)'};transform:scale(${lt > tap && lt < tap + .15 ? .94 : 1})">REAL</div><div class="btn" style="border-color:rgba(255,93,79,.55)">FAKE</div></div>
       ${lt > tap ? `<div style="position:absolute;left:${240 - 60 * ring}px;bottom:${-20 - 60 * ring}px;width:${120 + 120 * ring}px;height:${120 + 120 * ring}px;border-radius:50%;border:6px solid rgba(243,238,226,${.8 - ring * .8})"></div>` : ''}
-      ${stamp(s.verdict, 'grn free', lt, at, 450, 320, -12, 230, true)}</div>`;
+      ${s.verdict ? stamp(s.verdict, 'grn free', lt, at, 450, 320, -12, 230, true) : ''}</div>`;
+  },
+  hook(lt, s) {
+    const k = back(lt / .4);
+    return `<div style="display:grid;justify-items:center;gap:26px;align-self:start;margin-top:120px">
+      <div class="hookyear" style="transform:scale(${2.4 - 1.4 * k});opacity:${cl(lt / .1)}">${s.date}</div>
+      <div class="yrlbl" style="opacity:${cl((lt - .5) / .4)}">${s.label}</div></div>`;
+  },
+  ev(lt, s) {
+    const toks = s.raw.split(/\s+/); let inR = false;
+    const html = toks.map((tk, i) => { const open = tk.includes('[['), close = tk.includes(']]'); if (open) inR = true; const r = inR; if (close) inR = false;
+      const w = tk.replace(/\[\[|\]\]/g, ''), wt = (s.words[i] || [0, 0])[1];
+      if (!r) return w;
+      // bar lifts as the word is spoken
+      const lift = cl((t0 - wt + .05) / .25);
+      return `<span class="r" style="background:${lift > 0 ? `rgba(242,225,76,${.25 + .6 * lift})` : '#111'};color:${lift > 0 ? 'var(--pink)' : 'transparent'}">${w}</span>`; }).join(' ');
+    return `<div class="slip" style="align-self:end;margin-bottom:10px;transform:rotate(${s.n % 2 ? 1.6 : -1.6}deg) translateY(${(1 - eo(lt / .45)) * 500}px)">
+      <div class="hd"><span>Evidence ${s.n} of ${s.of || 3}</span><span>File ${T.file}</span></div><div class="tx">${html}</div></div>`;
+  },
+  verdict(lt, s) {
+    return `<div style="position:relative;width:1000px;height:900px">
+      ${stamp(s.verdict, s.cls + ' free', lt, .12, 500, 330, -10, s.verdict.length > 8 ? 150 : 210, true)}
+      <div class="lbl" style="position:absolute;left:0;right:0;bottom:60px;text-align:center;opacity:${cl((lt - .8) / .4)}">Source: ${s.source}</div></div>`;
   },
   end(lt, s) {
     return `<div style="display:grid;justify-items:center;gap:40px;text-align:center">
@@ -207,8 +240,8 @@ function pentagon(lt) {
   return `<svg width="480" height="440"><path d="${path(p)}" stroke="#efe3c4" stroke-width="10" fill="rgba(208,55,44,${.12 + .1 * Math.sin(lt * 4)})" pathLength="100" stroke-dasharray="100" stroke-dashoffset="${100 - k * 100}"/><path d="${path(inner)}" stroke="#efe3c4" stroke-width="6" fill="none" opacity=".6" pathLength="100" stroke-dasharray="100" stroke-dashoffset="${100 - k * 100}"/></svg>`;
 }
 // stamps & hits for the soundtrack (scene-relative)
-const HITS = { date: s => [.05], doc: s => [wordT(s, /MKUltra|Northwoods/) + .45], destroy: s => [wordT(s, /destroyed/) + .1], counter: s => [wordT(s, /misfiled/) + .15],
-  map: s => [wordT(s, /Cuba/) + .1], reject: s => [wordT(s, /no\./) - .05], years: s => [wordT(s, /declassified/) + .1], call: s => [1.45], end: s => [0] };
+const HITS = { hook: s => [.05], verdict: s => [.12], date: s => [.05], doc: s => [wordT(s, /MKUltra|Northwoods/) + .45], destroy: s => [wordT(s, /destroyed/) + .1], counter: s => [wordT(s, /misfiled/) + .15],
+  map: s => [wordT(s, /Cuba/) + .1], reject: s => [wordT(s, /no\./) - .05], years: s => [wordT(s, /declassified/) + .1], call: s => s.verdict ? [1.45] : [], end: s => [0] };
 
 // ---------- captions ----------
 let CHUNKS = [];
@@ -238,11 +271,24 @@ function drawBg(t, scene) {
   gr.clearRect(0, 0, w, h); gr.drawImage(NOISE[Math.floor(t * 24) % 6], 0, 0);
 }
 
+// ---------- archive photo layer ----------
+let t0 = 0, PHOTOS = [];
+const photoOf = s => { if (!PHOTOS.length || s.scene === 'end' || s.photo === null) return null; const i = s.photo !== undefined ? s.photo : T.scenes.indexOf(s); return PHOTOS[i % PHOTOS.length]; };
+function photoLayer(t, s, lt) {
+  const i = T.scenes.indexOf(s), cur = photoOf(s), prev = i > 0 ? photoOf(T.scenes[i - 1]) : null;
+  const kb = (ph, sc, k) => { if (!ph) return ''; const sd = rnd(sc.start * 3 + 1), dur = sc.end - sc.start, z = 1 + .14 * cl(k / dur), dx = (sd - .5) * 60 * cl(k / dur), dy = (rnd(sd * 9) - .5) * 40 * cl(k / dur);
+    return `<div class="ph" style="background-image:url('${ph.src}');transform:scale(${z}) translate(${dx}px,${dy}px)"></div>`; };
+  const fade = cl(lt / .6);
+  document.getElementById('photo').innerHTML = (prev && prev !== cur && fade < 1 ? kb(prev, T.scenes[i - 1], t - T.scenes[i - 1].start) : '') +
+    (cur ? `<div style="position:absolute;inset:0;opacity:${prev && prev !== cur ? fade : 1}">${kb(cur, s, lt)}</div>` : '');
+  document.getElementById('credit').textContent = cur ? `Photo: ${cur.credit}` : '';
+}
+
 // ---------- frame ----------
 function render(t) {
   const s = T.scenes.find(x => t >= x.start - (x === T.scenes[0] ? 1 : 0) && t < x.end) || T.scenes[T.scenes.length - 1];
   const lt = Math.max(0, t - s.start);
-  drawBg(t, s);
+  drawBg(t, s); t0 = t; photoLayer(t, s, lt);
   document.getElementById('bars').innerHTML = T.scenes.map(x => `<i><b style="width:${cl((t - x.start) / (x.end - x.start)) * 100}%"></b></i>`).join('');
   // scene cross-fade in
   const fin = cl(lt / .22);
@@ -252,8 +298,11 @@ function render(t) {
   const amp = dt < .25 ? (1 - dt / .25) * 18 : 0;
   document.getElementById('shake').style.transform = `translate(${(rnd(t * 100) - .5) * amp}px,${(rnd(t * 77) - .5) * amp}px)`;
 }
-window.ready = fetch(`build/${R}.json`).then(r => r.json()).then(j => {
-  T = j; window.DURATION = j.duration; HUE = R === 'mkultra' ? 275 : 8;
+const preload = srcs => Promise.all(srcs.map(u => new Promise(res => { const im = new Image(); im.onload = im.onerror = res; im.src = u; })));
+window.ready = Promise.all([fetch(`build/${R}.json`).then(r => r.json()), fetch('../data/media.json').then(r => r.json()).catch(() => ({}))]).then(async ([j, media]) => {
+  T = j; window.DURATION = j.duration; HUE = j.hue !== undefined ? j.hue : R === 'mkultra' ? 275 : 8;
+  PHOTOS = ((media.photos || {})[j.caseId || R] || []).map(p => ({ src: '../' + p.f, credit: p.credit }));
+  await preload(PHOTOS.map(p => p.src));
   document.getElementById('f').style.setProperty('--hue', HUE);
   document.getElementById('chips').innerHTML = `${MARK(74)}<span>Rabbit Hole</span><span class="chip">${j.hole}</span><span>File ${j.file}</span>`;
   buildChunks();
