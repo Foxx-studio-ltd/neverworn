@@ -188,6 +188,19 @@ const FAKE = (opts) => {
   const firstId = await p.evaluate(() => document.querySelector('#watch .reel').dataset.id);
   await p.click('#watch [data-refresh]'); await p.waitForTimeout(400);
   ok(await p.evaluate(() => document.querySelectorAll('#watch .reel').length > 3), 'Home has a refresh button');
+  ok(await p.evaluate(() => document.querySelector('#watch .reel').dataset.id !== RabbitHole.dropNow().c.id), 'refreshing Home opens on the most shocking unseen file, not the drop again');
+  ok(await p.evaluate(() => document.querySelectorAll('#watch .reel').length >= 60 && document.querySelectorAll('#watch video[src]').length <= 5), 'every episode is in Home, but only the clips near the screen load (iOS limit)');
+  const lk = await p.evaluate(() => +document.querySelector('#watch .reel [data-likes]').textContent);
+  await p.click('#watch .reel [data-act="like"]'); await p.waitForTimeout(200);
+  ok(await p.evaluate(() => +document.querySelector('#watch .reel [data-likes]').textContent) === lk + 1 && await p.locator('#watch .reel [data-views]').first().isVisible(), 'Home episodes show likes and views, and you can like them');
+  await p.click('[data-tab="me"]'); await p.waitForTimeout(300);
+  ok(await p.isVisible('#me .me-head .tick') && /Following/.test(await p.textContent('#me .me-fol')) && (await p.locator('#me .me-head').boundingBox()).height < 90, 'You page has a compact X-style profile row');
+  await p.click('[data-tab="feed"]'); await p.waitForTimeout(600);
+  const cdp = await p.context().newCDPSession(p);
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: 190, y: 480 }] });
+  for (let k = 1; k <= 10; k++) { await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: 190, y: 480 - k * 35 }] }); await p.waitForTimeout(16); }
+  await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] }); await p.waitForTimeout(1000);
+  ok(await p.evaluate(() => document.getElementById('feed').scrollTop) > 300, 'a finger swipe on a Classified file moves to the next file');
   const tb = await p.evaluate(() => [...document.querySelectorAll('#watch .watch-top .pill')].map(e => e.getBoundingClientRect()));
   ok(tb.every((r, i) => !i || r.left >= tb[i - 1].right - 1), 'Home top buttons never overlap');
   ok(!(await p.evaluate(() => document.documentElement.scrollWidth > innerWidth)), 'no horizontal overflow');
