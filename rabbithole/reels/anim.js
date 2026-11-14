@@ -189,6 +189,19 @@ const ART = {
     sea(c, 990, t * 1.2, '#244559', 14); c.fillStyle = '#c8a86a'; c.beginPath(); c.moveTo(700, 1150); c.quadraticCurveTo(900, 1080, W, 1100); c.lineTo(W, H); c.lineTo(700, H); c.fill(); txt(c, 'HUELVA, SPAIN', 880, 1200, 34, INK, 'Inter Tight', 800); },
   pentagon(c, t, P) { sky(c, '#14101c', hue(P, 16, 40)); const k = cl(t / 2); const p = Array.from({ length: 5 }, (_, i) => { const a = -Math.PI / 2 + i * TAU / 5; return [540 + 330 * Math.cos(a), 720 + 330 * Math.sin(a)]; });
     c.strokeStyle = PAPER; c.lineWidth = 16; c.beginPath(); p.forEach((q, i) => i ? c.lineTo(...q) : c.moveTo(...q)); c.closePath(); c.setLineDash([2100 * k, 3000]); c.stroke(); c.setLineDash([]); c.fillStyle = `rgba(208,55,44,${.15 + .1 * Math.sin(t * 4)})`; c.fill(); if (P.text) txt(c, P.text, 540, 1160, 50, MARK); },
+  forest(c, t, P) { sky(c, '#2a3a2a', '#6f7f5f'); for (let i = 0; i < 26; i++) { const x = rnd(i) * W, h = 500 + rnd(i * 3) * 500; c.fillStyle = `rgba(20,30,20,${.5 + rnd(i * 7) * .5})`; c.fillRect(x, 1100 - h, 30 + rnd(i * 5) * 40, h); }
+    c.fillStyle = '#4a5a3a'; c.fillRect(0, 1060, W, H); const x = 200 + (t * 70) % 900, st = Math.sin(t * 4);
+    c.fillStyle = '#1a120c'; c.save(); c.translate(x, 900); c.beginPath(); c.ellipse(0, -60, 70, 130, .1, 0, TAU); c.fill(); c.beginPath(); c.arc(20, -210, 42, 0, TAU); c.fill();
+    c.fillRect(-50 + st * 20, 50, 40, 150); c.fillRect(10 - st * 20, 50, 40, 150); c.save(); c.translate(-60, -120); c.rotate(.6 + st * .4); c.fillRect(-15, 0, 30, 170); c.restore(); c.save(); c.translate(60, -120); c.rotate(-.3 - st * .4); c.fillRect(-15, 0, 30, 170); c.restore(); c.restore();
+    c.fillStyle = 'rgba(0,0,0,.15)'; for (let y = 0; y < H; y += 4) if (rnd(y + Math.floor(t * 24)) > .7) c.fillRect(0, y, W, 2); txt(c, 'BLUFF CREEK · 1967', 540, 330, 46, 'rgba(239,227,196,.75)', 'Courier Prime', 700); },
+  horizon(c, t, P) { sky(c, '#5e8fbf', '#c9def0', 0, 900); c.fillStyle = '#2c5a80'; c.beginPath(); c.arc(540, 3400, 2600, 0, TAU); c.fill();
+    const sink = (t * .35) % 1.4; c.save(); c.beginPath(); c.arc(540, 3400, 2600, Math.PI * 1.2, Math.PI * 1.8); c.lineTo(540, 0); c.closePath(); c.clip(); c.restore();
+    c.save(); c.beginPath(); c.rect(0, 0, W, 806); c.clip(); ship(c, 540, 800 + sink * 120, .9, '#1d2a36'); c.restore();
+    c.strokeStyle = 'rgba(255,255,255,.6)'; c.lineWidth = 3; c.setLineDash([12, 12]); c.beginPath(); c.moveTo(80, 806); c.lineTo(1000, 806); c.stroke(); c.setLineDash([]);
+    txt(c, 'HULL FIRST, MAST LAST', 540, 1000, 50, 'rgba(239,227,196,.85)', 'Inter Tight', 800); txt(c, '≈ 40,000 KM AROUND', 540, 1080, 40, 'rgba(239,227,196,.6)', 'Inter Tight', 700); },
+  pyramid(c, t, P) { sky(c, '#14101c', hue(P, 16, 40)); for (let i = 0; i < 24; i++) rays(c, 540, 520, i / 24 * TAU + t * .1, .03, 900, 'rgba(242,225,76,.06)');
+    c.fillStyle = '#3a3150'; c.beginPath(); c.moveTo(540, 380); c.lineTo(900, 1080); c.lineTo(180, 1080); c.fill(); c.strokeStyle = 'rgba(239,227,196,.15)'; c.lineWidth = 3; for (let y = 520; y < 1080; y += 70) { const w = (y - 380) / 700 * 360; c.beginPath(); c.moveTo(540 - w, y); c.lineTo(540 + w, y); c.stroke(); }
+    c.fillStyle = '#f2e14c'; c.beginPath(); c.moveTo(540, 300); c.lineTo(660, 500); c.lineTo(420, 500); c.fill(); eye(c, 540, 440, 40, t); txt(c, 'MDCCLXXVI', 540, 1150, 60, 'rgba(239,227,196,.7)', 'Courier Prime', 700); },
   dome(c, t, P) { sky(c, '#1b1726', '#3a3050'); glow(c, 540, 700, 500, hue(P, 40, 50, .4)); c.fillStyle = PAPER; c.fillRect(515, 360, 50, 80); c.beginPath(); c.ellipse(540, 620, 220, 190, 0, Math.PI, TAU); c.fill(); c.fillRect(300, 620, 480, 40); for (let i = 0; i < 12; i++) c.fillRect(320 + i * 38, 670, 18, 200); c.fillRect(200, 870, 680, 40); c.fillRect(160, 910, 760, 40);
     for (let i = 0; i < 8; i++) { const on = rnd(i + Math.floor(t * 3)) > .75; if (on) glow(c, 160 + i * 110, 1050, 80, 'rgba(255,255,255,.5)'); } if (P.text) txt(c, P.text, 540, 1150, 46, MARK); },
 };
@@ -208,7 +221,7 @@ const MAP = {
   dbcooper: ['parachute'], zodiac: ['cipher', { text: 'I HOPE YOU ARE HAVING LOTS OF FUN' }], maryceleste: ['ghostship', { text: 'DEC 4 1872 · NO CREW' }], voynich: ['cipher', { mode: 'never' }],
   dyatlov: ['tent'], rendlesham: ['saucer', { text: 'RENDLESHAM FOREST · 1980' }], somerton: ['beach'],
   nessie: ['lake', { mode: 'reveal' }], cropcircles: ['crop'], titanic: ['titanic'], haarp: ['antenna'], greatwall: ['wall'], chemtrails: ['contrail'],
-  phoenix: ['lights'], grusch: ['mic', { text: 'UNDER OATH · JULY 2023' }], ajax: ['oil'], castro: ['cigar'], irancontra: ['crates'], sunshine: ['geiger'], plutonium: ['geiger', { text: 'Pu-239' }],
+  phoenix: ['lights'], bigfoot: ['forest'], flatearth: ['horizon'], illuminati: ['pyramid'], elvis: ['mic', { text: 'ELVIS HAS LEFT THE BUILDING' }], grusch: ['mic', { text: 'UNDER OATH · JULY 2023' }], ajax: ['oil'], castro: ['cigar'], irancontra: ['crates'], sunshine: ['geiger'], plutonium: ['geiger', { text: 'Pu-239' }],
 };
 window.RHART = { ART, MAP, draw(c, id, t, hueN) { const m = MAP[id]; if (!m || !ART[m[0]]) return false; c.save(); ART[m[0]](c, t, { hue: hueN, ...(m[1] || {}) }); c.restore(); return true; } };
 })();

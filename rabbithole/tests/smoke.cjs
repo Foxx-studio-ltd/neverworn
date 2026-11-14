@@ -37,25 +37,34 @@ const FAKE = (opts) => {
   await p.click('#go1'); await p.waitForTimeout(300);
   await p.click('.pick[data-k="mind"]'); await p.click('#go2'); await p.waitForTimeout(1300);
   ok(await p.isVisible('[data-tab="watch"]') && /Home/.test(await p.textContent('[data-tab="watch"]')), 'there is a Home tab');
-  await p.evaluate(() => RabbitHole.tab('feed'));
-  const drop = await p.evaluate(() => { const d = RabbitHole.dropNow(); return { id: d.c.id, free: RabbitHole.freeToday() }; });
-  const first = p.locator('.card').first();
-  ok(await first.getAttribute('data-id') === drop.id, "feed opens on today's drop");
-  ok(/Today's Rabbit Hole/.test(await first.locator('.meta').textContent()), "today's drop is labelled");
-  ok(/\d\d:\d\d:\d\d/.test(await first.locator('.countdown').textContent()), 'countdown to the next drop runs');
+  const drop = await p.evaluate(() => RabbitHole.dropNow().c.id);
+  // Home: today's drop starts on its own, no tap needed
+  await p.waitForTimeout(1500);
+  ok(await p.evaluate(() => { const v = document.querySelector('#watch .reel video'); return v && !v.paused; }), 'Home episodes play automatically');
   ok(await p.evaluate(() => RabbitHole.state.streak) === 1, 'opening the drop starts the streak');
-  ok(await p.evaluate(() => !!document.querySelector('.card canvas.art')), 'drop card has its animated illustration');
-  await shot('2-drop');
+  ok(await p.locator('#watch .reel').first().locator('[data-act="debate"]').isVisible(), 'Discuss is on the playing clip');
+  await p.evaluate(() => document.querySelector('#watch .reel video').dispatchEvent(new Event('ended'))); await p.waitForTimeout(300);
+  ok(/Go further/.test(await p.textContent('#watch .nextup')) && /Next file in/.test(await p.textContent('#watch .nextup')), 'episode ends with Go further and a 2-second countdown');
+  await shot('2-home-end');
+  await p.click('#watch .nextup [data-digreel]'); await p.waitForTimeout(300);
+  ok(await p.isVisible('.casefile [data-cfcall="real"]'), 'Go further starts the layered dive at the claim');
+  await p.click('.casefile [data-x]');
+  // X-Files: random order, never the same twice, auto-advance
+  await p.evaluate(() => RabbitHole.tab('feed'));
+  ok(/X-Files/.test(await p.textContent('[data-tab="feed"]')), 'Files tab is called X-Files');
+  const first = p.locator('.card').first();
   await first.locator('[data-g="real"]').click(); await p.waitForTimeout(600);
   ok(await first.locator('.truth').isVisible(), 'calling it reveals the truth');
   ok(/Next file/.test(await first.locator('.truth .deeper').textContent()), 'verdict ends on a cliffhanger link');
   ok(/Dig deeper/.test(await first.locator('.truth .dig').textContent()), 'verdict offers to dig deeper into the same file');
   await shot('3-verdict');
-  await first.locator('.truth [data-act="deeper"]').click(); await p.waitForTimeout(1000);
-  ok(await p.locator('.card').nth(1).getAttribute('data-id') === drop.free[1], 'cliffhanger opens the next file in the chain');
-  for (let i = 0; i < 6; i++) { await p.keyboard.press('ArrowDown'); await p.waitForTimeout(350); }
-  ok(await p.locator('.card.locked').count() === 0 && await p.locator('.endcard').count() === 0 && await p.locator('.card').count() > 6, 'every file is free: the chain never hits a paywall');
-  ok(await p.locator('[data-act="debate"]:visible').count() === 0, 'community is hidden when there is no moderated backend');
+  for (let i = 0; i < 8; i++) { await p.keyboard.press('ArrowDown'); await p.waitForTimeout(300); }
+  const ids = await p.evaluate(() => [...document.querySelectorAll('#feed .card')].map(c => c.dataset.id));
+  ok(ids.length > 8 && new Set(ids).size === ids.length, 'X-Files never shows the same file twice');
+  ok(await p.locator('#feed .card.locked').count() === 0, 'every file is free');
+  ok(await p.locator('#feed .autobar').count() >= 1, 'each X-File shows how long until the next one');
+  await p.evaluate(() => { const c = [...document.querySelectorAll('#feed .card')].find(x => x.getBoundingClientRect().top >= 0 && x.getBoundingClientRect().top < 50); });
+  await p.waitForTimeout(100);
   // dig deeper: six layers, the deep record is the only paid one
   await p.evaluate(() => RabbitHole.CaseFile.open('voynich')); await p.waitForTimeout(300);
   ok(await p.locator('.casefile .layer').count() === 1 && await p.isVisible('.casefile [data-cfcall="real"]'), 'a case file starts at layer 1 and asks for your call');
@@ -85,6 +94,11 @@ const FAKE = (opts) => {
   await p.locator('#holes [data-door]').first().click(); await p.waitForTimeout(300);
   ok(await p.locator('#holes .crumbs button').count() === 2, 'the trail remembers the path, one layer at a time');
   await p.screenshot({ path: `${out}/6b-maze.png` });
+  await p.fill('#askQ', 'Big Foot'); await p.click('.ask .cta'); await p.waitForTimeout(300);
+  await p.locator('#holes [data-start]').first().click(); await p.waitForTimeout(300);
+  ok(/APE-MAN/i.test(await p.textContent('#holes .door-card')), '"Big Foot" finds the Bigfoot file');
+  await p.locator('#holes [data-door]').nth(1).click(); await p.waitForTimeout(400);
+  ok(await p.locator('#holes .crumbs button').count() === 2 && await p.evaluate(() => document.querySelector('#holes .door-card').getBoundingClientRect().top < 400), 'choosing a door opens the next layer on screen');
   await p.fill('#askQ', 'I heard the royals are lizards'); await p.press('#askQ', 'Enter'); await p.waitForTimeout(300);
   ok(/hasn't opened that file/.test(await p.textContent('#holes')), 'theories that target people get no file, just other ways in');
   await p.evaluate(() => { const s = RabbitHole.state; ['mkultra', 'stargate', 'acoustickitty', 'paperclip', 'moon'].forEach(id => s.saved.includes(id) || s.saved.push(id)); });
@@ -97,22 +111,11 @@ const FAKE = (opts) => {
   await p.click('[data-tab="watch"]'); await p.waitForTimeout(800);
   ok(await p.locator('.reel video').count() > 0 || await p.isVisible('.watch-empty'), 'watch tab shows episodes or an empty state');
   await shot('7-watch');
-  // episodes wait for your call
-  await p.click('[data-tab="watch"]'); await p.waitForTimeout(800);
-  if (await p.locator('.reel video').count()) {
-    const ask = await p.evaluate(() => RabbitHole.MEDIA.reels[RabbitHole.dropNow().c.id]?.ask);
-    await p.locator('.reel').first().click(); await p.waitForTimeout(500);
-    await p.evaluate(a => { const v = document.querySelector('.reel video'); v.currentTime = a - .3; v.play(); }, ask); await p.waitForTimeout(1500);
-    ok(await p.isVisible('.reel .callbox') && await p.evaluate(() => document.querySelector('.reel video').paused), 'episode pauses at "Real or fake?" until you choose');
-    await p.screenshot({ path: `${out}/7b-reelcall.png` });
-    await p.click('.reel .callbox [data-wcall="real"]'); await p.waitForTimeout(500);
-    ok(await p.evaluate(() => !document.querySelector('.reel video').paused) && await p.locator('.reel .callbox').count() === 0, 'after your call the verdict plays');
-  }
   // light streak: one missed day is forgiven, two are not
-  await p.evaluate(() => { const s = RabbitHole.state, i = RabbitHole.dropNow().idx; s.lastDrop = i - 2; s.streak = 5; s.skips = 1; RabbitHole.tab('feed'); RabbitHole.startFeed(); });
+  await p.evaluate(() => { const s = RabbitHole.state, i = RabbitHole.dropNow().idx; s.lastDrop = i - 2; s.streak = 5; s.skips = 1; RabbitHole.markDrop(); });
   await p.waitForTimeout(600);
   ok(await p.evaluate(() => RabbitHole.state.streak) === 6, 'a missed day is forgiven by the weekly skip');
-  await p.evaluate(() => { const s = RabbitHole.state, i = RabbitHole.dropNow().idx; s.lastDrop = i - 3; s.streak = 5; s.skips = 1; RabbitHole.startFeed(); });
+  await p.evaluate(() => { const s = RabbitHole.state, i = RabbitHole.dropNow().idx; s.lastDrop = i - 3; s.streak = 5; s.skips = 1; RabbitHole.markDrop(); });
   await p.waitForTimeout(600);
   ok(await p.evaluate(() => RabbitHole.state.streak) === 1, 'two missed days reset the streak');
   await p.reload(); await p.waitForTimeout(900);
@@ -129,7 +132,9 @@ const FAKE = (opts) => {
   await cm.addInitScript(FAKE, { me: 'u2', owner: false, seed: { 'mod/settings': { enabled: false } } });
   const m = await cm.newPage(); watch(m, 'B-member');
   await m.goto(URL0); await m.waitForTimeout(1500); await m.evaluate(() => RabbitHole.tab('feed'));
-  ok(await m.locator('.card').first().locator('[data-act="debate"]').isHidden(), 'members see no discussion while community is off');
+  await m.locator('.card').first().locator('[data-act="debate"]').click(); await m.waitForTimeout(300);
+  ok(await m.isVisible('.casefile #cfNotes') && await m.locator('.debate').count() === 0, 'while community is off, Discuss opens your notes instead');
+  await m.click('.casefile [data-x]');
   ok(await m.isHidden('[data-tab="mod"]'), 'members get no mod tab');
 
   // ---------- Part C: owner moderates ----------

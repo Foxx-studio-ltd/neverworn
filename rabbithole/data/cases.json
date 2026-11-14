@@ -1296,6 +1296,86 @@
    ],
    "title": "the plutonium files",
    "tease": "hospital patients were secretly injected with plutonium"
+  },
+  {
+   "id": "bigfoot",
+   "hole": "hoax",
+   "year": "1967",
+   "ans": "false",
+   "hook": "A giant *ape-man* is hiding in the forests of North America.",
+   "ev": [
+    "The famous film was shot at [[Bluff Creek]], California.",
+    "It lasts just under [[60 seconds]].",
+    "In 2002 a family revealed [[carved wooden feet]]."
+   ],
+   "truth": "Bigfoot sightings rest on folklore, misidentified animals and hoaxes, and scientists don't recognise it as a real animal. The Patterson–Gimlin film from October 1967 is still debated, but no body, bones or DNA have ever been found. After Ray Wallace died in 2002, his family revealed the carved wooden feet he had used to make giant footprints since 1958.",
+   "reveal": "No bones, no body, no DNA. And in 2002 one man's family revealed the wooden feet he used to fake the footprints.",
+   "src": [
+    "Bigfoot research and the Wallace family, 2002",
+    "https://en.wikipedia.org/wiki/Bigfoot"
+   ],
+   "title": "Bigfoot",
+   "tease": "a giant ape-man supposedly walks the forests of North America"
+  },
+  {
+   "id": "flatearth",
+   "hole": "hoax",
+   "year": "240 BC",
+   "ans": "false",
+   "hook": "The Earth is *flat* and the government is hiding it.",
+   "ev": [
+    "A Greek scholar measured Earth's [[circumference]] around 240 BC.",
+    "He did it with [[shadows]] in two cities.",
+    "Ships vanish over the horizon [[hull first]]."
+   ],
+   "truth": "Eratosthenes worked out the size of the round Earth more than 2,000 years ago by comparing shadow angles in two Egyptian cities. Ships sinking hull-first over the horizon, the curved shadow on the Moon during an eclipse, and photos from space all show the same thing.",
+   "reveal": "A Greek scholar measured the round Earth with shadows over two thousand years ago. Ships, eclipses and space photos all agree.",
+   "src": [
+    "Eratosthenes, about 240 BC",
+    "https://en.wikipedia.org/wiki/Flat_Earth"
+   ],
+   "title": "Flat Earth",
+   "tease": "millions of people say the Earth is flat"
+  },
+  {
+   "id": "illuminati",
+   "hole": "hoax",
+   "year": "1776",
+   "ans": "true",
+   "hook": "The *Illuminati* was a real secret society.",
+   "ev": [
+    "It was founded on [[1 May 1776]] in Bavaria.",
+    "Its founder was a law professor, [[Adam Weishaupt]].",
+    "Bavaria [[banned]] secret societies in the 1780s."
+   ],
+   "truth": "The Bavarian Illuminati was an Enlightenment society that wanted to curb the power of the church and the nobility. It had a few hundred verifiable members before the Bavarian government banned secret societies in the 1780s and it collapsed. The modern idea that it secretly runs the world has no evidence behind it.",
+   "reveal": "It was real, and it was crushed in the 1780s. The idea that it still secretly runs the world has no evidence at all.",
+   "src": [
+    "Bavarian government edicts, 1784–1785",
+    "https://en.wikipedia.org/wiki/Illuminati"
+   ],
+   "title": "the Illuminati",
+   "tease": "the secret society that really existed"
+  },
+  {
+   "id": "elvis",
+   "hole": "hoax",
+   "year": "1977",
+   "ans": "false",
+   "hook": "Elvis *faked his death* in 1977 and went into hiding.",
+   "ev": [
+    "He died on [[16 August 1977]] at Graceland.",
+    "Fans point to the spelling [[Aaron]] on his grave.",
+    "A famous 1987 sighting was at a [[Burger King]]."
+   ],
+   "truth": "Elvis Presley died at Graceland on 16 August 1977. Theorists say the spelling Aaron on his gravestone is a clue, but he used both Aron and Aaron during his life. The 1987 sighting at a Burger King in Kalamazoo turned sightings into a running joke.",
+   "reveal": "He died at Graceland in 1977. The gravestone spelling is no clue: he used both spellings while he was alive.",
+   "src": [
+    "Shelby County Medical Examiner, 1977",
+    "https://en.wikipedia.org/wiki/Elvis_sightings"
+   ],
+   "title": "Elvis is alive",
+   "tease": "fans swear the King of Rock and Roll faked his own death"
   }
  ],
  "chain": [
@@ -1338,6 +1418,10 @@
   "haarp",
   "greatwall",
   "chemtrails",
+  "bigfoot",
+  "flatearth",
+  "illuminati",
+  "elvis",
   "starfish",
   "a119",
   "iceworm",
@@ -1369,24 +1453,28 @@
    "dyatlov",
    "roswell",
    "starfish",
+   "bigfoot",
    "mkultra",
    "moon",
    "northwoods",
    "shamrock",
    "phoebus",
    "cointelpro",
+   "flatearth",
    "tuskegee",
    "dbcooper",
    "area51",
    "a119",
    "midnight",
    "philadelphia",
+   "illuminati",
    "tonkin",
    "prism",
    "radium",
    "mockingbird",
    "seaspray",
    "zodiac",
+   "elvis",
    "bluebook",
    "iceworm",
    "stargate",
