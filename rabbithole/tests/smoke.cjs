@@ -182,7 +182,14 @@ const FAKE = (opts) => {
   await p.waitForTimeout(600);
   ok(await p.evaluate(() => RabbitHole.state.streak) === 1, 'two missed days reset the streak');
   await p.reload(); await p.waitForTimeout(900);
-  ok(await p.isHidden('#onb'), 'returning users skip onboarding');
+  ok(await p.isVisible('#goS') && await p.isVisible('#onb .wordmark') && await p.evaluate(() => [...document.querySelectorAll('#watch video')].every(v => v.paused)), 'returning users see the logo splash, with nothing playing behind it');
+  await p.click('#goS'); await p.waitForTimeout(900);
+  ok(await p.isHidden('#onb') && await p.evaluate(() => { const v = document.querySelector('#watch .reel video'); return v && !v.paused && !v.muted; }), 'tapping the splash enters Home with sound on, skipping onboarding');
+  const firstId = await p.evaluate(() => document.querySelector('#watch .reel').dataset.id);
+  await p.click('#watch [data-refresh]'); await p.waitForTimeout(400);
+  ok(await p.evaluate(() => document.querySelectorAll('#watch .reel').length > 3), 'Home has a refresh button');
+  const tb = await p.evaluate(() => [...document.querySelectorAll('#watch .watch-top .pill')].map(e => e.getBoundingClientRect()));
+  ok(tb.every((r, i) => !i || r.left >= tb[i - 1].right - 1), 'Home top buttons never overlap');
   ok(!(await p.evaluate(() => document.documentElement.scrollWidth > innerWidth)), 'no horizontal overflow');
   // filters
   const f = await p.evaluate(() => [RabbitHole.Filter('see www.proof.com'), RabbitHole.Filter('call me on 07700 900123'), RabbitHole.Filter('he lives at 12 Oak Street'), RabbitHole.Filter('the vaccine causes it'), RabbitHole.Filter('kys'), RabbitHole.Filter('Lasers still bounce off the mirrors.')]);
@@ -194,7 +201,7 @@ const FAKE = (opts) => {
   const cm = await b.newContext({ ...devices['iPhone 13'] });
   await cm.addInitScript(FAKE, { me: 'u2', owner: false, seed: { 'mod/settings': { enabled: false } } });
   const m = await cm.newPage(); watch(m, 'B-member');
-  await m.goto(URL0); await m.waitForTimeout(1500); await m.evaluate(() => RabbitHole.tab('feed'));
+  await m.goto(URL0); await m.waitForTimeout(800); if (await m.isVisible('#goS')) await m.click('#goS'); await m.waitForTimeout(700); await m.evaluate(() => RabbitHole.tab('feed'));
   await m.locator('.card').first().locator('[data-act="debate"]').click(); await m.waitForTimeout(300);
   ok(await m.isVisible('.debate') && await m.locator('.debate .cmt').count() >= 3, 'Discuss opens a glass sheet with other people\'s comments');
   if (await m.isVisible('.debate [data-agree]')) await m.click('.debate [data-agree]');
@@ -209,7 +216,7 @@ const FAKE = (opts) => {
     'posts/u2': { items: [{ id: 'a1', caseId: 'moon', side: 'fake', text: 'The shadows are wrong.', at: Date.now() - 6e5, parent: null, status: 'pending', flags: [] }] },
     'posts/u3': { items: [{ id: 'b1', caseId: 'moon', side: 'fake', text: 'NASA LIES AND THE VACCINE IS NEXT', at: Date.now() - 3e5, parent: null, status: 'pending', flags: ['Health claim', 'Shouting'] }] } } });
   const o = await co.newPage(); watch(o, 'C-owner');
-  await o.goto(URL0); await o.waitForTimeout(1500); await o.evaluate(() => RabbitHole.tab('feed'));
+  await o.goto(URL0); await o.waitForTimeout(800); if (await o.isVisible('#goS')) await o.click('#goS'); await o.waitForTimeout(700); await o.evaluate(() => RabbitHole.tab('feed'));
   ok(await o.isVisible('[data-tab="mod"]'), 'owner gets the mod tab');
   ok(/2/.test(await o.textContent('[data-tab="mod"]')), 'mod tab shows the queue size');
   await o.click('[data-tab="mod"]'); await o.waitForTimeout(600);
