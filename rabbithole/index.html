@@ -406,6 +406,35 @@ button.src { text-align: left; text-decoration: none; color: var(--mark); font-w
 .tog-row input { width: 22px; height: 22px; accent-color: var(--mark); }
 
 /* ---------- Liquid glass: translucent, blurred, with a light edge and a top highlight ---------- */
+.scrim { background: rgba(8,6,12,.32) !important; }
+.sheet { background: linear-gradient(170deg, rgba(255,255,255,.14), rgba(255,255,255,.04) 40%), rgba(26,21,36,.66) !important; -webkit-backdrop-filter: blur(26px) saturate(170%); backdrop-filter: blur(26px) saturate(170%);
+  border-top: 1px solid rgba(255,255,255,.3) !important; box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 -20px 60px rgba(0,0,0,.45); }
+.debate { max-height: 86%; }
+.debate header { display: flex; align-items: center; justify-content: space-between; }
+.debate .thread { max-height: 46vh; }
+.sendrow { display: flex; align-items: flex-end; gap: 8px; }
+.sendrow textarea { flex: 1; min-height: 44px; max-height: 120px; resize: none; padding: 11px 14px; border-radius: 22px; border: 1px solid rgba(255,255,255,.24); background: rgba(255,255,255,.08); color: var(--text); font: 16px/1.35 var(--f-ui); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.send { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; flex: none; }
+.send:disabled { opacity: .45; }
+.handle-link { font-weight: 700; color: var(--text); font-size: 13px; }
+.ava { display: inline-block; border-radius: 50%; background-size: 260%; background-position: 50% 46%; border: 2px solid rgba(242,225,76,.8); flex: none; box-shadow: 0 4px 14px rgba(0,0,0,.4); }
+.ava.letter { display: inline-grid; place-items: center; background: linear-gradient(160deg, rgba(255,255,255,.2), rgba(255,255,255,.05)), var(--ink-2); font-family: var(--f-display); font-weight: 900; color: var(--mark); }
+.profile-page { max-height: 94%; gap: 14px; }
+.profile-page header { display: flex; justify-content: flex-end; }
+.pf-head { display: flex; gap: 14px; align-items: center; } .pf-head h2 { margin: 0; font-size: clamp(20px, 6.4vw, 30px); overflow-wrap: anywhere; line-height: 1; }
+.pf-bio { margin: 0; color: #ddd6c8; }
+.pf-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; text-align: center; }
+.pf-stats > * { display: grid; gap: 2px; padding: 8px 4px; border-radius: 12px; }
+.pf-stats b { font-family: var(--f-display); font-size: 26px; line-height: 1; } .pf-stats span { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.pf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.pf-tile { position: relative; aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; background: var(--ink-2); padding: 0; display: grid; place-items: center; }
+.pf-tile img { width: 100%; height: 100%; object-fit: cover; } .pf-tile span { padding: 8px; font-size: 12px; text-align: left; }
+.pf-tile em { position: absolute; left: 6px; bottom: 6px; display: flex; align-items: center; gap: 3px; font-style: normal; font-size: 12px; font-weight: 700; text-shadow: 0 1px 3px #000; } .pf-tile em .ico { width: 14px; height: 14px; }
+.pf-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); } .pf-row .handle-link { flex: 1; text-align: left; }
+.ghost.sm { margin: 0; padding: 6px 12px; }
+.cta.following { background: linear-gradient(160deg, rgba(255,255,255,.17), rgba(255,255,255,.05)), rgba(30,25,41,.4) !important; color: var(--text) !important; border-color: rgba(255,255,255,.3) !important; }
+.seg { display: inline-flex; gap: 4px; } .seg .pill[aria-pressed="true"] { border-color: rgba(242,225,76,.75) !important; color: var(--mark); }
+.rail button[aria-pressed="true"] .disc .ico[viewBox] { fill: currentColor; }
 .pill, .rail .disc, .sound, .ghost, .filters button, .chips button, .btn-call, .door, .two .deeper, .cf-sibs button, .caselink, .trail .crumbs button,
 .why button, .mq .acts button, .x, .hole, .pick, .plan, .autopill, .row-btns .ghost, .nextup, .callbox, .watch-top .pill, .reel-info .chip, .handle {
   background: linear-gradient(160deg, rgba(255,255,255,.17), rgba(255,255,255,.05) 55%, rgba(255,255,255,.1)), rgba(30,25,41,.36) !important;
@@ -515,6 +544,8 @@ const I = {
   shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
   home: '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h5v-6h4v6h5V10"/>',
   search: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
+  send: '<path d="M4 12l16-8-6 16-3-7z"/><path d="M11 13l9-9"/>',
+  heart: '<path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/>',
   bell: '<path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/>'
 };
 const ico = (n, extra = "") => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" ${extra}>${I[n]}</svg>`;
@@ -1277,13 +1308,15 @@ function renderMe() {
     <div class="clr"><span>${S.cleared ? "<b>Clearance active.</b> Every layer is open." : "<b>Everything is free, with no ads.</b> Clearance opens the deep record and unlimited trails."}</span>${S.cleared ? "" : '<button data-act="unlock">Go deeper</button>'}</div>
     <div class="clr"><span><b>Daily drop at ${hourLabel()}.</b> ${S.notify ? "Alerts are on." : "Get a reminder when Alice drops the next file."}</span>${S.notify ? "" : '<button data-act="alerts">Remind me</button>'}</div>
     <label class="clr tog-row"><span><b>Sounds and haptics</b> when you earn depth.</span><input type="checkbox" id="fxOn" ${S.fx !== false ? "checked" : ""}></label>
-    <button class="cta" data-board style="margin-top:14px">Open my case board (${S.saved.length})</button>
+    <button class="cta" data-myprofile style="margin-top:14px">My profile · ${Social.following(Social.meId()).length} following</button>
+    <button class="cta" data-board style="margin-top:10px">Open my case board (${S.saved.length})</button>
     <button class="ghost" id="reset">Reset my progress on this device</button>`;
 }
 $("#me").addEventListener("click", e => {
   if (e.target.closest("[data-act=unlock]")) return paywall();
   if (e.target.closest("[data-act=alerts]")) return Alerts.enable();
   if (e.target.closest("[data-board]")) return tab("board");
+  if (e.target.closest("[data-myprofile]")) return Social.profile(Social.meId());
   if (e.target.id === "fxOn") { S.fx = e.target.checked; save(); if (S.fx) FX.gain(25); }
   const r = e.target.closest("#reset"); if (!r) return;
   if (!r.dataset.armed) { r.dataset.armed = "1"; r.textContent = "Tap again to erase everything"; return; }
@@ -1334,7 +1367,7 @@ const Community = (() => {
   const total = o => Object.values(o).reduce((a, b) => a + b, 0);
   const pub = caseId => (approved[caseId] || []).filter(x => !banned(x.by) && !(myReports.items || []).some(r => r.key === x.key));
   const visible = caseId => pub(caseId).filter(x => (x.type || "comment") === "comment");
-  const count = caseId => visible(caseId).length;
+  const count = caseId => visible(caseId).length + Social.castComments(caseId).length + ((S.myComments || {})[caseId] || []).length;
   let openId = null, side = null, replyTo = null, view = "queue";
   let changed = function () {
     $$("[data-count]").forEach(x => x.textContent = count(x.dataset.count) || "Discuss");
@@ -1415,47 +1448,53 @@ const Community = (() => {
     btn.disabled = false; btn.textContent = "Ask Claude to triage";
   }
 
-  /* public thread */
-  function itemHTML(it, parent, opts = {}) {
-    const reb = parent && parent.side !== it.side, mineP = it.status && it.status !== "approved";
-    return `<li class="cmt${mineP ? " mine-pending" : ""}"><div class="who"><b>${esc(nm(it.by || me))}</b><span class="badge ${it.side}">${it.side}</span>${reb ? '<span class="badge reb">Rebuttal</span>' : ""}<span>${ago(it.at)}</span>
-      ${it.status === "pending" ? '<span class="badge wait">Waiting for a moderator</span>' : it.status === "rejected" || it.status === "removed" ? `<span class="badge fake">Not published${it.reason ? ": " + esc(it.reason) : ""}</span>` : ""}</div>
-      <p>${esc(it.text)}</p>${opts.acts === false ? "" : `<div class="acts">${parent ? "" : `<button data-reply="${esc(it.key)}">Reply</button>`}${it.by !== me ? `<button data-report="${esc(it.key)}">Report</button>` : ""}</div>`}`;
+  /* the discussion: cast comments (labelled), approved community comments, and yours */
+  function threadItems(caseId) {
+    const pub = discussOn() ? visible(caseId).map(x => ({ ...x })) : [];
+    const own = discussOn() ? (mine.items || []).filter(x => x.caseId === caseId && (x.type || "comment") === "comment" && x.status !== "approved").map(x => ({ ...x, by: me, key: me + ":" + x.id }))
+      : ((S.myComments || {})[caseId] || []).map(x => ({ ...x, by: Social.meId(), key: "local:" + x.id, local: true }));
+    return [...Social.castComments(caseId), ...pub, ...own];
+  }
+  const discussOn = () => live && (settings.enabled || admin);
+  function itemHTML(it, parent) {
+    const reb = parent && parent.side !== it.side;
+    return `<li class="cmt"><div class="who"><button class="handle-link" data-who="${esc(it.by)}">${esc(Social.nameOf(it.by))}</button>${it.cast ? '<span class="badge wait">Cast</span>' : ""}<span class="badge ${it.side}">${it.side}</span>${reb ? '<span class="badge reb">Rebuttal</span>' : ""}<span>${ago(it.at)}</span>
+      ${it.status === "pending" ? '<span class="badge wait">Waiting for a moderator</span>' : it.status === "rejected" || it.status === "removed" ? `<span class="badge fake">Not published${it.reason ? ": " + esc(it.reason) : ""}</span>` : it.local ? '<span class="badge wait">Only you can see this for now</span>' : ""}</div>
+      <p>${esc(it.text)}</p><div class="acts">${parent ? "" : `<button data-reply="${esc(it.key)}">Reply</button>`}${!it.cast && !it.local && it.by !== me && it.status === undefined ? `<button data-report="${esc(it.key)}">Report</button>` : ""}</div>`;
   }
   function renderThread() {
     const sc = $(".debate"); if (!sc) return;
-    const pub = visible(openId), tops = pub.filter(x => !x.parent), kids = pub.filter(x => x.parent);
-    const own = (mine.items || []).filter(x => x.caseId === openId && x.status !== "approved").map(x => ({ ...x, by: me, key: me + ":" + x.id }));
-    resolveNames(pub.map(x => x.by));
-    $(".thread", sc).innerHTML = (own.length ? own.map(x => itemHTML(x, null, { acts: false }) + "</li>").join("") : "") +
-      (tops.length ? tops.sort((a, b) => b.at - a.at).map(it => itemHTML(it) + (kids.some(k => k.parent === it.key) ? `<ol>${kids.filter(k => k.parent === it.key).sort((a, b) => a.at - b.at).map(k => itemHTML(k, it) + "</li>").join("")}</ol>` : "") + "</li>").join("")
-        : own.length ? "" : `<li class="empty-thread">Nothing published here yet. Make the first case for or against.</li>`);
+    const all = threadItems(openId), tops = all.filter(x => !x.parent), kids = all.filter(x => x.parent);
+    resolveNames(all.map(x => x.by).filter(x => !String(x).startsWith("cast:")));
+    $(".dcount", sc).textContent = `${all.length} comment${all.length === 1 ? "" : "s"}`;
+    $(".thread", sc).innerHTML = tops.length ? tops.sort((a, b) => b.at - a.at).map(it => itemHTML(it) + (kids.some(k => k.parent === it.key) ? `<ol>${kids.filter(k => k.parent === it.key).sort((a, b) => a.at - b.at).map(k => itemHTML(k, it) + "</li>").join("")}</ol>` : "") + "</li>").join("")
+      : `<li class="empty-thread">No comments yet. Start the conversation.</li>`;
     $$(".pick-side button", sc).forEach(b => b.setAttribute("aria-pressed", b.dataset.side === side));
-    const rt = replyTo && pub.find(x => x.key === replyTo); $(".replying", sc).hidden = !rt; if (rt) $(".replying span", sc).textContent = `Replying to ${nm(rt.by)} (${rt.side})`;
-    $(".post", sc).disabled = !side || !$("#argText", sc).value.trim();
+    const rt = replyTo && all.find(x => x.key === replyTo); $(".replying", sc).hidden = !rt; if (rt) $(".replying span", sc).textContent = `Replying to ${Social.nameOf(rt.by)}`;
+    $(".send", sc).disabled = !$("#argText", sc).value.trim();
     $(".compose", sc).hidden = !S.rulesOk || banned(me); $(".rules", sc).hidden = !!S.rulesOk; $(".banned", sc).hidden = !banned(me);
   }
   function open(caseId) {
-    if (!live || (!settings.enabled && !admin)) { CaseFile.open(caseId, 5, true); return toast("Public discussion isn't open yet. Your notes on this file are saved here."); }
-    if ($(".scrim")) return;
-    const c = byId[caseId]; openId = caseId; replyTo = null; side = null;
+    $(".scrim")?.remove();
+    const c = byId[caseId]; openId = caseId; replyTo = null; side = c.ans === "false" ? "fake" : "real";
     const s = document.createElement("div"); s.className = "scrim";
     s.innerHTML = `<div class="sheet debate" role="dialog" aria-modal="true" aria-labelledby="dbT">
-      <header><h2 id="dbT">Discussion</h2><button class="x" data-x>Close</button></header>
-      ${!settings.enabled && admin ? '<p class="fine" style="text-align:left">Community is switched off for everyone else. You see this as a moderator.</p>' : ""}
+      <header><div><h2 id="dbT">Discussion</h2><span class="credit dcount"></span></div><button class="x" data-x>Close</button></header>
       <p class="prompt"><b>Alice asks</b>${esc(plain(c.hook))} ${esc(PROMPT[c.ans])}</p>
       <ol class="thread" aria-live="polite"></ol>
       <div class="rules"><b>House rules</b><p>${esc(settings.rules).replace(/\n/g, "<br>")}</p><button class="cta" data-agree>I agree</button></div>
       <p class="banned fine" hidden>You can't post here.</p>
-      <form class="compose" hidden><div class="pick-side" role="group" aria-label="Your side"><button type="button" class="real" data-side="real">I say Real</button><button type="button" class="fake" data-side="fake">I say Fake</button></div>
+      <form class="compose" hidden>
         <div class="replying" hidden><span></span><button type="button" data-cancel>Cancel</button></div>
-        <textarea id="argText" maxlength="280" aria-label="Your argument" placeholder="Make your case. Keep it about the evidence."></textarea>
-        <div class="row"><span>A moderator reads every post first.</span><button class="post" type="submit">Send for review</button></div></form></div>`;
+        <div class="pick-side" role="group" aria-label="Your take"><button type="button" class="real" data-side="real">Real</button><button type="button" class="fake" data-side="fake">Fake</button></div>
+        <div class="sendrow"><textarea id="argText" maxlength="280" rows="1" aria-label="Your comment" placeholder="Add a comment…"></textarea><button class="send" type="submit" aria-label="Send">${ico("send")}</button></div>
+        <p class="credit">${discussOn() ? "A moderator reads every comment before everyone can see it." : "Public comments open with accounts. Until then your comments are saved on this device."}</p></form></div>`;
     $("#app").append(s);
-    s.addEventListener("input", () => $(".post", s).disabled = !side || !$("#argText", s).value.trim());
+    s.addEventListener("input", e => { if (e.target.id === "argText") { e.target.style.height = "auto"; e.target.style.height = Math.min(120, e.target.scrollHeight) + "px"; $(".send", s).disabled = !e.target.value.trim(); } });
     s.addEventListener("click", e => {
       if (e.target === s || e.target.closest("[data-x]")) { openId = null; return s.remove(); }
       if (e.target.closest("[data-agree]")) { S.rulesOk = true; save(); return renderThread(); }
+      const who = e.target.closest("[data-who]"); if (who) return Social.profile(who.dataset.who);
       const sd = e.target.closest("[data-side]"); if (sd) { side = sd.dataset.side; return renderThread(); }
       const rp = e.target.closest("[data-reply]"); if (rp) { replyTo = rp.dataset.reply; renderThread(); return $("#argText", s).focus(); }
       if (e.target.closest("[data-cancel]")) { replyTo = null; return renderThread(); }
@@ -1465,13 +1504,16 @@ const Community = (() => {
       if (rr) { const items = [...(myReports.items || []).filter(x => x.key !== rr.dataset.rk), { key: rr.dataset.rk, caseId: openId, reason: rr.dataset.r, at: Date.now() }].slice(-300); myReports = { items }; W("reports/" + me, { items }); toast("Reported. A moderator will look at it."); return renderThread(); }
     });
     s.addEventListener("submit", e => {
-      e.preventDefault(); const ta = $("#argText", s), text = ta.value.trim().slice(0, 280); if (!text || !side) return;
+      e.preventDefault(); const ta = $("#argText", s), text = ta.value.trim().slice(0, 280); if (!text) return;
       if (banned(me)) return toast("You can't post here.");
-      const last = Math.max(0, ...(mine.items || []).map(x => x.at)); if (Date.now() - last < (settings.slow || 0) * 1000) return toast(`Slow mode: wait ${Math.ceil(((settings.slow || 0) * 1000 - (Date.now() - last)) / 1000)} seconds.`);
       const f = Filter(text, settings.words); if (f.block.length) return toast(`This can't be posted: ${f.block.join(", ")}.`);
-      const it = { id: Math.random().toString(36).slice(2, 10), caseId: openId, side, text, at: Date.now(), parent: replyTo || null, status: "pending", flags: f.flag };
-      mine = { ...mine, items: [...(mine.items || []), it].slice(-200) }; W("posts/" + me, mine);
-      ta.value = ""; replyTo = null; renderThread(); toast("Sent. It appears once a moderator approves it.");
+      const it = { id: Math.random().toString(36).slice(2, 10), caseId: openId, side, text, at: Date.now(), parent: replyTo || null };
+      if (discussOn()) {
+        const last = Math.max(0, ...(mine.items || []).map(x => x.at)); if (Date.now() - last < (settings.slow || 0) * 1000) return toast(`Slow mode: wait ${Math.ceil(((settings.slow || 0) * 1000 - (Date.now() - last)) / 1000)} seconds.`);
+        mine = { ...mine, items: [...(mine.items || []), { ...it, status: "pending", flags: f.flag }].slice(-200) }; W("posts/" + me, mine); toast("Sent. Everyone sees it once a moderator approves it.");
+      } else { S.myComments = S.myComments || {}; (S.myComments[openId] = S.myComments[openId] || []).push(it); save(); toast("Comment added"); }
+      ta.value = ""; ta.style.height = "auto"; replyTo = null; FX.gain(5); changed(); renderThread();
+      const th = $(".thread", s); th.scrollTop = 0;
     });
     renderThread();
   }
@@ -1541,12 +1583,13 @@ const Community = (() => {
   }
   const allPub = () => { const out = []; for (const c in approved) pub(c).forEach(x => (x.type && x.type !== "comment") && out.push({ ...x, caseId: c })); return out.sort((a, b) => (b.ok || b.at) - (a.ok || a.at)); };
   const minePending = caseId => (mine.items || []).filter(x => x.type && x.type !== "comment" && (!caseId || x.caseId === caseId)).map(x => ({ ...x, by: me, key: me + ":" + x.id }));
-  function setProfile(p) { profiles[me] = { ...(profiles[me] || {}), ...p, since: (profiles[me] || {}).since || Date.now() }; W("profiles/" + me, profiles[me]); changed(); }
+  function setProfile(p) { if (!live) { S.myProfile = { ...(S.myProfile || {}), ...p, since: (S.myProfile || {}).since || Date.now() }; save(); changed(); return; }
+    profiles[me] = { ...(profiles[me] || {}), ...p, since: (profiles[me] || {}).since || Date.now() }; W("profiles/" + me, profiles[me]); changed(); }
   const listeners = new Set();
   const _changed = changed; changed = function () { _changed(); listeners.forEach(f => f()); };
   connect();
   return { open, count, render: renderMod, submit, upload, allPub, pub, minePending, setProfile, nm, resolveNames, onChange: f => listeners.add(f),
-    profileOf: id => profiles[id], get me() { return me; }, get live() { return live; }, get admin() { return admin; }, get on() { return live && (settings.enabled || admin); }, get canUpload() { return !!assets; } };
+    profileOf: id => profiles[id] || (id === me && !live ? S.myProfile : undefined), get me() { return me; }, get db() { return db; }, get discussOpen() { return live && (settings.enabled || admin); }, get live() { return live; }, get admin() { return admin; }, get on() { return live && (settings.enabled || admin); }, get canUpload() { return !!assets; } };
 })();
 const Debate = Community;
 
@@ -1573,15 +1616,16 @@ const Contrib = (() => {
     draw(); C.onChange(draw);
     el.addEventListener("click", e => { const a = e.target.closest("[data-add]"); if (a) compose(a.dataset.add); const pr = e.target.closest("[data-profile]"); if (pr) profile(pr.dataset.profile); });
   }
-  function needProfile(then) {
-    if (C.profileOf(C.me) && C.profileOf(C.me).handle) return then();
+  function needProfile(then, edit) {
+    if (!edit && C.profileOf(C.me) && C.profileOf(C.me).handle) return then();
+    const cur = C.profileOf(C.me) || {};
     $(".scrim")?.remove();
     const s = document.createElement("div"); s.className = "scrim";
     s.innerHTML = `<form class="sheet" role="dialog" aria-modal="true" aria-labelledby="pfT"><button type="button" class="x" data-x>Not now</button><h2 id="pfT">Make your profile</h2>
       <p class="onb-sub" style="margin:0">Your handle shows on everything you post. Everything is checked by a moderator before it appears.</p>
-      <label class="fld">Handle<input id="pfH" maxlength="20" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="e.g. groomlake_watcher"></label>
+      <label class="fld">Handle<input id="pfH" maxlength="20" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="e.g. groomlake_watcher" value="${esc(cur.handle || "")}"></label>
       <p class="credit" id="pfHint" style="margin:-6px 0 0">3 to 20 characters: lowercase letters, numbers and underscores.</p>
-      <label class="fld">About you (optional)<textarea id="pfB" maxlength="160" placeholder="What do you dig into?"></textarea></label>
+      <label class="fld">About you (optional)<textarea id="pfB" maxlength="160" placeholder="What do you dig into?">${esc(cur.bio || "")}</textarea></label>
       <button class="cta" type="submit">Create profile</button></form>`;
     $("#app").append(s);
     s.addEventListener("click", e => { if (e.target === s || e.target.closest("[data-x]")) s.remove(); });
@@ -1639,7 +1683,7 @@ const Contrib = (() => {
     $("#app").append(s);
     s.addEventListener("click", e => { if (e.target === s || e.target.closest("[data-x]")) return s.remove(); const cl = e.target.closest("[data-case]"); if (cl) { s.remove(); CaseFile.open(cl.dataset.case); } });
   }
-  return { mountCase, compose, profile, postHTML };
+  return { mountCase, compose, profile: id => Social.profile(id), makeProfile: then => needProfile(then), postHTML };
 })();
 
 /* ---------- Community feed: people's clips and posts, one after another ---------- */
@@ -1663,10 +1707,10 @@ const Feed = (() => {
     el.innerHTML = `${it.kind === "video" ? `<video src="${esc(it.src)}" ${it.poster ? `poster="${esc(it.poster)}"` : ""} muted autoplay playsinline preload="metadata"></video>` :
         `<div class="textpost"><span class="badge wait">${{ tip: "Evidence", case: "New case" }[it.type] || "Post"}</span><p>${esc(it.text || "")}</p>${it.source ? `<a class="cf-link" href="${esc(it.source)}" target="_blank" rel="noopener nofollow ugc">Source ↗</a>` : ""}</div>`}
       <aside class="rail">
-        <button data-pact="profile" aria-label="Open @${esc(it.handle)}'s profile"><span class="disc ava-disc">${esc((it.handle || "?").charAt(0).toUpperCase())}</span>Profile</button>
-        ${c ? `<button data-act="save" aria-pressed="${S.saved.includes(c.id)}" aria-label="Pin the case to your board"><span class="disc">${ico("pin")}</span>Pin</button>
-        <button data-act="debate" aria-label="Open the discussion"><span class="disc">${ico("debate")}</span><span class="count" data-count="${c.id}">${Community.count(c.id) || "Discuss"}</span></button>` : ""}
-        <button data-pact="share" aria-label="Share"><span class="disc">${ico("share")}</span>Share</button>
+        <button data-pact="profile" aria-label="Open @${esc(it.handle)}'s profile"><span class="disc ava-disc">${esc((it.handle || "?").charAt(0).toUpperCase())}</span>${Social.isFollowing(it.by) ? "Following" : "Profile"}</button>
+        <button data-pact="like" aria-pressed="${!!S.liked[it.key]}" aria-label="Like"><span class="disc">${ico("heart")}</span><span class="count" data-likes="${esc(it.key)}">${Social.fmt(Social.likes(it.key))}</span></button>
+        ${c ? `<button data-act="debate" aria-label="Open the discussion"><span class="disc">${ico("debate")}</span><span class="count" data-count="${c.id}">${Community.count(c.id) || "Discuss"}</span></button>` : ""}
+        <button data-pact="share" aria-label="Share"><span class="disc">${ico("share")}</span><span class="count" data-shares="${esc(it.key)}">${Social.fmt(Social.shares(it.key))}</span></button>
         ${c ? `<button data-act="file" aria-label="Open the case file"><span class="disc">${ico("file")}</span>File</button>` : ""}</aside>
       <div class="reel-info"><button class="handle" data-pact="profile">@${esc(it.handle)}</button>${it.fictional ? `<span class="badge wait" style="justify-self:start">Fictional character · Rabbit Hole original</span>` : ""}
         ${c ? `<span class="credit">About: ${esc(capFirst(c.title))}</span>` : ""}</div>${it.kind === "video" ? '<div class="reel-bar"><i></i></div>' : ""}`;
@@ -1677,13 +1721,14 @@ const Feed = (() => {
   const io = new IntersectionObserver(es => es.forEach(en => { const vid = $("video", en.target);
     if (en.isIntersecting && on) { (S.postSeen = S.postSeen || {})[en.target.dataset.key] = Date.now(); save(); if (vid) { vid.preload = "auto"; playVid(vid); } }
     else if (vid) vid.pause(); }), { root: v, threshold: .7 });
-  function topbar() { return `<div class="watch-top"><div><span class="pill">${ico("debate")}Community</span>
+  let mode = "foryou";
+  function topbar() { return `<div class="watch-top"><div><span class="seg"><button class="pill" data-mode="foryou" aria-pressed="${mode === "foryou"}">For you</button><button class="pill" data-mode="following" aria-pressed="${mode === "following"}">Following</button></span>
       ${Community.on ? `<button class="pill" data-post>+ Post</button>` : ""}<button class="pill" data-refresh aria-label="Refresh">↻ Refresh</button></div></div><div class="ptr" aria-hidden="true">Pull to refresh</div>`; }
   function render(force) {
-    const list = items(), key = list.map(x => x.key).sort().join("|");
+    const list = mode === "following" ? items().filter(x => Social.isFollowing(x.by)) : items(), key = mode + list.map(x => x.key).sort().join("|");
     if (built && !force && key === sig) return; built = true; sig = key;
     v.innerHTML = topbar();
-    if (!list.length) { v.insertAdjacentHTML("beforeend", `<div class="watch-empty"><b>Nothing here yet</b><span>Tap Refresh to check for new posts.</span></div>`); return; }
+    if (!list.length) { v.insertAdjacentHTML("beforeend", mode === "following" ? `<div class="watch-empty"><b>Follow people to fill this feed</b><span>Tap a handle on any clip, then Follow. Their latest posts show up here first.</span></div>` : `<div class="watch-empty"><b>Nothing here yet</b><span>Tap Refresh to check for new posts.</span></div>`); return; }
     list.forEach(it => v.append(card(it)));
     if (!sound) v.insertAdjacentHTML("beforeend", "");
   }
@@ -1702,12 +1747,14 @@ const Feed = (() => {
   v.addEventListener("touchend", e => { if (y0 == null) return; const d = (e.changedTouches[0] || {}).clientY - y0; y0 = null; const p = $(".ptr", v); if (p) p.style.opacity = 0; if (d > 80) refresh(); });
   v.addEventListener("click", e => {
     if (e.target.closest("[data-refresh]")) return refresh();
+    const md = e.target.closest("[data-mode]"); if (md) { mode = md.dataset.mode; return render(true); }
     if (e.target.closest("[data-post]")) return Contrib.compose("_cases", "video");
     const el = e.target.closest(".reel"); if (!el) return;
     const pa = e.target.closest("[data-pact]");
     if (pa) { const it = items().find(x => x.key === el.dataset.key); if (!it) return;
       if (pa.dataset.pact === "profile") return Contrib.profile(it.by);
-      if (pa.dataset.pact === "share") return share({ dataset: { id: it.caseId || "dyatlov" } }); }
+      if (pa.dataset.pact === "like") { const on = Social.like(it.key); pa.setAttribute("aria-pressed", on); $("[data-likes]", pa).textContent = Social.fmt(Social.likes(it.key)); return; }
+      if (pa.dataset.pact === "share") { Social.shared(it.key); $("[data-shares]", pa).textContent = Social.fmt(Social.shares(it.key)); return share({ dataset: { id: it.caseId || "dyatlov" } }); } }
     const a = e.target.closest("[data-act]");
     if (a) return ({ save: () => toggleSave(el, a), debate: () => Community.open(el.dataset.id), file: () => CaseFile.open(el.dataset.id) })[a.dataset.act]?.();
     const vid = $("video", el); if (!vid) return;
@@ -1716,6 +1763,83 @@ const Feed = (() => {
   Community.onChange(() => { if (!v.hidden) render(); });
   return { render, refresh, get cast() { return F.cast.map(x => ({ ...x })); },
     active(x) { on = x; if (!x) { $$(".reel video", v).forEach(vd => vd.pause()); clearTimeout(timer); } else $$(".reel", v).forEach(el => { io.unobserve(el); io.observe(el); }); } };
+})();
+
+/* ---------- Social: profiles, follows, likes and shares ---------- */
+// Every number is a real count: you, the cast (fictional, labelled), and other members where there is a shared store.
+// Your follows, likes and shares live in social/<your id> so other members' counts include you.
+const Social = (() => {
+  const CAST = (DATA.community && DATA.community.posts) || [];
+  const hsh = s => { let x = 7; for (const ch of String(s)) x = (x * 31 + ch.charCodeAt(0)) | 0; return Math.abs(x); };
+  const cid = c => "cast:" + c.handle, castOf = id => CAST.find(c => cid(c) === id);
+  S.following = S.following || []; S.liked = S.liked || {}; S.shared = S.shared || {};
+  let remote = {}, wired = false;
+  const meId = () => Community.live ? Community.me : "you";
+  // the cast's own follows, likes and shares are fixed choices each character makes
+  const castFollows = c => CAST.filter(o => o !== c && hsh(c.id + ">" + o.id) % 3 !== 0).map(cid);
+  const castLikes = (key, c) => !key.endsWith(":" + c.id) && hsh(key + "♥" + c.id) % 10 < 6;
+  const castShares = (key, c) => !key.endsWith(":" + c.id) && hsh(key + "↗" + c.id) % 10 < 2;
+  const others = () => Object.entries(remote).filter(([u]) => u !== meId());
+  function following(id) { if (id === meId()) return S.following.slice(); const c = castOf(id); if (c) return castFollows(c); return (remote[id] && remote[id].following) || []; }
+  function followers(id) { const out = CAST.filter(c => castFollows(c).includes(id)).map(cid); if (S.following.includes(id)) out.push(meId()); others().forEach(([u, r]) => (r.following || []).includes(id) && out.push(u)); return out; }
+  const likes = key => CAST.filter(c => castLikes(key, c)).length + (S.liked[key] ? 1 : 0) + others().filter(([, r]) => (r.liked || []).includes(key)).length;
+  const shares = key => CAST.filter(c => castShares(key, c)).length + (S.shared[key] || 0) + others().reduce((n, [, r]) => n + ((r.shared || {})[key] || 0), 0);
+  function sync() { if (!Community.live || !Community.db) return; Community.db.doc("social/" + Community.me).set({ following: S.following, liked: Object.keys(S.liked).filter(k => S.liked[k]), shared: S.shared }).catch(() => {}); }
+  function wire() { if (wired || !Community.live || !Community.db) return; wired = true; Community.db.collection("social").onSnapshot(sn => { const n = {}; sn.docs.forEach(x => { n[x.id] = x.data(); }); remote = n; $$("[data-likes]").forEach(el => el.textContent = fmt(likes(el.dataset.likes))); }, () => {}); }
+  setInterval(wire, 1000);
+  const fmt = n => n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, "") + "K" : String(n);
+  function toggleFollow(id) { const i = S.following.indexOf(id); if (i >= 0) S.following.splice(i, 1); else S.following.push(id); save(); sync(); FX.tap(); return i < 0; }
+  function like(key) { S.liked[key] = !S.liked[key]; save(); sync(); if (S.liked[key]) FX.gain(5); return S.liked[key]; }
+  function shared(key) { S.shared[key] = (S.shared[key] || 0) + 1; save(); sync(); }
+  function nameOf(id) { if (id === meId()) { const p = Community.profileOf(meId()); return p && p.handle ? "@" + p.handle : "You"; } const c = castOf(id); if (c) return "@" + c.handle; return Community.nm(id) || "Member"; }
+  // posts by a person: cast clips, or published community posts
+  const postsOf = id => { const c = castOf(id); if (c) return [{ key: "cast:" + c.id, caseId: c.caseId, poster: c.poster, text: c.caption }]; return Community.allPub().filter(x => x.by === id).map(x => ({ key: x.key, caseId: x.caseId, text: x.title || x.text, poster: null })); };
+  // cast comments on each case: their own words, built from the file's record
+  const LINES = { true: ["People call this a theory. It's in the record.", "This is the one I send to anyone who says it could never happen."], false: ["Love the story. The evidence just isn't there.", "I wanted this one to be real. It isn't."],
+    mixed: ["Half of this is true, and that's the half nobody talks about.", "Read the whole file before you pick a side."], unknown: ["Honestly? Nobody knows. That's what keeps me up.", "Every explanation has a hole in it somewhere."] };
+  function castComments(caseId) {
+    const c = byId[caseId]; if (!c || !CAST.length) return [];
+    const own = CAST.find(x => x.caseId === caseId), picks = [...(own ? [own] : []), ...CAST.filter(x => x !== own).sort((a, b) => hsh(caseId + a.id) - hsh(caseId + b.id)).slice(0, own ? 2 : 3)];
+    const ev = c.ev.map(e => e.replace(/\[\[|\]\]/g, "")), base = Date.now() - (hsh(caseId) % 72) * 3600e3;
+    const out = picks.map((p, i) => ({ key: "castc:" + caseId + ":" + p.id, by: cid(p), cast: true, side: c.ans === "false" ? "fake" : c.ans === "true" ? "real" : (i % 2 ? "fake" : "real"),
+      text: p === own ? `I made a whole clip about this one. ${p.caption}` : i % 2 ? `The detail that gets me: ${ev[(hsh(p.id + caseId) % ev.length)].replace(/\.$/, "")}.` : LINES[c.ans][hsh(p.id + caseId) % 2] + (i === 2 ? ` Source: ${c.src[0]}.` : ""),
+      at: base - i * 5400e3, parent: null }));
+    const REPLY = { true: ["Same. The paper trail is the scary part.", "And it was all written down. That's what gets me."], false: ["Fair. Still a great story, though.", "Exactly. Follow the evidence, not the vibes."],
+      mixed: ["The true half is wild enough on its own.", "This is why I read the source first."], unknown: ["Same. Every theory leaves something out.", "That's the honest answer. Nobody knows yet."] };
+    const replier = CAST.filter(x => !picks.includes(x)).sort((a, b) => hsh(caseId + b.id) - hsh(caseId + a.id))[0];
+    if (replier && out.length) out.push({ key: "castc:" + caseId + ":r", by: cid(replier), cast: true, side: out[0].side, text: REPLY[c.ans][hsh(caseId) % 2], at: out[0].at + 1800e3, parent: out[0].key });
+    return out;
+  }
+  // the profile page
+  function avatar(id, size = 72) { const c = castOf(id); const letter = nameOf(id).replace("@", "").charAt(0).toUpperCase();
+    return c ? `<span class="ava" style="width:${size}px;height:${size}px;background-image:url('${esc(c.poster)}')"></span>` : `<span class="ava letter" style="width:${size}px;height:${size}px;font-size:${size * .42}px">${esc(letter)}</span>`; }
+  function profile(id, tab = "posts") {
+    $(".scrim")?.remove();
+    const c = castOf(id), mine = id === meId(), p = c ? { bio: c.bio, name: c.name } : Community.profileOf(id) || {};
+    const posts = postsOf(id), fl = followers(id), fg = following(id), liked = posts.reduce((n, x) => n + likes(x.key), 0);
+    const s = document.createElement("div"); s.className = "scrim";
+    s.innerHTML = `<div class="sheet profile-page" role="dialog" aria-modal="true" aria-labelledby="pfName">
+      <header><button class="x" data-x>Close</button></header>
+      <div class="pf-head">${avatar(id, 88)}<div><h2 id="pfName">${esc(nameOf(id))}</h2>${p.name ? `<p class="credit" style="margin:0">${esc(p.name)}</p>` : ""}${c ? '<span class="badge wait">Fictional character · Rabbit Hole original</span>' : ""}</div></div>
+      ${p.bio ? `<p class="pf-bio">${esc(p.bio)}</p>` : ""}
+      <div class="pf-stats"><button data-pt="posts"><b>${posts.length}</b><span>Posts</span></button><button data-pt="followers"><b>${fmt(fl.length)}</b><span>Followers</span></button><button data-pt="following"><b>${fmt(fg.length)}</b><span>Following</span></button><div><b>${fmt(liked)}</b><span>Likes</span></div></div>
+      <div class="row-btns">${mine ? `<button class="cta" data-editpf>${p.handle || c ? "Edit profile" : "Create your profile"}</button>` : `<button class="cta${S.following.includes(id) ? " following" : ""}" data-follow="${esc(id)}">${S.following.includes(id) ? "Following" : "Follow"}</button>`}<button class="ghost" data-sharepf>${ico("share")} Share</button></div>
+      <div class="filters pf-tabs" role="tablist">${["posts", "followers", "following"].map(t => `<button data-pt="${t}" aria-pressed="${t === tab}">${capFirst(t)}</button>`).join("")}</div>
+      <div class="pf-body">${tab === "posts" ? (posts.length ? `<div class="pf-grid">${posts.map(x => `<button class="pf-tile" data-openpost="${esc(x.key)}" data-case="${esc(x.caseId || "")}">${x.poster ? `<img src="${esc(x.poster)}" alt="">` : `<span>${esc((x.text || "").slice(0, 90))}</span>`}<em>${ico("heart")} ${fmt(likes(x.key))}</em></button>`).join("")}</div>` : `<p class="credit">No posts yet.</p>`)
+        : (tab === "followers" ? fl : fg).map(u => `<div class="pf-row">${avatar(u, 40)}<button class="handle-link" data-who="${esc(u)}">${esc(nameOf(u))}</button>${u !== meId() ? `<button class="ghost sm" data-follow="${esc(u)}">${S.following.includes(u) ? "Following" : "Follow"}</button>` : ""}</div>`).join("") || `<p class="credit">Nobody here yet.</p>`}</div></div>`;
+    $("#app").append(s);
+    s.addEventListener("click", e => {
+      if (e.target === s || e.target.closest("[data-x]")) return s.remove();
+      const pt = e.target.closest("[data-pt]"); if (pt) return profile(id, pt.dataset.pt);
+      const f = e.target.closest("[data-follow]"); if (f) { const now = toggleFollow(f.dataset.follow); toast(now ? `Following ${nameOf(f.dataset.follow)}. Their posts show in your Following feed.` : `Unfollowed ${nameOf(f.dataset.follow)}`); return profile(id, tab); }
+      const w = e.target.closest("[data-who]"); if (w) return profile(w.dataset.who);
+      if (e.target.closest("[data-editpf]")) { s.remove(); return Contrib.makeProfile(() => profile(id)); }
+      if (e.target.closest("[data-sharepf]")) { const t = `${nameOf(id)} on Rabbit Hole`; try { navigator.share ? navigator.share({ title: t, text: t, url: location.href }) : navigator.clipboard.writeText(t + " " + location.href).then(() => toast("Link copied")); } catch (er) {} return; }
+      const op = e.target.closest("[data-openpost]"); if (op) { s.remove(); tab_people(op.dataset.openpost); }
+    });
+  }
+  function tab_people(key) { tab("people"); setTimeout(() => { const el = $(`#people .post-reel[data-key="${CSS.escape(key)}"]`); if (el) el.scrollIntoView(); }, 120); }
+  return { meId, following, followers, likes, shares, like, shared, toggleFollow, nameOf, profile, castComments, fmt, isFollowing: id => S.following.includes(id), sync };
 })();
 
 /* ---------- Pull to refresh (Home and Community) ---------- */
@@ -1795,7 +1919,7 @@ const Watch = (() => {
 })();
 
 /* ---------- Tabs ---------- */
-const TABS = { feed: ["file", "X-Files"], watch: ["home", "Home"], people: ["debate", "Community"], holes: ["search", "Explore"], me: ["me", "You"], mod: ["shield", "Mod"] };
+const TABS = { feed: ["file", "Classified"], watch: ["home", "Home"], people: ["debate", "Community"], holes: ["search", "Explore"], me: ["me", "You"], mod: ["shield", "Mod"] };
 $$(".tabs button").forEach(b => { if (!TABS[b.dataset.tab]) return; const [i, l] = TABS[b.dataset.tab]; b.innerHTML = ico(i) + (b.dataset.tab === "mod" ? `<span class="count">${l}</span>` : l); });
 function tab(name) {
   $$(".tabs button").forEach(b => b.dataset.tab === name ? b.setAttribute("aria-current", "page") : b.removeAttribute("aria-current"));

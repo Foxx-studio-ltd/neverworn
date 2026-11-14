@@ -47,11 +47,27 @@ const FAKE = (opts) => {
   ok(homeIds[0] === drop && new Set(homeIds).size === homeIds.length, "Home starts on today's drop, then never repeats a clip");
   await p.click('[data-tab="people"]'); await p.waitForTimeout(800);
   const postKeys = await p.evaluate(() => [...document.querySelectorAll('#people .post-reel')].map(r => r.dataset.key));
+  const firstPost = p.locator('#people .post-reel').first();
+  const likes0 = +(await firstPost.locator('[data-likes]').textContent());
+  ok(likes0 >= 0 && await firstPost.locator('[data-shares]').count() === 1, 'each community clip shows its likes and shares');
+  await firstPost.locator('[data-pact="like"]').click(); await p.waitForTimeout(100);
+  ok(+(await firstPost.locator('[data-likes]').textContent()) === likes0 + 1, 'liking a clip adds to its count');
   ok(postKeys.length >= 10 && new Set(postKeys).size === postKeys.length, 'Community plays every clip once, no repeats');
   await p.locator('#people .post-reel .reel-info .handle').first().click(); await p.waitForTimeout(300);
   ok(/@/.test(await p.textContent('.sheet h2')) && /Fictional character/.test(await p.textContent('.sheet')), "tapping the handle on a playing clip opens that user's profile");
+  ok(await p.locator('.profile-page .pf-stats').count() === 1 && /Followers/.test(await p.textContent('.pf-stats')) && /Following/.test(await p.textContent('.pf-stats')), 'profile page shows posts, followers, following and likes');
+  const fol0 = await p.evaluate(() => document.querySelectorAll('.pf-stats b')[1].textContent);
+  await p.click('.profile-page [data-follow]'); await p.waitForTimeout(200);
+  ok(/Following/.test(await p.textContent('.profile-page .row-btns')) && +(await p.evaluate(() => document.querySelectorAll('.pf-stats b')[1].textContent)) === +fol0 + 1, 'following someone updates their follower count');
+  await p.click('.profile-page [data-pt="followers"]'); await p.waitForTimeout(200);
+  ok(/You/.test(await p.textContent('.profile-page .pf-body')), 'you appear in their followers list');
   await p.screenshot({ path: `${out}/2b-profile.png` });
-  await p.click('.sheet [data-x]'); await p.click('[data-tab="watch"]'); await p.waitForTimeout(300);
+  await p.click('.profile-page [data-x]');
+  await p.click('#people [data-mode="following"]'); await p.waitForTimeout(300);
+  ok(await p.locator('#people .post-reel').count() >= 1 && await p.locator('#people .post-reel').count() < postKeys.length, 'the Following feed shows people you follow');
+  await p.click('#people [data-mode="foryou"]'); await p.waitForTimeout(200);
+  await p.evaluate(() => RabbitHole.Feed.render(true));
+  await p.click('[data-tab="watch"]'); await p.waitForTimeout(300);
   await p.evaluate(() => document.querySelector('#watch .reel video').dispatchEvent(new Event('ended'))); await p.waitForTimeout(300);
   ok(/Go further/.test(await p.textContent('#watch .nextup')) && /Next file in/.test(await p.textContent('#watch .nextup')), 'episode ends with Go further and a 2-second countdown');
   await shot('2-home-end');
@@ -60,7 +76,7 @@ const FAKE = (opts) => {
   await p.click('.casefile [data-x]');
   // X-Files: random order, never the same twice, auto-advance
   await p.evaluate(() => RabbitHole.tab('feed'));
-  ok(/X-Files/.test(await p.textContent('[data-tab="feed"]')), 'Files tab is called X-Files');
+  ok(/Classified/.test(await p.textContent('[data-tab="feed"]')), 'the files tab is called Classified');
   const first = p.locator('.card').first();
   await first.locator('[data-g="real"]').click(); await p.waitForTimeout(600);
   ok(await first.locator('.truth').isVisible(), 'calling it reveals the truth');
@@ -142,8 +158,11 @@ const FAKE = (opts) => {
   const m = await cm.newPage(); watch(m, 'B-member');
   await m.goto(URL0); await m.waitForTimeout(1500); await m.evaluate(() => RabbitHole.tab('feed'));
   await m.locator('.card').first().locator('[data-act="debate"]').click(); await m.waitForTimeout(300);
-  ok(await m.isVisible('.casefile #cfNotes') && await m.locator('.debate').count() === 0, 'while community is off, Discuss opens your notes instead');
-  await m.click('.casefile [data-x]');
+  ok(await m.isVisible('.debate') && await m.locator('.debate .cmt').count() >= 3, 'Discuss opens a glass sheet with other people\'s comments');
+  if (await m.isVisible('.debate [data-agree]')) await m.click('.debate [data-agree]');
+  await m.fill('#argText', 'The tent was cut from the inside. That matters.'); await m.click('.debate .send'); await m.waitForTimeout(300);
+  ok(/cut from the inside/.test(await m.textContent('.debate .thread')), 'your comment joins the thread');
+  await m.click('.debate [data-x]');
   ok(await m.isHidden('[data-tab="mod"]'), 'members get no mod tab');
 
   // ---------- Part C: owner moderates ----------
@@ -179,11 +198,11 @@ const FAKE = (opts) => {
   ok(!/NASA LIES/.test(await o.textContent('.debate .thread')), 'rejected post never appears');
   ok(await o.isVisible('.rules'), 'house rules come before the first post');
   await o.click('[data-agree]'); await o.click('.pick-side .real');
-  await o.fill('#argText', 'Proof here: www.example.com'); await o.click('.debate .post'); await o.waitForTimeout(200);
+  await o.fill('#argText', 'Proof here: www.example.com'); await o.click('.debate .send'); await o.waitForTimeout(200);
   ok(/Link/.test(await o.textContent('#toast')), 'a post with a link is refused with the reason');
-  await o.fill('#argText', 'Only sheeple believe that'); await o.click('.debate .post'); await o.waitForTimeout(200);
+  await o.fill('#argText', 'Only sheeple believe that'); await o.click('.debate .send'); await o.waitForTimeout(200);
   ok(/Blocked word/.test(await o.textContent('#toast')), 'moderator-added blocked words apply');
-  await o.fill('#argText', 'Laser ranging still bounces off the mirrors they left.'); await o.click('.debate .post'); await o.waitForTimeout(300);
+  await o.fill('#argText', 'Laser ranging still bounces off the mirrors they left.'); await o.click('.debate .send'); await o.waitForTimeout(300);
   ok(/Waiting for a moderator/.test(await o.textContent('.debate .thread')), 'your own post waits for review before anyone sees it');
   await o.screenshot({ path: `${out}/9-discussion.png` });
   await o.click('.debate [data-x]');
