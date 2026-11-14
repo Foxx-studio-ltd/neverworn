@@ -296,7 +296,7 @@ function render(t) {
   const s = T.scenes.find(x => t >= x.start - (x === T.scenes[0] ? 1 : 0) && t < x.end) || T.scenes[T.scenes.length - 1];
   const lt = Math.max(0, t - s.start);
   drawBg(t, s); t0 = t; photoLayer(t, s, lt);
-  const art = document.getElementById('art'), ax = art.getContext('2d'), ao = HAS_ART ? (ARTSC[s.scene] || 0) : 0;
+  const art = document.getElementById('art'), ax = art.getContext('2d'), ao = HAS_ART ? (ARTSC[s.scene] || (s.scene === 'ev' && !photoOf(s) ? .22 : 0)) : 0;
   ax.clearRect(0, 0, 1080, 1920);
   if (ao) RHART.draw(ax, T.caseId || R, lt, HUE);
   art.style.opacity = ao * cl(lt / .4); document.getElementById('artfade').style.opacity = ao ? 1 : 0;
