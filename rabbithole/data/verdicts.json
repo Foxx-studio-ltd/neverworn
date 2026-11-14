@@ -454,5 +454,173 @@
 "verdict": 3.31,
 "reveal": 4.34,
 "more": 10.98
+},
+"ajax": {
+"f": "media/verdict/ajax.mp3",
+"dur": 14.13,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 12.29
+},
+"castro": {
+"f": "media/verdict/castro.mp3",
+"dur": 10.1,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.65,
+"more": 8.25
+},
+"irancontra": {
+"f": "media/verdict/irancontra.mp3",
+"dur": 11.47,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 9.33
+},
+"sunshine": {
+"f": "media/verdict/sunshine.mp3",
+"dur": 13.21,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.65,
+"more": 11.07
+},
+"plutonium": {
+"f": "media/verdict/plutonium.mp3",
+"dur": 14.47,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 12.33
+},
+"bigfoot": {
+"f": "media/verdict/bigfoot.mp3",
+"dur": 14.66,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.36,
+"more": 12.81
+},
+"flatearth": {
+"f": "media/verdict/flatearth.mp3",
+"dur": 13.43,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.66,
+"more": 11.58
+},
+"illuminati": {
+"f": "media/verdict/illuminati.mp3",
+"dur": 13.6,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.65,
+"more": 11.46
+},
+"elvis": {
+"f": "media/verdict/elvis.mp3",
+"dur": 13.33,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.66,
+"more": 11.57
+},
+"yeti": {
+"f": "media/verdict/yeti.mp3",
+"dur": 14.21,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.66,
+"more": 12.36
+},
+"chupacabra": {
+"f": "media/verdict/chupacabra.mp3",
+"dur": 11.21,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.66,
+"more": 9.36
+},
+"mothman": {
+"f": "media/verdict/mothman.mp3",
+"dur": 14.59,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.62,
+"more": 12.45
+},
+"jfkruby": {
+"f": "media/verdict/jfkruby.mp3",
+"dur": 14.94,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 12.8
+},
+"jfkmexico": {
+"f": "media/verdict/jfkmexico.mp3",
+"dur": 12.42,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 10.28
+},
+"jfkumbrella": {
+"f": "media/verdict/jfkumbrella.mp3",
+"dur": 15.03,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.36,
+"more": 12.89
+},
+"jfkfiles": {
+"f": "media/verdict/jfkfiles.mp3",
+"dur": 14.33,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.65,
+"more": 12.18
+},
+"jfkbullet": {
+"f": "media/verdict/jfkbullet.mp3",
+"dur": 11.16,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.64,
+"more": 9.41
+},
+"epsteindeath": {
+"f": "media/verdict/epsteindeath.mp3",
+"dur": 14.35,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 12.6
+},
+"epsteindeal": {
+"f": "media/verdict/epsteindeal.mp3",
+"dur": 12.23,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 10.38
+},
+"epsteinlist": {
+"f": "media/verdict/epsteinlist.mp3",
+"dur": 15.88,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.86,
+"more": 13.74
+},
+"epsteinminute": {
+"f": "media/verdict/epsteinminute.mp3",
+"dur": 11.4,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 9.65
 }
 }
