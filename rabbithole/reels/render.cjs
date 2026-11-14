@@ -4,15 +4,16 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 const [,, reel, out, fpsArg, stills] = process.argv; const fps = +(fpsArg || 30);
+const scale = +(process.env.SCALE || 1); // 0.6667 renders 720x1280
 (async () => {
-  const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1920 } });
+  const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: scale });
   p.on('pageerror', e => console.error('pageerror', e.message));
   await p.goto(`http://localhost:8765/rabbithole/reels/reel.html?r=${reel}`);
   await p.evaluate(async () => { await window.ready; await document.fonts.ready; });
   await p.waitForTimeout(800);
   const ev = await p.evaluate(() => ({ duration: window.DURATION, hits: window.SLAMS, scenes: window.SCENESTARTS }));
   fs.writeFileSync(`${out}/events.json`, JSON.stringify(ev));
-  const times = stills ? stills.split(',').map(Number) : null;
+  const times = stills && stills !== '-' ? stills.split(',').map(Number) : null;
   const n = times ? times.length : Math.round(ev.duration * fps);
   const el = await p.$('#f');
   for (let i = 0; i < n; i++) { const t = times ? times[i] : i / fps; await p.evaluate(t => render(t), t);
