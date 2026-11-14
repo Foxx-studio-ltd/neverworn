@@ -20,6 +20,8 @@ html,body { margin:0; background:#000; }
 .chip { padding:6px 14px; border-radius:8px; background:hsla(var(--hue),50%,55%,.25); color:hsl(var(--hue),70%,84%); }
 #photo { position:absolute; inset:0; z-index:0; overflow:hidden; }
 #shake { z-index:2; }
+#art { position:absolute; inset:0; width:1080px; height:1920px; z-index:1; opacity:0; }
+#artfade { position:absolute; inset:0; z-index:1; pointer-events:none; opacity:0; background:linear-gradient(180deg, rgba(19,16,28,.55) 0%, transparent 14%, transparent 62%, rgba(19,16,28,.9) 76%, #13101c 100%); }
 #photo .ph { position:absolute; inset:-4%; background-size:cover; background-position:center 35%; filter:grayscale(.35) contrast(1.1) brightness(.78) sepia(.12); }
 #photo::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(19,16,28,.7) 0%, rgba(19,16,28,.1) 22%, rgba(19,16,28,.15) 48%, rgba(19,16,28,.88) 70%, rgba(19,16,28,.97) 100%), linear-gradient(hsla(var(--hue),60%,30%,.28), hsla(var(--hue),60%,30%,.28)); mix-blend-mode:normal; }
 .credit { position:absolute; z-index:11; right:56px; top:190px; max-width:640px; text-align:right; font-size:21px; font-weight:600; letter-spacing:.04em; color:rgba(243,238,226,.6); text-shadow:0 2px 6px rgba(0,0,0,.8); }
@@ -57,6 +59,7 @@ html,body { margin:0; background:#000; }
 <div id="f" style="--hue:275">
   <canvas id="bg" width="540" height="960"></canvas>
   <div id="photo"></div>
+  <canvas id="art" width="1080" height="1920"></canvas><div id="artfade"></div>
   <div id="shake">
     <div class="top"><div class="bars" id="bars"></div><div class="chiprow" id="chips"></div></div>
     <div id="stage"></div>
@@ -67,6 +70,7 @@ html,body { margin:0; background:#000; }
   <div class="vig"></div>
   <canvas id="grain" width="540" height="960"></canvas>
 </div>
+<script src="anim.js"></script>
 <script>
 const MARK = (h) => `<svg viewBox="0 0 120 152" height="${h}"><g fill="#efe3c4"><ellipse cx="41" cy="38" rx="14" ry="36" transform="rotate(-13 41 38)"/><ellipse cx="79" cy="38" rx="14" ry="36" transform="rotate(13 79 38)"/><circle cx="60" cy="88" r="40"/><path d="M45 112 H75 L84 146 Q60 152 36 146 Z"/></g><g fill="#13101c"><ellipse cx="40" cy="36" rx="5.5" ry="24" transform="rotate(-13 40 36)"/><ellipse cx="80" cy="36" rx="5.5" ry="24" transform="rotate(13 80 36)"/><circle cx="60" cy="88" r="31"/><path d="M51 110 H69 L76 140 Q60 144 44 140 Z"/></g><g fill="none" stroke="#efe3c4" stroke-width="2.2"><circle cx="60" cy="91" r="24" opacity=".55"/><circle cx="60" cy="94" r="17.5" opacity=".42"/><circle cx="60" cy="96.5" r="11.5" opacity=".3"/><circle cx="60" cy="98.5" r="6" opacity=".22"/></g><circle cx="60" cy="99.5" r="2.8" fill="#f2e14c"/></svg>`;
 const RINGS = `<svg viewBox="0 0 80 80" style="display:inline-block;width:.74em;height:.74em;vertical-align:-.02em;margin:0 .02em"><circle cx="40" cy="40" r="38" fill="#efe3c4"/><circle cx="40" cy="40" r="30" fill="#13101c"/><g fill="none" stroke="#efe3c4" stroke-width="2.4"><circle cx="40" cy="43" r="23" opacity=".55"/><circle cx="40" cy="46" r="16" opacity=".42"/><circle cx="40" cy="48.5" r="10" opacity=".3"/></g><circle cx="40" cy="50.5" r="3.4" fill="#f2e14c"/></svg>`;
@@ -203,8 +207,9 @@ const SCENES = {
   },
   hook(lt, s) {
     const k = back(lt / .4);
-    return `<div style="display:grid;justify-items:center;gap:26px;align-self:start;margin-top:120px">
-      <div class="hookyear" style="transform:scale(${2.4 - 1.4 * k});opacity:${cl(lt / .1)}">${s.date}</div>
+    const top = HAS_ART;
+    return `<div style="display:grid;justify-items:center;gap:${top ? 10 : 26}px;align-self:start;margin-top:${top ? -40 : 120}px">
+      <div class="hookyear" style="font-size:${top ? 150 : 300}px;transform:scale(${2.4 - 1.4 * k});opacity:${cl(lt / .1)}">${s.date}</div>
       <div class="yrlbl" style="opacity:${cl((lt - .5) / .4)}">${s.label}</div></div>`;
   },
   ev(lt, s) {
@@ -273,8 +278,9 @@ function drawBg(t, scene) {
 }
 
 // ---------- archive photo layer ----------
-let t0 = 0, PHOTOS = [];
-const photoOf = s => { if (!PHOTOS.length || s.scene === 'end' || s.photo === null) return null; const i = s.photo !== undefined ? s.photo : T.scenes.indexOf(s); return PHOTOS[i % PHOTOS.length]; };
+let t0 = 0, PHOTOS = [], HAS_ART = false;
+const ARTSC = { hook: 1, call: .3, verdict: 1 };
+const photoOf = s => { if (!PHOTOS.length || s.scene === 'end' || s.photo === null || (HAS_ART && ARTSC[s.scene])) return null; const i = s.photo !== undefined ? s.photo : T.scenes.indexOf(s); return PHOTOS[i % PHOTOS.length]; };
 function photoLayer(t, s, lt) {
   const i = T.scenes.indexOf(s), cur = photoOf(s), prev = i > 0 ? photoOf(T.scenes[i - 1]) : null;
   const kb = (ph, sc, k) => { if (!ph) return ''; const sd = rnd(sc.start * 3 + 1), dur = sc.end - sc.start, z = 1 + .14 * cl(k / dur), dx = (sd - .5) * 60 * cl(k / dur), dy = (rnd(sd * 9) - .5) * 40 * cl(k / dur);
@@ -290,6 +296,10 @@ function render(t) {
   const s = T.scenes.find(x => t >= x.start - (x === T.scenes[0] ? 1 : 0) && t < x.end) || T.scenes[T.scenes.length - 1];
   const lt = Math.max(0, t - s.start);
   drawBg(t, s); t0 = t; photoLayer(t, s, lt);
+  const art = document.getElementById('art'), ax = art.getContext('2d'), ao = HAS_ART ? (ARTSC[s.scene] || 0) : 0;
+  ax.clearRect(0, 0, 1080, 1920);
+  if (ao) RHART.draw(ax, T.caseId || R, lt, HUE);
+  art.style.opacity = ao * cl(lt / .4); document.getElementById('artfade').style.opacity = ao ? 1 : 0;
   document.getElementById('bars').innerHTML = T.scenes.map(x => `<i><b style="width:${cl((t - x.start) / (x.end - x.start)) * 100}%"></b></i>`).join('');
   // scene cross-fade in
   const fin = cl(lt / .22);
@@ -303,6 +313,7 @@ const preload = srcs => Promise.all(srcs.map(u => new Promise(res => { const im 
 window.ready = Promise.all([fetch(`build/${R}.json`).then(r => r.json()), fetch('../data/media.json').then(r => r.json()).catch(() => ({}))]).then(async ([j, media]) => {
   T = j; window.DURATION = j.duration; HUE = j.hue !== undefined ? j.hue : R === 'mkultra' ? 275 : 8;
   PHOTOS = ((media.photos || {})[j.caseId || R] || []).map(p => ({ src: '../' + p.f, credit: p.credit }));
+  HAS_ART = !!(window.RHART && RHART.MAP[j.caseId || R] && j.scenes.some(x => x.scene === 'hook'));
   await preload(PHOTOS.map(p => p.src));
   document.getElementById('f').style.setProperty('--hue', HUE);
   document.getElementById('chips').innerHTML = `${MARK(74)}<span>Rabbit Hole</span><span class="chip">${j.hole}</span><span>File ${j.file}</span>`;
