@@ -641,106 +641,236 @@ $("#me").addEventListener("click", e => {
   S = blank(); save(); location.reload();
 });
 
-/* ---------- Debate: pick a side, argue, upvote the most convincing ---------- */
-// Each person's arguments live in one record, posts/<their id>: everyone reads every record,
-// each person writes only their own, and the artifact owner can remove anything.
-// Inside Claude this is shared (db capability). Elsewhere it falls back to this device only until a backend is connected.
-const Debate = (() => {
-  const LKEY = "rabbithole:debate:v1", blankRec = () => ({ items: [], likes: [], sides: {} });
-  let db = null, user = null, me = "you", isOwner = false, mode = "local", all = {}, queue = Promise.resolve(), names = {}, openId = null, filter = "all", replyTo = null, side = null;
-  try { all = { you: JSON.parse(localStorage.getItem(LKEY)) || blankRec() }; } catch (e) { all = { you: blankRec() }; }
-  const rec = id => all[id] || blankRec();
-  const PROMPT = { true: "This one really happened. Was it a one-off, or is something like it still going on?", false: "Debunked. So why do so many people still believe it? Make your case.",
-    mixed: "Part of it is true. Which part matters more? Make your case.", unknown: "Nobody can prove it either way. What do you think happened?" };
-  function items(caseId) { const out = []; for (const by in all) for (const it of (all[by].items || [])) if (it.caseId === caseId) out.push({ ...it, by, key: by + ":" + it.id }); return out; }
-  const likes = key => Object.values(all).reduce((n, r) => n + ((r.likes || []).includes(key) ? 1 : 0), 0);
-  const sides = caseId => { const t = { real: 0, fake: 0 }; for (const by in all) { const v = (all[by].sides || {})[caseId]; if (v) t[v]++; } return t; };
+/* ---------- Community: pre-moderated discussion, off until a moderator switches it on ---------- */
+// Nothing anyone writes is public until a moderator approves it.
+//   posts/<id>    each person's own submissions (only they and moderators can read them)
+//   approved/<case>  the public thread, written only by moderators
+//   reports/<id>  each person's reports (read by moderators)
+//   mod/settings, mod/bans  read by everyone, written by moderators;  modlog/log  moderators only
+const RULES_DEFAULT = "Argue about the evidence, not the person.\nNo harassment, hate or threats.\nNo personal information: no names of private people, addresses or phone numbers.\nNo links.\nNo health or election claims that could hurt someone.\nA moderator reads every post before it appears.";
+const Filter = (() => {
+  const BLOCK = [
+    [/\b(kys|kill (yo)?urself|go die)\b/i, "Harassment"],
+    [/\b(i('ll| will)|gonna|going to) (kill|hurt|shoot|find|dox) (you|u|him|her|them)\b/i, "Threat"],
+    [/https?:\/\/|www\.|\b[a-z0-9-]+\.(com|net|org|io|ly|gg|ru|co|xyz|me|tv)\b/i, "Link"],
+    [/[\w.+-]+@[\w-]+\.[\w.]+/, "Email address"],
+    [/(\+?\d[\s().-]?){9,}/, "Phone number"],
+    [/\b\d{1,5}\s+\w+(\s\w+)?\s+(street|st|avenue|ave|road|rd|lane|ln|drive|dr|boulevard|blvd|close|crescent)\b/i, "Street address"],
+    [/\b(lives at|home address|where (he|she|they) lives?|doxx?)\b/i, "Personal information"],
+  ];
+  const FLAG = [
+    [/\b(vaccin\w*|5g|chemo\w*|cures?|ivermectin|bleach|autism|fluoride)\b/i, "Health claim"],
+    [/\b(election|ballots?|rigged|voter fraud|stolen)\b/i, "Election claim"],
+    [/\b(jews?|jewish|zionists?|globalists?|cabal|rothschilds?|reptilians?|lizard people)\b/i, "Possible hate trope"],
+    [/\b(crisis actors?|staged (shooting|attack)|paid actors?)\b/i, "Claim about real victims"],
+  ];
+  return (text, extra = []) => {
+    const block = [], flag = [];
+    BLOCK.forEach(([re, why]) => re.test(text) && block.push(why));
+    extra.forEach(w => { w = (w || "").trim(); if (w && new RegExp("\\b" + w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i").test(text)) block.push("Blocked word"); });
+    FLAG.forEach(([re, why]) => re.test(text) && flag.push(why));
+    const L = text.replace(/[^a-z]/gi, ""); if (L.length > 20 && L.replace(/[^A-Z]/g, "").length / L.length > .7) flag.push("Shouting");
+    return { block: [...new Set(block)], flag: [...new Set(flag)] };
+  };
+})();
+
+const Community = (() => {
+  let db = null, user = null, sample = null, me = null, admin = false, live = false;
+  let settings = { enabled: false, hideAt: 3, slow: 30, words: [], rules: RULES_DEFAULT };
+  let mine = { items: [] }, myReports = { items: [] }, approved = {}, bans = [], subs = {}, reps = {}, log = [], names = {}, triage = {};
+  let q = Promise.resolve();
+  const W = (path, data) => (q = q.then(() => db.doc(path).set(data)).catch(e => toast(e && e.code === "quota_exceeded" ? "Storage is full. Clear old posts in the mod console." : "Couldn't save that. You may not have permission here.")));
+  const banned = id => bans.some(b => b.id === id);
+  const repCount = (key, since = 0) => { const by = {}; Object.values(reps).forEach(r => (r.items || []).forEach(x => { if (x.key === key && x.at > since) by[x.reason] = (by[x.reason] || 0) + 1; })); return by; };
+  const total = o => Object.values(o).reduce((a, b) => a + b, 0);
+  const visible = caseId => (approved[caseId] || []).filter(x => !banned(x.by) && !(myReports.items || []).some(r => r.key === x.key));
+  const count = caseId => visible(caseId).length;
+  let openId = null, side = null, replyTo = null, view = "queue";
   function changed() {
-    $$("[data-count]").forEach(x => x.textContent = items(x.dataset.count).length || "Argue");
-    if (openId) renderThread();
-  }
-  function write(mut, who = me) {
-    const doc = JSON.parse(JSON.stringify(rec(who))); mut(doc); all[who] = doc; changed();
-    if (mode === "local") { try { localStorage.setItem(LKEY, JSON.stringify(doc)); } catch (e) {} return; }
-    queue = queue.then(() => db.doc("posts/" + who).set(doc)).catch(e => toast(e && e.code === "quota_exceeded" ? "The debate is full right now." : "Couldn't save that. You may only have read access here."));
+    $$("[data-count]").forEach(x => x.textContent = count(x.dataset.count) || "Discuss");
+    document.body.classList.toggle("community-on", live && (settings.enabled || admin));
+    const mt = $('[data-tab="mod"]'); if (mt) { mt.hidden = !admin; const n = pending().length; mt.querySelector(".count").textContent = n ? n : "Mod"; }
+    if (openId) renderThread(); if (!$("#mod").hidden) renderMod();
+    if (admin) autoHide();
   }
   async function connect() {
     for (let i = 0; i < 20 && !window.claude?.use; i++) await new Promise(r => setTimeout(r, 300));
     if (!window.claude?.use) return;
     const [d, u] = await Promise.all([claude.use("db"), claude.use("user")]);
     if (!d || !u) return;
-    const id = await u.id(); if (!id) return;
-    db = d; user = u; me = id; mode = "shared"; isOwner = !!u.isOwner(); all = {};
-    db.collection("posts").onSnapshot(snap => { const next = {}; snap.docs.forEach(x => { next[x.id] = x.data(); }); all = next; changed(); }, () => {});
+    me = await u.id(); if (!me) return;
+    db = d; user = u; live = true; admin = !!(u.isOwner() || u.canEdit());
+    const err = () => {};
+    db.doc("mod/settings").onSnapshot(x => { if (x.exists) settings = { ...settings, ...x.data() }; changed(); }, err);
+    db.doc("mod/bans").onSnapshot(x => { bans = (x.exists && x.data().ids) || []; changed(); }, err);
+    db.collection("approved").onSnapshot(sn => { const n = {}; sn.docs.forEach(x => { n[x.id] = x.data().items || []; }); approved = n; changed(); }, err);
+    db.doc("posts/" + me).onSnapshot(x => { mine = (x.exists && x.data()) || { items: [] }; changed(); }, err);
+    db.doc("reports/" + me).onSnapshot(x => { myReports = (x.exists && x.data()) || { items: [] }; changed(); }, err);
+    if (admin) {
+      db.collection("posts").onSnapshot(sn => { const n = {}; sn.docs.forEach(x => { n[x.id] = x.data(); }); subs = n; changed(); }, err);
+      db.collection("reports").onSnapshot(sn => { const n = {}; sn.docs.forEach(x => { n[x.id] = x.data(); }); reps = n; changed(); }, err);
+      db.doc("modlog/log").onSnapshot(x => { log = (x.exists && x.data().items) || []; changed(); }, err);
+      claude.use("sample").then(sm => { sample = sm; }).catch(() => {});
+    }
+    changed();
   }
-  async function nameOf(ids) {
-    const need = ids.filter(i => !(i in names)); if (!need.length) return;
-    if (mode === "local") { need.forEach(i => names[i] = "You"); return; }
-    try { const ps = await user.profiles(need); need.forEach(i => names[i] = (i === me ? "You" : (ps[i] && ps[i].name) || "Digger " + i.slice(-4))); } catch (e) { need.forEach(i => names[i] = "Digger"); }
-    renderThread();
+  async function resolveNames(ids) {
+    const need = [...new Set(ids)].filter(i => i && !(i in names)); if (!need.length || !user) return;
+    need.forEach(i => names[i] = "…");
+    try { const ps = await user.profiles(need); need.forEach(i => names[i] = i === me ? "You" : (ps[i] && ps[i].name) || "Member " + i.slice(-4)); } catch (e) { need.forEach(i => names[i] = "Member " + i.slice(-4)); }
+    changed();
   }
+  const nm = id => id === me ? "You" : names[id] || "…";
   const ago = t => { const s = (Date.now() - t) / 1000; return s < 60 ? "now" : s < 3600 ? Math.floor(s / 60) + "m" : s < 86400 ? Math.floor(s / 3600) + "h" : Math.floor(s / 86400) + "d"; };
-  function cmtHTML(it, parent) {
-    const n = likes(it.key), liked = (rec(me).likes || []).includes(it.key), reb = parent && parent.side !== it.side;
-    return `<li class="cmt"><div class="who"><b>${esc(names[it.by] || "…")}</b><span class="badge ${it.side}">${it.side}</span>${reb ? '<span class="badge reb">Rebuttal</span>' : ""}<span>${ago(it.at)}</span></div>
-      <p>${esc(it.text)}</p><div class="acts"><button data-like="${esc(it.key)}" aria-pressed="${liked}">Convincing${n ? " · " + n : ""}</button>${parent ? "" : `<button data-reply="${esc(it.key)}">Reply</button>`}${it.by === me || isOwner ? `<button data-del="${esc(it.key)}">Remove</button>` : ""}</div>`;
+  function logAct(action, detail) { log = [{ at: Date.now(), mod: me, action, ...detail }, ...log].slice(0, 300); W("modlog/log", { items: log }); }
+  function setStatus(by, id, patch) { const rec = subs[by] || { items: [] }; const doc = { ...rec, items: (rec.items || []).map(x => x.id === id ? { ...x, ...patch } : x) }; subs[by] = doc; W("posts/" + by, doc); }
+  const pending = () => { const out = []; for (const by in subs) (subs[by].items || []).forEach(x => x.status === "pending" && out.push({ ...x, by, key: by + ":" + x.id })); return out.sort((a, b) => a.at - b.at); };
+  const reported = () => { const out = []; for (const c in approved) approved[c].forEach(x => { const r = repCount(x.key, x.clearedAt || 0); if (total(r)) out.push({ ...x, caseId: c, r }); }); return out.sort((a, b) => total(b.r) - total(a.r)); };
+  function approve(it) {
+    const items = [...(approved[it.caseId] || []).filter(x => x.key !== it.key), { key: it.key, by: it.by, id: it.id, side: it.side, text: it.text, at: it.at, parent: it.parent || null, ok: Date.now() }];
+    approved[it.caseId] = items; W("approved/" + it.caseId, { items }); setStatus(it.by, it.id, { status: "approved" }); logAct("Approved", { key: it.key, caseId: it.caseId, text: it.text.slice(0, 80) });
+  }
+  function reject(it, reason) { setStatus(it.by, it.id, { status: "rejected", reason }); logAct("Rejected", { key: it.key, caseId: it.caseId, reason, text: it.text.slice(0, 80) }); }
+  function removeApproved(caseId, key, reason, silent) {
+    const items = (approved[caseId] || []).filter(x => x.key !== key && x.parent !== key); approved[caseId] = items; W("approved/" + caseId, { items });
+    const [by, id] = key.split(":"); if (subs[by]) setStatus(by, id, { status: "removed", reason }); if (!silent) logAct("Removed", { key, caseId, reason });
+  }
+  function keep(caseId, key) { const items = (approved[caseId] || []).map(x => x.key === key ? { ...x, clearedAt: Date.now() } : x); approved[caseId] = items; W("approved/" + caseId, { items }); logAct("Kept after reports", { key, caseId }); }
+  function ban(id, reason, purge) {
+    if (banned(id)) return; bans = [...bans, { id, at: Date.now(), reason }]; W("mod/bans", { ids: bans });
+    if (purge) for (const c in approved) approved[c].filter(x => x.by === id).forEach(x => removeApproved(c, x.key, "Author banned", true));
+    for (const x of (subs[id] || { items: [] }).items || []) if (x.status === "pending") setStatus(id, x.id, { status: "rejected", reason: "Author banned" });
+    logAct("Banned", { user: id, reason, purge: !!purge });
+  }
+  function unban(id) { bans = bans.filter(b => b.id !== id); W("mod/bans", { ids: bans }); logAct("Unbanned", { user: id }); }
+  let hiding = false;
+  function autoHide() {
+    if (hiding) return; hiding = true;
+    for (const x of reported()) if (total(x.r) >= (settings.hideAt || 3)) { removeApproved(x.caseId, x.key, "Hidden automatically after " + total(x.r) + " reports", true); logAct("Auto-hidden", { key: x.key, caseId: x.caseId, reports: total(x.r) }); }
+    hiding = false;
+  }
+  async function runTriage(btn) {
+    if (!sample) return toast("Claude triage isn't available here.");
+    const items = pending().slice(0, 20); if (!items.length) return;
+    btn.disabled = true; btn.textContent = "Claude is reading…";
+    try {
+      const out = await sample.json(`You help moderate comments in Rabbit Hole, an app about declassified government files and famous hoaxes. Rules:\n${settings.rules}\nFor each comment, suggest "approve", "reject" or "escalate" (a human should look closely), with a reason of at most 12 words. A moderator makes the final decision. Reply as JSON: {"items":[{"key":"...","action":"approve|reject|escalate","reason":"..."}]}\n\nComments:\n` + JSON.stringify(items.map(x => ({ key: x.key, case: plain(byId[x.caseId]?.hook || ""), side: x.side, text: x.text, autoFlags: x.flags || [] }))), { modelTier: "quick" });
+      (out.items || []).forEach(s => { triage[s.key] = s; }); renderMod();
+    } catch (e) { toast(e && e.code === "rate_limited" ? "Claude is busy. Try again in a minute." : "Claude triage didn't work this time."); }
+    btn.disabled = false; btn.textContent = "Ask Claude to triage";
+  }
+
+  /* public thread */
+  function itemHTML(it, parent, opts = {}) {
+    const reb = parent && parent.side !== it.side, mineP = it.status && it.status !== "approved";
+    return `<li class="cmt${mineP ? " mine-pending" : ""}"><div class="who"><b>${esc(nm(it.by || me))}</b><span class="badge ${it.side}">${it.side}</span>${reb ? '<span class="badge reb">Rebuttal</span>' : ""}<span>${ago(it.at)}</span>
+      ${it.status === "pending" ? '<span class="badge wait">Waiting for a moderator</span>' : it.status === "rejected" || it.status === "removed" ? `<span class="badge fake">Not published${it.reason ? ": " + esc(it.reason) : ""}</span>` : ""}</div>
+      <p>${esc(it.text)}</p>${opts.acts === false ? "" : `<div class="acts">${parent ? "" : `<button data-reply="${esc(it.key)}">Reply</button>`}${it.by !== me ? `<button data-report="${esc(it.key)}">Report</button>` : ""}</div>`}`;
   }
   function renderThread() {
     const sc = $(".debate"); if (!sc) return;
-    const all_ = items(openId), tops = all_.filter(x => !x.parent), kids = all_.filter(x => x.parent);
-    let list = tops.slice();
-    if (filter === "real" || filter === "fake") list = list.filter(x => x.side === filter);
-    list.sort(filter === "top" ? (a, b) => likes(b.key) - likes(a.key) || b.at - a.at : (a, b) => b.at - a.at);
-    const t = sides(openId), tot = t.real + t.fake, pr = tot ? Math.round(t.real / tot * 100) : 50;
-    $(".tally", sc).innerHTML = `<div class="bar"><i style="width:${pr}%;background:var(--v-true)"></i><i style="width:${100 - pr}%;background:var(--v-false)"></i></div>
-      <div class="row"><span class="side-real">Real ${tot ? pr + "%" : ""} · ${t.real}</span><span>${tot} ${tot === 1 ? "vote" : "votes"}</span><span class="side-fake">Fake ${tot ? 100 - pr + "%" : ""} · ${t.fake}</span></div>`;
-    $(".thread", sc).innerHTML = list.length ? list.map(it => cmtHTML(it) + (kids.some(k => k.parent === it.key) ? `<ol>${kids.filter(k => k.parent === it.key).sort((a, b) => a.at - b.at).map(k => cmtHTML(k, it) + "</li>").join("")}</ol>` : "") + "</li>").join("")
-      : `<li class="empty-thread">${filter === "all" || filter === "top" ? "No arguments yet. Pick a side and make the first one." : "Nobody on this side has spoken up yet."}</li>`;
-    $$(".filters button", sc).forEach(b => b.setAttribute("aria-pressed", b.dataset.f === filter));
+    const pub = visible(openId), tops = pub.filter(x => !x.parent), kids = pub.filter(x => x.parent);
+    const own = (mine.items || []).filter(x => x.caseId === openId && x.status !== "approved").map(x => ({ ...x, by: me, key: me + ":" + x.id }));
+    resolveNames(pub.map(x => x.by));
+    $(".thread", sc).innerHTML = (own.length ? own.map(x => itemHTML(x, null, { acts: false }) + "</li>").join("") : "") +
+      (tops.length ? tops.sort((a, b) => b.at - a.at).map(it => itemHTML(it) + (kids.some(k => k.parent === it.key) ? `<ol>${kids.filter(k => k.parent === it.key).sort((a, b) => a.at - b.at).map(k => itemHTML(k, it) + "</li>").join("")}</ol>` : "") + "</li>").join("")
+        : own.length ? "" : `<li class="empty-thread">Nothing published here yet. Make the first case for or against.</li>`);
     $$(".pick-side button", sc).forEach(b => b.setAttribute("aria-pressed", b.dataset.side === side));
-    const rt = replyTo && all_.find(x => x.key === replyTo);
-    $(".replying", sc).hidden = !rt; if (rt) $(".replying span", sc).textContent = `Replying to ${names[rt.by] || "them"} (${rt.side})`;
+    const rt = replyTo && pub.find(x => x.key === replyTo); $(".replying", sc).hidden = !rt; if (rt) $(".replying span", sc).textContent = `Replying to ${nm(rt.by)} (${rt.side})`;
     $(".post", sc).disabled = !side || !$("#argText", sc).value.trim();
-    nameOf([...new Set(all_.map(x => x.by))]);
+    $(".compose", sc).hidden = !S.rulesOk || banned(me); $(".rules", sc).hidden = !!S.rulesOk; $(".banned", sc).hidden = !banned(me);
   }
   function open(caseId) {
-    if ($(".scrim")) return;
-    const c = byId[caseId]; openId = caseId; filter = "all"; replyTo = null; side = (rec(me).sides || {})[caseId] || null;
+    if ($(".scrim") || !live) return;
+    const c = byId[caseId]; openId = caseId; replyTo = null; side = null;
     const s = document.createElement("div"); s.className = "scrim";
     s.innerHTML = `<div class="sheet debate" role="dialog" aria-modal="true" aria-labelledby="dbT">
-      <header><h2 id="dbT">The debate</h2><button class="x" data-x>Close</button></header>
+      <header><h2 id="dbT">Discussion</h2><button class="x" data-x>Close</button></header>
+      ${!settings.enabled && admin ? '<p class="fine" style="text-align:left">Community is switched off for everyone else. You see this as a moderator.</p>' : ""}
       <p class="prompt"><b>Alice asks</b>${esc(plain(c.hook))} ${esc(PROMPT[c.ans])}</p>
-      <div class="tally"></div>
-      <div class="filters" role="group" aria-label="Show"><button data-f="all">Newest</button><button data-f="top">Most convincing</button><button data-f="real">Real side</button><button data-f="fake">Fake side</button></div>
       <ol class="thread" aria-live="polite"></ol>
-      <form class="compose"><div class="pick-side" role="group" aria-label="Your side"><button type="button" class="real" data-side="real">I say Real</button><button type="button" class="fake" data-side="fake">I say Fake</button></div>
+      <div class="rules"><b>House rules</b><p>${esc(settings.rules).replace(/\n/g, "<br>")}</p><button class="cta" data-agree>I agree</button></div>
+      <p class="banned fine" hidden>You can't post here.</p>
+      <form class="compose" hidden><div class="pick-side" role="group" aria-label="Your side"><button type="button" class="real" data-side="real">I say Real</button><button type="button" class="fake" data-side="fake">I say Fake</button></div>
         <div class="replying" hidden><span></span><button type="button" data-cancel>Cancel</button></div>
-        <label class="sr" for="argText" hidden>Your argument</label><textarea id="argText" maxlength="280" placeholder="Make your case. Keep it about the evidence."></textarea>
-        <div class="row"><span>${mode === "shared" ? "Everyone who opens this page can read the debate." : "Saved on this device only for now."}</span><button class="post" type="submit">Post</button></div></form></div>`;
+        <textarea id="argText" maxlength="280" aria-label="Your argument" placeholder="Make your case. Keep it about the evidence."></textarea>
+        <div class="row"><span>A moderator reads every post first.</span><button class="post" type="submit">Send for review</button></div></form></div>`;
     $("#app").append(s);
     s.addEventListener("input", () => $(".post", s).disabled = !side || !$("#argText", s).value.trim());
     s.addEventListener("click", e => {
       if (e.target === s || e.target.closest("[data-x]")) { openId = null; return s.remove(); }
-      const f = e.target.closest("[data-f]"); if (f) { filter = f.dataset.f; return renderThread(); }
-      const sd = e.target.closest("[data-side]"); if (sd) { side = sd.dataset.side; write(d => { d.sides = { ...(d.sides || {}), [caseId]: side }; }); return renderThread(); }
-      const lk = e.target.closest("[data-like]"); if (lk) { const k = lk.dataset.like; write(d => { d.likes = (d.likes || []).includes(k) ? d.likes.filter(x => x !== k) : [...(d.likes || []), k]; }); return; }
+      if (e.target.closest("[data-agree]")) { S.rulesOk = true; save(); return renderThread(); }
+      const sd = e.target.closest("[data-side]"); if (sd) { side = sd.dataset.side; return renderThread(); }
       const rp = e.target.closest("[data-reply]"); if (rp) { replyTo = rp.dataset.reply; renderThread(); return $("#argText", s).focus(); }
       if (e.target.closest("[data-cancel]")) { replyTo = null; return renderThread(); }
-      const del = e.target.closest("[data-del]");
-      if (del) { if (!del.dataset.armed) { del.dataset.armed = "1"; del.textContent = "Tap to confirm"; return; }
-        const [by, id] = del.dataset.del.split(":"); write(d => { d.items = (d.items || []).filter(x => x.id !== id && x.parent !== del.dataset.del); }, by); }
+      const rep = e.target.closest("[data-report]");
+      if (rep) { const k = rep.dataset.report; rep.outerHTML = `<span class="why">${["Harassment or hate", "Harmful misinformation", "Personal information", "Spam", "Something else"].map(r => `<button data-rk="${esc(k)}" data-r="${r}">${r}</button>`).join("")}</span>`; return; }
+      const rr = e.target.closest("[data-r]");
+      if (rr) { const items = [...(myReports.items || []).filter(x => x.key !== rr.dataset.rk), { key: rr.dataset.rk, caseId: openId, reason: rr.dataset.r, at: Date.now() }].slice(-300); myReports = { items }; W("reports/" + me, { items }); toast("Reported. A moderator will look at it."); return renderThread(); }
     });
     s.addEventListener("submit", e => {
       e.preventDefault(); const ta = $("#argText", s), text = ta.value.trim().slice(0, 280); if (!text || !side) return;
-      const it = { id: Math.random().toString(36).slice(2, 10), caseId, side, text, at: Date.now(), parent: replyTo || null };
-      write(d => { d.items = [...(d.items || []), it].slice(-400); d.sides = { ...(d.sides || {}), [caseId]: side }; });
-      ta.value = ""; replyTo = null; filter = "all"; renderThread(); toast("Argument posted");
+      if (banned(me)) return toast("You can't post here.");
+      const last = Math.max(0, ...(mine.items || []).map(x => x.at)); if (Date.now() - last < (settings.slow || 0) * 1000) return toast(`Slow mode: wait ${Math.ceil(((settings.slow || 0) * 1000 - (Date.now() - last)) / 1000)} seconds.`);
+      const f = Filter(text, settings.words); if (f.block.length) return toast(`This can't be posted: ${f.block.join(", ")}.`);
+      const it = { id: Math.random().toString(36).slice(2, 10), caseId: openId, side, text, at: Date.now(), parent: replyTo || null, status: "pending", flags: f.flag };
+      mine = { ...mine, items: [...(mine.items || []), it].slice(-200) }; W("posts/" + me, mine);
+      ta.value = ""; replyTo = null; renderThread(); toast("Sent. It appears once a moderator approves it.");
     });
     renderThread();
   }
+  const PROMPT = { true: "This one really happened. Was it a one-off, or is something like it still going on?", false: "Debunked. So why do so many people still believe it?",
+    mixed: "Part of it is true. Which part matters more?", unknown: "Nobody can prove it either way. What do you think happened?" };
+
+  /* moderator console */
+  function renderMod() {
+    const v = $("#mod"); if (!admin) { v.innerHTML = `<h1>Moderation</h1><p class="lede">Only moderators can see this.</p>`; return; }
+    const P = pending(), R = reported();
+    resolveNames([...P.map(x => x.by), ...R.map(x => x.by), ...bans.map(b => b.id), ...log.map(l => l.mod)]);
+    const seg = [["queue", "Queue", P.length], ["reported", "Reported", R.length], ["banned", "Banned", bans.length], ["log", "Log", log.length], ["settings", "Settings", ""]];
+    const caseOf = id => byId[id] ? byId[id].title : id;
+    let body = "";
+    if (view === "queue") body = (sample ? `<button class="ghost" data-triage>Ask Claude to triage</button>` : "") + (P.length ? P.map(x => { const tr = triage[x.key];
+      return `<li class="mq"><div class="who"><b>${esc(nm(x.by))}</b><span class="badge ${x.side}">${x.side}</span><span>${ago(x.at)} · ${esc(caseOf(x.caseId))}</span>${banned(x.by) ? '<span class="badge fake">Banned</span>' : ""}</div>
+        <p>${esc(x.text)}</p>${(x.flags || []).length ? `<div class="flags">${x.flags.map(f => `<span class="badge reb">${esc(f)}</span>`).join("")}</div>` : ""}
+        ${tr ? `<p class="tri tri-${esc(tr.action)}">Claude suggests <b>${esc(tr.action)}</b>: ${esc(tr.reason || "")}</p>` : ""}
+        <div class="acts"><button class="ok" data-approve="${esc(x.key)}">Approve</button><select data-reason aria-label="Reason"><option>Breaks the rules</option><option>Harassment or hate</option><option>Harmful misinformation</option><option>Personal information</option><option>Spam</option><option>Off topic</option></select><button data-reject="${esc(x.key)}">Reject</button><button data-ban="${esc(x.by)}">Ban author</button></div></li>`; }).join("") : `<li class="empty-thread">The queue is empty.</li>`);
+    if (view === "reported") body = R.length ? R.map(x => `<li class="mq"><div class="who"><b>${esc(nm(x.by))}</b><span class="badge ${x.side}">${x.side}</span><span>${esc(caseOf(x.caseId))}</span></div><p>${esc(x.text)}</p>
+        <div class="flags">${Object.entries(x.r).map(([k, n]) => `<span class="badge fake">${esc(k)} × ${n}</span>`).join("")}</div>
+        <div class="acts"><button data-keep="${esc(x.caseId)}|${esc(x.key)}">Keep it up</button><button data-remove="${esc(x.caseId)}|${esc(x.key)}">Remove</button><button data-ban="${esc(x.by)}" data-purge="1">Ban and remove all</button></div></li>`).join("") : `<li class="empty-thread">No reports.</li>`;
+    if (view === "banned") body = bans.length ? bans.map(b => `<li class="mq"><div class="who"><b>${esc(nm(b.id))}</b><span>${ago(b.at)}</span></div><p>${esc(b.reason || "")}</p><div class="acts"><button data-unban="${esc(b.id)}">Unban</button></div></li>`).join("") : `<li class="empty-thread">Nobody is banned.</li>`;
+    if (view === "log") body = log.length ? log.map(l => `<li class="mq"><div class="who"><b>${esc(l.action)}</b><span>${ago(l.at)} by ${esc(nm(l.mod))}</span></div><p>${esc([l.reason, l.text, l.caseId && caseOf(l.caseId), l.user && nm(l.user)].filter(Boolean).join(" · "))}</p></li>`).join("") : `<li class="empty-thread">No actions yet.</li>`;
+    if (view === "settings") body = `<li class="mq set"><label class="tog"><input type="checkbox" id="mEnabled" ${settings.enabled ? "checked" : ""}> Community discussion is on for everyone</label>
+        <p class="fine" style="text-align:left">While it's off, only moderators can see or test discussions.</p>
+        <label>Hide a published post automatically after <input type="number" id="mHide" min="1" max="50" value="${settings.hideAt || 3}"> reports</label>
+        <label>Slow mode: seconds between posts per person <input type="number" id="mSlow" min="0" max="3600" value="${settings.slow || 0}"></label>
+        <label>Blocked words or phrases, one per line<textarea id="mWords" rows="4">${esc((settings.words || []).join("\n"))}</textarea></label>
+        <label>House rules<textarea id="mRules" rows="6">${esc(settings.rules || RULES_DEFAULT)}</textarea></label>
+        <button class="cta" data-savesettings>Save settings</button></li>`;
+    v.innerHTML = `<h1>Moderation</h1><p class="lede">Every post waits here until a moderator approves it. Every action is logged.</p>
+      <div class="filters" role="tablist">${seg.map(([k, l, n]) => `<button data-mv="${k}" aria-pressed="${view === k}">${l}${n !== "" ? " · " + n : ""}</button>`).join("")}</div>
+      <ol class="thread modlist">${body}</ol>`;
+  }
+  $("#mod").addEventListener("click", e => {
+    const mv = e.target.closest("[data-mv]"); if (mv) { view = mv.dataset.mv; return renderMod(); }
+    if (e.target.closest("[data-triage]")) return runTriage(e.target.closest("[data-triage]"));
+    const find = key => pending().find(x => x.key === key);
+    const ap = e.target.closest("[data-approve]"); if (ap) { const it = find(ap.dataset.approve); if (it) { approve(it); toast("Approved and published"); } return; }
+    const rj = e.target.closest("[data-reject]"); if (rj) { const it = find(rj.dataset.reject); if (it) { reject(it, $("[data-reason]", rj.closest(".mq")).value); toast("Rejected"); } return; }
+    const bn = e.target.closest("[data-ban]"); if (bn) { if (!bn.dataset.armed) { bn.dataset.armed = "1"; bn.textContent = "Tap to confirm ban"; return; } ban(bn.dataset.ban, "Broke the house rules", !!bn.dataset.purge); toast("Banned"); return; }
+    const ub = e.target.closest("[data-unban]"); if (ub) { unban(ub.dataset.unban); return; }
+    const kp = e.target.closest("[data-keep]"); if (kp) { const [c, k] = kp.dataset.keep.split("|"); keep(c, k); toast("Kept. Its report count is reset."); return; }
+    const rm = e.target.closest("[data-remove]"); if (rm) { const [c, k] = rm.dataset.remove.split("|"); removeApproved(c, k, "Removed after reports"); toast("Removed"); return; }
+    if (e.target.closest("[data-savesettings]")) {
+      settings = { ...settings, enabled: $("#mEnabled").checked, hideAt: Math.max(1, +$("#mHide").value || 3), slow: Math.max(0, +$("#mSlow").value || 0),
+        words: $("#mWords").value.split("\n").map(x => x.trim()).filter(Boolean).slice(0, 500), rules: $("#mRules").value.trim().slice(0, 2000) || RULES_DEFAULT };
+      W("mod/settings", settings); logAct("Changed settings", { reason: settings.enabled ? "Community on" : "Community off" }); toast("Settings saved"); changed();
+    }
+  });
   connect();
-  return { open, count: id => items(id).length, get mode() { return mode; } };
+  return { open, count, render: renderMod, get live() { return live; }, get admin() { return admin; } };
 })();
+const Debate = Community;
 
 /* ---------- Watch: the reels ---------- */
 const Watch = (() => {

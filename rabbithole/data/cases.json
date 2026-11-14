@@ -68,7 +68,9 @@
     "US Senate hearing on Project MKUltra, 1977",
     "https://en.wikipedia.org/wiki/Project_MKUltra"
    ],
-   "reveal": "The CIA ran it for twenty years. Most files were destroyed, but twenty thousand pages survived and were read out in the Senate in 1977."
+   "reveal": "The CIA ran it for twenty years. Most files were destroyed, but twenty thousand pages survived and were read out in the Senate in 1977.",
+   "title": "Project MKUltra",
+   "tease": "the CIA spent twenty years trying to control the human mind"
   },
   {
    "id": "midnight",
@@ -87,7 +89,9 @@
     "Senate MKUltra hearing, 1977",
     "https://en.wikipedia.org/wiki/Operation_Midnight_Climax"
    ],
-   "reveal": "It was an MKUltra subproject. Paid sex workers lured men to CIA flats in San Francisco and New York, where agents watched them get drugged."
+   "reveal": "It was an MKUltra subproject. Paid sex workers lured men to CIA flats in San Francisco and New York, where agents watched them get drugged.",
+   "title": "Operation Midnight Climax",
+   "tease": "the CIA rented flats, hired women, and watched through the mirrors"
   },
   {
    "id": "stargate",
@@ -106,7 +110,9 @@
     "CIA CREST archive, released 2017",
     "https://en.wikipedia.org/wiki/Stargate_Project"
    ],
-   "reveal": "The Army, the DIA and the CIA funded psychic spies until 1995. A review found they never produced intelligence anyone could use."
+   "reveal": "The Army, the DIA and the CIA funded psychic spies until 1995. A review found they never produced intelligence anyone could use.",
+   "title": "the Stargate psychic spies",
+   "tease": "the Pentagon paid people to spy on the Soviets with their minds"
   },
   {
    "id": "acoustickitty",
@@ -124,7 +130,9 @@
     "CIA memo \"Views on Trained Cats\", released 2001",
     "https://en.wikipedia.org/wiki/Acoustic_Kitty"
    ],
-   "reveal": "The CIA really did wire up a cat. A 2001 memo called the idea workable but impractical. The taxi story is disputed."
+   "reveal": "The CIA really did wire up a cat. A 2001 memo called the idea workable but impractical. The taxi story is disputed.",
+   "title": "Acoustic Kitty",
+   "tease": "the CIA tried to send a cat on a spy mission"
   },
   {
    "id": "northwoods",
@@ -142,7 +150,9 @@
     "Joint Chiefs memo, declassified 1997",
     "https://en.wikipedia.org/wiki/Operation_Northwoods"
    ],
-   "reveal": "The Joint Chiefs signed it in March 1962. Kennedy's team rejected it, and the plan stayed secret until 1997."
+   "reveal": "The Joint Chiefs signed it in March 1962. Kennedy's team rejected it, and the plan stayed secret until 1997.",
+   "title": "Operation Northwoods",
+   "tease": "America's top generals signed off on fake terror attacks"
   },
   {
    "id": "tonkin",
@@ -160,7 +170,9 @@
     "NSA history by Robert Hanyok, declassified 2005",
     "https://en.wikipedia.org/wiki/Gulf_of_Tonkin_incident"
    ],
-   "reveal": "The August 2 clash was real. The August 4 attack almost certainly never happened, and an NSA history admitted the intercepts were misread."
+   "reveal": "The August 2 clash was real. The August 4 attack almost certainly never happened, and an NSA history admitted the intercepts were misread.",
+   "title": "the Gulf of Tonkin",
+   "tease": "a war escalated over an attack that never happened"
   },
   {
    "id": "nayirah",
@@ -178,7 +190,9 @@
     "Congressional Human Rights Caucus, 1990",
     "https://en.wikipedia.org/wiki/Nayirah_testimony"
    ],
-   "reveal": "Nayirah was the Kuwaiti ambassador's daughter, and her testimony was tied to a PR campaign. Investigators found no support for her story."
+   "reveal": "Nayirah was the Kuwaiti ambassador's daughter, and her testimony was tied to a PR campaign. Investigators found no support for her story.",
+   "title": "the Nayirah testimony",
+   "tease": "a crying teenager sold a war, and nobody checked who she was"
   },
   {
    "id": "mincemeat",
@@ -196,7 +210,9 @@
     "UK National Archives, Operation Mincemeat",
     "https://en.wikipedia.org/wiki/Operation_Mincemeat"
    ],
-   "reveal": "The body of Glyndwr Michael carried forged letters. Hitler's spies believed them, and the Allies landed in Sicily in July 1943."
+   "reveal": "The body of Glyndwr Michael carried forged letters. Hitler's spies believed them, and the Allies landed in Sicily in July 1943.",
+   "title": "Operation Mincemeat",
+   "tease": "a dead man fooled Hitler"
   },
   {
    "id": "ghostarmy",
@@ -215,7 +231,9 @@
     "US Army records, declassified 1996",
     "https://en.wikipedia.org/wiki/Ghost_Army"
    ],
-   "reveal": "Eleven hundred artists and sound engineers faked whole divisions with rubber tanks and speakers. It stayed secret for fifty years."
+   "reveal": "Eleven hundred artists and sound engineers faked whole divisions with rubber tanks and speakers. It stayed secret for fifty years.",
+   "title": "the Ghost Army",
+   "tease": "an army of artists fought with rubber tanks"
   },
   {
    "id": "roswell",
@@ -233,7 +251,9 @@
     "US Air Force Roswell report, 1994",
     "https://en.wikipedia.org/wiki/Roswell_incident"
    ],
-   "reveal": "The base really announced a flying disc. In 1994 the Air Force said it was Project Mogul, a secret balloon built to spy on Soviet nukes."
+   "reveal": "The base really announced a flying disc. In 1994 the Air Force said it was Project Mogul, a secret balloon built to spy on Soviet nukes.",
+   "title": "Roswell",
+   "tease": "the US Army told the papers it had captured a flying disc"
   },
   {
    "id": "area51",
@@ -251,7 +271,9 @@
     "CIA U-2 history, released 2013",
     "https://en.wikipedia.org/wiki/Area_51"
    ],
-   "reveal": "A declassified CIA history named Area 51 in 2013. It was built to test spy planes, and those planes explain a lot of UFO sightings."
+   "reveal": "A declassified CIA history named Area 51 in 2013. It was built to test spy planes, and those planes explain a lot of UFO sightings.",
+   "title": "Area 51",
+   "tease": "the base the government wouldn't admit existed"
   },
   {
    "id": "bluebook",
@@ -269,7 +291,9 @@
     "US National Archives, Project Blue Book",
     "https://www.archives.gov/research/military/air-force/ufos"
    ],
-   "reveal": "Project Blue Book logged 12,618 reports from 1952 to 1969. 701 were never identified."
+   "reveal": "Project Blue Book logged 12,618 reports from 1952 to 1969. 701 were never identified.",
+   "title": "Project Blue Book",
+   "tease": "the Air Force logged 701 UFOs it could never explain"
   },
   {
    "id": "tictac",
@@ -287,7 +311,9 @@
     "US Navy FLIR video, released 2020",
     "https://en.wikipedia.org/wiki/USS_Nimitz_UFO_incident"
    ],
-   "reveal": "The Pentagon released the video in 2020. The object has never been officially identified."
+   "reveal": "The Pentagon released the video in 2020. The object has never been officially identified.",
+   "title": "the Tic Tac UFO",
+   "tease": "Navy pilots chased something that outflew their jets"
   },
   {
    "id": "wow",
@@ -306,7 +332,9 @@
     "Big Ear Radio Observatory, 1977",
     "https://en.wikipedia.org/wiki/Wow!_signal"
    ],
-   "reveal": "The Wow! signal was strong, narrow and near the hydrogen line. It never repeated, and no explanation is settled."
+   "reveal": "The Wow! signal was strong, narrow and near the hydrogen line. It never repeated, and no explanation is settled.",
+   "title": "the Wow! signal",
+   "tease": "72 seconds of signal from deep space, never heard again"
   },
   {
    "id": "cointelpro",
@@ -324,7 +352,9 @@
     "Church Committee final report, 1976",
     "https://en.wikipedia.org/wiki/COINTELPRO"
    ],
-   "reveal": "The FBI ran COINTELPRO from 1956 to 1971. Activists exposed it by stealing files from an FBI office, and the Senate confirmed it."
+   "reveal": "The FBI ran COINTELPRO from 1956 to 1971. Activists exposed it by stealing files from an FBI office, and the Senate confirmed it.",
+   "title": "COINTELPRO",
+   "tease": "the FBI mailed a letter to Martin Luther King Jr."
   },
   {
    "id": "mockingbird",
@@ -342,7 +372,9 @@
     "CIA \"Family Jewels\", released 2007",
     "https://en.wikipedia.org/wiki/Operation_Mockingbird"
    ],
-   "reveal": "The Church Committee confirmed CIA ties to journalists. Whether one big program called Mockingbird existed is still disputed."
+   "reveal": "The Church Committee confirmed CIA ties to journalists. Whether one big program called Mockingbird existed is still disputed.",
+   "title": "Operation Mockingbird",
+   "tease": "the CIA had friends in America's newsrooms"
   },
   {
    "id": "jfk",
@@ -360,7 +392,9 @@
     "National Archives, JFK records",
     "https://www.archives.gov/research/jfk"
    ],
-   "reveal": "The House committee said probably a conspiracy in 1979. Scientists later rejected the audio evidence it relied on."
+   "reveal": "The House committee said probably a conspiracy in 1979. Scientists later rejected the audio evidence it relied on.",
+   "title": "the JFK verdict",
+   "tease": "a government committee said JFK was probably killed in a conspiracy"
   },
   {
    "id": "tuskegee",
@@ -378,7 +412,9 @@
     "CDC, The Syphilis Study at Tuskegee",
     "https://en.wikipedia.org/wiki/Tuskegee_Syphilis_Study"
    ],
-   "reveal": "The Public Health Service withheld treatment from Black men in Alabama for forty years. President Clinton apologised in 1997."
+   "reveal": "The Public Health Service withheld treatment from Black men in Alabama for forty years. President Clinton apologised in 1997.",
+   "title": "the Tuskegee study",
+   "tease": "health officials watched men go untreated for forty years"
   },
   {
    "id": "seaspray",
@@ -396,7 +432,9 @@
     "US Senate hearings, 1977",
     "https://en.wikipedia.org/wiki/Operation_Sea-Spray"
    ],
-   "reveal": "In 1950 the Navy sprayed bacteria over San Francisco to test a germ attack. Nobody in the city was told."
+   "reveal": "In 1950 the Navy sprayed bacteria over San Francisco to test a germ attack. Nobody in the city was told.",
+   "title": "Operation Sea-Spray",
+   "tease": "the Navy sprayed bacteria over San Francisco"
   },
   {
    "id": "paperclip",
@@ -415,7 +453,9 @@
     "US National Archives, Paperclip records",
     "https://en.wikipedia.org/wiki/Operation_Paperclip"
    ],
-   "reveal": "More than 1,600 German scientists came to the US. Some files were cleaned up, and Wernher von Braun went on to build the Moon rocket."
+   "reveal": "More than 1,600 German scientists came to the US. Some files were cleaned up, and Wernher von Braun went on to build the Moon rocket.",
+   "title": "Operation Paperclip",
+   "tease": "America quietly hired Nazi scientists"
   },
   {
    "id": "moon",
@@ -433,7 +473,9 @@
     "NASA Lunar Reconnaissance Orbiter",
     "https://en.wikipedia.org/wiki/Moon_landing_conspiracy_theories"
    ],
-   "reveal": "Moon rock, laser mirrors still in use and orbiter photos of the landing sites all say the same thing. They went."
+   "reveal": "Moon rock, laser mirrors still in use and orbiter photos of the landing sites all say the same thing. They went.",
+   "title": "the Moon landing hoax",
+   "tease": "they say the Moon landings were filmed in a studio"
   },
   {
    "id": "philadelphia",
@@ -451,7 +493,9 @@
     "US Naval History and Heritage Command",
     "https://en.wikipedia.org/wiki/Philadelphia_Experiment"
    ],
-   "reveal": "The story began with letters from a man called Carl Allen. The Navy says it never happened."
+   "reveal": "The story began with letters from a man called Carl Allen. The Navy says it never happened.",
+   "title": "the Philadelphia Experiment",
+   "tease": "a warship supposedly vanished into thin air"
   },
   {
    "id": "bermuda",
@@ -469,7 +513,9 @@
     "US Coast Guard; NOAA",
     "https://en.wikipedia.org/wiki/Bermuda_Triangle"
    ],
-   "reveal": "The Triangle has no more disappearances than any other busy stretch of ocean. The legend came from a 1964 magazine story."
+   "reveal": "The Triangle has no more disappearances than any other busy stretch of ocean. The legend came from a 1964 magazine story.",
+   "title": "the Bermuda Triangle",
+   "tease": "a patch of ocean that supposedly swallows ships"
   },
   {
    "id": "pauldead",
@@ -487,7 +533,9 @@
     "Life magazine, November 1969",
     "https://en.wikipedia.org/wiki/Paul_is_dead"
    ],
-   "reveal": "The rumour spread in 1969. Paul McCartney told Life magazine he was alive and well. He is still touring."
+   "reveal": "The rumour spread in 1969. Paul McCartney told Life magazine he was alive and well. He is still touring.",
+   "title": "Paul is dead",
+   "tease": "fans swore a Beatle died in 1966"
   },
   {
    "id": "birds",
@@ -505,7 +553,9 @@
     "The New York Times, 2021",
     "https://en.wikipedia.org/wiki/Birds_Aren%27t_Real"
    ],
-   "reveal": "Birds Aren't Real is a joke. Its founder confirmed in 2021 that it was satire from the start."
+   "reveal": "Birds Aren't Real is a joke. Its founder confirmed in 2021 that it was satire from the start.",
+   "title": "Birds Aren't Real",
+   "tease": "a movement claims every bird is a government drone"
   },
   {
    "id": "havana",
@@ -523,7 +573,9 @@
     "Office of the Director of National Intelligence, 2023",
     "https://en.wikipedia.org/wiki/Havana_syndrome"
    ],
-   "reveal": "A 2023 assessment found a foreign attack very unlikely, but many of those affected disagree. The case is still open."
+   "reveal": "A 2023 assessment found a foreign attack very unlikely, but many of those affected disagree. The case is still open.",
+   "title": "Havana syndrome",
+   "tease": "diplomats said they were hit by an invisible weapon"
   },
   {
    "id": "starfish",
@@ -541,7 +593,9 @@
    "src": [
     "Defense Atomic Support Agency records",
     "https://en.wikipedia.org/wiki/Starfish_Prime"
-   ]
+   ],
+   "title": "Starfish Prime",
+   "tease": "America set off a nuclear bomb in space"
   },
   {
    "id": "a119",
@@ -559,7 +613,9 @@
    "src": [
     "Leonard Reiffel, 2000",
     "https://en.wikipedia.org/wiki/Project_A119"
-   ]
+   ],
+   "title": "Project A119",
+   "tease": "the Air Force had a plan to nuke the Moon"
   },
   {
    "id": "iceworm",
@@ -577,7 +633,9 @@
    "src": [
     "Danish Institute for International Studies, 1997",
     "https://en.wikipedia.org/wiki/Project_Iceworm"
-   ]
+   ],
+   "title": "Project Iceworm",
+   "tease": "the Army hid a missile plan under the Greenland ice"
   },
   {
    "id": "azorian",
@@ -595,7 +653,9 @@
    "src": [
     "CIA, Project Azorian history",
     "https://en.wikipedia.org/wiki/Project_Azorian"
-   ]
+   ],
+   "title": "Project Azorian",
+   "tease": "the CIA used a billionaire as cover to steal a Soviet submarine"
   },
   {
    "id": "habakkuk",
@@ -613,7 +673,9 @@
    "src": [
     "Combined Operations records",
     "https://en.wikipedia.org/wiki/Project_Habakkuk"
-   ]
+   ],
+   "title": "Project Habakkuk",
+   "tease": "Britain tried to build an aircraft carrier out of ice"
   },
   {
    "id": "washtub",
@@ -631,7 +693,9 @@
    "src": [
     "Declassified FBI and Air Force records",
     "https://en.wikipedia.org/wiki/Operation_Washtub_(United_States)"
-   ]
+   ],
+   "title": "Operation Washtub",
+   "tease": "the FBI trained Alaskan fishermen as secret spies"
   },
   {
    "id": "gladio",
@@ -649,7 +713,9 @@
    "src": [
     "Italian Chamber of Deputies, 1990",
     "https://en.wikipedia.org/wiki/Operation_Gladio"
-   ]
+   ],
+   "title": "Operation Gladio",
+   "tease": "secret armies were hidden across Europe for forty years"
   },
   {
    "id": "popeye",
@@ -667,7 +733,9 @@
    "src": [
     "US Senate hearings, 1974",
     "https://en.wikipedia.org/wiki/Operation_Popeye"
-   ]
+   ],
+   "title": "Operation Popeye",
+   "tease": "the US military tried to weaponise the weather"
   },
   {
    "id": "shamrock",
@@ -685,7 +753,9 @@
    "src": [
     "Church Committee, 1975",
     "https://en.wikipedia.org/wiki/Project_SHAMROCK"
-   ]
+   ],
+   "title": "Project SHAMROCK",
+   "tease": "for thirty years, the NSA read Americans' telegrams"
   },
   {
    "id": "prism",
@@ -703,7 +773,9 @@
    "src": [
     "The Guardian, The Washington Post, 2013",
     "https://en.wikipedia.org/wiki/PRISM"
-   ]
+   ],
+   "title": "PRISM",
+   "tease": "the NSA had a program to pull data from Google, Facebook and Apple"
   },
   {
    "id": "chaos",
@@ -721,7 +793,9 @@
    "src": [
     "Rockefeller Commission, 1975",
     "https://en.wikipedia.org/wiki/Operation_CHAOS"
-   ]
+   ],
+   "title": "Operation CHAOS",
+   "tease": "the CIA spied on American anti-war protesters"
   },
   {
    "id": "snowwhite",
@@ -739,7 +813,9 @@
    "src": [
     "United States v. Mary Sue Hubbard, 1979",
     "https://en.wikipedia.org/wiki/Operation_Snow_White"
-   ]
+   ],
+   "title": "Operation Snow White",
+   "tease": "a church infiltrated the US government"
   },
   {
    "id": "phoebus",
@@ -757,7 +833,9 @@
    "src": [
     "Phoebus cartel records",
     "https://en.wikipedia.org/wiki/Phoebus_cartel"
-   ]
+   ],
+   "title": "the Phoebus cartel",
+   "tease": "lightbulb makers agreed to make bulbs die sooner"
   },
   {
    "id": "radium",
@@ -775,7 +853,9 @@
    "src": [
     "US Radium Corporation court cases",
     "https://en.wikipedia.org/wiki/Radium_Girls"
-   ]
+   ],
+   "title": "the Radium Girls",
+   "tease": "factory workers were told glowing paint was safe to lick"
   },
   {
    "id": "dieselgate",
@@ -793,7 +873,9 @@
    "src": [
     "US Environmental Protection Agency, 2015",
     "https://en.wikipedia.org/wiki/Volkswagen_emissions_scandal"
-   ]
+   ],
+   "title": "Dieselgate",
+   "tease": "cars that knew when they were being tested"
   },
   {
    "id": "sugar",
@@ -811,7 +893,9 @@
    "src": [
     "JAMA Internal Medicine, 2016",
     "https://en.wikipedia.org/wiki/Sugar_Research_Foundation"
-   ]
+   ],
+   "title": "the sugar papers",
+   "tease": "the sugar industry paid Harvard scientists to blame fat"
   },
   {
    "id": "dbcooper",
@@ -829,7 +913,9 @@
    "src": [
     "FBI, D.B. Cooper case",
     "https://en.wikipedia.org/wiki/D._B._Cooper"
-   ]
+   ],
+   "title": "D. B. Cooper",
+   "tease": "a hijacker jumped out of a jet with two hundred thousand dollars and vanished"
   },
   {
    "id": "zodiac",
@@ -847,7 +933,9 @@
    "src": [
     "FBI statement, December 2020",
     "https://en.wikipedia.org/wiki/Zodiac_Killer"
-   ]
+   ],
+   "title": "the Zodiac cipher",
+   "tease": "amateurs cracked a killer's code fifty-one years later"
   },
   {
    "id": "maryceleste",
@@ -865,7 +953,9 @@
    "src": [
     "Gibraltar salvage hearing, 1873",
     "https://en.wikipedia.org/wiki/Mary_Celeste"
-   ]
+   ],
+   "title": "the Mary Celeste",
+   "tease": "a ship found sailing with nobody on board"
   },
   {
    "id": "voynich",
@@ -883,7 +973,9 @@
    "src": [
     "Beinecke Library, Yale University",
     "https://en.wikipedia.org/wiki/Voynich_manuscript"
-   ]
+   ],
+   "title": "the Voynich manuscript",
+   "tease": "a six-hundred-year-old book nobody can read"
   },
   {
    "id": "dyatlov",
@@ -901,7 +993,9 @@
    "src": [
     "Russian Prosecutor General, 2020",
     "https://en.wikipedia.org/wiki/Dyatlov_Pass_incident"
-   ]
+   ],
+   "title": "the Dyatlov Pass",
+   "tease": "nine hikers cut their way out of their own tent and ran into the snow"
   },
   {
    "id": "rendlesham",
@@ -919,7 +1013,9 @@
    "src": [
     "UK Ministry of Defence files",
     "https://en.wikipedia.org/wiki/Rendlesham_Forest_incident"
-   ]
+   ],
+   "title": "Rendlesham Forest",
+   "tease": "US airmen reported a UFO landing in an English forest"
   },
   {
    "id": "somerton",
@@ -937,7 +1033,9 @@
    "src": [
     "University of Adelaide, 2022",
     "https://en.wikipedia.org/wiki/Tamam_Shud_case"
-   ]
+   ],
+   "title": "the Somerton Man",
+   "tease": "a dead man on a beach carried a note that said it is finished"
   },
   {
    "id": "nessie",
@@ -955,7 +1053,9 @@
    "src": [
     "Sunday Telegraph, 1994",
     "https://en.wikipedia.org/wiki/Loch_Ness_Monster"
-   ]
+   ],
+   "title": "the Loch Ness photo",
+   "tease": "the most famous monster photo ever taken"
   },
   {
    "id": "cropcircles",
@@ -973,7 +1073,9 @@
    "src": [
     "Today newspaper, 1991",
     "https://en.wikipedia.org/wiki/Crop_circle"
-   ]
+   ],
+   "title": "crop circles",
+   "tease": "perfect circles appearing overnight in English fields"
   },
   {
    "id": "titanic",
@@ -991,7 +1093,9 @@
    "src": [
     "Titanic wreck recoveries",
     "https://en.wikipedia.org/wiki/Titanic_conspiracy_theories"
-   ]
+   ],
+   "title": "the Titanic switch",
+   "tease": "some say the ship that sank wasn't the Titanic"
   },
   {
    "id": "haarp",
@@ -1009,7 +1113,9 @@
    "src": [
     "University of Alaska Fairbanks",
     "https://en.wikipedia.org/wiki/High-frequency_Active_Auroral_Research_Program"
-   ]
+   ],
+   "title": "HAARP",
+   "tease": "an antenna field in Alaska that supposedly controls the weather"
   },
   {
    "id": "greatwall",
@@ -1027,7 +1133,9 @@
    "src": [
     "NASA",
     "https://en.wikipedia.org/wiki/Great_Wall_of_China"
-   ]
+   ],
+   "title": "the Great Wall myth",
+   "tease": "a wall you can supposedly see from the Moon"
   },
   {
    "id": "chemtrails",
@@ -1045,7 +1153,9 @@
    "src": [
     "Carnegie Institution for Science, 2016",
     "https://en.wikipedia.org/wiki/Chemtrail_conspiracy_theory"
-   ]
+   ],
+   "title": "chemtrails",
+   "tease": "the trails behind planes, and what people think is in them"
   },
   {
    "id": "phoenix",
@@ -1063,7 +1173,9 @@
    "src": [
     "Air National Guard",
     "https://en.wikipedia.org/wiki/Phoenix_Lights"
-   ]
+   ],
+   "title": "the Phoenix Lights",
+   "tease": "thousands of people saw lights over Phoenix"
   },
   {
    "id": "grusch",
@@ -1081,7 +1193,9 @@
    "src": [
     "House Oversight hearing, 2023",
     "https://en.wikipedia.org/wiki/David_Grusch"
-   ]
+   ],
+   "title": "the UFO hearing",
+   "tease": "a former intelligence officer told Congress about non-human craft"
   },
   {
    "id": "ajax",
@@ -1099,7 +1213,9 @@
    "src": [
     "CIA documents released 2013",
     "https://en.wikipedia.org/wiki/1953_Iranian_coup_d'état"
-   ]
+   ],
+   "title": "Operation Ajax",
+   "tease": "the CIA helped topple an elected government, then admitted it"
   },
   {
    "id": "castro",
@@ -1117,7 +1233,9 @@
    "src": [
     "Church Committee, 1975",
     "https://en.wikipedia.org/wiki/Assassination_attempts_on_Fidel_Castro"
-   ]
+   ],
+   "title": "the Castro plots",
+   "tease": "the CIA tried to kill Castro with a poisoned diving suit"
   },
   {
    "id": "irancontra",
@@ -1135,7 +1253,9 @@
    "src": [
     "Tower Commission, 1987",
     "https://en.wikipedia.org/wiki/Iran–Contra_affair"
-   ]
+   ],
+   "title": "Iran-Contra",
+   "tease": "weapons for Iran, money for rebels, and Congress kept in the dark"
   },
   {
    "id": "sunshine",
@@ -1153,7 +1273,9 @@
    "src": [
     "US Atomic Energy Commission",
     "https://en.wikipedia.org/wiki/Project_Sunshine"
-   ]
+   ],
+   "title": "Project Sunshine",
+   "tease": "scientists collected bodies to measure fallout"
   },
   {
    "id": "plutonium",
@@ -1171,7 +1293,141 @@
    "src": [
     "Advisory Committee on Human Radiation Experiments, 1995",
     "https://en.wikipedia.org/wiki/Human_radiation_experiments"
-   ]
+   ],
+   "title": "the plutonium files",
+   "tease": "hospital patients were secretly injected with plutonium"
   }
- ]
+ ],
+ "chain": [
+  "mkultra",
+  "midnight",
+  "stargate",
+  "acoustickitty",
+  "northwoods",
+  "tonkin",
+  "nayirah",
+  "mincemeat",
+  "ghostarmy",
+  "ajax",
+  "castro",
+  "roswell",
+  "area51",
+  "bluebook",
+  "tictac",
+  "wow",
+  "phoenix",
+  "grusch",
+  "cointelpro",
+  "mockingbird",
+  "jfk",
+  "irancontra",
+  "tuskegee",
+  "seaspray",
+  "paperclip",
+  "sunshine",
+  "plutonium",
+  "moon",
+  "philadelphia",
+  "bermuda",
+  "pauldead",
+  "birds",
+  "havana",
+  "nessie",
+  "cropcircles",
+  "titanic",
+  "haarp",
+  "greatwall",
+  "chemtrails",
+  "starfish",
+  "a119",
+  "iceworm",
+  "azorian",
+  "habakkuk",
+  "washtub",
+  "gladio",
+  "popeye",
+  "shamrock",
+  "prism",
+  "chaos",
+  "snowwhite",
+  "phoebus",
+  "radium",
+  "dieselgate",
+  "sugar",
+  "dbcooper",
+  "zodiac",
+  "maryceleste",
+  "voynich",
+  "dyatlov",
+  "rendlesham",
+  "somerton"
+ ],
+ "drops": {
+  "launch": "2026-11-14",
+  "hour": 19,
+  "order": [
+   "dyatlov",
+   "roswell",
+   "starfish",
+   "mkultra",
+   "moon",
+   "northwoods",
+   "shamrock",
+   "phoebus",
+   "cointelpro",
+   "tuskegee",
+   "dbcooper",
+   "area51",
+   "a119",
+   "midnight",
+   "philadelphia",
+   "tonkin",
+   "prism",
+   "radium",
+   "mockingbird",
+   "seaspray",
+   "zodiac",
+   "bluebook",
+   "iceworm",
+   "stargate",
+   "bermuda",
+   "nayirah",
+   "chaos",
+   "dieselgate",
+   "jfk",
+   "paperclip",
+   "maryceleste",
+   "tictac",
+   "azorian",
+   "acoustickitty",
+   "pauldead",
+   "mincemeat",
+   "snowwhite",
+   "sugar",
+   "irancontra",
+   "sunshine",
+   "voynich",
+   "wow",
+   "habakkuk",
+   "birds",
+   "ghostarmy",
+   "plutonium",
+   "rendlesham",
+   "phoenix",
+   "washtub",
+   "havana",
+   "ajax",
+   "somerton",
+   "grusch",
+   "gladio",
+   "nessie",
+   "castro",
+   "popeye",
+   "cropcircles",
+   "titanic",
+   "haarp",
+   "greatwall",
+   "chemtrails"
+  ]
+ }
 }

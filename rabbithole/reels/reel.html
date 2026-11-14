@@ -248,7 +248,7 @@ const SCENES = {
       <div style="transform:scale(${back(lt / .6)});opacity:${cl(lt / .2)}">${MARK(420)}</div>
       <div class="big" style="font-size:180px;line-height:.82;opacity:${cl((lt - .4) / .3)}">Rabbit<br>H${RINGS}le</div>
       <div class="big" style="font-size:72px;opacity:${cl((lt - 1) / .3)}">Some of it was <span style="background:var(--mark);color:var(--ink);padding:0 .1em">true.</span></div>
-      <div class="lbl" style="opacity:${cl((lt - 1.6) / .3)}">Mind the hole · Alice</div></div>`;
+      ${T.next ? `<div style="margin-top:30px;padding:22px 34px;border-radius:24px;background:var(--mark);color:var(--ink);opacity:${cl((lt - 1.2) / .3)};transform:translateY(${(1 - eo((lt - 1.2) / .4)) * 60}px)"><div class="lbl" style="color:var(--ink);font-size:26px">Next file ▸</div><div class="big" style="font-size:66px;line-height:1">${T.next.title}</div></div>` : ''}</div>`;
   }
 };
 function blotter(lt) {

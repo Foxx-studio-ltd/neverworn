@@ -17,7 +17,10 @@ HOST = "af_heart"   # Alice, the one host of every episode
 DIGIT = "zero one two three four five six seven eight nine".split()
 IDENT = ["I'm Alice. This is Rabbit Hole. Let's open file {n}.", "This is Rabbit Hole, I'm Alice. File {n}. Let's dig.", "Rabbit Hole, file {n}. I'm Alice. Here's what's on the record."]
 CALL = ["So. Real, or fake?", "Your call. Real, or fake?", "Before I tell you. Real, or fake?"]
-OUTRO = ["That's the file. Fight about it in the app. Mind the hole.", "Tell me I'm wrong in the comments. Mind the hole.", "Go deeper on Rabbit Hole. Mind the hole."]
+OUTRO = ["But it gets stranger. Next file: {t}. Mind the hole.", "And that's not even the strangest one. Next: {t}. Stay with me.", "Next file? {t}. Don't stop now."]
+CHAIN = DATA["chain"]
+def nxt(cid): return CASES[CHAIN[(CHAIN.index(cid) + 1) % len(CHAIN)]]
+def outro(cid, k): n = nxt(cid); return OUTRO[(k >> 5) % 3].format(t=n["tease"][0].upper() + n["tease"][1:])
 def fileno(cid): return str(100 + ([c["id"] for c in DATA["cases"]].index(cid) * 373) % 9000).zfill(4)
 
 # ---------- speech normalisation (captions keep the written form) ----------
@@ -59,7 +62,7 @@ def from_case(c):
         lines.append({"scene": "ev", "n": n, "raw": e, "text": re.sub(r"\[\[|\]\]", "", e)})
     lines.append({"scene": "call", "text": CALL[(k >> 3) % 3]})
     lines.append({"scene": "verdict", "text": v[0] + " " + c["reveal"], "verdict": v[1], "cls": v[2], "source": c["src"][0]})
-    lines.append({"scene": "end", "text": OUTRO[(k >> 5) % 3]})
+    lines.append({"scene": "end", "text": outro(c["id"], k)})
     return {"voice": HOST, "speed": 1.0, "file": n, "hole": HOLES[c["hole"]]["name"],
             "hue": HOLES[c["hole"]]["hue"], "caseId": c["id"], "lines": lines}
 
@@ -69,6 +72,8 @@ todo = ids or list(SCRIPTS)
 for reel in todo:
     cfg = SCRIPTS.get(reel) or from_case(CASES[reel])
     cfg.setdefault("caseId", reel)
+    if reel in SCRIPTS: cfg["lines"][-1] = {"scene": "end", "text": outro(cfg["caseId"], zlib.crc32(reel.encode()))}
+    cfg["next"] = {"id": nxt(cfg["caseId"])["id"], "title": nxt(cfg["caseId"])["title"]}
     sr = 24000; parts = [np.zeros(int(LEAD * sr), dtype=np.float32)]; t = LEAD; timeline = []
     for line in cfg["lines"]:
         a, sr = k.create(line.get("say", speak(line["text"])), voice=cfg["voice"], speed=cfg["speed"], lang=cfg.get("lang", "en-gb" if cfg["voice"].startswith("b") else "en-us"))
