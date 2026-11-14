@@ -33,13 +33,18 @@ elif mode == "apply":
     mp = os.path.join(root, "data", "media.json")
     media = json.load(open(mp)) if os.path.exists(mp) else {}
     media.setdefault("photos", {})
-    for cid, ns in picks.items():
-        out = []
-        for i, n in enumerate(ns):
+    for key, ns in picks.items():
+        # "+caseId" appends to the photos the case already has; "caseId" replaces them
+        add = key.startswith("+"); cid = key.lstrip("+")
+        out = list(media["photos"].get(cid, [])) if add else []
+        have = {x["file"] for x in out}; base = len(out)
+        for i, n in enumerate(ns, start=base):
             c = next(x for x in C[cid] if x["n"] == n)
+            if c["file"] in have: continue
             im = ImageOps.exif_transpose(Image.open(os.path.join(cand, cid, f"{n:02d}.jpg"))).convert("RGB")
             im.thumbnail((1080, 1440))
             rel = f"media/photos/{cid}-{i}.jpg"
+            while os.path.exists(os.path.join(root, rel)) and any(x["f"] == rel for x in out): i += 1; rel = f"media/photos/{cid}-{i}.jpg"
             im.save(os.path.join(root, rel), quality=78, optimize=True, progressive=True)
             artist = re.sub(r"\s+", " ", c.get("artist") or "").strip() or "Unknown"
             out.append({"f": rel, "credit": f"{artist[:60]} · {c['license'] or 'Public domain'}", "license": c["license"], "page": c["page"], "file": c["file"]})

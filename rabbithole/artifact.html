@@ -50,6 +50,7 @@ a { color: inherit; }
 .pill .ico { width: 16px; height: 16px; color: var(--v-mixed); }
 .depth-pop { position: absolute; z-index: 6; left: max(16px, env(safe-area-inset-left, 0px)); top: 50px; font-family: var(--f-display); font-weight: 900; font-size: 22px; color: var(--mark); pointer-events: none; animation: pop 1.1s ease-out forwards; }
 .depth-pop.low { top: auto; bottom: calc(var(--tab-h) + 16px); left: auto; right: max(16px, env(safe-area-inset-right, 0px)); }
+.depth-pop.up { color: var(--v-false); animation-name: popup; } @keyframes popup { 0% { opacity: 0; transform: translateY(20px) } 15% { opacity: 1 } 100% { opacity: 0; transform: translateY(-40px) } }
 @keyframes pop { 0% { opacity: 0; transform: translateY(8px) scale(.8) } 15% { opacity: 1; transform: none } 100% { opacity: 0; transform: translateY(-26px) } }
 
 /* ---------- Feed ---------- */
@@ -474,6 +475,15 @@ button.src { text-align: left; text-decoration: none; color: var(--mark); font-w
 button:active, .pill:active, .disc:active { transform: scale(.96); filter: brightness(1.15); }
 .autopill { color: var(--text) !important; }
 
+.card .doc { overflow: hidden; }
+.card .tt { overflow: hidden; max-height: none; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; }
+.card .photo { filter: grayscale(.3) sepia(.12) brightness(.6) contrast(1.08); -webkit-mask-image: linear-gradient(#000 0 42%, transparent 82%); mask-image: linear-gradient(#000 0 42%, transparent 82%); }
+.layer-back { animation: back .35s ease-out; } @keyframes back { from { opacity: 0; transform: translateY(-14px) } }
+.cf-pager { display: flex; gap: 8px; } .cf-pager .dig { flex: 1; } .cf-pager .ghost { margin: 0; flex: none; }
+.dots button { flex: 1; height: 6px; border-radius: 3px; background: var(--line); padding: 0; } .dots button.on { background: var(--mark); } .dots button.here { box-shadow: 0 0 0 2px rgba(242,225,76,.4); }
+.hero-ph { margin: 0; display: grid; gap: 4px; } .hero-ph img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 14px; filter: grayscale(.2) contrast(1.05); }
+.ev-ph { width: 100%; max-height: 200px; object-fit: cover; border-radius: 10px; margin-top: 8px; }
+
 #toast { position: absolute; z-index: 50; left: 50%; bottom: calc(var(--tab-h) + 14px); transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 10px; background: var(--text); color: var(--ink); font-weight: 600; font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.4); animation: rise .25s; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -874,7 +884,8 @@ const FX = (() => {
     gain(n) { if (!ok() || !n) return; const notes = n >= 60 ? [523, 659, 784, 1047] : n >= 25 ? [587, 740, 880] : n >= 15 ? [659, 880] : [880];
       notes.forEach((f, i) => tone(f, i * .065, .22)); tone(notes[notes.length - 1] * 2, notes.length * .065, .35, "sine", .05); buzz(n >= 60 ? [18, 40, 18, 40, 30] : n >= 25 ? [18, 40, 22] : [16]); },
     level() { if (!ok()) return; [392, 523, 659, 784, 1047].forEach((f, i) => tone(f, i * .09, .4, "square", .05)); [523, 659, 784].forEach(f => tone(f, .5, .9, "triangle", .07)); buzz([30, 60, 30, 60, 80]); },
-    tap() { if (ok()) buzz([12]); }
+    tap() { if (ok()) buzz([12]); },
+    lose() { if (!ok()) return; [523, 392, 311].forEach((f, i) => tone(f, i * .09, .28, "sine", .11)); buzz([40, 30, 40]); }
   };
 })();
 
@@ -886,10 +897,11 @@ function hud(gain) {
   $("#hudBar").style.width = next ? ((S.depth - LEVELS[li][0]) / (next[0] - LEVELS[li][0]) * 100) + "%" : "100%";
   $("#hudStreak").innerHTML = ico("flame") + `${S.streak}-day streak${S.skips ? " · 1 skip" : ""}`;
   $$(".streak-pill").forEach(x => x.innerHTML = ico("flame") + `${S.streak}-day streak`);
-  if (gain) { const p = document.createElement("div"); p.className = "depth-pop" + ($("#hud").hidden ? " low" : ""); p.textContent = `+${gain} m`; $("#app").append(p); setTimeout(() => p.remove(), 1200); }
+  if (gain) { const p = document.createElement("div"); p.className = "depth-pop" + ($("#hud").hidden ? " low" : "") + (gain < 0 ? " up" : ""); p.textContent = gain < 0 ? `↑ ${-gain} m` : `+${gain} m`; $("#app").append(p); setTimeout(() => p.remove(), 1200); }
 }
 function addDepth(n) {
-  const before = levelOf(S.depth); S.depth += n; save(); hud(n);
+  const before = levelOf(S.depth); S.depth = Math.max(0, S.depth + n); save(); hud(n);
+  if (n < 0) { FX.lose(); return; }
   const after = levelOf(S.depth);
   if (after > before) { toast(`New depth reached: ${LEVELS[after][1]}`); FX.level(); } else FX.gain(n);
 }
@@ -909,7 +921,7 @@ function card(c, opt = {}) {
   if (isLocked(c)) return lockedCard(el, c);
   const saved = S.saved.includes(c.id);
   const ph = photoOf(c), hasArt = !!(window.RHART && RHART.MAP[c.id]);
-  el.innerHTML = `<div class="bg"></div>${hasArt ? '<canvas class="art" width="540" height="960" aria-hidden="true"></canvas>' : ph ? `<div class="photo" style="background-image:url('${esc(ph.f)}')"></div>` : ""}
+  el.innerHTML = `<div class="bg"></div>${ph ? `<div class="photo" style="background-image:url('${esc(ph.f)}')"></div>` : hasArt ? '<canvas class="art" width="540" height="960" aria-hidden="true"></canvas>' : ""}
     <div class="meta">${opt.daily ? `<span class="chip daily">Today's Rabbit Hole</span><span>Next drop in <span class="countdown"></span></span>` : `<span class="chip">${esc(HOLES[c.hole].name)}</span><span>File ${fileNo(c)} · ${esc(c.year)}</span>`}</div>
     <h2 class="hook">${hookHTML(c.hook)}</h2>
     <div class="doc"><div class="doc-head"><span>Case file ${fileNo(c)}</span><span>Evidence ${c.ev.length}</span></div>
@@ -950,10 +962,11 @@ function endCard() {
 
 function scoreCall(c, g, peeked) {
   const right = c.ans === "true" ? g === "real" : c.ans === "false" ? g === "fake" : null;
-  const gain = right === true ? (peeked ? 30 : 60) : right === false ? 10 : 25;
+  // a wrong call costs half of what a right one would have earned: you float back up the hole
+  const gain = right === true ? (peeked ? 30 : 60) : right === false ? (peeked ? -15 : -30) : 25;
   S.calls[c.id] = right; addDepth(gain);
   const line = right === true ? `<b style="color:var(--v-true)">Called it.</b>${peeked ? "+30 m" : "Gut call, double depth. +60 m"}`
-    : right === false ? `<b style="color:var(--v-false)">Wrong call.</b>It's ${VERDICT[c.ans][0].toLowerCase()}. +10 m for digging`
+    : right === false ? `<b style="color:var(--v-false)">Wrong call.</b>It's ${VERDICT[c.ans][0].toLowerCase()}. You float back up ${-gain} m`
     : `<b style="color:${VERDICT[c.ans][2]}">${VERDICT[c.ans][0]}.</b>Nobody can call this one yet. +25 m`;
   return { right, gain, line };
 }
@@ -1012,66 +1025,63 @@ const CaseFile = (() => {
   const DEEP = DATA.deep || {};
   let c = null, shown = 0, s = null;
   const stamp = c => `<span class="stamp-chip ${VERDICT[c.ans][1]}">${VERDICT[c.ans][0]}</span>`;
+  const pics = c => (MEDIA.photos || {})[c.id] || [];
+  const fig = (x, cls = "hero-ph") => `<figure class="${cls}"><img src="${esc(x.f)}" alt="" loading="lazy"><figcaption class="credit">Photo: ${esc(x.credit)}</figcaption></figure>`;
   function layer(i) {
-    const called = c.id in S.calls, ph = photoOf(c);
-    if (i === 0) return `<h2 class="hook">${hookHTML(c.hook)}</h2><div class="cf-verdict">${called ? stamp(c) : `<p class="q">Real or fake? Call it to dig deeper.</p><div class="btns"><button class="btn-call real" data-cfcall="real">Real</button><button class="btn-call fake" data-cfcall="fake">Fake</button></div>`}</div>`;
-    if (i === 1) return c.ev.map((e, k) => `<details class="ev-item" ${k === 0 ? "open" : ""}><summary><span class="n">${k + 1}</span>${esc(e.replace(/\[\[|\]\]/g, ""))}</summary><p>Where it comes from: <a href="${esc(c.src[1])}" target="_blank" rel="noopener">${esc(c.src[0])}</a></p></details>`).join("");
-    if (i === 2) return `${ph ? `<figure><img src="${esc(ph.f)}" alt=""><figcaption class="credit">Photo: ${esc(ph.credit)}</figcaption></figure>` : ""}<p>${esc(c.truth)}</p><a class="cf-link" href="${esc(c.src[1])}" target="_blank" rel="noopener">Read the original: ${esc(c.src[0])} ↗</a>`;
-    if (i === 3) { const more = ((MEDIA.photos || {})[c.id] || []).slice(1), d = DEEP[c.id];
-      const gal = more.length ? `<div class="gallery">${more.map(x => `<figure><img src="${esc(x.f)}" alt="" loading="lazy"><figcaption class="credit">${esc(x.credit)}</figcaption></figure>`).join("")}</div>` : "";
-      if (!d) return gal || `<p class="credit">No deep record for this file yet.</p>`;
-      if (gal && S.cleared) return gal + d.paras.map(x => `<p>${esc(x)}</p>`).join("") + `<p class="credit">From Wikipedia: <a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a> · CC BY-SA 4.0</p>`;
-      if (gal && !S.cleared) return gal + `<div class="deep-lock"><p>${esc(d.paras[0].split(/(?<=\.)\s/)[0])}</p><p class="blur" aria-hidden="true">${esc(d.paras.join(" ").slice(120, 520))}</p><button class="cta" data-act="unlock">${ico("lock")} Unlock the deep record</button></div>`;
+    const called = c.id in S.calls, P = pics(c);
+    if (i === 0) return `${P[0] ? fig(P[0]) : ""}<h2 class="hook">${hookHTML(c.hook)}</h2><div class="cf-verdict">${called ? stamp(c) : `<p class="q">Real or fake? Call it to dig deeper.</p><div class="btns"><button class="btn-call real" data-cfcall="real">Real</button><button class="btn-call fake" data-cfcall="fake">Fake</button></div>`}</div>`;
+    if (i === 1) return c.ev.map((e, k) => `<details class="ev-item" open><summary><span class="n">${k + 1}</span>${esc(e.replace(/\[\[|\]\]/g, ""))}</summary>${P[k + 1] ? `<img class="ev-ph" src="${esc(P[k + 1].f)}" alt="" loading="lazy"><p class="credit">Photo: ${esc(P[k + 1].credit)}</p>` : ""}<p>Where it comes from: <a href="${esc(c.src[1])}" target="_blank" rel="noopener">${esc(c.src[0])}</a></p></details>`).join("");
+    if (i === 2) return `${P.length ? `<div class="gallery">${P.map(x => fig(x, "")).join("")}</div>` : ""}<p>${esc(c.truth)}</p><a class="cf-link" href="${esc(c.src[1])}" target="_blank" rel="noopener">Read the original: ${esc(c.src[0])} ↗</a>`;
+    if (i === 3) { const d = DEEP[c.id]; if (!d) return `<p class="credit">No deep record for this file yet.</p>`;
       if (!S.cleared) return `<div class="deep-lock"><p>${esc(d.paras[0].split(/(?<=\.)\s/)[0])}</p><p class="blur" aria-hidden="true">${esc(d.paras.join(" ").slice(120, 520))}</p>
         <button class="cta" data-act="unlock">${ico("lock")} Unlock the deep record</button><p class="credit">Everything else in Rabbit Hole stays free, with no ads.</p></div>`;
       return d.paras.map(x => `<p>${esc(x)}</p>`).join("") + `<p class="credit">From Wikipedia: <a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a> · CC BY-SA 4.0</p>`; }
     if (i === 4) return `<p class="credit">Three ways to keep going from here:</p><div class="doors">${Explore.doors(c, []).map(([label, d]) => `<button class="door" data-open="${esc(d.id)}"><small>${label}</small><b>${esc(capFirst(d.tease))}</b></button>`).join("")}</div>`;
     if (i === 5) return `<div class="studio" data-case="${esc(c.id)}"></div><label class="fld">Private notes<textarea id="cfNotes" rows="3" placeholder="What doesn't add up? Only you can see this.">${esc(S.notes[c.id] || "")}</textarea></label><p class="credit" id="cfSaved"></p><div class="cf-community"></div>`;
   }
-  function addLayer(i, scroll) {
-    const sec = document.createElement("section"); sec.className = "layer" + (scroll ? " layer-in" : ""); sec.dataset.layer = i;
-    sec.innerHTML = `<h3><span>Layer ${i + 1}</span>${LAYERS[i]}${i === 3 && !S.cleared ? ` ${ico("lock")}` : ""}</h3>` + layer(i);
-    $(".layers", s).append(sec);
+  // one layer on screen at a time
+  function show(i, dir = 0) {
+    shown = i; const body = $(".layers", s); body.innerHTML = "";
+    const sec = document.createElement("section"); sec.className = "layer" + (dir > 0 ? " layer-in" : dir < 0 ? " layer-back" : ""); sec.dataset.layer = i;
+    sec.innerHTML = `<h3><span>Layer ${i + 1} of ${LAYERS.length}</span>${LAYERS[i]}${i === 3 && !S.cleared ? ` ${ico("lock")}` : ""}</h3>` + layer(i);
+    body.append(sec);
     if (i === 5) { Studio.mount($(".studio", sec), c.id); Contrib.mountCase($(".cf-community", sec), c.id); }
-    if (scroll) setTimeout(() => sec.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
+    $(".sheet", s).scrollTop = 0; foot();
   }
   function foot() {
-    const called = c.id in S.calls, f = $(".cf-foot", s), nx = chainNext(c);
-    $$(".dots i", s).forEach((d, k) => d.classList.toggle("on", k <= shown));
-    if (shown >= LAYERS.length - 1) { f.innerHTML = `<p class="credit">You've reached the bottom of this file.</p><button class="deeper" data-open="${esc(nx.id)}"><span><small>Next file</small>${esc(capFirst(nx.tease))}</span></button>`; return; }
+    const called = c.id in S.calls, f = $(".cf-foot", s), nx = chainNext(c), reached = Math.max(shown, S.dug[c.id] || 0);
+    $(".dots", s).innerHTML = LAYERS.map((n, k) => `<button data-goto="${k}" class="${k <= reached ? "on" : ""}${k === shown ? " here" : ""}" aria-label="Layer ${k + 1}: ${n}" ${k <= reached ? "" : "disabled"}></button>`).join("");
+    const back = shown > 0 ? `<button class="ghost" data-up aria-label="Back up a layer">‹ Up</button>` : "";
+    if (shown >= LAYERS.length - 1) { f.innerHTML = `<p class="credit">You've reached the bottom of this file.</p><div class="cf-pager">${back}<button class="deeper" data-open="${esc(nx.id)}"><span><small>Next file</small>${esc(capFirst(nx.tease))}</span></button></div>`; return; }
     f.innerHTML = !called && shown === 0 ? `<button class="ghost" data-show>Just show me</button>` :
-      `<button class="dig" data-dig>${ico("deeper")}<span><small>Layer ${shown + 2} of ${LAYERS.length}${shown + 1 === 3 && !S.cleared ? " · Clearance" : ""}</small>Dig deeper: ${LAYERS[shown + 1].toLowerCase()}</span></button>`;
+      `<div class="cf-pager">${back}<button class="dig" data-dig>${ico("deeper")}<span><small>Layer ${shown + 2} of ${LAYERS.length}${shown + 1 === 3 && !S.cleared ? " · Clearance" : ""}</small>Dig deeper: ${LAYERS[shown + 1].toLowerCase()}</span></button></div>`;
   }
   function dig() {
-    shown++; addLayer(shown, true);
-    if ((S.dug[c.id] || 0) < shown) { S.dug[c.id] = shown; addDepth(10); }
-    try { navigator.vibrate?.(15); } catch (e) {}
-    foot();
+    const n = shown + 1; if ((S.dug[c.id] || 0) < n) { S.dug[c.id] = n; addDepth(10); }
+    show(n, 1);
   }
   function open(id, to = 0, force = false) {
     c = byId[id]; if (!c) return; $(".scrim")?.remove();
-    if (force) { if (!(id in S.calls)) S.calls[id] = null; } else if (!(id in S.calls)) to = 0; else to = Math.max(to, Math.min(S.dug[id] || 0, 5));
-    shown = Math.max(to, 0);
+    if (force) { if (!(id in S.calls)) S.calls[id] = null; } else if (!(id in S.calls)) to = 0;
     s = document.createElement("div"); s.className = "scrim";
     s.innerHTML = `<div class="sheet casefile" role="dialog" aria-modal="true" aria-label="Case file" style="--hue:${HOLES[c.hole].hue}">
       <header><span class="chip">${esc(HOLES[c.hole].name)}</span><span class="credit">File ${fileNo(c)} · ${esc(c.year)}</span><button class="x" data-x>Close</button></header>
-      <div class="dots" aria-hidden="true">${LAYERS.map(() => "<i></i>").join("")}</div>
-      <div class="layers"></div><div class="cf-foot"></div></div>`;
+      <div class="dots"></div><div class="layers"></div><div class="cf-foot"></div></div>`;
     $("#app").append(s);
-    for (let i = 0; i <= shown; i++) addLayer(i, false);
-    foot();
-    if (shown) setTimeout(() => $(".layer:last-child", s).scrollIntoView({ block: "start" }), 30);
+    show(Math.max(0, to));
     s.addEventListener("input", e => { if (e.target.id === "cfNotes") { S.notes[c.id] = e.target.value.slice(0, 4000); save(); $("#cfSaved", s).textContent = "Saved on this device"; } });
     s.addEventListener("click", e => {
       if (e.target === s || e.target.closest("[data-x]")) return s.remove();
       const cc = e.target.closest("[data-cfcall]"); if (cc) { const r = scoreCall(c, cc.dataset.cfcall, false); $(".cf-verdict", s).innerHTML = stamp(c) + `<p class="verdict-line">${r.line}</p>`; return foot(); }
       if (e.target.closest("[data-show]")) { S.calls[c.id] = null; save(); $(".cf-verdict", s).innerHTML = stamp(c); return dig(); }
       if (e.target.closest("[data-dig]")) return dig();
+      if (e.target.closest("[data-up]")) return show(shown - 1, -1);
+      const g = e.target.closest("[data-goto]"); if (g) { const k = +g.dataset.goto; return show(k, k > shown ? 1 : -1); }
       if (e.target.closest("[data-act=unlock]")) return paywall();
       const o = e.target.closest("[data-open]"); if (o) return open(o.dataset.open);
     });
   }
-  return { open, refresh() { if (s && s.isConnected && c) { const k = shown; open(c.id, k); } } };
+  return { open, refresh() { if (s && s.isConnected && c) open(c.id, shown, true); } };
 })();
 
 /* ---------- Build this story: add evidence, photos and videos to a case ---------- */
@@ -1313,7 +1323,8 @@ const Explore = (() => {
     const words = [...new Set((query.toLowerCase().match(/[a-z0-9]+/g) || []).filter(w => w.length > 1 && !STOP.has(w)))];
     const hl = t => esc(t).replace(new RegExp("(" + words.map(w => w.replace(/[^a-z0-9]/g, "")).filter(Boolean).join("|") + ")", "gi"), "<mark>$1</mark>");
     return `<p class="credit">${results.length} file${results.length > 1 ? "s" : ""} match "${esc(query)}". Strongest first:</p>
-      <div class="doors">${results.map((d, i) => `<button class="door" data-start="${d.id}"><small>${i ? esc(HOLES[d.hole].name) : "Strongest lead"} · ${esc(d.year)}</small><b>${hl(capFirst(d.title))}</b><span class="door-sub">${words.length ? hl(plain(d.hook)) : esc(plain(d.hook))}</span></button>`).join("")}</div>`;
+      <div class="doors">${results.map((d, i) => `<button class="door" data-start="${d.id}"><small>${i ? esc(HOLES[d.hole].name) : "Strongest lead"} · ${esc(d.year)}</small><b>${hl(capFirst(d.title))}</b><span class="door-sub">${words.length ? hl(plain(d.hook)) : esc(plain(d.hook))}</span></button>`).join("")}</div>
+      ${results.length ? `<button class="ghost" data-maze="${results[0].id}">Or wander the maze from the strongest lead ›</button>` : ""}`;
   }
   function html() {
     return `<form class="ask" role="search"><label for="askQ" class="sr" hidden>Ask Alice</label>${ico("search")}<input id="askQ" type="search" enterkeyhint="search" autocomplete="off" placeholder="Ask Alice anything. A rumour, a name, a question." value="${esc(query)}"><button class="cta" type="submit">Ask</button></form>
@@ -1326,7 +1337,8 @@ const Explore = (() => {
   $("#holes").addEventListener("submit", e => { if (!e.target.closest(".ask")) return; e.preventDefault(); query = $("#askQ").value.trim(); results = search(query); path = []; paint(); $("#askQ").blur(); setTimeout(() => $("#holes .ask-out")?.scrollIntoView({ block: "start" }), 60); FX.tap(); });
   $("#holes").addEventListener("click", e => {
     const sg = e.target.closest("[data-suggest]"); if (sg) { query = sg.dataset.suggest; $("#askQ").value = query; results = search(query); path = []; return paint(); }
-    const st = e.target.closest("[data-start]"); if (st) { path = []; return go(st.dataset.start); }
+    const st = e.target.closest("[data-start]"); if (st) { FX.tap(); return Watch.has(st.dataset.start) ? Watch.playCase(st.dataset.start) : CaseFile.open(st.dataset.start); }
+    const mz = e.target.closest("[data-maze]"); if (mz) { path = []; return go(mz.dataset.maze); }
     const d = e.target.closest("[data-door]"); if (d) return go(d.dataset.door);
     const cr = e.target.closest("[data-crumb]"); if (cr) { path = path.slice(0, +cr.dataset.crumb + 1); return paint(); }
     const f = e.target.closest("[data-file]"); if (f) return CaseFile.open(f.dataset.file);
@@ -1984,7 +1996,8 @@ const Watch = (() => {
   const v = $("#watch"); let built = false, on = false, timer = 0;
   const has = c => (MEDIA.reels || {})[c.id];
   // today's drop first, then everything else at random: unwatched clips first, then the ones watched longest ago
-  function list() { const d = dropNow().c, at = S.seenAt || {}, rest = CASES.filter(c => c !== d && has(c));
+  let lead = null;   // a file picked in search plays first
+  function list() { const d = lead && has(byId[lead]) ? byId[lead] : dropNow().c, at = S.seenAt || {}, rest = CASES.filter(c => c !== d && has(c));
     const fresh = shuffle(rest.filter(c => !at[c.id])), old = rest.filter(c => at[c.id]).sort((a, b) => at[a.id] - at[b.id]);
     return [d, ...fresh, ...old].filter(has); }
   const io = new IntersectionObserver(es => es.forEach(en => { const vid = $("video", en.target); if (!vid) return;
@@ -2035,7 +2048,8 @@ const Watch = (() => {
     vid.paused ? vid.play().catch(() => {}) : vid.pause();
   });
   pullToRefresh(v, () => { built = false; render(); v.scrollTop = 0; toast("Fresh mix of episodes"); });
-  return { render, home() { v.scrollTop = 0; }, reset() { built = false; if (!v.hidden) render(); },
+  function playCase(id) { lead = id; built = false; tab("watch"); render(); v.scrollTop = 0; setTimeout(() => { const vid = $(".reel video", v); if (vid) playVid(vid); }, 60); }
+  return { render, playCase, has: id => !!has(byId[id]), home() { v.scrollTop = 0; }, reset() { built = false; if (!v.hidden) render(); },
     active(x) { on = x; if (!x) { $$(".reel video", v).forEach(vd => vd.pause()); clearTimeout(timer); } else $$(".reel", v).forEach(el => { io.unobserve(el); io.observe(el); }); } };
 })();
 
@@ -2053,10 +2067,11 @@ const Nav = (() => {
     const sc = $$(".scrim"); if (sc.length) { sheetStep = false; sc.forEach(x => { x.dataset.navClose = "1"; x.remove(); }); return; }
     const prev = stack.pop(); if (prev) { cur = prev; tab(prev, true); }
   });
+  let held = [];
   new MutationObserver(() => {
     const open = !!$(".scrim");
-    if (open && !sheetStep) { sheetStep = true; history.pushState({ rh: "sheet" }, ""); }
-    else if (!open && sheetStep) { sheetStep = false; ignore++; history.back(); }
+    if (open && !sheetStep) { sheetStep = true; history.pushState({ rh: "sheet" }, ""); held = $$(".reel video").filter(v => !v.paused); held.forEach(v => v.pause()); }
+    else if (!open && sheetStep) { sheetStep = false; ignore++; history.back(); held.forEach(v => { if (v.isConnected && !v.closest(".view").hidden) v.play().catch(() => {}); }); held = []; }
   }).observe($("#app"), { childList: true });
   let sx = null, sy = 0;
   document.addEventListener("touchstart", e => { const t = e.touches[0]; sx = t.clientX < 28 ? t.clientX : null; sy = t.clientY; }, { passive: true });

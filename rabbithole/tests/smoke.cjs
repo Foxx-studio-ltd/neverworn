@@ -44,6 +44,10 @@ const FAKE = (opts) => {
   // Home: today's drop starts on its own, no tap needed
   await p.waitForTimeout(1500);
   ok(await p.evaluate(() => { const v = document.querySelector('#watch .reel video'); return v && !v.paused; }), 'Home episodes play automatically');
+  await p.evaluate(() => RabbitHole.CaseFile.open(document.querySelector('#watch .reel').dataset.id)); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => document.querySelector('#watch .reel video').paused), 'opening a file stops the clip');
+  await p.click('.casefile [data-x]'); await p.waitForTimeout(400);
+  ok(await p.evaluate(() => !document.querySelector('#watch .reel video').paused), 'closing the file resumes it');
   ok(await p.evaluate(() => RabbitHole.state.streak) === 1, 'opening the drop starts the streak');
   ok(await p.locator('#watch .reel').first().locator('[data-act="debate"]').isVisible(), 'Discuss is on the playing clip');
   const homeIds = await p.evaluate(() => [...document.querySelectorAll('#watch .reel')].map(r => r.dataset.id));
@@ -93,12 +97,21 @@ const FAKE = (opts) => {
   ok(await p.locator('#feed .autobar').count() >= 1, 'each X-File shows how long until the next one');
   await p.evaluate(() => { const c = [...document.querySelectorAll('#feed .card')].find(x => x.getBoundingClientRect().top >= 0 && x.getBoundingClientRect().top < 50); });
   await p.waitForTimeout(100);
+  const d0 = await p.evaluate(() => { RabbitHole.state.depth = 100; return 100; });
+  await p.evaluate(() => RabbitHole.CaseFile.open('roswell')); await p.waitForTimeout(300);
+  await p.click('.casefile [data-cfcall="fake"]'); await p.waitForTimeout(200);
+  ok(await p.evaluate(() => RabbitHole.state.depth) === d0 - 30 && /back up/.test(await p.textContent('.casefile .verdict-line')), 'a wrong call floats you back up 30 m');
+  await p.click('.casefile [data-x]'); await p.waitForTimeout(200);
+  ok(await p.evaluate(() => [...document.querySelectorAll('#feed .card')].every(c => getComputedStyle(c.querySelector('.doc') || c).overflowY !== 'auto')), 'Classified cards have no inner scroller, so swipes move to the next file');
   // dig deeper: six layers, the deep record is the only paid one
   await p.evaluate(() => RabbitHole.CaseFile.open('voynich')); await p.waitForTimeout(300);
   ok(await p.locator('.casefile .layer').count() === 1 && await p.isVisible('.casefile [data-cfcall="real"]'), 'a case file starts at layer 1 and asks for your call');
   await p.click('.casefile [data-cfcall="fake"]'); await p.waitForTimeout(200);
   for (let k = 0; k < 3; k++) { await p.click('.casefile [data-dig]'); await p.waitForTimeout(250); }
-  ok(await p.locator('.casefile .layer').count() === 4 && await p.isVisible('.casefile .deep-lock'), 'layer 4, the deep record, is the only locked layer');
+  ok(await p.locator('.casefile .layer').count() === 1 && await p.locator('.casefile .layer[data-layer="3"]').count() === 1 && await p.isVisible('.casefile .deep-lock'), 'one layer on screen at a time; layer 4, the deep record, is the only locked layer');
+  await p.click('.casefile [data-up]'); await p.waitForTimeout(250);
+  ok(await p.locator('.casefile .layer[data-layer="2"]').count() === 1, 'you can step back up a layer');
+  await p.click('.casefile [data-dig]'); await p.waitForTimeout(250);
   await shot('4-diglock');
   await p.click('.casefile [data-dig]'); await p.waitForTimeout(250);
   ok(await p.locator('.casefile .layer .door').count() === 3, 'free users can still dig on to connected files');
@@ -106,6 +119,7 @@ const FAKE = (opts) => {
   await p.fill('#cfNotes', 'Check the 2021 avalanche model against the 1959 weather.'); await p.waitForTimeout(100);
   ok(await p.evaluate(() => /avalanche/.test(RabbitHole.state.notes.voynich)), 'you can build on a story with your own notes');
   ok(/bottom of this file/.test(await p.textContent('.casefile .cf-foot')), 'the bottom of the file links to the next one');
+  await p.click('.casefile .dots [data-goto="3"]'); await p.waitForTimeout(250);
   await p.locator('.casefile .layer[data-layer="3"] [data-act="unlock"]').click(); await p.waitForTimeout(300);
   ok(/Go deeper/.test(await p.textContent('.sheet:has([data-go])')) && /no ads/i.test(await p.textContent('.sheet:has([data-go])')), 'paywall sells depth and promises no ads');
   await shot('5-paywall');
@@ -117,13 +131,17 @@ const FAKE = (opts) => {
   ok(await p.locator('.hole').count() === 11, 'eleven holes listed, including Cryptids');
   await p.fill('#askQ', 'did the CIA try to control minds'); await p.press('#askQ', 'Enter'); await p.waitForTimeout(300);
   ok(/files? match/.test(await p.textContent('#holes')) && await p.locator('#holes [data-start]').count() >= 3, 'Ask Alice lists every file matching the words you typed');
-  await p.locator('#holes [data-start]').first().click(); await p.waitForTimeout(300);
+  const sid = await p.locator('#holes [data-start]').first().getAttribute('data-start');
+  await p.locator('#holes [data-start]').first().click(); await p.waitForTimeout(500);
+  ok(await p.evaluate(id => !document.querySelector('#watch').hidden && document.querySelector('#watch .reel').dataset.id === id, sid), 'a search result plays straight away on Home');
+  await p.click('[data-tab="holes"]'); await p.waitForTimeout(300);
+  await p.click('#holes [data-maze]'); await p.waitForTimeout(300);
   ok(await p.locator('#holes .door').count() === 3, 'each file in the maze offers three doors');
   await p.locator('#holes [data-door]').first().click(); await p.waitForTimeout(300);
   ok(await p.locator('#holes .crumbs button').count() === 2, 'the trail remembers the path, one layer at a time');
   await p.screenshot({ path: `${out}/6b-maze.png` });
   await p.fill('#askQ', 'Big Foot'); await p.click('.ask .cta'); await p.waitForTimeout(300);
-  await p.locator('#holes [data-start]').first().click(); await p.waitForTimeout(300);
+  await p.click('#holes [data-maze]'); await p.waitForTimeout(300);
   ok(/APE-MAN/i.test(await p.textContent('#holes .door-card')), '"Big Foot" finds the Bigfoot file');
   await p.locator('#holes [data-door]').nth(1).click(); await p.waitForTimeout(400);
   ok(await p.locator('#holes .crumbs button').count() === 2 && await p.evaluate(() => document.querySelector('#holes .door-card').getBoundingClientRect().top < 400), 'choosing a door opens the next layer on screen');
@@ -242,8 +260,9 @@ const FAKE = (opts) => {
   ok(await o.locator('.casefile .ev-item').count() === 3, 'case file lists the evidence');
   await o.locator('.casefile .ev-item summary').nth(1).click();
   ok(await o.locator('.casefile .ev-item[open]').count() === 2, 'evidence expands to show where it comes from');
-  for (let k = 0; k < 4; k++) { await o.click('.casefile [data-dig]'); await o.waitForTimeout(250); }
+  for (let k = 0; k < 3; k++) { await o.click('.casefile [data-dig]'); await o.waitForTimeout(250); }
   ok(await o.locator('.casefile .layer .door').count() === 3, 'case file links to connected files to keep digging');
+  await o.click('.casefile [data-dig]'); await o.waitForTimeout(250);
   await o.screenshot({ path: `${out}/11-casefile.png` });
   await o.click('.casefile [data-add]'); await o.waitForTimeout(300);
   ok(await o.isVisible('#pfH'), 'first contribution asks for a profile handle');
