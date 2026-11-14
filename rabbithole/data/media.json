@@ -3,7 +3,7 @@
   "tuskegee": [
    {
     "f": "media/photos/tuskegee-0.jpg",
-    "credit": "Department of Health, Education, and Welfare. Public Health  · Public domain",
+    "credit": "Department of Health, Education, and Welfare.… · Public domain",
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Tuskegee-syphilis-experiment-test-subjects.gif",
     "file": "File:Tuskegee-syphilis-experiment-test-subjects.gif"
@@ -39,7 +39,7 @@
   "starfish": [
    {
     "f": "media/photos/starfish-0.jpg",
-    "credit": "U.S. Air Force 1352nd Photographic Group, Lookout Mountain S · Public domain",
+    "credit": "U.S. Air Force 1352nd Photographic Group,… · Public domain",
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Operation_Dominic_Starfish-Prime_nuclear_test_from_plane.jpg",
     "file": "File:Operation Dominic Starfish-Prime nuclear test from plane.jpg"
@@ -129,7 +129,7 @@
   "dyatlov": [
    {
     "f": "media/photos/dyatlov-0.jpg",
-    "credit": "AnonymousUnknown author / Soviet investigators · Public domain",
+    "credit": "Unknown author / Soviet investigators · Public domain",
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Dyatlov_Pass_incident_02.jpg",
     "file": "File:Dyatlov Pass incident 02.jpg"
@@ -138,7 +138,7 @@
   "somerton": [
    {
     "f": "media/photos/somerton-0.jpg",
-    "credit": "Australian police. Originally uploaded to en.wikipedia by Bl · Public domain",
+    "credit": "Australian police. Originally uploaded to… · Public domain",
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:SomertonManBurial.jpg",
     "file": "File:SomertonManBurial.jpg"
@@ -147,7 +147,7 @@
   "nessie": [
    {
     "f": "media/photos/nessie-0.jpg",
-    "credit": "AnonymousUnknown author · Public domain",
+    "credit": "Unknown author · Public domain",
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Arthur_Grant_loch_ness_sketch.png",
     "file": "File:Arthur Grant loch ness sketch.png"
@@ -224,6 +224,108 @@
     "page": "https://commons.wikimedia.org/wiki/File:Joseph_Hamilton_with_radio_sodium_experiment_97401413.jpeg",
     "file": "File:Joseph Hamilton with radio sodium experiment 97401413.jpeg"
    }
+  ],
+  "mkultra": [
+   {
+    "f": "media/photos/mkultra-0.jpg",
+    "credit": "Central Intelligence Agency · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:DeclassifiedMKULTRA.jpg",
+    "file": "File:DeclassifiedMKULTRA.jpg"
+   }
+  ],
+  "northwoods": [
+   {
+    "f": "media/photos/northwoods-0.jpg",
+    "credit": "Unknown · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:NorthwoodsMemorandum.jpg",
+    "file": "File:NorthwoodsMemorandum.jpg"
+   },
+   {
+    "f": "media/photos/northwoods-1.jpg",
+    "credit": "US Air Force · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Major-general-lansdale.jpg",
+    "file": "File:Major-general-lansdale.jpg"
+   }
+  ],
+  "tonkin": [
+   {
+    "f": "media/photos/tonkin-0.jpg",
+    "credit": "Jimmy Labianco · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:F-8E_VMF-212_CVA-34_1965_(cropped).jpg",
+    "file": "File:F-8E VMF-212 CVA-34 1965 (cropped).jpg"
+   }
+  ],
+  "mincemeat": [
+   {
+    "f": "media/photos/mincemeat-0.jpg",
+    "credit": "St. John \"Jock\" Horsfall · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Charles_Cholmondeley_and_Ewen_Montagu.jpg",
+    "file": "File:Charles Cholmondeley and Ewen Montagu.jpg"
+   }
+  ],
+  "ghostarmy": [
+   {
+    "f": "media/photos/ghostarmy-0.jpg",
+    "credit": "ArtemisiaGentileschiFan · CC0",
+    "license": "CC0",
+    "page": "https://commons.wikimedia.org/wiki/File:Ghost_Army_dummy_tank,_International_Spy_Museum.jpg",
+    "file": "File:Ghost Army dummy tank, International Spy Museum.jpg"
+   }
+  ],
+  "roswell": [
+   {
+    "f": "media/photos/roswell-0.jpg",
+    "credit": "Fort Worth Star-Telegram · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Marcel-roswell-debris_0.jpg",
+    "file": "File:Marcel-roswell-debris 0.jpg"
+   },
+   {
+    "f": "media/photos/roswell-1.jpg",
+    "credit": "United States Air Force · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Mogul_balloon_train_USAF_1995.png",
+    "file": "File:Mogul balloon train USAF 1995.png"
+   }
+  ],
+  "area51": [
+   {
+    "f": "media/photos/area51-0.jpg",
+    "credit": "Bill Clinton · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:65_F.R._52823_1995_Presidential_Determination_on_Classified_Information_Concerning_the_Air_Force%27s_Operating_Location_Near_Groom_Lake,_Nevada.png",
+    "file": "File:65 F.R. 52823 1995 Presidential Determination on Classified Information Concerning the Air Force's Operating Location Near Groom Lake, Nevada.png"
+   },
+   {
+    "f": "media/photos/area51-1.jpg",
+    "credit": "United States Department of Defense, Defense… · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:4477th_Test_and_Evaluation_Squadron_MiG-17F_in_flight.jpg",
+    "file": "File:4477th Test and Evaluation Squadron MiG-17F in flight.jpg"
+   }
+  ],
+  "wow": [
+   {
+    "f": "media/photos/wow-0.jpg",
+    "credit": "Credit: Big Ear Radio Observatory and North… · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Wow_signal.jpg",
+    "file": "File:Wow signal.jpg"
+   }
+  ],
+  "cointelpro": [
+   {
+    "f": "media/photos/cointelpro-0.jpg",
+    "credit": "Richard W. Held · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:COINTELPRO_-_Jean_Seberg.jpg",
+    "file": "File:COINTELPRO - Jean Seberg.jpg"
+   }
   ]
  },
  "reels": {
@@ -238,11 +340,16 @@
   "starfish": {
    "mp4": "reels/lib/starfish.mp4",
    "poster": "reels/lib/starfish.jpg"
+  },
+  "moon": {
+   "mp4": "reels/lib/moon.mp4",
+   "poster": "reels/lib/moon.jpg"
   }
  },
  "artifactReels": [
   "dyatlov",
   "roswell",
-  "starfish"
+  "starfish",
+  "moon"
  ]
 }
