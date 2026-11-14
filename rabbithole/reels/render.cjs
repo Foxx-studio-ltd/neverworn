@@ -8,7 +8,7 @@ const scale = +(process.env.SCALE || 1); // 0.6667 renders 720x1280
 (async () => {
   const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1080, height: 1920 }, deviceScaleFactor: scale });
   p.on('pageerror', e => console.error('pageerror', e.message));
-  await p.goto(`http://localhost:8765/rabbithole/reels/reel.html?r=${reel}`);
+  await p.goto(`http://localhost:8765/rabbithole/reels/${process.env.PAGE || 'reel.html'}?r=${reel}`);
   await p.evaluate(async () => { await window.ready; await document.fonts.ready; });
   await p.waitForTimeout(800);
   const ev = await p.evaluate(() => ({ duration: window.DURATION, hits: window.SLAMS, scenes: window.SCENESTARTS }));

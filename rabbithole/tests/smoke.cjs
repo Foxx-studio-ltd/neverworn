@@ -205,12 +205,14 @@ const FAKE = (opts) => {
   ok(/Evidence tip/.test(await o.textContent('#mod')), 'moderators see what kind of contribution it is');
   await o.locator('[data-approve]').last().click(); await o.waitForTimeout(400);
   await o.click('[data-tab="people"]'); await o.waitForTimeout(400);
-  ok(/@groomlake_watcher/.test(await o.textContent('#people')) && /EPFL/.test(await o.textContent('#people')), 'approved evidence shows in the Community tab with the handle');
-  await o.click('#people [data-new]'); await o.waitForTimeout(300);
-  ok(await o.isVisible('#cpTitle'), 'anyone can open a new case');
+  ok(/@groomlake_watcher/.test(await o.textContent('#people')) && /EPFL/.test(await o.textContent('#people')), 'approved evidence shows in the Community feed with the handle');
+  ok(await o.locator('#people .post-reel .rail [data-pact="profile"]').count() >= 1 && await o.locator('#people .post-reel [data-act="file"]').count() >= 1, 'community posts have the same buttons as Home, plus a profile');
+  await o.click('#people [data-post]'); await o.waitForTimeout(300);
+  ok(await o.isVisible('#cpTitle'), 'anyone can open a new case from the feed');
+  await o.click('.compose-sheet [data-k="case"]');
   await o.fill('#cpTitle', 'The Taos Hum'); await o.fill('#cpText', 'Residents in Taos have reported a low hum since the 1990s.'); await o.click('.compose-sheet .cta'); await o.waitForTimeout(300);
   ok(await o.evaluate(() => window.__fake.docs.get('posts/mod1').items.some(x => x.type === 'case' && x.title === 'The Taos Hum' && x.status === 'pending')), 'new case proposals go to moderation');
-  await o.locator('#people [data-profile]').first().click(); await o.waitForTimeout(300);
+  await o.locator('#people [data-pact="profile"]').first().click(); await o.waitForTimeout(300);
   ok(/I read declassified/.test(await o.textContent('.sheet')), 'profiles show the bio and published posts');
   await o.screenshot({ path: `${out}/12-community.png` });
   ok(await o.evaluate(() => { const c = document.querySelector('meta[name=viewport]'); return getComputedStyle(document.body).touchAction === 'manipulation'; }), 'the app blocks zoom gestures');

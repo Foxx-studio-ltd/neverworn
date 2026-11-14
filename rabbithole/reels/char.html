@@ -1,0 +1,128 @@
+<!doctype html>
+<!-- Rabbit Hole cast clips: a fictional character tells their story, lip-synced to their voice, over their case's animation.
+     Deterministic: render(t). Open char.html?r=char-dot (served from the repo root). Data: build/char-<id>.json (community/char_voice.py). -->
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Inter+Tight:wght@600;700;800&display=swap">
+<style>
+html,body { margin:0; background:#000; }
+#f { position:relative; width:1080px; height:1920px; overflow:hidden; background:#13101c; color:#f3eee2; font-family:"Inter Tight",sans-serif; }
+canvas { position:absolute; inset:0; width:1080px; height:1920px; }
+#grain { mix-blend-mode:overlay; opacity:.5; }
+.plate { position:absolute; left:56px; top:90px; right:56px; display:flex; align-items:center; gap:22px; }
+.ava { width:96px; height:96px; border-radius:50%; overflow:hidden; border:4px solid #f2e14c; background:#1e1929; flex:none; }
+.ava canvas { position:static; width:96px; height:96px; }
+.plate b { display:block; font-size:44px; font-weight:800; }
+.plate span { display:inline-block; margin-top:6px; padding:4px 12px; border-radius:8px; background:rgba(242,225,76,.16); color:#f2e14c; font-size:24px; font-weight:700; letter-spacing:.04em; }
+.about { position:absolute; right:56px; top:230px; padding:10px 18px; border-radius:999px; background:rgba(19,16,28,.75); border:2px solid rgba(239,227,196,.25); font-size:28px; font-weight:700; }
+#cap { position:absolute; left:70px; right:70px; top:1560px; height:250px; display:flex; align-items:center; justify-content:center; text-align:center; }
+#cap p { margin:0; font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:900; font-size:104px; line-height:1.02; text-transform:uppercase; text-shadow:0 6px 0 rgba(0,0,0,.55), 0 0 40px rgba(0,0,0,.6); }
+#cap span { display:inline-block; padding:0 .07em; margin:0 .04em; border-radius:10px; }
+#cap span.on { background:#f2e14c; color:#13101c; text-shadow:none; }
+#cap span.fut { opacity:.4; }
+.end { position:absolute; left:80px; right:80px; top:640px; padding:40px; border-radius:36px; background:#f2e14c; color:#13101c; text-align:center; }
+.end small { display:block; font-size:30px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+.end b { display:block; margin-top:12px; font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:900; font-size:96px; line-height:.95; text-transform:uppercase; }
+.foot { position:absolute; left:0; right:0; bottom:70px; text-align:center; font-weight:700; font-size:26px; letter-spacing:.18em; text-transform:uppercase; color:rgba(243,238,226,.55); }
+</style></head><body>
+<div id="f">
+  <canvas id="bg" width="1080" height="1920"></canvas>
+  <canvas id="ch" width="1080" height="1920"></canvas>
+  <div class="plate"><div class="ava"><canvas id="av" width="192" height="192"></canvas></div><div><b id="handle"></b><span>Fictional character · Rabbit Hole original</span></div></div>
+  <div class="about" id="about"></div>
+  <div id="cap"></div>
+  <div id="end"></div>
+  <div class="foot">Rabbit Hole · Community</div>
+  <canvas id="grain" width="540" height="960"></canvas>
+</div>
+<script src="anim.js"></script>
+<script>
+const cl = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x)), eo = x => 1 - Math.pow(1 - cl(x), 3);
+const rnd = n => { const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
+const R = new URLSearchParams(location.search).get('r');
+let T, L, CHUNKS = [];
+const HUES = { mind: 275, flags: 8, sky: 210, bureau: 150, bodies: 38, hoax: 230, cold: 185, watch: 125, corp: 75, unsolved: 320 };
+function shade(hex, k) { const n = parseInt(hex.slice(1), 16), f = c => Math.max(0, Math.min(255, Math.round(c * k))); return `rgb(${f(n >> 16)},${f((n >> 8) & 255)},${f(n & 255)})`; }
+
+// ---------- the character ----------
+function drawChar(c, cx, cy, s, t, amp, look) {
+  const blink = (t % 3.7) < .12 ? .1 : 1, bob = Math.sin(t * 1.7) * 6 + amp * 6, tilt = Math.sin(t * .9) * .03;
+  const skin = look.skin, skinD = shade(skin, .82), hair = look.hair, shirt = look.shirt;
+  c.save(); c.translate(cx, cy + bob); c.scale(s, s); c.rotate(tilt);
+  // hair behind the head
+  c.fillStyle = hair;
+  if (look.style === 'long') { c.beginPath(); c.moveTo(-190, -60); c.quadraticCurveTo(-230, 260, -150, 360); c.lineTo(150, 360); c.quadraticCurveTo(230, 260, 190, -60); c.fill(); }
+  if (look.style === 'bob' || look.style === 'fringe') { c.beginPath(); c.ellipse(0, 20, 200, 220, 0, Math.PI * 1.05, Math.PI * 1.95, true); c.fill(); c.beginPath(); c.roundRect(-205, -40, 410, 200, 60); c.fill(); }
+  // shoulders + shirt
+  c.fillStyle = shirt; c.beginPath(); c.moveTo(-330, 620); c.quadraticCurveTo(-320, 300, -110, 270); c.lineTo(110, 270); c.quadraticCurveTo(320, 300, 330, 620); c.fill();
+  c.fillStyle = shade(shirt, .8); c.beginPath(); c.moveTo(-80, 270); c.lineTo(0, 360); c.lineTo(80, 270); c.fill();
+  // neck
+  c.fillStyle = skinD; c.fillRect(-62, 150, 124, 140);
+  if (look.extra === 'scarf') { c.fillStyle = '#d0372c'; c.beginPath(); c.roundRect(-120, 230, 240, 70, 30); c.fill(); c.fillRect(40, 270, 50, 140); }
+  // ears
+  c.fillStyle = skin; c.beginPath(); c.ellipse(-172, 10, 28, 44, 0, 0, 7); c.ellipse(172, 10, 28, 44, 0, 0, 7); c.fill();
+  if (look.extra === 'earrings') { c.fillStyle = '#f2e14c'; c.beginPath(); c.arc(-172, 62, 10, 0, 7); c.arc(172, 62, 10, 0, 7); c.fill(); }
+  // head
+  c.fillStyle = skin; c.beginPath(); c.ellipse(0, 0, 165, 205, 0, 0, 7); c.fill();
+  c.fillStyle = 'rgba(0,0,0,.06)'; c.beginPath(); c.ellipse(60, 40, 90, 150, -.2, 0, 7); c.fill();
+  // beard
+  if (look.extra === 'beard') { c.fillStyle = hair; c.beginPath(); c.moveTo(-160, 30); c.quadraticCurveTo(-150, 215, 0, 225); c.quadraticCurveTo(150, 215, 160, 30); c.quadraticCurveTo(120, 150, 0, 150); c.quadraticCurveTo(-120, 150, -160, 30); c.fill(); }
+  // hair on top
+  c.fillStyle = hair;
+  const top = () => { c.beginPath(); c.ellipse(0, -60, 172, 160, 0, Math.PI, 0); c.fill(); };
+  if (look.style === 'short') { top(); c.fillRect(-170, -70, 30, 90); c.fillRect(140, -70, 30, 90); }
+  if (look.style === 'side') { c.beginPath(); c.ellipse(-10, -70, 175, 150, -.08, Math.PI, 0); c.fill(); c.fillStyle = shade(hair, .85); c.fillRect(-60, -210, 8, 90); }
+  if (look.style === 'bob' || look.style === 'long') { top(); c.beginPath(); c.moveTo(-150, -90); c.quadraticCurveTo(-40, -40, 60, -120); c.lineTo(170, -60); c.lineTo(160, -150); c.fill(); }
+  if (look.style === 'fringe') { top(); c.fillRect(-150, -150, 300, 85); }
+  if (look.style === 'bun') { top(); c.beginPath(); c.arc(0, -240, 70, 0, 7); c.fill(); }
+  if (look.style === 'curly') { for (let i = 0; i < 11; i++) { const a = Math.PI + i / 10 * Math.PI; c.beginPath(); c.arc(Math.cos(a) * 150, -40 + Math.sin(a) * 175, 62, 0, 7); c.fill(); } }
+  if (look.style === 'bald') { c.fillStyle = shade(hair, 1); c.fillRect(-168, -40, 26, 70); c.fillRect(142, -40, 26, 70); }
+  if (look.style === 'beanie') { c.fillStyle = '#d9a43a'; c.beginPath(); c.ellipse(0, -70, 180, 170, 0, Math.PI, 0); c.fill(); c.fillStyle = shade('#d9a43a', .8); c.beginPath(); c.roundRect(-185, -95, 370, 60, 24); c.fill(); c.fillStyle = hair; c.fillRect(-170, -40, 40, 100); c.fillRect(130, -40, 40, 100); }
+  if (look.style === 'cap') { top(); c.fillStyle = '#1e3a5a'; c.beginPath(); c.ellipse(0, -90, 178, 150, 0, Math.PI, 0); c.fill(); c.beginPath(); c.ellipse(80, -95, 190, 34, .08, 0, 7); c.fill(); }
+  if (look.extra === 'mask') { c.fillStyle = '#2b8fb0'; c.beginPath(); c.roundRect(-140, -175, 280, 80, 30); c.fill(); c.fillStyle = 'rgba(200,240,255,.6)'; c.beginPath(); c.roundRect(-120, -165, 240, 60, 24); c.fill(); c.fillStyle = '#111'; c.fillRect(-175, -150, 350, 16); }
+  // eyes
+  [-62, 62].forEach(x => { c.fillStyle = '#fff'; c.beginPath(); c.ellipse(x, 0, 30, 20 * blink, 0, 0, 7); c.fill(); c.fillStyle = '#2a2018'; c.beginPath(); c.arc(x + Math.sin(t * .6) * 6, 2, 12 * blink, 0, 7); c.fill(); });
+  c.strokeStyle = shade(look.hair === '#e8e4dc' || look.hair === '#d9d6cf' ? '#8a8478' : hair, 1); c.lineWidth = 10; c.lineCap = 'round';
+  const br = amp * 10 + Math.max(0, Math.sin(t * 2.3)) * 4; c.beginPath(); c.moveTo(-90, -48 - br); c.lineTo(-36, -54 - br); c.moveTo(36, -54 - br); c.lineTo(90, -48 - br); c.stroke();
+  if (look.glasses) { c.strokeStyle = '#151218'; c.lineWidth = 8; c.beginPath(); c.roundRect(-108, -32, 92, 66, 20); c.roundRect(16, -32, 92, 66, 20); c.moveTo(-16, -6); c.lineTo(16, -6); c.stroke(); }
+  // nose
+  c.strokeStyle = shade(skin, .7); c.lineWidth = 7; c.beginPath(); c.moveTo(4, 20); c.quadraticCurveTo(22, 70, -6, 78); c.stroke();
+  // mouth follows the voice
+  const open = 6 + amp * 46, wide = 54 + amp * 10;
+  if (look.extra === 'moustache') { c.fillStyle = look.hair; c.beginPath(); c.ellipse(-30, 108, 44, 16, .15, 0, 7); c.ellipse(30, 108, 44, 16, -.15, 0, 7); c.fill(); }
+  c.fillStyle = '#5a1e22'; c.beginPath(); c.ellipse(0, 132, wide, open / 2, 0, 0, 7); c.fill();
+  if (open > 18) { c.fillStyle = '#f4efe6'; c.fillRect(-wide * .6, 132 - open / 2, wide * 1.2, Math.min(10, open / 4)); }
+  c.strokeStyle = shade(skin, .62); c.lineWidth = 5; c.beginPath(); c.ellipse(0, 132, wide + 2, open / 2 + 2, 0, 0, 7); c.stroke();
+  // headphones
+  if (look.extra === 'headphones') { c.strokeStyle = '#1b1b22'; c.lineWidth = 26; c.beginPath(); c.arc(0, -10, 196, Math.PI * 1.08, Math.PI * 1.92); c.stroke(); c.fillStyle = '#1b1b22'; c.beginPath(); c.roundRect(-222, -40, 60, 110, 24); c.roundRect(162, -40, 60, 110, 24); c.fill(); c.fillStyle = '#f2e14c'; c.fillRect(-214, -10, 10, 50); }
+  c.restore();
+}
+
+// ---------- captions ----------
+function buildChunks() { let cur = []; T.words.forEach((w, i) => { cur.push(w); if (/[.?!,:;]$/.test(w[0]) || cur.length >= 3 || i === T.words.length - 1) { CHUNKS.push({ words: cur, start: cur[0][1] }); cur = []; } });
+  CHUNKS.forEach((c, i) => c.end = Math.min(CHUNKS[i + 1] ? CHUNKS[i + 1].start : 1e9, c.words[c.words.length - 1][2] + .6)); }
+function caption(t) { const c = CHUNKS.find(c => t >= c.start - .02 && t < c.end); if (!c) return '';
+  return `<p>${c.words.map((w, i) => { const on = t >= w[1] - .02 && (i === c.words.length - 1 ? t < c.end : t < c.words[i + 1][1] - .02); return `<span class="${on ? 'on' : t < w[1] - .02 ? 'fut' : ''}">${w[0].replace(/[,]$/, '')}</span>`; }).join(' ')}</p>`; }
+
+const bg = document.getElementById('bg').getContext('2d'), ch = document.getElementById('ch').getContext('2d'), gr = document.getElementById('grain').getContext('2d');
+const NOISE = Array.from({ length: 6 }, (_, k) => { const c = document.createElement('canvas'); c.width = 540; c.height = 960; const x = c.getContext('2d'), im = x.createImageData(540, 960);
+  for (let i = 0; i < im.data.length; i += 4) { const v = rnd(i * .37 + k * 1000) * 255; im.data[i] = im.data[i + 1] = im.data[i + 2] = v; im.data[i + 3] = 50; } x.putImageData(im, 0, 0); return c; });
+const amp = t => { const e = T.env, i = Math.floor(t * 30); return e[i] || 0; };
+function render(t) {
+  bg.clearRect(0, 0, 1080, 1920); RHART.draw(bg, T.case.id, t, HUES[T.case.hole] || 275);
+  const g = bg.createLinearGradient(0, 0, 0, 1920); g.addColorStop(0, 'rgba(19,16,28,.55)'); g.addColorStop(.45, 'rgba(19,16,28,.35)'); g.addColorStop(.75, 'rgba(19,16,28,.85)'); g.addColorStop(1, '#13101c'); bg.fillStyle = g; bg.fillRect(0, 0, 1080, 1920);
+  ch.clearRect(0, 0, 1080, 1920); const a = (amp(t) + amp(t - 1 / 30)) / 2;
+  const endAt = T.duration - 2.6, fade = cl((t - endAt) / .4);
+  drawChar(ch, 540, 1000, 1.5, t, a, L); if (fade > 0) { ch.fillStyle = `rgba(19,16,28,${fade * .65})`; ch.fillRect(0, 0, 1080, 1920); }
+  const av = document.getElementById('av').getContext('2d'); av.clearRect(0, 0, 192, 192); av.fillStyle = '#1e1929'; av.fillRect(0, 0, 192, 192); drawChar(av, 96, 96, .34, t, a, L);
+  document.getElementById('cap').innerHTML = t < endAt ? caption(t) : '';
+  document.getElementById('about').style.opacity = cl((t - 1) / .4);
+  document.getElementById('end').innerHTML = t >= endAt ? `<div class="end" style="opacity:${fade};transform:scale(${.9 + .1 * eo(fade)})"><small>Open the file in Rabbit Hole ▸</small><b>${T.case.title}</b></div>` : '';
+  gr.clearRect(0, 0, 540, 960); gr.drawImage(NOISE[Math.floor(t * 24) % 6], 0, 0);
+}
+window.ready = fetch(`build/${R}.json`).then(r => r.json()).then(j => {
+  T = j; L = j.char.look; window.DURATION = j.duration; window.SLAMS = []; window.SCENESTARTS = [];
+  document.getElementById('handle').textContent = '@' + j.char.handle;
+  document.getElementById('about').textContent = 'About: ' + j.case.title.replace(/^the /, '');
+  buildChunks(); render(0);
+});
+</script></body></html>

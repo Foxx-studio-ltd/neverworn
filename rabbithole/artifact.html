@@ -26,7 +26,7 @@
 html, body { height: 100%; }
 /* iPhone: the app never zooms, slides sideways or rubber-bands; only feeds and panels scroll, vertically */
 html, body { position: fixed; inset: 0; overflow: hidden; overscroll-behavior: none; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; touch-action: manipulation; }
-#feed, #watch, .page, .sheet, .doc, .tt, .thread { touch-action: pan-y; overscroll-behavior: contain; }
+#feed, #watch, .feedview, .page, .sheet, .doc, .tt, .thread { touch-action: pan-y; overscroll-behavior: contain; }
 .card, .reel { overflow-x: hidden; }
 input, textarea, select { font-size: 16px !important; }
 body { margin: 0; background: var(--ink); color: var(--text); font: 15px/1.45 var(--f-ui); overflow: hidden; -webkit-tap-highlight-color: transparent; overscroll-behavior: none; }
@@ -213,6 +213,13 @@ a { color: inherit; }
 .watch-top { position: sticky; top: 0; height: 0; z-index: 6; }
 .watch-top > div { position: absolute; left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px; pointer-events: none; }
 .watch-top .pill { pointer-events: auto; background: rgba(19,16,28,.72); backdrop-filter: blur(6px); font-size: 12px; }
+.feedview { overflow-y: auto; scroll-snap-type: y mandatory; scrollbar-width: none; background: #000; }
+.feedview::-webkit-scrollbar { display: none; }
+.ptr { position: sticky; top: 56px; height: 0; text-align: center; font-size: 13px; font-weight: 700; color: var(--mark); opacity: 0; z-index: 6; transition: opacity .2s; }
+.textpost { width: 100%; height: 100%; box-sizing: border-box; display: grid; align-content: center; gap: 14px; padding: 90px 80px 140px 24px; background: radial-gradient(90% 70% at 30% 30%, hsla(var(--hue, 275), 50%, 35%, .6), transparent 70%), var(--ink); }
+.textpost p { margin: 0; font-family: var(--f-display); font-weight: 800; font-size: clamp(28px, 8vw, 40px); line-height: 1.05; text-transform: uppercase; }
+.ava-disc { font-family: var(--f-display); font-weight: 900; font-size: 22px; background: var(--mark) !important; color: var(--ink); }
+.reel-info .handle { pointer-events: auto; justify-self: start; font-weight: 800; font-size: 16px; color: var(--text); }
 #watch { overflow-y: auto; scroll-snap-type: y mandatory; scrollbar-width: none; background: #000; }
 #watch::-webkit-scrollbar { display: none; }
 .reel { position: relative; height: 100%; scroll-snap-align: start; scroll-snap-stop: always; overflow: hidden; display: grid; place-items: center; background: #000; }
@@ -391,7 +398,7 @@ button.src { text-align: left; text-decoration: none; color: var(--mark); font-w
     <span class="pill" id="hudStreak" title="Daily streak"></span>
   </div>
   <section id="watch" class="view" hidden aria-label="Reels"></section>
-  <section id="people" class="view page" hidden aria-label="Community"></section>
+  <section id="people" class="view feedview" hidden aria-label="Community"></section>
   <section id="holes" class="view page" hidden aria-label="Holes"></section>
   <section id="board" class="view page" hidden aria-label="Case board"></section>
   <section id="me" class="view page" hidden aria-label="Your depth"></section>
@@ -1495,33 +1502,96 @@ const Contrib = (() => {
       });
     });
   }
+  const CAST = () => (Feed.cast || []);
   function profile(id) {
-    $(".scrim")?.remove(); const p = C.profileOf(id) || {}, posts = C.allPub().filter(x => x.by === id);
+    $(".scrim")?.remove();
+    const cast = id.startsWith("cast:") ? CAST().find(x => "cast:" + x.handle === id) : null;
+    const p = cast ? { bio: cast.bio } : C.profileOf(id) || {}, posts = cast ? [] : C.allPub().filter(x => x.by === id);
     const s = document.createElement("div"); s.className = "scrim";
     s.innerHTML = `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="prT"><button class="x" data-x>Close</button>
-      <h2 id="prT">${esc(C.nm(id))}</h2>${p.bio ? `<p class="onb-sub" style="margin:0">${esc(p.bio)}</p>` : ""}
-      <div class="stats" style="margin:0"><div class="stat"><b>${posts.length}</b><span>Published</span></div><div class="stat"><b>${posts.filter(x => x.type === "case").length}</b><span>Cases opened</span></div></div>
-      <div class="posts">${posts.length ? posts.map(x => postHTML(x)).join("") : '<p class="credit">Nothing published yet.</p>'}</div></div>`;
+      <h2 id="prT">${esc(cast ? "@" + cast.handle : C.nm(id))}</h2>${cast ? `<span class="badge wait" style="justify-self:start">Fictional character · Rabbit Hole original</span>` : ""}
+      ${p.bio ? `<p class="onb-sub" style="margin:0">${esc(p.bio)}</p>` : ""}
+      ${cast ? `<p class="credit" style="margin:0">${esc(cast.name)} is part of Rabbit Hole's cast. Their stories are dramatised; the facts come from the case file.</p>
+        <button class="dig" data-case="${esc(cast.caseId)}">${ico("file")}<span><small>Their story is about</small>${esc(capFirst(byId[cast.caseId].title))}</span></button>` :
+      `<div class="stats" style="margin:0"><div class="stat"><b>${posts.length}</b><span>Published</span></div><div class="stat"><b>${posts.filter(x => x.type === "case").length}</b><span>Cases opened</span></div></div>
+      <div class="posts">${posts.length ? posts.map(x => postHTML(x)).join("") : '<p class="credit">Nothing published yet.</p>'}</div>`}</div>`;
     $("#app").append(s);
     s.addEventListener("click", e => { if (e.target === s || e.target.closest("[data-x]")) return s.remove(); const cl = e.target.closest("[data-case]"); if (cl) { s.remove(); CaseFile.open(cl.dataset.case); } });
   }
-  // the Community tab: everyone's published evidence, videos and new cases
-  const v = $("#people");
-  function render() {
-    const list = C.allPub(), mineP = C.on ? C.minePending().filter(x => x.status !== "approved") : [];
-    C.resolveNames(list.map(x => x.by));
-    v.innerHTML = `<h1>Community</h1><p class="lede">Evidence, videos and new cases from people digging alongside Alice. A moderator checks everything before it appears.</p>
-      ${C.on ? `<div class="row-btns"><button class="cta" data-new>Open a new case</button>${C.profileOf(C.me) ? `<button class="ghost" data-profile="${esc(C.me)}">My profile</button>` : ""}</div>` :
-        `<div class="clr"><span><b>Posting opens with accounts.</b> Soon you'll be able to add evidence and videos to any case, open new cases and follow other diggers.</span></div>`}
-      <div class="posts">${[...mineP, ...list].map(x => postHTML(x)).join("") || '<p class="credit">Nothing published yet. Be the first to add to a case.</p>'}</div>`;
+  return { mountCase, compose, profile, postHTML };
+})();
+
+/* ---------- Community feed: people's clips and posts, one after another ---------- */
+// Plays like Home. Sources: the cast (data/community.json, refreshable from the server) and approved community posts.
+const Feed = (() => {
+  const v = $("#people"); let built = false, on = false, sound = false, timer = 0, sig = "";
+  const F = { cast: (DATA.community && DATA.community.posts) || [] };
+  function items() {
+    const cast = F.cast.map(x => ({ kind: "video", key: "cast:" + x.id, by: "cast:" + x.handle, handle: x.handle, caseId: x.caseId, src: x.mp4, poster: x.poster, text: x.caption, at: x.at, fictional: true }));
+    const ugc = Community.on ? Community.allPub().map(x => ({ kind: x.asset ? "video" : "text", key: x.key, by: x.by, handle: (Community.nm(x.by) || "").replace(/^@/, ""), caseId: byId[x.caseId] ? x.caseId : null, src: x.asset && x.asset.url,
+      text: x.title ? x.title + ". " + (x.text || "") : x.text, source: x.source, at: x.ok || x.at, type: x.type })) : [];
+    return [...ugc, ...cast].sort((a, b) => b.at - a.at);
   }
+  function card(it) {
+    const el = document.createElement("article"); el.className = "reel post-reel"; el.dataset.key = it.key; if (it.caseId) el.dataset.id = it.caseId;
+    const c = it.caseId && byId[it.caseId]; if (c) el.style.setProperty("--hue", HOLES[c.hole].hue);
+    el.innerHTML = `${it.kind === "video" ? `<video src="${esc(it.src)}" ${it.poster ? `poster="${esc(it.poster)}"` : ""} playsinline preload="none"></video>` :
+        `<div class="textpost"><span class="badge wait">${{ tip: "Evidence", case: "New case" }[it.type] || "Post"}</span><p>${esc(it.text || "")}</p>${it.source ? `<a class="cf-link" href="${esc(it.source)}" target="_blank" rel="noopener nofollow ugc">Source ↗</a>` : ""}</div>`}
+      <aside class="rail">
+        <button data-pact="profile" aria-label="Open @${esc(it.handle)}'s profile"><span class="disc ava-disc">${esc((it.handle || "?").charAt(0).toUpperCase())}</span>Profile</button>
+        ${c ? `<button data-act="save" aria-pressed="${S.saved.includes(c.id)}" aria-label="Pin the case to your board"><span class="disc">${ico("pin")}</span>Pin</button>
+        <button data-act="debate" aria-label="Open the discussion"><span class="disc">${ico("debate")}</span><span class="count" data-count="${c.id}">${Community.count(c.id) || "Discuss"}</span></button>` : ""}
+        <button data-pact="share" aria-label="Share"><span class="disc">${ico("share")}</span>Share</button>
+        ${c ? `<button data-act="file" aria-label="Open the case file"><span class="disc">${ico("file")}</span>File</button>` : ""}</aside>
+      <div class="reel-info"><button class="handle" data-pact="profile">@${esc(it.handle)}</button>${it.fictional ? `<span class="badge wait" style="justify-self:start">Fictional character · Rabbit Hole original</span>` : ""}
+        ${c ? `<span class="credit">About: ${esc(capFirst(c.title))}</span>` : ""}</div>${it.kind === "video" ? '<div class="reel-bar"><i></i></div>' : ""}`;
+    const vid = $("video", el);
+    if (vid) { vid.addEventListener("timeupdate", () => { $(".reel-bar i", el).style.width = (vid.currentTime / (vid.duration || 1) * 100) + "%"; }); vid.addEventListener("ended", () => { timer = setTimeout(() => el.nextElementSibling?.scrollIntoView({ behavior: "smooth" }), 1200); }); }
+    io.observe(el); return el;
+  }
+  const io = new IntersectionObserver(es => es.forEach(en => { const vid = $("video", en.target);
+    if (en.isIntersecting && on) { if (vid) { vid.preload = "auto"; vid.muted = !sound; vid.play().catch(() => {}); } }
+    else if (vid) vid.pause(); }), { root: v, threshold: .7 });
+  function topbar() { return `<div class="watch-top"><div><span class="pill">${ico("debate")}Community</span>
+      ${Community.on ? `<button class="pill" data-post>+ Post</button>` : ""}<button class="pill" data-refresh aria-label="Refresh">↻ Refresh</button></div></div><div class="ptr" aria-hidden="true">Pull to refresh</div>`; }
+  function render(force) {
+    const list = items(), key = list.map(x => x.key).join("|");
+    if (built && !force && key === sig) return; built = true; sig = key;
+    v.innerHTML = topbar();
+    if (!list.length) { v.insertAdjacentHTML("beforeend", `<div class="watch-empty"><b>Nothing here yet</b><span>Tap Refresh to check for new posts.</span></div>`); return; }
+    list.forEach(it => v.append(card(it)));
+    if (!sound) v.insertAdjacentHTML("beforeend", "");
+  }
+  async function refresh() {
+    const btn = $("[data-refresh]", v); if (btn) btn.textContent = "↻ Checking…";
+    const before = new Set(items().map(x => x.key));
+    try { const r = await fetch("data/community.json?ts=" + Date.now(), { cache: "no-store" }); if (r.ok) { const j = await r.json(); if (j && j.posts) F.cast = j.posts; } } catch (e) {}
+    const now = items(), fresh = now.filter(x => !before.has(x.key)).length;
+    render(true); v.scrollTo({ top: 0 });
+    toast(fresh ? `${fresh} new post${fresh > 1 ? "s" : ""}` : "You're all caught up");
+  }
+  // pull to refresh
+  let y0 = null;
+  v.addEventListener("touchstart", e => { y0 = v.scrollTop <= 0 ? e.touches[0].clientY : null; }, { passive: true });
+  v.addEventListener("touchmove", e => { if (y0 == null) return; const d = e.touches[0].clientY - y0; const p = $(".ptr", v); if (p) { p.style.opacity = Math.min(1, d / 80); p.textContent = d > 80 ? "Release to refresh" : "Pull to refresh"; } }, { passive: true });
+  v.addEventListener("touchend", e => { if (y0 == null) return; const d = (e.changedTouches[0] || {}).clientY - y0; y0 = null; const p = $(".ptr", v); if (p) p.style.opacity = 0; if (d > 80) refresh(); });
   v.addEventListener("click", e => {
-    if (e.target.closest("[data-new]")) return compose("_cases", "case");
-    const pr = e.target.closest("[data-profile]"); if (pr) return profile(pr.dataset.profile);
-    const cl = e.target.closest("[data-case]"); if (cl) return CaseFile.open(cl.dataset.case);
+    if (e.target.closest("[data-refresh]")) return refresh();
+    if (e.target.closest("[data-post]")) return Contrib.compose("_cases", "video");
+    const el = e.target.closest(".reel"); if (!el) return;
+    const pa = e.target.closest("[data-pact]");
+    if (pa) { const it = items().find(x => x.key === el.dataset.key); if (!it) return;
+      if (pa.dataset.pact === "profile") return Contrib.profile(it.by);
+      if (pa.dataset.pact === "share") return share({ dataset: { id: it.caseId || "dyatlov" } }); }
+    const a = e.target.closest("[data-act]");
+    if (a) return ({ save: () => toggleSave(el, a), debate: () => Community.open(el.dataset.id), file: () => CaseFile.open(el.dataset.id) })[a.dataset.act]?.();
+    const vid = $("video", el); if (!vid) return;
+    if (!sound) { sound = true; $$(".reel video", v).forEach(x => x.muted = false); vid.play().catch(() => {}); return; }
+    vid.paused ? vid.play().catch(() => {}) : vid.pause();
   });
-  C.onChange(() => { if (!v.hidden) render(); });
-  return { mountCase, compose, profile, render };
+  Community.onChange(() => { if (!v.hidden) render(); });
+  return { render, refresh, get cast() { return F.cast.map(x => ({ ...x })); },
+    active(x) { on = x; if (!x) { $$(".reel video", v).forEach(vd => vd.pause()); clearTimeout(timer); } else $$(".reel", v).forEach(el => { io.unobserve(el); io.observe(el); }); } };
 })();
 
 /* ---------- Watch: Alice's episodes, played as one chain ---------- */
@@ -1600,9 +1670,9 @@ $$(".tabs button").forEach(b => { if (!TABS[b.dataset.tab]) return; const [i, l]
 function tab(name) {
   $$(".tabs button").forEach(b => b.dataset.tab === name ? b.setAttribute("aria-current", "page") : b.removeAttribute("aria-current"));
   ["feed", "watch", "people", "holes", "board", "me", "mod"].forEach(v => $("#" + v).hidden = v !== name);
-  Watch.active(name === "watch"); if (name !== "feed") Art.stop();
+  Watch.active(name === "watch"); Feed.active(name === "people"); if (name !== "feed") Art.stop();
   $("#hud").hidden = name !== "feed";
-  if (name === "watch") Watch.render(); if (name === "people") Contrib.render(); if (name === "holes") renderHoles(); if (name === "board") renderBoard(); if (name === "me") renderMe(); if (name === "mod") Community.render();
+  if (name === "watch") Watch.render(); if (name === "people") Feed.render(); if (name === "holes") renderHoles(); if (name === "board") renderBoard(); if (name === "me") renderMe(); if (name === "mod") Community.render();
 }
 $(".tabs").addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (!b) return; if (b.dataset.tab === "watch" && !$("#watch").hidden) return Watch.home(); if (b.dataset.tab === "feed" && !$("#feed").hidden) { feed.scrollTo({ top: 0, behavior: "smooth" }); return; } tab(b.dataset.tab); });
 
@@ -1654,6 +1724,6 @@ function onboarding() {
 hud(); tab(Object.keys(MEDIA.reels || {}).length ? "watch" : "feed");
 if (S.onboarded) { startFeed(); announceDrop(); } else onboarding();
 tick();
-window.RabbitHole = { get state() { return S; }, CASES, HOLES, MEDIA, paywall, startFeed, tab, Community, Contrib, CaseFile, Explore, Watch, dropNow, freeToday, Filter };
+window.RabbitHole = { get state() { return S; }, Feed, CASES, HOLES, MEDIA, paywall, startFeed, tab, Community, Contrib, CaseFile, Explore, Watch, dropNow, freeToday, Filter };
 })();
 </script>
