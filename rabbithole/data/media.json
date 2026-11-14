@@ -359,6 +359,12 @@
    "ask": 43.22,
    "verdictAt": 43.82
   },
+  "yeti": {
+   "mp4": "reels/lib/yeti.mp4",
+   "poster": "reels/lib/yeti.jpg",
+   "ask": 21.36,
+   "verdictAt": 23.21
+  },
   "moon": {
    "mp4": "reels/lib/moon.mp4",
    "poster": "reels/lib/moon.jpg",
@@ -407,6 +413,12 @@
    "ask": 21.86,
    "verdictAt": 23.71
   },
+  "chupacabra": {
+   "mp4": "reels/lib/chupacabra.mp4",
+   "poster": "reels/lib/chupacabra.jpg",
+   "ask": 23.22,
+   "verdictAt": 25.08
+  },
   "area51": {
    "mp4": "reels/lib/area51.mp4",
    "poster": "reels/lib/area51.jpg",
@@ -454,6 +466,12 @@
    "poster": "reels/lib/radium.jpg",
    "ask": 18.91,
    "verdictAt": 20.76
+  },
+  "mothman": {
+   "mp4": "reels/lib/mothman.mp4",
+   "poster": "reels/lib/mothman.jpg",
+   "ask": 23.09,
+   "verdictAt": 24.94
   },
   "mockingbird": {
    "mp4": "reels/lib/mockingbird.mp4",
@@ -732,8 +750,8 @@
   "starfish",
   "bigfoot",
   "mkultra",
+  "yeti",
   "moon",
-  "northwoods",
-  "shamrock"
+  "northwoods"
  ]
 }
