@@ -49,20 +49,33 @@ const FAKE = (opts) => {
   await first.locator('[data-g="real"]').click(); await p.waitForTimeout(600);
   ok(await first.locator('.truth').isVisible(), 'calling it reveals the truth');
   ok(/Next file/.test(await first.locator('.truth .deeper').textContent()), 'verdict ends on a cliffhanger link');
+  ok(/Dig deeper/.test(await first.locator('.truth .dig').textContent()), 'verdict offers to dig deeper into the same file');
   await shot('3-verdict');
   await first.locator('.truth [data-act="deeper"]').click(); await p.waitForTimeout(1000);
   ok(await p.locator('.card').nth(1).getAttribute('data-id') === drop.free[1], 'cliffhanger opens the next file in the chain');
   for (let i = 0; i < 6; i++) { await p.keyboard.press('ArrowDown'); await p.waitForTimeout(350); }
-  ok(await p.locator('.card.locked').count() === 1 && await p.locator('.endcard').count() === 1, 'free chain stops after the drop and two links');
-  ok(/\d\d:\d\d:\d\d/.test(await p.locator('.endcard .countdown').textContent()), 'end card counts down to the next drop');
-  await shot('4-endcard');
+  ok(await p.locator('.card.locked').count() === 0 && await p.locator('.endcard').count() === 0 && await p.locator('.card').count() > 6, 'every file is free: the chain never hits a paywall');
   ok(await p.locator('[data-act="debate"]:visible').count() === 0, 'community is hidden when there is no moderated backend');
-  await p.locator('.card.locked [data-act="unlock"]').click(); await p.waitForTimeout(300);
-  ok(/Unlock the full chain/.test(await p.textContent('.sheet')), 'paywall sells the full chain');
+  // dig deeper: six layers, the deep record is the only paid one
+  await p.evaluate(() => RabbitHole.CaseFile.open('voynich')); await p.waitForTimeout(300);
+  ok(await p.locator('.casefile .layer').count() === 1 && await p.isVisible('.casefile [data-cfcall="real"]'), 'a case file starts at layer 1 and asks for your call');
+  await p.click('.casefile [data-cfcall="fake"]'); await p.waitForTimeout(200);
+  for (let k = 0; k < 3; k++) { await p.click('.casefile [data-dig]'); await p.waitForTimeout(250); }
+  ok(await p.locator('.casefile .layer').count() === 4 && await p.isVisible('.casefile .deep-lock'), 'layer 4, the deep record, is the only locked layer');
+  await shot('4-diglock');
+  await p.click('.casefile [data-dig]'); await p.waitForTimeout(250);
+  ok(await p.locator('.casefile .layer .door').count() === 3, 'free users can still dig on to connected files');
+  await p.click('.casefile [data-dig]'); await p.waitForTimeout(250);
+  await p.fill('#cfNotes', 'Check the 2021 avalanche model against the 1959 weather.'); await p.waitForTimeout(100);
+  ok(await p.evaluate(() => /avalanche/.test(RabbitHole.state.notes.voynich)), 'you can build on a story with your own notes');
+  ok(/bottom of this file/.test(await p.textContent('.casefile .cf-foot')), 'the bottom of the file links to the next one');
+  await p.locator('.casefile .layer[data-layer="3"] [data-act="unlock"]').click(); await p.waitForTimeout(300);
+  ok(/Go deeper/.test(await p.textContent('.sheet:has([data-go])')) && /no ads/i.test(await p.textContent('.sheet:has([data-go])')), 'paywall sells depth and promises no ads');
   await shot('5-paywall');
   await p.click('[data-go]'); await p.waitForTimeout(500);
-  ok(await p.locator('.card.locked').count() === 0 && await p.locator('.endcard').count() === 0, 'clearance unlocks the chain in place');
-  ok(await p.locator('.card').count() > 5, 'the chain keeps going after clearance');
+  await p.evaluate(() => RabbitHole.CaseFile.open('voynich', 3)); await p.waitForTimeout(300);
+  ok(/CC BY-SA/.test(await p.textContent('.casefile')), 'clearance opens the deep record, with its attribution');
+  await p.click('.casefile [data-x]');
   await p.click('[data-tab="holes"]'); await p.waitForTimeout(300);
   ok(await p.locator('.hole').count() === 10, 'ten holes listed');
   await p.fill('#askQ', 'did the CIA try to control minds'); await p.press('#askQ', 'Enter'); await p.waitForTimeout(300);
@@ -84,6 +97,17 @@ const FAKE = (opts) => {
   await p.click('[data-tab="watch"]'); await p.waitForTimeout(800);
   ok(await p.locator('.reel video').count() > 0 || await p.isVisible('.watch-empty'), 'watch tab shows episodes or an empty state');
   await shot('7-watch');
+  // episodes wait for your call
+  await p.click('[data-tab="watch"]'); await p.waitForTimeout(800);
+  if (await p.locator('.reel video').count()) {
+    const ask = await p.evaluate(() => RabbitHole.MEDIA.reels[RabbitHole.dropNow().c.id]?.ask);
+    await p.locator('.reel').first().click(); await p.waitForTimeout(500);
+    await p.evaluate(a => { const v = document.querySelector('.reel video'); v.currentTime = a - .3; v.play(); }, ask); await p.waitForTimeout(1500);
+    ok(await p.isVisible('.reel .callbox') && await p.evaluate(() => document.querySelector('.reel video').paused), 'episode pauses at "Real or fake?" until you choose');
+    await p.screenshot({ path: `${out}/7b-reelcall.png` });
+    await p.click('.reel .callbox [data-wcall="real"]'); await p.waitForTimeout(500);
+    ok(await p.evaluate(() => !document.querySelector('.reel video').paused) && await p.locator('.reel .callbox').count() === 0, 'after your call the verdict plays');
+  }
   // light streak: one missed day is forgiven, two are not
   await p.evaluate(() => { const s = RabbitHole.state, i = RabbitHole.dropNow().idx; s.lastDrop = i - 2; s.streak = 5; s.skips = 1; RabbitHole.tab('feed'); RabbitHole.startFeed(); });
   await p.waitForTimeout(600);
@@ -161,14 +185,17 @@ const FAKE = (opts) => {
   await o.screenshot({ path: `${out}/10-modreported.png` });
   // the expanded case file, contributions, profiles and the community tab
   await o.evaluate(() => RabbitHole.CaseFile.open('dyatlov')); await o.waitForTimeout(400);
+  await o.click('.casefile [data-cfcall="real"]'); await o.click('.casefile [data-dig]'); await o.waitForTimeout(300);
   ok(await o.locator('.casefile .ev-item').count() === 3, 'case file lists the evidence');
-  await o.locator('.casefile .ev-item summary').first().click();
-  ok(await o.locator('.casefile .ev-item[open]').count() === 1, 'evidence expands to show where it comes from');
-  ok(await o.locator('.casefile .cf-sibs button').count() >= 5, 'case file links to related files to keep digging');
+  await o.locator('.casefile .ev-item summary').nth(1).click();
+  ok(await o.locator('.casefile .ev-item[open]').count() === 2, 'evidence expands to show where it comes from');
+  for (let k = 0; k < 4; k++) { await o.click('.casefile [data-dig]'); await o.waitForTimeout(250); }
+  ok(await o.locator('.casefile .layer .door').count() === 3, 'case file links to connected files to keep digging');
   await o.screenshot({ path: `${out}/11-casefile.png` });
   await o.click('.casefile [data-add]'); await o.waitForTimeout(300);
   ok(await o.isVisible('#pfH'), 'first contribution asks for a profile handle');
-  await o.fill('#pfH', 'groomlake_watcher'); await o.fill('#pfB', 'I read declassified PDFs for fun.'); await o.click('.sheet .cta'); await o.waitForTimeout(300);
+  await o.type('#pfH', 'Groomlake Watcher!'); await o.waitForTimeout(100);
+  ok(await o.inputValue('#pfH') === 'groomlake_watcher' && /looks good/.test(await o.textContent('#pfHint')), 'handle is fixed as you type and the rule is shown'); await o.fill('#pfB', 'I read declassified PDFs for fun.'); await o.click('.sheet .cta'); await o.waitForTimeout(300);
   ok(await o.evaluate(() => window.__fake.docs.get('profiles/mod1').handle) === 'groomlake_watcher', 'profile is saved');
   await o.fill('#cpText', 'The 2021 EPFL study modelled the slab with snow data from the actual slope.'); await o.fill('#cpSrc', 'https://www.nature.com/articles/s43247-020-00081-8');
   await o.click('.compose-sheet .cta'); await o.waitForTimeout(400);

@@ -206,7 +206,8 @@ const SCENES = {
       ${stamp('DECLASSIFIED', 'ylw free', lt, at, 450, 560, -8, 128, true)}</div>`;
   },
   call(lt, s) {
-    const tap = 1.15, at = 1.45, ring = cl((lt - tap) / .5);
+    // generic episodes leave the choice to the viewer (the app pauses here); only scripted showcase cuts tap REAL themselves
+    const tap = s.verdict ? 1.15 : 1e9, at = 1.45, ring = cl((lt - tap) / .5);
     return `<div style="position:relative;display:grid;justify-items:center;gap:80px">
       <div class="big" style="font-size:150px;line-height:.9;text-align:center">Real<br>or fake?</div>
       <div style="display:flex;gap:40px"><div class="btn" style="border-color:${lt > tap ? '#5fd68e' : 'rgba(95,214,142,.55)'};background:${lt > tap ? 'rgba(95,214,142,.2)' : 'var(--ink2)'};transform:scale(${lt > tap && lt < tap + .15 ? .94 : 1})">REAL</div><div class="btn" style="border-color:rgba(255,93,79,.55)">FAKE</div></div>

@@ -331,27 +331,207 @@
  "reels": {
   "dyatlov": {
    "mp4": "reels/lib/dyatlov.mp4",
-   "poster": "reels/lib/dyatlov.jpg"
+   "poster": "reels/lib/dyatlov.jpg",
+   "ask": 20.36,
+   "verdictAt": 22.21
   },
   "roswell": {
    "mp4": "reels/lib/roswell.mp4",
-   "poster": "reels/lib/roswell.jpg"
+   "poster": "reels/lib/roswell.jpg",
+   "ask": 20.49,
+   "verdictAt": 22.34
   },
   "starfish": {
    "mp4": "reels/lib/starfish.mp4",
-   "poster": "reels/lib/starfish.jpg"
+   "poster": "reels/lib/starfish.jpg",
+   "ask": 22.87,
+   "verdictAt": 24.72
   },
   "mkultra": {
    "mp4": "reels/lib/mkultra.mp4",
-   "poster": "reels/lib/mkultra.jpg"
+   "poster": "reels/lib/mkultra.jpg",
+   "ask": 43.73,
+   "verdictAt": 45.58
   },
   "moon": {
    "mp4": "reels/lib/moon.mp4",
-   "poster": "reels/lib/moon.jpg"
+   "poster": "reels/lib/moon.jpg",
+   "ask": 22.9,
+   "verdictAt": 24.76
   },
   "northwoods": {
    "mp4": "reels/lib/northwoods.mp4",
-   "poster": "reels/lib/northwoods.jpg"
+   "poster": "reels/lib/northwoods.jpg",
+   "ask": 42.24,
+   "verdictAt": 44.09
+  },
+  "shamrock": {
+   "mp4": "reels/lib/shamrock.mp4",
+   "poster": "reels/lib/shamrock.jpg",
+   "ask": 24.63,
+   "verdictAt": 26.48
+  },
+  "phoebus": {
+   "mp4": "reels/lib/phoebus.mp4",
+   "poster": "reels/lib/phoebus.jpg",
+   "ask": 19.58,
+   "verdictAt": 21.43
+  },
+  "cointelpro": {
+   "mp4": "reels/lib/cointelpro.mp4",
+   "poster": "reels/lib/cointelpro.jpg",
+   "ask": 25.47,
+   "verdictAt": 27.32
+  },
+  "tuskegee": {
+   "mp4": "reels/lib/tuskegee.mp4",
+   "poster": "reels/lib/tuskegee.jpg",
+   "ask": 24.84,
+   "verdictAt": 26.69
+  },
+  "dbcooper": {
+   "mp4": "reels/lib/dbcooper.mp4",
+   "poster": "reels/lib/dbcooper.jpg",
+   "ask": 21.86,
+   "verdictAt": 23.71
+  },
+  "area51": {
+   "mp4": "reels/lib/area51.mp4",
+   "poster": "reels/lib/area51.jpg",
+   "ask": 31.04,
+   "verdictAt": 32.89
+  },
+  "a119": {
+   "mp4": "reels/lib/a119.mp4",
+   "poster": "reels/lib/a119.jpg",
+   "ask": 18.32,
+   "verdictAt": 20.17
+  },
+  "midnight": {
+   "mp4": "reels/lib/midnight.mp4",
+   "poster": "reels/lib/midnight.jpg",
+   "ask": 22.27,
+   "verdictAt": 24.12
+  },
+  "philadelphia": {
+   "mp4": "reels/lib/philadelphia.mp4",
+   "poster": "reels/lib/philadelphia.jpg",
+   "ask": 21.12,
+   "verdictAt": 22.97
+  },
+  "tonkin": {
+   "mp4": "reels/lib/tonkin.mp4",
+   "poster": "reels/lib/tonkin.jpg",
+   "ask": 24.76,
+   "verdictAt": 26.61
+  },
+  "prism": {
+   "mp4": "reels/lib/prism.mp4",
+   "poster": "reels/lib/prism.jpg",
+   "ask": 20.18,
+   "verdictAt": 22.03
+  },
+  "radium": {
+   "mp4": "reels/lib/radium.mp4",
+   "poster": "reels/lib/radium.jpg",
+   "ask": 18.91,
+   "verdictAt": 20.76
+  },
+  "mockingbird": {
+   "mp4": "reels/lib/mockingbird.mp4",
+   "poster": "reels/lib/mockingbird.jpg",
+   "ask": 23.61,
+   "verdictAt": 25.46
+  },
+  "seaspray": {
+   "mp4": "reels/lib/seaspray.mp4",
+   "poster": "reels/lib/seaspray.jpg",
+   "ask": 18.75,
+   "verdictAt": 20.6
+  },
+  "zodiac": {
+   "mp4": "reels/lib/zodiac.mp4",
+   "poster": "reels/lib/zodiac.jpg",
+   "ask": 20.87,
+   "verdictAt": 22.72
+  },
+  "bluebook": {
+   "mp4": "reels/lib/bluebook.mp4",
+   "poster": "reels/lib/bluebook.jpg",
+   "ask": 21.32,
+   "verdictAt": 23.17
+  },
+  "iceworm": {
+   "mp4": "reels/lib/iceworm.mp4",
+   "poster": "reels/lib/iceworm.jpg",
+   "ask": 20.69,
+   "verdictAt": 22.54
+  },
+  "stargate": {
+   "mp4": "reels/lib/stargate.mp4",
+   "poster": "reels/lib/stargate.jpg",
+   "ask": 19.99,
+   "verdictAt": 21.84
+  },
+  "bermuda": {
+   "mp4": "reels/lib/bermuda.mp4",
+   "poster": "reels/lib/bermuda.jpg",
+   "ask": 22.55,
+   "verdictAt": 24.4
+  },
+  "nayirah": {
+   "mp4": "reels/lib/nayirah.mp4",
+   "poster": "reels/lib/nayirah.jpg",
+   "ask": 22.05,
+   "verdictAt": 23.9
+  },
+  "chaos": {
+   "mp4": "reels/lib/chaos.mp4",
+   "poster": "reels/lib/chaos.jpg",
+   "ask": 21.58,
+   "verdictAt": 23.44
+  },
+  "dieselgate": {
+   "mp4": "reels/lib/dieselgate.mp4",
+   "poster": "reels/lib/dieselgate.jpg",
+   "ask": 20.01,
+   "verdictAt": 21.86
+  },
+  "jfk": {
+   "mp4": "reels/lib/jfk.mp4",
+   "poster": "reels/lib/jfk.jpg",
+   "ask": 23.8,
+   "verdictAt": 25.65
+  },
+  "paperclip": {
+   "mp4": "reels/lib/paperclip.mp4",
+   "poster": "reels/lib/paperclip.jpg",
+   "ask": 24.46,
+   "verdictAt": 26.31
+  },
+  "maryceleste": {
+   "mp4": "reels/lib/maryceleste.mp4",
+   "poster": "reels/lib/maryceleste.jpg",
+   "ask": 18.19,
+   "verdictAt": 20.04
+  },
+  "tictac": {
+   "mp4": "reels/lib/tictac.mp4",
+   "poster": "reels/lib/tictac.jpg",
+   "ask": 22.02,
+   "verdictAt": 23.87
+  },
+  "azorian": {
+   "mp4": "reels/lib/azorian.mp4",
+   "poster": "reels/lib/azorian.jpg",
+   "ask": 21.52,
+   "verdictAt": 23.38
+  },
+  "acoustickitty": {
+   "mp4": "reels/lib/acoustickitty.mp4",
+   "poster": "reels/lib/acoustickitty.jpg",
+   "ask": 19.69,
+   "verdictAt": 21.54
   }
  },
  "artifactReels": [
@@ -360,6 +540,8 @@
   "starfish",
   "mkultra",
   "moon",
-  "northwoods"
+  "northwoods",
+  "shamrock",
+  "phoebus"
  ]
 }
