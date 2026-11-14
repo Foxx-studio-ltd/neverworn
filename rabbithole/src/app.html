@@ -49,6 +49,7 @@ a { color: inherit; }
 .pill { display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px; border-radius: 999px; background: var(--ink-2); border: 1px solid var(--line); font-size: 13px; font-weight: 600; }
 .pill .ico { width: 16px; height: 16px; color: var(--v-mixed); }
 .depth-pop { position: absolute; z-index: 6; left: max(16px, env(safe-area-inset-left, 0px)); top: 50px; font-family: var(--f-display); font-weight: 900; font-size: 22px; color: var(--mark); pointer-events: none; animation: pop 1.1s ease-out forwards; }
+.depth-pop.low { top: auto; bottom: calc(var(--tab-h) + 16px); left: auto; right: max(16px, env(safe-area-inset-right, 0px)); }
 @keyframes pop { 0% { opacity: 0; transform: translateY(8px) scale(.8) } 15% { opacity: 1; transform: none } 100% { opacity: 0; transform: translateY(-26px) } }
 
 /* ---------- Feed ---------- */
@@ -493,7 +494,7 @@ function hud(gain) {
   $("#hudLevel").textContent = LEVELS[li][1];
   $("#hudBar").style.width = next ? ((S.depth - LEVELS[li][0]) / (next[0] - LEVELS[li][0]) * 100) + "%" : "100%";
   $("#hudStreak").innerHTML = ico("flame") + `${S.streak}-day streak${S.skips ? " · 1 skip" : ""}`;
-  if (gain) { const p = document.createElement("div"); p.className = "depth-pop"; p.textContent = `+${gain} m`; $("#app").append(p); setTimeout(() => p.remove(), 1200); }
+  if (gain) { const p = document.createElement("div"); p.className = "depth-pop" + ($("#hud").hidden ? " low" : ""); p.textContent = `+${gain} m`; $("#app").append(p); setTimeout(() => p.remove(), 1200); }
 }
 function addDepth(n) {
   const before = levelOf(S.depth); S.depth += n; save(); hud(n);

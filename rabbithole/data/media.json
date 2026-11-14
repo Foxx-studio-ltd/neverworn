@@ -225,5 +225,24 @@
     "file": "File:Joseph Hamilton with radio sodium experiment 97401413.jpeg"
    }
   ]
- }
+ },
+ "reels": {
+  "dyatlov": {
+   "mp4": "reels/lib/dyatlov.mp4",
+   "poster": "reels/lib/dyatlov.jpg"
+  },
+  "roswell": {
+   "mp4": "reels/lib/roswell.mp4",
+   "poster": "reels/lib/roswell.jpg"
+  },
+  "starfish": {
+   "mp4": "reels/lib/starfish.mp4",
+   "poster": "reels/lib/starfish.jpg"
+  }
+ },
+ "artifactReels": [
+  "dyatlov",
+  "roswell",
+  "starfish"
+ ]
 }

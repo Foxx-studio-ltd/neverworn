@@ -11,14 +11,14 @@ cases = json.load(open(cases_path))["cases"]
 os.makedirs(out, exist_ok=True)
 
 def get(url, binary=False):
-    for k in range(8):
+    for k in range(14):
         try:
             r = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=90).read()
             time.sleep(2.5)
             return r if binary else json.loads(r)
         except urllib.error.HTTPError as e:
             if e.code != 429: raise
-            time.sleep(12 * (k + 1))
+            time.sleep(20 * (k + 1))
     raise RuntimeError("rate limited: " + url)
 
 def api(params):
