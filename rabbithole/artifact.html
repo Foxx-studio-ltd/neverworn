@@ -708,6 +708,7 @@ function hud(gain) {
   $("#hudLevel").textContent = LEVELS[li][1];
   $("#hudBar").style.width = next ? ((S.depth - LEVELS[li][0]) / (next[0] - LEVELS[li][0]) * 100) + "%" : "100%";
   $("#hudStreak").innerHTML = ico("flame") + `${S.streak}-day streak${S.skips ? " · 1 skip" : ""}`;
+  $$(".streak-pill").forEach(x => x.innerHTML = ico("flame") + `${S.streak}-day streak`);
   if (gain) { const p = document.createElement("div"); p.className = "depth-pop" + ($("#hud").hidden ? " low" : ""); p.textContent = `+${gain} m`; $("#app").append(p); setTimeout(() => p.remove(), 1200); }
 }
 function addDepth(n) {
@@ -1469,7 +1470,7 @@ const Watch = (() => {
     if (en.isIntersecting && on && !en.target.classList.contains("locked")) { if (vid.preload !== "auto") vid.preload = "auto"; vid.muted = !sound; vid.play().catch(() => {}); S.seen[en.target.dataset.id] = 1; S.kept[en.target.dataset.id] = 1; if (en.target.dataset.id === dropNow().c.id) markDrop(); save(); }
     else { vid.pause(); $(".nextup", en.target)?.remove(); clearTimeout(timer); } }), { root: v, threshold: .7 });
   function render() {
-    if (built) return; built = true; v.innerHTML = `<div class="watch-top"><div><span class="pill">${ico("flame")}${S.streak}-day streak</span><button class="pill" data-ask aria-label="Ask Alice">${ico("search")}Ask Alice</button><span class="pill">Next drop <span class="countdown"></span></span></div></div>`; tick();
+    if (built) return; built = true; v.innerHTML = `<div class="watch-top"><div><span class="pill streak-pill">${ico("flame")}${S.streak}-day streak</span><button class="pill" data-ask aria-label="Ask Alice">${ico("search")}Ask Alice</button><span class="pill">Next drop <span class="countdown"></span></span></div></div>`; tick();
     const L = list();
     if (!L.length) { v.innerHTML = `<div class="watch-empty"><b>No episodes here yet</b><span>Alice's episodes play in the installed Rabbit Hole app.</span></div>`; return; }
     for (const c of L) {
