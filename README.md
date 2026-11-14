@@ -11,3 +11,5 @@ Live: https://foxx-studio-ltd.github.io/neverworn/
 - "Design with AI" chat uses canned offline replies; no API keys.
 
 - Tests: `node audit/tests/run.js` (Playwright: 24 feature + 25 regression tests). Audit and change log: `AUDIT.md`.
+
+Glint now lives in its own repo at github.com/Foxx-studio-ltd/glint, and Rabbit Hole at github.com/Foxx-studio-ltd/rabbit-hole.
