@@ -389,6 +389,70 @@
     "page": "https://commons.wikimedia.org/wiki/File:COINTELPRO_-_Jean_Seberg.jpg",
     "file": "File:COINTELPRO - Jean Seberg.jpg"
    }
+  ],
+  "jfk": [
+   {
+    "f": "media/photos/jfk-0.jpg",
+    "credit": "Warren Commission archive photograph, annotated by User:Skyb · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Dealey-plaza-annotated.png",
+    "file": "File:Dealey-plaza-annotated.png"
+   },
+   {
+    "f": "media/photos/jfk-1.jpg",
+    "credit": "U.S. Senate (\"Church Committee\") · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Church_Committee_report_(Book_II)_(page_1_crop).jpg",
+    "file": "File:Church Committee report (Book II) (page 1 crop).jpg"
+   }
+  ],
+  "jfkruby": [
+   {
+    "f": "media/photos/jfkruby-0.jpg",
+    "credit": "Robert H. Jackson (29) · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Ruby_shoots_Oswald.jpg",
+    "file": "File:Ruby shoots Oswald.jpg"
+   },
+   {
+    "f": "media/photos/jfkruby-1.jpg",
+    "credit": "The U.S. National Archives and Records Administration · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Jack_Ruby-1_(cropped).jpg",
+    "file": "File:Jack Ruby-1 (cropped).jpg"
+   }
+  ],
+  "jfkmexico": [
+   {
+    "f": "media/photos/jfkmexico-0.jpg",
+    "credit": "USMC · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Lee_Harvey_Oswald-USMC.jpg",
+    "file": "File:Lee Harvey Oswald-USMC.jpg"
+   },
+   {
+    "f": "media/photos/jfkmexico-1.jpg",
+    "credit": "Howard Leslie Brennan · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:HowardBrennan.jpg",
+    "file": "File:HowardBrennan.jpg"
+   },
+   {
+    "f": "media/photos/jfkmexico-2.jpg",
+    "credit": "Unknown · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Carcano_Rifle_of_Lee_Harvey_Oswald.jpg",
+    "file": "File:Carcano Rifle of Lee Harvey Oswald.jpg"
+   }
+  ],
+  "jfkumbrella": [
+   {
+    "f": "media/photos/jfkumbrella-0.jpg",
+    "credit": "Darrelljon · CC0",
+    "license": "CC0",
+    "page": "https://commons.wikimedia.org/wiki/File:Dealey-plaza-annotated-babushka.png",
+    "file": "File:Dealey-plaza-annotated-babushka.png"
+   }
   ]
  },
  "reels": {

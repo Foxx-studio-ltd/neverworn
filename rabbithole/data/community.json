@@ -1,5 +1,5 @@
 {
- "updated": 1794672255636,
+ "updated": 1794693177882,
  "posts": [
   {
    "id": "dot",
@@ -11,7 +11,7 @@
    "mp4": "community/clips/dot.mp4",
    "poster": "community/clips/dot.jpg",
    "caption": "I spent forty years listening to the sky on a radio, and I still think about one night.",
-   "at": 1794672255636
+   "at": 1794693177882
   },
   {
    "id": "rosa",
@@ -23,7 +23,7 @@
    "mp4": "community/clips/rosa.mp4",
    "poster": "community/clips/rosa.jpg",
    "caption": "My great-grandmother painted watch dials in New Jersey in the 1920s.",
-   "at": 1794668655636
+   "at": 1794689577882
   },
   {
    "id": "mika",
@@ -35,7 +35,7 @@
    "mp4": "community/clips/mika.mp4",
    "poster": "community/clips/mika.jpg",
    "caption": "Last winter I hiked to Dyatlov Pass in the northern Urals.",
-   "at": 1794665055636
+   "at": 1794685977882
   },
   {
    "id": "theo",
@@ -47,7 +47,7 @@
    "mp4": "community/clips/theo.mp4",
    "poster": "community/clips/theo.jpg",
    "caption": "I read declassified documents for fun.",
-   "at": 1794661455636
+   "at": 1794682377882
   },
   {
    "id": "dave",
@@ -59,7 +59,7 @@
    "mp4": "community/clips/dave.mp4",
    "poster": "community/clips/dave.jpg",
    "caption": "I spent twenty years in commercial salvage, so this one gets me.",
-   "at": 1794657855636
+   "at": 1794678777882
   },
   {
    "id": "bea",
@@ -71,7 +71,7 @@
    "mp4": "community/clips/bea.mp4",
    "poster": "community/clips/bea.jpg",
    "caption": "I grew up next to Rendlesham Forest in Suffolk.",
-   "at": 1794654255636
+   "at": 1794675177882
   },
   {
    "id": "hal",
@@ -83,7 +83,7 @@
    "mp4": "community/clips/hal.mp4",
    "poster": "community/clips/hal.jpg",
    "caption": "I collect old lightbulbs.",
-   "at": 1794650655636
+   "at": 1794671577882
   },
   {
    "id": "cat",
@@ -95,7 +95,7 @@
    "mp4": "community/clips/cat.mp4",
    "poster": "community/clips/cat.jpg",
    "caption": "I'm an amateur codebreaker, and this is the one we all grew up on.",
-   "at": 1794647055636
+   "at": 1794667977882
   },
   {
    "id": "ray",
@@ -107,7 +107,7 @@
    "mp4": "community/clips/ray.mp4",
    "poster": "community/clips/ray.jpg",
    "caption": "I grew up in southern Nevada, and every kid I knew had a UFO story.",
-   "at": 1794643455636
+   "at": 1794664377882
   },
   {
    "id": "kai",
@@ -119,7 +119,127 @@
    "mp4": "community/clips/kai.mp4",
    "poster": "community/clips/kai.jpg",
    "caption": "I've sailed through the Bermuda Triangle thirty-one times.",
-   "at": 1794639855636
+   "at": 1794660777882
+  },
+  {
+   "id": "dot2",
+   "handle": "dot_on_the_dial",
+   "name": "Dot",
+   "bio": "Forty years of listening to the sky.",
+   "caseId": "starfish",
+   "fictional": true,
+   "mp4": "community/clips/dot2.mp4",
+   "poster": "community/clips/dot2.jpg",
+   "caption": "My dad was in Honolulu on July ninth, 1962.",
+   "at": 1794657177882
+  },
+  {
+   "id": "rosa2",
+   "handle": "rosa_glows",
+   "name": "Rosa",
+   "bio": "Family history, the kind they don't teach.",
+   "caseId": "plutonium",
+   "fictional": true,
+   "mp4": "community/clips/rosa2.mp4",
+   "poster": "community/clips/rosa2.jpg",
+   "caption": "Another one from the family history books.",
+   "at": 1794653577882
+  },
+  {
+   "id": "mika2",
+   "handle": "mika_on_the_ridge",
+   "name": "Mika",
+   "bio": "I hike to the places in the stories.",
+   "caseId": "yeti",
+   "fictional": true,
+   "mp4": "community/clips/mika2.mp4",
+   "poster": "community/clips/mika2.jpg",
+   "caption": "I've walked the Menlung Glacier in Nepal.",
+   "at": 1794649977882
+  },
+  {
+   "id": "theo2",
+   "handle": "theo_reads_memos",
+   "name": "Theo",
+   "bio": "Declassified documents, read so you don't have to.",
+   "caseId": "jfkfiles",
+   "fictional": true,
+   "mp4": "community/clips/theo2.mp4",
+   "poster": "community/clips/theo2.jpg",
+   "caption": "I spent the spring of 2025 reading JFK files.",
+   "at": 1794646377882
+  },
+  {
+   "id": "dave2",
+   "handle": "deep_water_dave",
+   "name": "Dave",
+   "bio": "Twenty years in salvage. Ask me about the sea floor.",
+   "caseId": "maryceleste",
+   "fictional": true,
+   "mp4": "community/clips/dave2.mp4",
+   "poster": "community/clips/dave2.jpg",
+   "caption": "In salvage, you learn that ships tell you things.",
+   "at": 1794642777882
+  },
+  {
+   "id": "bea2",
+   "handle": "bea_from_suffolk",
+   "name": "Bea",
+   "bio": "Local. I know where the lights are.",
+   "caseId": "mincemeat",
+   "fictional": true,
+   "mp4": "community/clips/bea2.mp4",
+   "poster": "community/clips/bea2.jpg",
+   "caption": "My grandad told me this one.",
+   "at": 1794639177882
+  },
+  {
+   "id": "hal2",
+   "handle": "hal_and_his_bulbs",
+   "name": "Hal",
+   "bio": "I collect old lightbulbs. Stay with me.",
+   "caseId": "dieselgate",
+   "fictional": true,
+   "mp4": "community/clips/hal2.mp4",
+   "poster": "community/clips/hal2.jpg",
+   "caption": "Lightbulbs aren't the only thing built to cheat.",
+   "at": 1794635577882
+  },
+  {
+   "id": "cat2",
+   "handle": "cat_cracks_codes",
+   "name": "Cat",
+   "bio": "Amateur codebreaker. Professional night owl.",
+   "caseId": "voynich",
+   "fictional": true,
+   "mp4": "community/clips/cat2.mp4",
+   "poster": "community/clips/cat2.jpg",
+   "caption": "Every codebreaker has one that beats them.",
+   "at": 1794631977882
+  },
+  {
+   "id": "ray2",
+   "handle": "ray_saw_the_lights",
+   "name": "Ray",
+   "bio": "Grew up under the Nevada sky.",
+   "caseId": "roswell",
+   "fictional": true,
+   "mp4": "community/clips/ray2.mp4",
+   "poster": "community/clips/ray2.jpg",
+   "caption": "Every Nevada kid knows Roswell, even though it's in New Mexico.",
+   "at": 1794628377882
+  },
+  {
+   "id": "kai2",
+   "handle": "kai_crossed_it",
+   "name": "Kai",
+   "bio": "Sailor. Thirty-one crossings and counting.",
+   "caseId": "philadelphia",
+   "fictional": true,
+   "mp4": "community/clips/kai2.mp4",
+   "poster": "community/clips/kai2.jpg",
+   "caption": "Sailors love a ghost story, and this is the biggest one.",
+   "at": 1794624777882
   }
  ]
 }
