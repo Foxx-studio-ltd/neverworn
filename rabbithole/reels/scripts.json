@@ -1,7 +1,7 @@
 {
  "mkultra": {
-  "voice": "am_michael",
-  "speed": 0.98,
+  "voice": "af_heart",
+  "speed": 1.0,
   "file": "0100",
   "hole": "Mind Games",
   "lines": [
@@ -10,6 +10,11 @@
     "text": "In 1953, the CIA started secretly drugging Americans. With LSD.",
     "date": "1953",
     "say": "In nineteen fifty-three, the C.I.A. started secretly drugging Americans. With L.S.D."
+   },
+   {
+    "scene": "ident",
+    "text": "I'm Alice. This is Rabbit Hole. Let's open file 0100.",
+    "say": "I'm Alice. This is Rabbit Hole. Let's open file zero one zero zero."
    },
    {
     "scene": "doc",
@@ -52,14 +57,14 @@
    },
    {
     "scene": "end",
-    "text": "It's all on the record. Go deeper, on Rabbit Hole."
+    "text": "That's the file. Fight about it in the app. Mind the hole."
    }
   ]
  },
  "northwoods": {
   "voice": "af_heart",
   "speed": 1.0,
-  "file": "2338",
+  "file": "1592",
   "hole": "False Flags",
   "lines": [
    {
@@ -67,6 +72,11 @@
     "text": "In 1962, America's top generals signed a plan to fake terror attacks against their own country.",
     "date": "1962",
     "say": "In nineteen sixty-two, America's top generals signed a plan to fake terror attacks against their own country."
+   },
+   {
+    "scene": "ident",
+    "text": "I'm Alice. This is Rabbit Hole. Let's open file 1592.",
+    "say": "I'm Alice. This is Rabbit Hole. Let's open file one five nine two."
    },
    {
     "scene": "doc",
@@ -105,14 +115,14 @@
    },
    {
     "scene": "end",
-    "text": "It's all on the record. Go deeper, on Rabbit Hole."
+    "text": "That's the file. Fight about it in the app. Mind the hole."
    }
   ]
  },
  "area51": {
-  "voice": "am_michael",
-  "speed": 0.98,
-  "file": "",
+  "voice": "af_heart",
+  "speed": 1.0,
+  "file": "3830",
   "hole": "The Sky Files",
   "hue": 210,
   "caseId": "area51",
@@ -122,6 +132,11 @@
     "text": "For almost sixty years, the US government wouldn't admit that Area 51 existed.",
     "date": "1955",
     "label": "Groom Lake, Nevada"
+   },
+   {
+    "scene": "ident",
+    "text": "I'm Alice. This is Rabbit Hole. Let's open file 3830.",
+    "say": "I'm Alice. This is Rabbit Hole. Let's open file three eight three zero."
    },
    {
     "scene": "ev",
@@ -164,7 +179,7 @@
    },
    {
     "scene": "end",
-    "text": "Go deeper, on Rabbit Hole."
+    "text": "That's the file. Fight about it in the app. Mind the hole."
    }
   ]
  }

@@ -36,6 +36,10 @@ html,body { margin:0; background:#000; }
 #cap span { display:inline-block; padding:0 .07em; margin:0 .04em; border-radius:10px; }
 #cap span.on { background:var(--mark); color:var(--ink); text-shadow:none; transform:scale(1.06) rotate(-1.5deg); }
 #cap span.fut { opacity:.4; }
+.host { position:absolute; z-index:13; left:56px; bottom:70px; display:flex; align-items:center; gap:16px; transition:opacity .3s; }
+.host svg { width:92px; height:116px; filter:drop-shadow(0 6px 14px rgba(0,0,0,.6)); }
+.host b { display:block; font-family:"Big Shoulders Display",Impact,sans-serif; font-weight:900; font-size:44px; letter-spacing:.04em; line-height:.9; }
+.host span { font-weight:700; font-size:22px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); }
 .foot { position:absolute; z-index:10; left:0; right:0; bottom:86px; text-align:center; font-weight:700; font-size:28px; letter-spacing:.18em; text-transform:uppercase; color:rgba(243,238,226,.55); }
 
 /* scene parts */
@@ -65,7 +69,8 @@ html,body { margin:0; background:#000; }
     <div id="stage"></div>
     <div class="credit" id="credit"></div>
     <div id="cap"></div>
-    <div class="foot">Rabbit Hole · Go deeper</div>
+    <div class="host" id="host"></div>
+    <div class="foot" style="left:auto;right:56px;text-align:right">Rabbit Hole</div>
   </div>
   <div class="vig"></div>
   <canvas id="grain" width="540" height="960"></canvas>
@@ -73,6 +78,9 @@ html,body { margin:0; background:#000; }
 <script src="anim.js"></script>
 <script>
 const MARK = (h) => `<svg viewBox="0 0 120 152" height="${h}"><g fill="#efe3c4"><ellipse cx="41" cy="38" rx="14" ry="36" transform="rotate(-13 41 38)"/><ellipse cx="79" cy="38" rx="14" ry="36" transform="rotate(13 79 38)"/><circle cx="60" cy="88" r="40"/><path d="M45 112 H75 L84 146 Q60 152 36 146 Z"/></g><g fill="#13101c"><ellipse cx="40" cy="36" rx="5.5" ry="24" transform="rotate(-13 40 36)"/><ellipse cx="80" cy="36" rx="5.5" ry="24" transform="rotate(13 80 36)"/><circle cx="60" cy="88" r="31"/><path d="M51 110 H69 L76 140 Q60 144 44 140 Z"/></g><g fill="none" stroke="#efe3c4" stroke-width="2.2"><circle cx="60" cy="91" r="24" opacity=".55"/><circle cx="60" cy="94" r="17.5" opacity=".42"/><circle cx="60" cy="96.5" r="11.5" opacity=".3"/><circle cx="60" cy="98.5" r="6" opacity=".22"/></g><circle cx="60" cy="99.5" r="2.8" fill="#f2e14c"/></svg>`;
+// Alice, the host: the rabbit-keyhole mark whose tunnel rings pulse as she speaks
+const HOSTMARK = (h, a) => { const k = 1 + a * .35; return `<svg viewBox="0 0 120 152" height="${h}"><g fill="#efe3c4"><ellipse cx="41" cy="38" rx="14" ry="36" transform="rotate(${-13 - a * 6} 41 38)"/><ellipse cx="79" cy="38" rx="14" ry="36" transform="rotate(${13 + a * 6} 79 38)"/><circle cx="60" cy="88" r="40"/><path d="M45 112 H75 L84 146 Q60 152 36 146 Z"/></g><g fill="#13101c"><ellipse cx="40" cy="36" rx="5.5" ry="24" transform="rotate(${-13 - a * 6} 40 36)"/><ellipse cx="80" cy="36" rx="5.5" ry="24" transform="rotate(${13 + a * 6} 80 36)"/><circle cx="60" cy="88" r="31"/><path d="M51 110 H69 L76 140 Q60 144 44 140 Z"/></g><g fill="none" stroke="#efe3c4" stroke-width="2.2">${[[91, 24, .55], [94, 17.5, .42], [96.5, 11.5, .3], [98.5, 6, .22]].map(([y, r, o], i) => `<circle cx="60" cy="${y}" r="${Math.min(29, r * (1 + (k - 1) * (1 - i * .2)))}" opacity="${o + a * .3}"/>`).join('')}</g><circle cx="60" cy="99.5" r="${2.8 + a * 3}" fill="#f2e14c"/></svg>`; };
+const amp = t => { const e = T.env || []; const i = Math.floor(t * 30); return e[i] || 0; };
 const RINGS = `<svg viewBox="0 0 80 80" style="display:inline-block;width:.74em;height:.74em;vertical-align:-.02em;margin:0 .02em"><circle cx="40" cy="40" r="38" fill="#efe3c4"/><circle cx="40" cy="40" r="30" fill="#13101c"/><g fill="none" stroke="#efe3c4" stroke-width="2.4"><circle cx="40" cy="43" r="23" opacity=".55"/><circle cx="40" cy="46" r="16" opacity=".42"/><circle cx="40" cy="48.5" r="10" opacity=".3"/></g><circle cx="40" cy="50.5" r="3.4" fill="#f2e14c"/></svg>`;
 const cl = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const eo = x => 1 - Math.pow(1 - cl(x), 3);
@@ -205,6 +213,13 @@ const SCENES = {
       ${lt > tap ? `<div style="position:absolute;left:${240 - 60 * ring}px;bottom:${-20 - 60 * ring}px;width:${120 + 120 * ring}px;height:${120 + 120 * ring}px;border-radius:50%;border:6px solid rgba(243,238,226,${.8 - ring * .8})"></div>` : ''}
       ${s.verdict ? stamp(s.verdict, 'grn free', lt, at, 450, 320, -12, 230, true) : ''}</div>`;
   },
+  ident(lt, s) {
+    const a = amp(t0), k = back(lt / .5);
+    return `<div style="display:grid;justify-items:center;gap:30px;text-align:center">
+      <div style="transform:scale(${k})">${HOSTMARK(460, a)}</div>
+      <div class="big" style="font-size:56px;letter-spacing:.12em;color:var(--mark);opacity:${cl((lt - .3) / .3)}">Rabbit Hole · File ${T.file}</div>
+      <div class="lbl" style="opacity:${cl((lt - .5) / .3)}">With your host, Alice</div></div>`;
+  },
   hook(lt, s) {
     const k = back(lt / .4);
     const top = HAS_ART;
@@ -232,7 +247,8 @@ const SCENES = {
     return `<div style="display:grid;justify-items:center;gap:40px;text-align:center">
       <div style="transform:scale(${back(lt / .6)});opacity:${cl(lt / .2)}">${MARK(420)}</div>
       <div class="big" style="font-size:180px;line-height:.82;opacity:${cl((lt - .4) / .3)}">Rabbit<br>H${RINGS}le</div>
-      <div class="big" style="font-size:72px;opacity:${cl((lt - 1) / .3)}">Some of it was <span style="background:var(--mark);color:var(--ink);padding:0 .1em">true.</span></div></div>`;
+      <div class="big" style="font-size:72px;opacity:${cl((lt - 1) / .3)}">Some of it was <span style="background:var(--mark);color:var(--ink);padding:0 .1em">true.</span></div>
+      <div class="lbl" style="opacity:${cl((lt - 1.6) / .3)}">Mind the hole · Alice</div></div>`;
   }
 };
 function blotter(lt) {
@@ -246,7 +262,7 @@ function pentagon(lt) {
   return `<svg width="480" height="440"><path d="${path(p)}" stroke="#efe3c4" stroke-width="10" fill="rgba(208,55,44,${.12 + .1 * Math.sin(lt * 4)})" pathLength="100" stroke-dasharray="100" stroke-dashoffset="${100 - k * 100}"/><path d="${path(inner)}" stroke="#efe3c4" stroke-width="6" fill="none" opacity=".6" pathLength="100" stroke-dasharray="100" stroke-dashoffset="${100 - k * 100}"/></svg>`;
 }
 // stamps & hits for the soundtrack (scene-relative)
-const HITS = { hook: s => [.05], verdict: s => [.12], date: s => [.05], doc: s => [wordT(s, /MKUltra|Northwoods/) + .45], destroy: s => [wordT(s, /destroyed/) + .1], counter: s => [wordT(s, /misfiled/) + .15],
+const HITS = { ident: s => [], hook: s => [.05], verdict: s => [.12], date: s => [.05], doc: s => [wordT(s, /MKUltra|Northwoods/) + .45], destroy: s => [wordT(s, /destroyed/) + .1], counter: s => [wordT(s, /misfiled/) + .15],
   map: s => [wordT(s, /Cuba/) + .1], reject: s => [wordT(s, /no\./) - .05], years: s => [wordT(s, /declassified/) + .1], call: s => s.verdict ? [1.45] : [], end: s => [0] };
 
 // ---------- captions ----------
@@ -305,6 +321,9 @@ function render(t) {
   const fin = cl(lt / .22);
   document.getElementById('stage').innerHTML = `<div style="opacity:${fin};transform:scale(${.96 + .04 * fin})">${SCENES[s.scene](lt, s)}</div>`;
   document.getElementById('cap').innerHTML = caption(t);
+  const showHost = !['ident', 'end'].includes(s.scene);
+  document.getElementById('host').style.opacity = showHost ? 1 : 0;
+  if (showHost) document.getElementById('host').innerHTML = `${HOSTMARK(116, amp(t))}<div><b>ALICE</b><span>Your host</span></div>`;
   const last = SLAMS.filter(x => x <= t).pop(), dt = last === undefined ? 9 : t - last;
   const amp = dt < .25 ? (1 - dt / .25) * 18 : 0;
   document.getElementById('shake').style.transform = `translate(${(rnd(t * 100) - .5) * amp}px,${(rnd(t * 77) - .5) * amp}px)`;

@@ -80,6 +80,15 @@ n = int(5 * SR); tt = np.arange(n) / SR
 chord = sum(np.sin(2 * np.pi * hz(root + 24 + m) * tt) for m in (0, 3, 7, 10, 14)) / 5 * np.minimum(1, tt / .05) * np.exp(-tt * .55)
 add(lp(chord, 3000), end_t, .5)
 
+# --- the Rabbit Hole sting: three falling bell notes, at the ident and on the end card ---
+def bell(f, n):
+    tt = np.arange(n) / SR
+    return sum(np.sin(2 * np.pi * f * m * tt) * g * np.exp(-tt * d) for m, g, d in ((1, 1, 2.2), (2.76, .45, 4), (5.4, .25, 7))) * np.minimum(1, tt / .004)
+for s0, name in ev["scenes"]:
+    if name in ("ident", "end"):
+        for i, m in enumerate((root + 31, root + 26, root + 22)):
+            add(bell(hz(m), int(2.5 * SR)), s0 + i * .16, .32, pan=(i - 1) * .3)
+
 # --- duck music under the voice ---
 v = np.zeros(N); v[:len(voice)] = voice[:N]
 env = lp(np.abs(v), 6, 1); env = env / (env.max() + 1e-9)

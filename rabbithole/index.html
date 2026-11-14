@@ -683,7 +683,7 @@ function goDeeper(el) {
 
 async function share(el) {
   const c = byId[el.dataset.id];
-  const text = `Real or fake? "${plain(c.hook)}" I'm ${S.depth} m down the Rabbit Hole.`;
+  const text = `Alice from Rabbit Hole wants to know: real or fake? "${plain(c.hook)}" I'm ${S.depth} m down.`;
   try { if (navigator.share) { await navigator.share({ title: "Rabbit Hole", text, url: location.href }); return; } } catch (e) { if (e && e.name === "AbortError") return; }
   try { await navigator.clipboard.writeText(text + " " + location.href); toast("Copied. Paste it anywhere."); }
   catch (e) { toast(text); }
@@ -941,7 +941,7 @@ const Debate = (() => {
     const s = document.createElement("div"); s.className = "scrim";
     s.innerHTML = `<div class="sheet debate" role="dialog" aria-modal="true" aria-labelledby="dbT">
       <header><h2 id="dbT">The debate</h2><button class="x" data-x>Close</button></header>
-      <p class="prompt"><b>Rabbit Hole asks</b>${esc(plain(c.hook))} ${esc(PROMPT[c.ans])}</p>
+      <p class="prompt"><b>Alice asks</b>${esc(plain(c.hook))} ${esc(PROMPT[c.ans])}</p>
       <div class="tally"></div>
       <div class="filters" role="group" aria-label="Show"><button data-f="all">Newest</button><button data-f="top">Most convincing</button><button data-f="real">Real side</button><button data-f="fake">Fake side</button></div>
       <ol class="thread" aria-live="polite"></ol>
@@ -996,7 +996,7 @@ const Watch = (() => {
           <button data-act="debate" aria-label="Open the debate"><span class="disc">${ico("debate")}</span><span class="count" data-count="${c.id}">${Debate.count(c.id) || "Argue"}</span></button>
           <button data-act="share" aria-label="Share"><span class="disc">${ico("share")}</span>Share</button>
           <button data-act="file" aria-label="Open the case file"><span class="disc">${ico("file")}</span>File</button></aside>
-        <div class="reel-info"><span class="chip" style="justify-self:start">${esc(HOLES[c.hole].name)}</span><b>${esc(plain(c.hook))}</b></div><div class="reel-bar"><i></i></div>`;
+        <div class="reel-info"><span class="chip" style="justify-self:start">${esc(HOLES[c.hole].name)}</span><b>${esc(plain(c.hook))}</b><span class="credit">Rabbit Hole · File ${fileNo(c)} · with Alice</span></div><div class="reel-bar"><i></i></div>`;
       const vid = $("video", el); vid.addEventListener("timeupdate", () => { $(".reel-bar i", el).style.width = (vid.currentTime / (vid.duration || 1) * 100) + "%"; });
       v.append(el); io.observe(el);
     });
@@ -1031,7 +1031,7 @@ function onboarding() {
       ${MARK("onb-logo")}
       <h1 class="wordmark">Rabbit<br>H${RINGS}le</h1>
       <p class="tagline">Some of it was <mark>true.</mark></p>
-      <p class="onb-sub">Declassified files, cover-ups and famous hoaxes. Swipe, call it real or fake, then go deeper.</p>
+      <p class="onb-sub">Declassified files, cover-ups and famous hoaxes, opened every night by your host, Alice. Swipe, call it real or fake, then go deeper.</p>
       <button class="go-btn" id="go1">Pick your first holes</button></div>`;
   const cv = $("#tunnel", o), ctx = cv.getContext("2d"); let t = 0, raf, speed = 1;
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -1051,7 +1051,7 @@ function onboarding() {
   draw();
   $("#go1", o).onclick = () => {
     const picks = new Set(S.picks);
-    $("#step1", o).outerHTML = `<div class="onb-step" id="step2"><h2 class="onb-h">What keeps you up at night?</h2><p class="onb-sub">Pick at least one. We'll start you there.</p>
+    $("#step1", o).outerHTML = `<div class="onb-step" id="step2"><h2 class="onb-h">Alice wants to know: what keeps you up at night?</h2><p class="onb-sub">Pick at least one. We'll start you there.</p>
       <div class="picks">${Object.entries(HOLES).map(([k, h]) => `<button class="pick" data-k="${k}" aria-pressed="${picks.has(k)}" style="--hue:${h.hue}"><b>${esc(h.name)}</b><small>${esc(h.blurb)}</small></button>`).join("")}</div>
       <button class="go-btn" id="go2" ${picks.size ? "" : "disabled"}>Enter the hole</button></div>`;
     const step = $("#step2", o);

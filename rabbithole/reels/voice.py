@@ -13,7 +13,12 @@ SCRIPTS = json.load(open(os.path.join(HERE, "scripts.json")))
 DATA = json.load(open(os.path.join(HERE, "..", "data", "cases.json")))
 CASES = {c["id"]: c for c in DATA["cases"]}
 HOLES = DATA["holes"]
-VOICES = ["af_heart", "am_michael", "af_bella", "bm_george"]
+HOST = "af_heart"   # Alice, the one host of every episode
+DIGIT = "zero one two three four five six seven eight nine".split()
+IDENT = ["I'm Alice. This is Rabbit Hole. Let's open file {n}.", "This is Rabbit Hole, I'm Alice. File {n}. Let's dig.", "Rabbit Hole, file {n}. I'm Alice. Here's what's on the record."]
+CALL = ["So. Real, or fake?", "Your call. Real, or fake?", "Before I tell you. Real, or fake?"]
+OUTRO = ["That's the file. Fight about it in the app. Mind the hole.", "Tell me I'm wrong in the comments. Mind the hole.", "Go deeper on Rabbit Hole. Mind the hole."]
+def fileno(cid): return str(100 + ([c["id"] for c in DATA["cases"]].index(cid) * 373) % 9000).zfill(4)
 
 # ---------- speech normalisation (captions keep the written form) ----------
 ONES = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split()
@@ -47,14 +52,15 @@ def speak(text):
 
 VERB = {"true": ("Real.", "REAL", "grn"), "false": ("Fake.", "FAKE", "red"), "mixed": ("Half true.", "HALF TRUE", "ylw"), "unknown": ("Nobody knows.", "UNEXPLAINED", "ylw")}
 def from_case(c):
-    v = VERB[c["ans"]]
-    lines = [{"scene": "hook", "text": c["hook"].replace("*", ""), "date": c["year"], "label": HOLES[c["hole"]]["name"]}]
+    v = VERB[c["ans"]]; k = zlib.crc32(c["id"].encode()); n = fileno(c["id"])
+    lines = [{"scene": "hook", "text": c["hook"].replace("*", ""), "date": c["year"], "label": HOLES[c["hole"]]["name"]},
+             {"scene": "ident", "text": IDENT[k % 3].format(n=n), "say": IDENT[k % 3].format(n=" ".join(DIGIT[int(d)] for d in n))}]
     for n, e in enumerate(c["ev"], 1):
         lines.append({"scene": "ev", "n": n, "raw": e, "text": re.sub(r"\[\[|\]\]", "", e)})
-    lines.append({"scene": "call", "text": "So. Real, or fake?"})
+    lines.append({"scene": "call", "text": CALL[(k >> 3) % 3]})
     lines.append({"scene": "verdict", "text": v[0] + " " + c["reveal"], "verdict": v[1], "cls": v[2], "source": c["src"][0]})
-    lines.append({"scene": "end", "text": "Go deeper, on Rabbit Hole."})
-    return {"voice": VOICES[zlib.crc32(c["id"].encode()) % len(VOICES)], "speed": 1.0, "file": c.get("file", ""), "hole": HOLES[c["hole"]]["name"],
+    lines.append({"scene": "end", "text": OUTRO[(k >> 5) % 3]})
+    return {"voice": HOST, "speed": 1.0, "file": n, "hole": HOLES[c["hole"]]["name"],
             "hue": HOLES[c["hole"]]["hue"], "caseId": c["id"], "lines": lines}
 
 k = Kokoro(model, voices)
@@ -78,6 +84,7 @@ for reel in todo:
         gap = GAP + (0.9 if line["scene"] == "call" else 0) + (0.6 if line["scene"] == "end" else 0) + (0.25 if line["scene"] in ("hook", "verdict") else 0)
         timeline.append({**line, "start": round(t, 3), "voiceEnd": round(t + d, 3), "end": round(t + d + gap, 3), "words": wt})
         parts += [a, np.zeros(int(gap * sr), dtype=np.float32)]; t += d + gap
-    sf.write(f"{out}/{reel}-voice.wav", np.concatenate(parts), sr)
-    json.dump({"reel": reel, **{k2: v for k2, v in cfg.items() if k2 != "lines"}, "duration": round(t + 1.2, 3), "scenes": timeline}, open(f"{out}/{reel}.json", "w"), indent=1)
+    audio = np.concatenate(parts); sf.write(f"{out}/{reel}-voice.wav", audio, sr)
+    hop = sr // 30; env = np.array([np.sqrt(np.mean(audio[i:i + hop] ** 2)) for i in range(0, len(audio), hop)]); env = np.round(np.clip(env / (env.max() + 1e-9) * 1.6, 0, 1), 2).tolist()
+    json.dump({"reel": reel, **{k2: v for k2, v in cfg.items() if k2 != "lines"}, "duration": round(t + 1.2, 3), "env": env, "scenes": timeline}, open(f"{out}/{reel}.json", "w"), indent=1)
     print(reel, cfg["voice"], round(t, 1), "s", flush=True)
