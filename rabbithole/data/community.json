@@ -1,0 +1,125 @@
+{
+ "updated": 1794672255636,
+ "posts": [
+  {
+   "id": "dot",
+   "handle": "dot_on_the_dial",
+   "name": "Dot",
+   "bio": "Forty years of listening to the sky.",
+   "caseId": "wow",
+   "fictional": true,
+   "mp4": "community/clips/dot.mp4",
+   "poster": "community/clips/dot.jpg",
+   "caption": "I spent forty years listening to the sky on a radio, and I still think about one night.",
+   "at": 1794672255636
+  },
+  {
+   "id": "rosa",
+   "handle": "rosa_glows",
+   "name": "Rosa",
+   "bio": "Family history, the kind they don't teach.",
+   "caseId": "radium",
+   "fictional": true,
+   "mp4": "community/clips/rosa.mp4",
+   "poster": "community/clips/rosa.jpg",
+   "caption": "My great-grandmother painted watch dials in New Jersey in the 1920s.",
+   "at": 1794668655636
+  },
+  {
+   "id": "mika",
+   "handle": "mika_on_the_ridge",
+   "name": "Mika",
+   "bio": "I hike to the places in the stories.",
+   "caseId": "dyatlov",
+   "fictional": true,
+   "mp4": "community/clips/mika.mp4",
+   "poster": "community/clips/mika.jpg",
+   "caption": "Last winter I hiked to Dyatlov Pass in the northern Urals.",
+   "at": 1794665055636
+  },
+  {
+   "id": "theo",
+   "handle": "theo_reads_memos",
+   "name": "Theo",
+   "bio": "Declassified documents, read so you don't have to.",
+   "caseId": "northwoods",
+   "fictional": true,
+   "mp4": "community/clips/theo.mp4",
+   "poster": "community/clips/theo.jpg",
+   "caption": "I read declassified documents for fun.",
+   "at": 1794661455636
+  },
+  {
+   "id": "dave",
+   "handle": "deep_water_dave",
+   "name": "Dave",
+   "bio": "Twenty years in salvage. Ask me about the sea floor.",
+   "caseId": "azorian",
+   "fictional": true,
+   "mp4": "community/clips/dave.mp4",
+   "poster": "community/clips/dave.jpg",
+   "caption": "I spent twenty years in commercial salvage, so this one gets me.",
+   "at": 1794657855636
+  },
+  {
+   "id": "bea",
+   "handle": "bea_from_suffolk",
+   "name": "Bea",
+   "bio": "Local. I know where the lights are.",
+   "caseId": "rendlesham",
+   "fictional": true,
+   "mp4": "community/clips/bea.mp4",
+   "poster": "community/clips/bea.jpg",
+   "caption": "I grew up next to Rendlesham Forest in Suffolk.",
+   "at": 1794654255636
+  },
+  {
+   "id": "hal",
+   "handle": "hal_and_his_bulbs",
+   "name": "Hal",
+   "bio": "I collect old lightbulbs. Stay with me.",
+   "caseId": "phoebus",
+   "fictional": true,
+   "mp4": "community/clips/hal.mp4",
+   "poster": "community/clips/hal.jpg",
+   "caption": "I collect old lightbulbs.",
+   "at": 1794650655636
+  },
+  {
+   "id": "cat",
+   "handle": "cat_cracks_codes",
+   "name": "Cat",
+   "bio": "Amateur codebreaker. Professional night owl.",
+   "caseId": "zodiac",
+   "fictional": true,
+   "mp4": "community/clips/cat.mp4",
+   "poster": "community/clips/cat.jpg",
+   "caption": "I'm an amateur codebreaker, and this is the one we all grew up on.",
+   "at": 1794647055636
+  },
+  {
+   "id": "ray",
+   "handle": "ray_saw_the_lights",
+   "name": "Ray",
+   "bio": "Grew up under the Nevada sky.",
+   "caseId": "area51",
+   "fictional": true,
+   "mp4": "community/clips/ray.mp4",
+   "poster": "community/clips/ray.jpg",
+   "caption": "I grew up in southern Nevada, and every kid I knew had a UFO story.",
+   "at": 1794643455636
+  },
+  {
+   "id": "kai",
+   "handle": "kai_crossed_it",
+   "name": "Kai",
+   "bio": "Sailor. Thirty-one crossings and counting.",
+   "caseId": "bermuda",
+   "fictional": true,
+   "mp4": "community/clips/kai.mp4",
+   "poster": "community/clips/kai.jpg",
+   "caption": "I've sailed through the Bermuda Triangle thirty-one times.",
+   "at": 1794639855636
+  }
+ ]
+}
