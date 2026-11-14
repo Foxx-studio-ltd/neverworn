@@ -198,5 +198,141 @@
 "verdict": 2.62,
 "reveal": 3.66,
 "more": 10.43
+},
+"havana": {
+"f": "media/verdict/havana.mp3",
+"dur": 14.7,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 4.15,
+"more": 12.56
+},
+"starfish": {
+"f": "media/verdict/starfish.mp3",
+"dur": 16.82,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 14.97
+},
+"a119": {
+"f": "media/verdict/a119.mp3",
+"dur": 15.53,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 13.68
+},
+"iceworm": {
+"f": "media/verdict/iceworm.mp3",
+"dur": 14.31,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 12.56
+},
+"azorian": {
+"f": "media/verdict/azorian.mp3",
+"dur": 17.39,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 15.55
+},
+"habakkuk": {
+"f": "media/verdict/habakkuk.mp3",
+"dur": 13.75,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 11.91
+},
+"washtub": {
+"f": "media/verdict/washtub.mp3",
+"dur": 16.07,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.65,
+"more": 14.22
+},
+"gladio": {
+"f": "media/verdict/gladio.mp3",
+"dur": 13.7,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.65,
+"more": 11.86
+},
+"popeye": {
+"f": "media/verdict/popeye.mp3",
+"dur": 14.87,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 13.03
+},
+"shamrock": {
+"f": "media/verdict/shamrock.mp3",
+"dur": 16.09,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.65,
+"more": 13.95
+},
+"prism": {
+"f": "media/verdict/prism.mp3",
+"dur": 14.93,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 13.08
+},
+"chaos": {
+"f": "media/verdict/chaos.mp3",
+"dur": 15.89,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 14.13
+},
+"snowwhite": {
+"f": "media/verdict/snowwhite.mp3",
+"dur": 16.42,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.65,
+"more": 14.28
+},
+"phoebus": {
+"f": "media/verdict/phoebus.mp3",
+"dur": 13.24,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 11.4
+},
+"radium": {
+"f": "media/verdict/radium.mp3",
+"dur": 12.69,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 10.55
+},
+"dieselgate": {
+"f": "media/verdict/dieselgate.mp3",
+"dur": 13.96,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 11.82
+},
+"sugar": {
+"f": "media/verdict/sugar.mp3",
+"dur": 11.88,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.65,
+"more": 10.04
 }
 }
