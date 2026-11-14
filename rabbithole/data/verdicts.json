@@ -190,5 +190,13 @@
 "verdict": 3.31,
 "reveal": 4.36,
 "more": 12.09
+},
+"birds": {
+"f": "media/verdict/birds.mp3",
+"dur": 12.57,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.66,
+"more": 10.43
 }
 }
