@@ -76,7 +76,7 @@ const ok = (cond, label) => { console.log((cond ? 'PASS ' : 'FAIL ') + label); i
   await p.screenshot({ path: out + '/a5-settings.png', fullPage: false });
   await p.click('#contBtn').catch(() => {}); await p.click('#home').catch(() => {});
   await p.click('#inboxBtn'); await p.click('#inTabs .chip:nth-child(1)'); await p.click('#grid .item'); await p.waitForTimeout(400);
-  await p.click('#sendBtn'); await p.waitForTimeout(1200);
+  await p.click('#moreBtn'); await p.waitForTimeout(1200);
   const hero = (await p.textContent('#heroDest')).trim(); ok(/Claude it/.test(hero) && /Your key/.test(hero + (await p.textContent('#dests'))), 'own-key verbs listed');
   ok(/Your key/.test(hero), 'own key is the one-tap default'); await p.click('#heroDest .hero-dest');
   await p.waitForTimeout(2500);
@@ -107,7 +107,7 @@ const ok = (cond, label) => { console.log((cond ? 'PASS ' : 'FAIL ') + label); i
   await q.screenshot({ path: out + '/b1-together.png' });
   await q.click('#sugg .chip'); await q.click('#mkRoom'); await q.waitForTimeout(600);
   await q.click('#agentBtn'); await q.waitForTimeout(400); ok(/Agent: Design critic/.test(await q.textContent('#agentBtn')), 'room agent turned on');
-  await q.click('#postNew'); await q.click('#sampleBtn'); await q.waitForTimeout(600); await q.click('#sendBtn'); await q.waitForTimeout(1200);
+  await q.click('#postNew'); await q.click('#sampleBtn'); await q.waitForTimeout(600); await q.click('#moreBtn'); await q.waitForTimeout(1200);
   await q.click('text=Post to room'); await q.waitForTimeout(2000);
   ok(await q.evaluate(() => window.__sampleCalls >= 1 && window.__sampleImages === 1), 'room agent ran with the image');
   ok(/brand brown/.test(await q.textContent('#agentBox')), 'agent reply shown');

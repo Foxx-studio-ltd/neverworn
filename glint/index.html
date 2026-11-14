@@ -261,6 +261,10 @@ textarea::placeholder,.field::placeholder{color:var(--muted)}
 .pastebig{position:absolute;inset:0;display:grid;place-items:center;background:color-mix(in srgb,var(--bg) 94%,transparent);z-index:3}
 .lgs svg{width:18px;height:18px}
 .secondary .lgs{display:grid}
+.heard{margin:0;font-size:13px;font-weight:600;color:var(--accent)}
+textarea.review{background:var(--accent-soft);border-radius:12px;padding:6px 10px}
+.send.pulse{animation:sendpulse .9s ease 2}
+@keyframes sendpulse{50%{transform:scale(1.03);box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 30%,transparent)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
@@ -324,6 +328,7 @@ textarea::placeholder,.field::placeholder{color:var(--muted)}
         <button class="chip" id="discardBtn">Discard</button>
       </div>
       <div class="targets" id="targets"></div>
+      <p class="heard" id="heard" hidden>✓ Here's what I heard. Check it, then tap send.</p>
       <div class="noterow">
         <textarea id="note" rows="2" placeholder="Hold the mic and talk, or type. Tap the picture to pin a spot."></textarea>
         <button class="mic" id="mic" aria-label="Hold to talk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
@@ -331,6 +336,7 @@ textarea::placeholder,.field::placeholder{color:var(--muted)}
       <div class="actions">
         <button class="ghost" id="newBtn" aria-label="New capture">New</button>
         <button class="send" id="sendBtn">Send</button>
+        <button class="ghost" id="moreBtn" aria-label="More ways to send" title="More ways to send" style="padding:0 16px;font-size:22px;line-height:1">⋯</button>
       </div>
     </div>
   </section>
@@ -443,7 +449,7 @@ const DB = (() => {
 let cap = null, target = "note", mode = "pin", pendingNote = "", template = null;
 const newId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 let saveT = 0;
-const save = () => { if (!cap || cap.ephemeral) return; clearTimeout(saveT); saveT = setTimeout(() => { cap.updated = Date.now(); DB.put(cap); refreshCount(); }, 250); };
+const save = () => { prepPkg(); if (!cap || cap.ephemeral) return; clearTimeout(saveT); saveT = setTimeout(() => { cap.updated = Date.now(); DB.put(cap); refreshCount(); }, 250); };
 
 /* ---------- UI helpers ---------- */
 let toastT = 0;
@@ -537,7 +543,7 @@ let photoURL = null;
 async function openCompose() {
   if (photoURL) URL.revokeObjectURL(photoURL);
   photoURL = URL.createObjectURL(cap.img); const ph = $("#photo"); ph.src = photoURL; await ph.decode().catch(() => {});
-  show("compose"); layoutStage(); renderPins(); renderTargets(); syncNote(); drawInk(); updateSendLabel(); syncStar();
+  show("compose"); layoutStage(); renderPins(); renderTargets(); syncNote(); drawInk(); updateSendLabel(); syncStar(); clearHeard(); prepPkg();
   $("#autoBlur").hidden = !("FaceDetector" in window || "TextDetector" in window);
 }
 function layoutStage() {
@@ -596,7 +602,10 @@ const curText = () => !cap ? "" : target === "note" ? cap.note : (cap.pins.find(
 const setCurText = v => { if (!cap) { pendingNote = v; return; } if (target === "note") cap.note = v; else { const p = cap.pins.find(p => p.n === target); if (p) p.text = v; } save(); };
 function syncNote() { const t = $("#note"); t.value = curText(); t.placeholder = target === "note" ? "Hold the mic and talk, or type. Tap the picture to pin a spot." : "What about pin " + target + "?"; }
 function selectTarget(id) { target = id; renderPins(); renderTargets(); syncNote(); }
-$("#note").addEventListener("input", e => { setCurText(e.target.value); if (target !== "note") renderTargets(); });
+$("#note").addEventListener("input", e => { setCurText(e.target.value); if (target !== "note") renderTargets(); clearHeard(); });
+// Review step: after you talk, your words are shown highlighted; nothing sends until you tap.
+function showHeard() { $("#heard").hidden = false; $("#note").classList.add("review"); const b = $("#sendBtn"); b.classList.remove("pulse"); void b.offsetWidth; b.classList.add("pulse"); prepPkg(); }
+function clearHeard() { $("#heard").hidden = true; $("#note").classList.remove("review"); }
 
 $$(".tools [data-mode]").forEach(b => b.onclick = () => { mode = b.dataset.mode; $$(".tools [data-mode]").forEach(x => x.classList.toggle("on", x === b)); toast(mode === "pin" ? "Tap the picture to pin a spot" : mode === "blur" ? "Drag over anything private. It's blurred in everything you send." : "Draw on the picture"); });
 const stage = $("#stage"); let drawing = null, downPt = null;
@@ -627,7 +636,8 @@ const Voice = (() => {
   const put = v => { if (sink) return sink.set(v); const ta = $("#note"); ta.value = v; setCurText(v); if (cap && target !== "note") renderTargets(); ta.scrollTop = ta.scrollHeight; };
   const apply = (partial = "") => put(base + (partial ? (base && !/\s$/.test(base) ? " " : "") + partial : ""));
   const commit = t => { if (!t) return; base = base + (base && !/\s$/.test(base) ? " " : "") + t.trim(); apply(); };
-  const setLive = on => { live = on; $$(".mic").forEach(m => m.classList.remove("live")); (liveBtn || mic).classList.toggle("live", on); };
+  const setLive = on => { const was = live; live = on; $$(".mic").forEach(m => m.classList.remove("live")); (liveBtn || mic).classList.toggle("live", on);
+    if (was && !on && !sink) setTimeout(() => { if (!live && curText().trim()) showHeard(); }, 300); };
   function available() { return !!(P.dictation || P.webSpeech); }
   function start(fresh, opts = {}) {
     if (live) return; sink = opts.sink || null; liveBtn = opts.btn || mic;
@@ -799,11 +809,40 @@ const prefer = id => available().some(d => d.id === id + "-key") ? id + "-key" :
 const iconOf = d => d.logo ? (LOGOS[d.logo] || "") : (SYS[d.sys] || "");
 const available = () => DESTS.filter(d => !d.when || d.when());
 let pkg = null, answerText = "";
+let readyPkg = null, readySig = "", prepT = 0;
+const capSig = c => c ? JSON.stringify([c.id, c.note, c.pins, c.strokes.length, c.redact || [], !!c.result, $("#wm").checked, app.dataset.dir]) : "";
+async function buildPkg() { const sig = capSig(cap); if (readyPkg && sig === readySig) return readyPkg;
+  const text = promptText(cap); const card = cap.result ? await renderBA(cap, cap.result, $("#wm").checked) : await renderCard(cap, $("#wm").checked);
+  if (capSig(cap) === sig) { readyPkg = { text, card }; readySig = sig; } return { text, card }; }
+function prepPkg() { clearTimeout(prepT); prepT = setTimeout(() => { if (cap) buildPkg().catch(() => {}); }, 350); }
+const defaultDest = () => { const list = available(); return list.find(x => x.id === prefer(store.get("last", "claude").replace(/-key$/, ""))) || list.find(x => x.id === "claude-here") || list.find(x => x.logo); };
+// One tap: fire the default destination straight from the compose screen. The card is pre-built while you edit,
+// so the share sheet opens inside the tap (phones require that).
+async function quickSend() {
+  Voice.stop(); clearHeard(); const d = defaultDest(); if (!d) return openSend();
+  if (d.id === "claude-here" || d.id.endsWith("-key")) { await openSend(); return fireDest(d, pkg); } // answers show in the panel
+  if (d.href && !viaShare(d)) {
+    const w = window.open(d.href(promptText(cap)), "_blank", "noopener"); // open the tab inside the gesture
+    if (!w && IN_CLAUDE) return openSend();
+    pkg = await buildPkg(); mark(d.id); const ok = await copyPkg(pkg);
+    return toast(ok ? `Picture copied. In ${appName(d)}, paste (Ctrl/⌘+V or long-press → Paste) to attach it.` : `Couldn't copy the picture here. Tap ⋯ and use Save, then attach it.`, 6000);
+  }
+  pkg = readyPkg && readySig === capSig(cap) ? readyPkg : await buildPkg();
+  return fireDest(d, pkg);
+}
+async function fireDest(d, pkg) {
+  if (viaShare(d)) { toast(`Pick ${appName(d)} in the share menu. The picture and your prompt go together.`, 4000);
+    try { await shareTo(d, pkg); mark(d.id); }
+    catch (err) { if (err?.name === "AbortError" || err?.code === "declined") return;
+      copyPkg(pkg).then(ok => toast(ok ? `Couldn't open the share menu. The card is copied: open ${appName(d)} and paste it.` : "Couldn't share from here. Use Save, then attach it in the app.", 5000)); }
+    return; }
+  try { const msg = await d.run(pkg); if (d.id !== "remix") mark(d.id); if (msg) toast(msg, 3000); }
+  catch (err) { if (err?.name !== "AbortError" && err?.code !== "declined") toast("That didn't go through. Try another option."); }
+}
 async function openSend() {
   Voice.stop(); $("#answer").hidden = true; $("#answer").textContent = ""; answerText = ""; $("#resAnswer").hidden = true;
   $("#baMsg").textContent = cap.result ? "Result added. Every option above now sends the side-by-side card." : "Got a result back? Add it (or paste it) for a side-by-side card.";
-  pkg = { text: promptText(cap), card: await renderCard(cap, $("#wm").checked) };
-  if (cap.result) pkg.card = await renderBA(cap, cap.result, $("#wm").checked);
+  pkg = await buildPkg();
   $("#cardPrev").src = URL.createObjectURL(pkg.card);
   const last = prefer(store.get("last", "claude").replace(/-key$/, "")); const list = available();
   const hero = list.find(d => d.id === last) || list.find(d => d.id === "claude-here") || list.find(d => d.logo);
@@ -827,23 +866,19 @@ function destEl(d, isHero) {
   const sub = share ? `Share menu → pick ${appName(d)}` : d.href ? (d.id === "gemini" ? "Opens, then paste the picture" : "Opens with your prompt + picture to paste") : d.sub;
   const el = document.createElement(d.href && !share ? "a" : "button"); el.className = isHero ? "hero-dest" : "dest" + (d.sys ? " sys" : "");
   el.innerHTML = isHero ? `<span class="logo-chip">${iconOf(d)}</span><span><b>${esc(d.verb)}</b><span>${esc(sub)}</span></span>` : `<span class="lg">${iconOf(d)}</span>${esc(d.verb)}<small>${esc(sub)}</small>`;
-  if (share) el.onclick = async () => {
-    toast(`Pick ${appName(d)} in the share menu. The picture and your prompt go together.`, 4000);
-    try { await shareTo(d, pkg); mark(d.id); }
-    catch (err) { if (err?.name === "AbortError" || err?.code === "declined") return;
-      copyPkg(pkg).then(ok => toast(ok ? `Couldn't open the share menu. The card is copied: open ${appName(d)} and paste it.` : "Couldn't share from here. Use Save, then attach it in the app.", 5000)); }
-  };
+  if (share) el.onclick = () => fireDest(d, pkg);
   else if (d.href) { el.href = d.href(pkg.text); el.target = "_blank"; el.rel = "noopener";
     el.onclick = () => { mark(d.id); copyPkg(pkg).then(ok => toast(ok ? `Picture copied. In ${appName(d)}, paste (Ctrl/⌘+V or long-press → Paste) to attach it.` : `Couldn't copy the picture here. Use Save, then attach it in ${appName(d)}.`, 6000)); }; }
-  else el.onclick = async () => { try { const msg = await d.run(pkg); if (d.id !== "remix") mark(d.id); if (msg) toast(msg, 3000); } catch (err) { if (err?.name !== "AbortError" && err?.code !== "declined") toast("That didn't go through. Try another option."); } };
+  else el.onclick = () => fireDest(d, pkg);
   return el;
 }
 function mark(id) { store.set("last", id); if (cap && !cap.ephemeral) { cap.sent.push({ to: id, at: Date.now() }); save(); } updateSendLabel(); }
 function updateSendLabel() {
-  const list = available(); const d = list.find(x => x.id === prefer(store.get("last", "claude").replace(/-key$/, ""))) || list.find(x => x.id === "claude-here") || list.find(x => x.logo);
+  const d = defaultDest();
   $("#sendBtn").innerHTML = d ? `<span class="logo-chip">${iconOf(d)}</span>${esc(d.verb)}` : "Send";
 }
-$("#sendBtn").onclick = openSend;
+$("#sendBtn").onclick = quickSend;
+$("#moreBtn").onclick = openSend;
 $("#wm").onchange = openSend;
 $("#closePanel").onclick = () => $("#scrim").classList.remove("on");
 $("#scrim").onclick = e => { if (e.target.id === "scrim") $("#scrim").classList.remove("on"); };
