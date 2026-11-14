@@ -1,0 +1,194 @@
+{
+"mkultra": {
+"f": "media/verdict/mkultra.mp3",
+"dur": 16.55,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 14.8
+},
+"midnight": {
+"f": "media/verdict/midnight.mp3",
+"dur": 16.86,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 14.72
+},
+"stargate": {
+"f": "media/verdict/stargate.mp3",
+"dur": 17.16,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 15.02
+},
+"acoustickitty": {
+"f": "media/verdict/acoustickitty.mp3",
+"dur": 15.85,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 14.0
+},
+"northwoods": {
+"f": "media/verdict/northwoods.mp3",
+"dur": 14.13,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.65,
+"more": 12.28
+},
+"tonkin": {
+"f": "media/verdict/tonkin.mp3",
+"dur": 14.98,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 13.23
+},
+"nayirah": {
+"f": "media/verdict/nayirah.mp3",
+"dur": 15.14,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.65,
+"more": 13.29
+},
+"mincemeat": {
+"f": "media/verdict/mincemeat.mp3",
+"dur": 15.97,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 13.83
+},
+"ghostarmy": {
+"f": "media/verdict/ghostarmy.mp3",
+"dur": 14.3,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 12.45
+},
+"roswell": {
+"f": "media/verdict/roswell.mp3",
+"dur": 16.19,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 14.05
+},
+"area51": {
+"f": "media/verdict/area51.mp3",
+"dur": 17.87,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 16.12
+},
+"bluebook": {
+"f": "media/verdict/bluebook.mp3",
+"dur": 16.28,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 14.14
+},
+"tictac": {
+"f": "media/verdict/tictac.mp3",
+"dur": 11.96,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.93,
+"more": 10.21
+},
+"wow": {
+"f": "media/verdict/wow.mp3",
+"dur": 13.83,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 4.15,
+"more": 11.68
+},
+"cointelpro": {
+"f": "media/verdict/cointelpro.mp3",
+"dur": 18.72,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 16.58
+},
+"mockingbird": {
+"f": "media/verdict/mockingbird.mp3",
+"dur": 15.62,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 13.48
+},
+"jfk": {
+"f": "media/verdict/jfk.mp3",
+"dur": 14.36,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 12.61
+},
+"tuskegee": {
+"f": "media/verdict/tuskegee.mp3",
+"dur": 15.01,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 13.16
+},
+"seaspray": {
+"f": "media/verdict/seaspray.mp3",
+"dur": 13.74,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 11.9
+},
+"paperclip": {
+"f": "media/verdict/paperclip.mp3",
+"dur": 15.64,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 13.79
+},
+"moon": {
+"f": "media/verdict/moon.mp3",
+"dur": 13.0,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.88,
+"more": 11.25
+},
+"philadelphia": {
+"f": "media/verdict/philadelphia.mp3",
+"dur": 11.39,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.66,
+"more": 9.25
+},
+"bermuda": {
+"f": "media/verdict/bermuda.mp3",
+"dur": 15.02,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.88,
+"more": 12.88
+},
+"pauldead": {
+"f": "media/verdict/pauldead.mp3",
+"dur": 13.94,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.36,
+"more": 12.09
+}
+}
