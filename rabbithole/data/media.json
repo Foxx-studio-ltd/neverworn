@@ -347,6 +347,12 @@
    "ask": 22.87,
    "verdictAt": 24.72
   },
+  "bigfoot": {
+   "mp4": "reels/lib/bigfoot.mp4",
+   "poster": "reels/lib/bigfoot.jpg",
+   "ask": 20.57,
+   "verdictAt": 22.42
+  },
   "mkultra": {
    "mp4": "reels/lib/mkultra.mp4",
    "poster": "reels/lib/mkultra.jpg",
@@ -382,6 +388,12 @@
    "poster": "reels/lib/cointelpro.jpg",
    "ask": 25.47,
    "verdictAt": 27.32
+  },
+  "flatearth": {
+   "mp4": "reels/lib/flatearth.mp4",
+   "poster": "reels/lib/flatearth.jpg",
+   "ask": 19.89,
+   "verdictAt": 21.74
   },
   "tuskegee": {
    "mp4": "reels/lib/tuskegee.mp4",
@@ -419,6 +431,12 @@
    "ask": 21.12,
    "verdictAt": 22.97
   },
+  "illuminati": {
+   "mp4": "reels/lib/illuminati.mp4",
+   "poster": "reels/lib/illuminati.jpg",
+   "ask": 21.87,
+   "verdictAt": 23.72
+  },
   "tonkin": {
    "mp4": "reels/lib/tonkin.mp4",
    "poster": "reels/lib/tonkin.jpg",
@@ -454,6 +472,12 @@
    "poster": "reels/lib/zodiac.jpg",
    "ask": 20.87,
    "verdictAt": 22.72
+  },
+  "elvis": {
+   "mp4": "reels/lib/elvis.mp4",
+   "poster": "reels/lib/elvis.jpg",
+   "ask": 22.38,
+   "verdictAt": 24.23
   },
   "bluebook": {
    "mp4": "reels/lib/bluebook.mp4",
@@ -706,10 +730,10 @@
   "dyatlov",
   "roswell",
   "starfish",
+  "bigfoot",
   "mkultra",
   "moon",
   "northwoods",
-  "shamrock",
-  "phoebus"
+  "shamrock"
  ]
 }
