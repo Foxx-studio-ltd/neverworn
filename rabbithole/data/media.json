@@ -66,7 +66,7 @@
   "habakkuk": [
    {
     "f": "media/photos/habakkuk-0.jpg",
-    "credit": "Unknown authorUnknown author · Public domain",
+    "credit": "Unknown · Public domain",
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Habakukk_aircraft_01_(cropped).jpg",
     "file": "File:Habakukk aircraft 01 (cropped).jpg"
@@ -102,7 +102,7 @@
   "radium": [
    {
     "f": "media/photos/radium-0.jpg",
-    "credit": "Unknown authorUnknown author · Public domain",
+    "credit": "Unknown · Public domain",
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:All_women_or_girls_using_radium_paint_with_no_protection_or_warnings_in_1922,_from-_USRadiumGirls-Argonne1,ca1922-23-150dpi_(cropped).jpg",
     "file": "File:All women or girls using radium paint with no protection or warnings in 1922, from- USRadiumGirls-Argonne1,ca1922-23-150dpi (cropped).jpg"
@@ -129,7 +129,7 @@
   "dyatlov": [
    {
     "f": "media/photos/dyatlov-0.jpg",
-    "credit": "Unknown author / Soviet investigators · Public domain",
+    "credit": "Unknown / Soviet investigators · Public domain",
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Dyatlov_Pass_incident_02.jpg",
     "file": "File:Dyatlov Pass incident 02.jpg"
@@ -147,7 +147,7 @@
   "nessie": [
    {
     "f": "media/photos/nessie-0.jpg",
-    "credit": "Unknown author · Public domain",
+    "credit": "Unknown · Public domain",
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Arthur_Grant_loch_ness_sketch.png",
     "file": "File:Arthur Grant loch ness sketch.png"
@@ -201,7 +201,7 @@
   "ajax": [
    {
     "f": "media/photos/ajax-0.jpg",
-    "credit": "Unknown authorUnknown author · Public domain",
+    "credit": "Unknown · Public domain",
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Operationajax.jpg",
     "file": "File:Operationajax.jpg"
@@ -219,7 +219,7 @@
   "plutonium": [
    {
     "f": "media/photos/plutonium-0.jpg",
-    "credit": "Unknown authorUnknown author · Public domain",
+    "credit": "Unknown · Public domain",
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Joseph_Hamilton_with_radio_sodium_experiment_97401413.jpeg",
     "file": "File:Joseph Hamilton with radio sodium experiment 97401413.jpeg"
@@ -232,6 +232,27 @@
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:DeclassifiedMKULTRA.jpg",
     "file": "File:DeclassifiedMKULTRA.jpg"
+   },
+   {
+    "f": "media/photos/mkultra-1.jpg",
+    "credit": "Unknown · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Donald_Ewen_Cameron_canmedaj01237-0046-a.jpg",
+    "file": "File:Donald Ewen Cameron canmedaj01237-0046-a.jpg"
+   },
+   {
+    "f": "media/photos/mkultra-2.jpg",
+    "credit": "Unknown · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:FrankChurch.jpg",
+    "file": "File:FrankChurch.jpg"
+   },
+   {
+    "f": "media/photos/mkultra-3.jpg",
+    "credit": "Unknown · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Frank_Olsen_(1910-1953).jpg",
+    "file": "File:Frank Olsen (1910-1953).jpg"
    }
   ],
   "northwoods": [
@@ -248,6 +269,13 @@
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Major-general-lansdale.jpg",
     "file": "File:Major-general-lansdale.jpg"
+   },
+   {
+    "f": "media/photos/northwoods-2.jpg",
+    "credit": "Unknown (Mondadori Publishers) · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Fidel_Castro_1950s_(3x4_close_cropped).jpg",
+    "file": "File:Fidel Castro 1950s (3x4 close cropped).jpg"
    }
   ],
   "tonkin": [
@@ -257,6 +285,13 @@
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:F-8E_VMF-212_CVA-34_1965_(cropped).jpg",
     "file": "File:F-8E VMF-212 CVA-34 1965 (cropped).jpg"
+   },
+   {
+    "f": "media/photos/tonkin-1.jpg",
+    "credit": "Arnold Newman · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:37_Lyndon_Johnson_3x4.jpg",
+    "file": "File:37 Lyndon Johnson 3x4.jpg"
    }
   ],
   "mincemeat": [
@@ -266,6 +301,13 @@
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Charles_Cholmondeley_and_Ewen_Montagu.jpg",
     "file": "File:Charles Cholmondeley and Ewen Montagu.jpg"
+   },
+   {
+    "f": "media/photos/mincemeat-1.jpg",
+    "credit": "Unknown · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:BernardSpilsbury.jpg",
+    "file": "File:BernardSpilsbury.jpg"
    }
   ],
   "ghostarmy": [
@@ -291,6 +333,13 @@
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Mogul_balloon_train_USAF_1995.png",
     "file": "File:Mogul balloon train USAF 1995.png"
+   },
+   {
+    "f": "media/photos/roswell-2.jpg",
+    "credit": "Fort Worth Star-Telegram · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Ramey-dubose-debris.jpg",
+    "file": "File:Ramey-dubose-debris.jpg"
    }
   ],
   "area51": [
@@ -307,6 +356,13 @@
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:4477th_Test_and_Evaluation_Squadron_MiG-17F_in_flight.jpg",
     "file": "File:4477th Test and Evaluation Squadron MiG-17F in flight.jpg"
+   },
+   {
+    "f": "media/photos/area51-2.jpg",
+    "credit": "United States Department of Defense, Defense Intelligence Ag · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:4477th_Test_and_Evaluation_Squadron_MiG-21_in_flight.jpg",
+    "file": "File:4477th Test and Evaluation Squadron MiG-21 in flight.jpg"
    }
   ],
   "wow": [
@@ -316,6 +372,13 @@
     "license": "Public domain",
     "page": "https://commons.wikimedia.org/wiki/File:Wow_signal.jpg",
     "file": "File:Wow signal.jpg"
+   },
+   {
+    "f": "media/photos/wow-1.jpg",
+    "credit": "Credit: Big Ear Radio Observatory and North American AstroPh · Public domain",
+    "license": "Public domain",
+    "page": "https://commons.wikimedia.org/wiki/File:Wow_signal_(large).jpg",
+    "file": "File:Wow signal (large).jpg"
    }
   ],
   "cointelpro": [
