@@ -1,0 +1,506 @@
+{
+ "reel": "area51",
+ "voice": "am_michael",
+ "speed": 0.98,
+ "file": "3830",
+ "hole": "The Sky Files",
+ "hue": 210,
+ "caseId": "area51",
+ "duration": 43.034,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "For almost sixty years, the US government wouldn't admit that Area 51 existed.",
+   "date": "1955",
+   "label": "Groom Lake, Nevada",
+   "start": 0.35,
+   "voiceEnd": 6.395,
+   "end": 7.145,
+   "words": [
+    [
+     "For",
+     0.35,
+     0.654
+    ],
+    [
+     "almost",
+     0.654,
+     1.14
+    ],
+    [
+     "sixty",
+     1.14,
+     1.565
+    ],
+    [
+     "years,",
+     1.565,
+     1.99
+    ],
+    [
+     "the",
+     2.142,
+     2.446
+    ],
+    [
+     "US",
+     2.446,
+     2.689
+    ],
+    [
+     "government",
+     2.689,
+     3.418
+    ],
+    [
+     "wouldn't",
+     3.418,
+     3.965
+    ],
+    [
+     "admit",
+     3.965,
+     4.39
+    ],
+    [
+     "that",
+     4.39,
+     4.754
+    ],
+    [
+     "Area",
+     4.754,
+     5.119
+    ],
+    [
+     "51",
+     5.119,
+     5.544
+    ],
+    [
+     "existed.",
+     5.544,
+     6.091
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "of": 4,
+   "raw": "It was built in [[1955]] to test a secret spy plane, the [[U-2]].",
+   "text": "It was built in 1955 to test a secret spy plane, the U-2.",
+   "start": 7.145,
+   "voiceEnd": 12.12,
+   "end": 12.62,
+   "words": [
+    [
+     "It",
+     7.145,
+     7.389
+    ],
+    [
+     "was",
+     7.389,
+     7.694
+    ],
+    [
+     "built",
+     7.694,
+     8.121
+    ],
+    [
+     "in",
+     8.121,
+     8.366
+    ],
+    [
+     "1955",
+     8.366,
+     8.915
+    ],
+    [
+     "to",
+     8.915,
+     9.159
+    ],
+    [
+     "test",
+     9.159,
+     9.525
+    ],
+    [
+     "a",
+     9.525,
+     9.709
+    ],
+    [
+     "secret",
+     9.709,
+     10.197
+    ],
+    [
+     "spy",
+     10.197,
+     10.502
+    ],
+    [
+     "plane,",
+     10.502,
+     10.929
+    ],
+    [
+     "the",
+     11.082,
+     11.387
+    ],
+    [
+     "U-2.",
+     11.387,
+     11.815
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "of": 4,
+   "raw": "The U-2 flew [[higher than any airliner]] of its day.",
+   "text": "The U-2 flew higher than any airliner of its day.",
+   "start": 12.62,
+   "voiceEnd": 15.562,
+   "end": 16.062,
+   "words": [
+    [
+     "The",
+     12.62,
+     12.843
+    ],
+    [
+     "U-2",
+     12.843,
+     13.155
+    ],
+    [
+     "flew",
+     13.155,
+     13.422
+    ],
+    [
+     "higher",
+     13.422,
+     13.779
+    ],
+    [
+     "than",
+     13.779,
+     14.047
+    ],
+    [
+     "any",
+     14.047,
+     14.269
+    ],
+    [
+     "airliner",
+     14.269,
+     14.715
+    ],
+    [
+     "of",
+     14.715,
+     14.894
+    ],
+    [
+     "its",
+     14.894,
+     15.117
+    ],
+    [
+     "day.",
+     15.117,
+     15.339
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "of": 4,
+   "raw": "Pilots and the public started reporting [[UFOs]].",
+   "text": "Pilots and the public started reporting UFOs.",
+   "start": 16.062,
+   "voiceEnd": 19.781,
+   "end": 20.281,
+   "words": [
+    [
+     "Pilots",
+     16.062,
+     16.584
+    ],
+    [
+     "and",
+     16.584,
+     16.91
+    ],
+    [
+     "the",
+     16.91,
+     17.237
+    ],
+    [
+     "public",
+     17.237,
+     17.759
+    ],
+    [
+     "started",
+     17.759,
+     18.346
+    ],
+    [
+     "reporting",
+     18.346,
+     19.063
+    ],
+    [
+     "UFOs.",
+     19.063,
+     19.455
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 4,
+   "of": 4,
+   "raw": "In 2013, a declassified CIA history finally [[named Area 51]].",
+   "text": "In 2013, a declassified CIA history finally named Area 51.",
+   "start": 20.281,
+   "voiceEnd": 26.581,
+   "end": 27.081,
+   "words": [
+    [
+     "In",
+     20.281,
+     20.594
+    ],
+    [
+     "2013,",
+     20.594,
+     21.298
+    ],
+    [
+     "a",
+     21.494,
+     21.729
+    ],
+    [
+     "declassified",
+     21.729,
+     22.824
+    ],
+    [
+     "CIA",
+     22.824,
+     23.216
+    ],
+    [
+     "history",
+     23.216,
+     23.92
+    ],
+    [
+     "finally",
+     23.92,
+     24.624
+    ],
+    [
+     "named",
+     24.624,
+     25.172
+    ],
+    [
+     "Area",
+     25.172,
+     25.642
+    ],
+    [
+     "51.",
+     25.642,
+     26.189
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 27.081,
+   "voiceEnd": 28.469,
+   "end": 29.869,
+   "words": [
+    [
+     "So.",
+     27.081,
+     27.252
+    ],
+    [
+     "Real,",
+     27.465,
+     27.722
+    ],
+    [
+     "or",
+     27.828,
+     27.999
+    ],
+    [
+     "fake?",
+     27.999,
+     28.256
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Area 51 exists, and so did the UFO sightings. A lot of them were America's own spy planes.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "CIA U-2 history, released 2013",
+   "start": 29.869,
+   "voiceEnd": 38.246,
+   "end": 38.996,
+   "words": [
+    [
+     "Real.",
+     29.869,
+     30.251
+    ],
+    [
+     "Area",
+     30.57,
+     30.952
+    ],
+    [
+     "51",
+     30.952,
+     31.398
+    ],
+    [
+     "exists,",
+     31.398,
+     31.908
+    ],
+    [
+     "and",
+     32.067,
+     32.385
+    ],
+    [
+     "so",
+     32.385,
+     32.64
+    ],
+    [
+     "did",
+     32.64,
+     32.959
+    ],
+    [
+     "the",
+     32.959,
+     33.277
+    ],
+    [
+     "UFO",
+     33.277,
+     33.596
+    ],
+    [
+     "sightings.",
+     33.596,
+     34.296
+    ],
+    [
+     "A",
+     34.615,
+     34.806
+    ],
+    [
+     "lot",
+     34.806,
+     35.125
+    ],
+    [
+     "of",
+     35.125,
+     35.379
+    ],
+    [
+     "them",
+     35.379,
+     35.762
+    ],
+    [
+     "were",
+     35.762,
+     36.144
+    ],
+    [
+     "America's",
+     36.144,
+     36.781
+    ],
+    [
+     "own",
+     36.781,
+     37.099
+    ],
+    [
+     "spy",
+     37.099,
+     37.418
+    ],
+    [
+     "planes.",
+     37.418,
+     37.927
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 38.996,
+   "voiceEnd": 40.734,
+   "end": 41.834,
+   "words": [
+    [
+     "Go",
+     38.996,
+     39.181
+    ],
+    [
+     "deeper,",
+     39.181,
+     39.552
+    ],
+    [
+     "on",
+     39.668,
+     39.853
+    ],
+    [
+     "Rabbit",
+     39.853,
+     40.224
+    ],
+    [
+     "Hole.",
+     40.224,
+     40.502
+    ]
+   ]
+  }
+ ]
+}

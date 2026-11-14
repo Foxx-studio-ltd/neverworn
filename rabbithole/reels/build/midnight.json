@@ -1,0 +1,421 @@
+{
+ "reel": "midnight",
+ "voice": "bm_george",
+ "speed": 1.0,
+ "file": "0473",
+ "hole": "Mind Games",
+ "hue": 275,
+ "caseId": "midnight",
+ "duration": 36.286,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The CIA ran safehouse brothels to drug clients and watch what happened.",
+   "date": "1955",
+   "label": "Mind Games",
+   "start": 0.35,
+   "voiceEnd": 5.551,
+   "end": 6.301,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.646
+    ],
+    [
+     "CIA",
+     0.646,
+     0.941
+    ],
+    [
+     "ran",
+     0.941,
+     1.237
+    ],
+    [
+     "safehouse",
+     1.237,
+     1.887
+    ],
+    [
+     "brothels",
+     1.887,
+     2.478
+    ],
+    [
+     "to",
+     2.478,
+     2.714
+    ],
+    [
+     "drug",
+     2.714,
+     3.069
+    ],
+    [
+     "clients",
+     3.069,
+     3.601
+    ],
+    [
+     "and",
+     3.601,
+     3.896
+    ],
+    [
+     "watch",
+     3.896,
+     4.31
+    ],
+    [
+     "what",
+     4.31,
+     4.665
+    ],
+    [
+     "happened.",
+     4.665,
+     5.256
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "Narcotics agent [[George White]] ran the San Francisco flat.",
+   "text": "Narcotics agent George White ran the San Francisco flat.",
+   "start": 6.301,
+   "voiceEnd": 10.297,
+   "end": 10.797,
+   "words": [
+    [
+     "Narcotics",
+     6.301,
+     6.929
+    ],
+    [
+     "agent",
+     6.929,
+     7.329
+    ],
+    [
+     "George",
+     7.329,
+     7.786
+    ],
+    [
+     "White",
+     7.786,
+     8.185
+    ],
+    [
+     "ran",
+     8.185,
+     8.471
+    ],
+    [
+     "the",
+     8.471,
+     8.756
+    ],
+    [
+     "San",
+     8.756,
+     9.041
+    ],
+    [
+     "Francisco",
+     9.041,
+     9.669
+    ],
+    [
+     "flat.",
+     9.669,
+     10.012
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Men were slipped [[LSD]] without knowing.",
+   "text": "Men were slipped LSD without knowing.",
+   "start": 10.797,
+   "voiceEnd": 13.865,
+   "end": 14.365,
+   "words": [
+    [
+     "Men",
+     10.797,
+     11.117
+    ],
+    [
+     "were",
+     11.117,
+     11.5
+    ],
+    [
+     "slipped",
+     11.5,
+     12.075
+    ],
+    [
+     "LSD",
+     12.075,
+     12.395
+    ],
+    [
+     "without",
+     12.395,
+     12.97
+    ],
+    [
+     "knowing.",
+     12.97,
+     13.545
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Agents watched through [[one-way mirrors]].",
+   "text": "Agents watched through one-way mirrors.",
+   "start": 14.365,
+   "voiceEnd": 16.811,
+   "end": 17.311,
+   "words": [
+    [
+     "Agents",
+     14.365,
+     14.772
+    ],
+    [
+     "watched",
+     14.772,
+     15.231
+    ],
+    [
+     "through",
+     15.231,
+     15.69
+    ],
+    [
+     "one-way",
+     15.69,
+     16.097
+    ],
+    [
+     "mirrors.",
+     16.097,
+     16.556
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 17.311,
+   "voiceEnd": 19.007,
+   "end": 20.407,
+   "words": [
+    [
+     "So.",
+     17.311,
+     17.52
+    ],
+    [
+     "Real,",
+     17.781,
+     18.094
+    ],
+    [
+     "or",
+     18.224,
+     18.433
+    ],
+    [
+     "fake?",
+     18.433,
+     18.746
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. It was an MKUltra subproject. Paid sex workers lured men to CIA flats in San Francisco and New York, where agents watched them get drugged.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Senate MKUltra hearing, 1977",
+   "start": 20.407,
+   "voiceEnd": 31.192,
+   "end": 31.942,
+   "words": [
+    [
+     "Real.",
+     20.407,
+     20.756
+    ],
+    [
+     "It",
+     21.047,
+     21.279
+    ],
+    [
+     "was",
+     21.279,
+     21.57
+    ],
+    [
+     "an",
+     21.57,
+     21.803
+    ],
+    [
+     "MKUltra",
+     21.803,
+     22.326
+    ],
+    [
+     "subproject.",
+     22.326,
+     23.024
+    ],
+    [
+     "Paid",
+     23.314,
+     23.663
+    ],
+    [
+     "sex",
+     23.663,
+     23.954
+    ],
+    [
+     "workers",
+     23.954,
+     24.477
+    ],
+    [
+     "lured",
+     24.477,
+     24.884
+    ],
+    [
+     "men",
+     24.884,
+     25.175
+    ],
+    [
+     "to",
+     25.175,
+     25.407
+    ],
+    [
+     "CIA",
+     25.407,
+     25.698
+    ],
+    [
+     "flats",
+     25.698,
+     26.105
+    ],
+    [
+     "in",
+     26.105,
+     26.338
+    ],
+    [
+     "San",
+     26.338,
+     26.628
+    ],
+    [
+     "Francisco",
+     26.628,
+     27.268
+    ],
+    [
+     "and",
+     27.268,
+     27.558
+    ],
+    [
+     "New",
+     27.558,
+     27.849
+    ],
+    [
+     "York,",
+     27.849,
+     28.198
+    ],
+    [
+     "where",
+     28.343,
+     28.75
+    ],
+    [
+     "agents",
+     28.75,
+     29.215
+    ],
+    [
+     "watched",
+     29.215,
+     29.739
+    ],
+    [
+     "them",
+     29.739,
+     30.087
+    ],
+    [
+     "get",
+     30.087,
+     30.378
+    ],
+    [
+     "drugged.",
+     30.378,
+     30.901
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 31.942,
+   "voiceEnd": 33.986,
+   "end": 35.086,
+   "words": [
+    [
+     "Go",
+     31.942,
+     32.16
+    ],
+    [
+     "deeper,",
+     32.16,
+     32.596
+    ],
+    [
+     "on",
+     32.732,
+     32.95
+    ],
+    [
+     "Rabbit",
+     32.95,
+     33.386
+    ],
+    [
+     "Hole.",
+     33.386,
+     33.714
+    ]
+   ]
+  }
+ ]
+}

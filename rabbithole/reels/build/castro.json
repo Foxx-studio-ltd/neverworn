@@ -1,0 +1,361 @@
+{
+ "reel": "castro",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "3734",
+ "hole": "False Flags",
+ "hue": 8,
+ "caseId": "castro",
+ "duration": 28.568,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The CIA plotted to kill Fidel Castro with a poisoned diving suit.",
+   "date": "1960",
+   "label": "False Flags",
+   "start": 0.35,
+   "voiceEnd": 5.408,
+   "end": 6.158,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.658
+    ],
+    [
+     "CIA",
+     0.658,
+     0.967
+    ],
+    [
+     "plotted",
+     0.967,
+     1.522
+    ],
+    [
+     "to",
+     1.522,
+     1.769
+    ],
+    [
+     "kill",
+     1.769,
+     2.139
+    ],
+    [
+     "Fidel",
+     2.139,
+     2.571
+    ],
+    [
+     "Castro",
+     2.571,
+     3.064
+    ],
+    [
+     "with",
+     3.064,
+     3.434
+    ],
+    [
+     "a",
+     3.434,
+     3.619
+    ],
+    [
+     "poisoned",
+     3.619,
+     4.236
+    ],
+    [
+     "diving",
+     4.236,
+     4.729
+    ],
+    [
+     "suit.",
+     4.729,
+     5.1
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The Church Committee counted [[eight]] plots.",
+   "text": "The Church Committee counted eight plots.",
+   "start": 6.158,
+   "voiceEnd": 8.364,
+   "end": 8.864,
+   "words": [
+    [
+     "The",
+     6.158,
+     6.37
+    ],
+    [
+     "Church",
+     6.37,
+     6.709
+    ],
+    [
+     "Committee",
+     6.709,
+     7.176
+    ],
+    [
+     "counted",
+     7.176,
+     7.558
+    ],
+    [
+     "eight",
+     7.558,
+     7.855
+    ],
+    [
+     "plots.",
+     7.855,
+     8.152
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "One idea was a suit laced with [[tuberculosis]].",
+   "text": "One idea was a suit laced with tuberculosis.",
+   "start": 8.864,
+   "voiceEnd": 11.994,
+   "end": 12.494,
+   "words": [
+    [
+     "One",
+     8.864,
+     9.139
+    ],
+    [
+     "idea",
+     9.139,
+     9.468
+    ],
+    [
+     "was",
+     9.468,
+     9.743
+    ],
+    [
+     "a",
+     9.743,
+     9.907
+    ],
+    [
+     "suit",
+     9.907,
+     10.237
+    ],
+    [
+     "laced",
+     10.237,
+     10.621
+    ],
+    [
+     "with",
+     10.621,
+     10.951
+    ],
+    [
+     "tuberculosis.",
+     10.951,
+     11.719
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Castro died of [[old age]] in 2016.",
+   "text": "Castro died of old age in 2016.",
+   "start": 12.494,
+   "voiceEnd": 15.185,
+   "end": 15.685,
+   "words": [
+    [
+     "Castro",
+     12.494,
+     12.962
+    ],
+    [
+     "died",
+     12.962,
+     13.313
+    ],
+    [
+     "of",
+     13.313,
+     13.547
+    ],
+    [
+     "old",
+     13.547,
+     13.839
+    ],
+    [
+     "age",
+     13.839,
+     14.132
+    ],
+    [
+     "in",
+     14.132,
+     14.366
+    ],
+    [
+     "2016.",
+     14.366,
+     14.892
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 15.685,
+   "voiceEnd": 17.022,
+   "end": 18.422,
+   "words": [
+    [
+     "So.",
+     15.685,
+     15.849
+    ],
+    [
+     "Real,",
+     16.055,
+     16.302
+    ],
+    [
+     "or",
+     16.405,
+     16.569
+    ],
+    [
+     "fake?",
+     16.569,
+     16.816
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The Senate found at least eight CIA plots. Castro outlived them all.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Church Committee, 1975",
+   "start": 18.422,
+   "voiceEnd": 23.803,
+   "end": 24.553,
+   "words": [
+    [
+     "Real.",
+     18.422,
+     18.745
+    ],
+    [
+     "The",
+     19.014,
+     19.283
+    ],
+    [
+     "Senate",
+     19.283,
+     19.713
+    ],
+    [
+     "found",
+     19.713,
+     20.09
+    ],
+    [
+     "at",
+     20.09,
+     20.305
+    ],
+    [
+     "least",
+     20.305,
+     20.682
+    ],
+    [
+     "eight",
+     20.682,
+     21.059
+    ],
+    [
+     "CIA",
+     21.059,
+     21.328
+    ],
+    [
+     "plots.",
+     21.328,
+     21.704
+    ],
+    [
+     "Castro",
+     21.973,
+     22.404
+    ],
+    [
+     "outlived",
+     22.404,
+     22.942
+    ],
+    [
+     "them",
+     22.942,
+     23.264
+    ],
+    [
+     "all.",
+     23.264,
+     23.534
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 24.553,
+   "voiceEnd": 26.268,
+   "end": 27.368,
+   "words": [
+    [
+     "Go",
+     24.553,
+     24.736
+    ],
+    [
+     "deeper,",
+     24.736,
+     25.102
+    ],
+    [
+     "on",
+     25.216,
+     25.399
+    ],
+    [
+     "Rabbit",
+     25.399,
+     25.765
+    ],
+    [
+     "Hole.",
+     25.765,
+     26.04
+    ]
+   ]
+  }
+ ]
+}

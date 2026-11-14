@@ -1,0 +1,451 @@
+{
+ "reel": "tonkin",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "1965",
+ "hole": "False Flags",
+ "hue": 8,
+ "caseId": "tonkin",
+ "duration": 34.526,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The August 4 attack that pushed the US deeper into Vietnam never happened.",
+   "date": "1964",
+   "label": "False Flags",
+   "start": 0.35,
+   "voiceEnd": 4.848,
+   "end": 5.598,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.587
+    ],
+    [
+     "August",
+     0.587,
+     0.965
+    ],
+    [
+     "4",
+     0.965,
+     1.25
+    ],
+    [
+     "attack",
+     1.25,
+     1.628
+    ],
+    [
+     "that",
+     1.628,
+     1.912
+    ],
+    [
+     "pushed",
+     1.912,
+     2.291
+    ],
+    [
+     "the",
+     2.291,
+     2.528
+    ],
+    [
+     "US",
+     2.528,
+     2.717
+    ],
+    [
+     "deeper",
+     2.717,
+     3.096
+    ],
+    [
+     "into",
+     3.096,
+     3.38
+    ],
+    [
+     "Vietnam",
+     3.38,
+     3.806
+    ],
+    [
+     "never",
+     3.806,
+     4.137
+    ],
+    [
+     "happened.",
+     4.137,
+     4.611
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The ships were the [[USS Maddox]] and [[USS Turner Joy]].",
+   "text": "The ships were the USS Maddox and USS Turner Joy.",
+   "start": 5.598,
+   "voiceEnd": 9.196,
+   "end": 9.696,
+   "words": [
+    [
+     "The",
+     5.598,
+     5.879
+    ],
+    [
+     "ships",
+     5.879,
+     6.272
+    ],
+    [
+     "were",
+     6.272,
+     6.61
+    ],
+    [
+     "the",
+     6.61,
+     6.891
+    ],
+    [
+     "USS",
+     6.891,
+     7.172
+    ],
+    [
+     "Maddox",
+     7.172,
+     7.622
+    ],
+    [
+     "and",
+     7.622,
+     7.903
+    ],
+    [
+     "USS",
+     7.903,
+     8.184
+    ],
+    [
+     "Turner",
+     8.184,
+     8.634
+    ],
+    [
+     "Joy.",
+     8.634,
+     8.915
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Congress passed the Tonkin resolution [[three days]] later.",
+   "text": "Congress passed the Tonkin resolution three days later.",
+   "start": 9.696,
+   "voiceEnd": 12.595,
+   "end": 13.095,
+   "words": [
+    [
+     "Congress",
+     9.696,
+     10.122
+    ],
+    [
+     "passed",
+     10.122,
+     10.463
+    ],
+    [
+     "the",
+     10.463,
+     10.676
+    ],
+    [
+     "Tonkin",
+     10.676,
+     11.018
+    ],
+    [
+     "resolution",
+     11.018,
+     11.529
+    ],
+    [
+     "three",
+     11.529,
+     11.828
+    ],
+    [
+     "days",
+     11.828,
+     12.083
+    ],
+    [
+     "later.",
+     12.083,
+     12.382
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "An [[NSA]] historian later found the intercepts were mishandled.",
+   "text": "An NSA historian later found the intercepts were mishandled.",
+   "start": 13.095,
+   "voiceEnd": 17.297,
+   "end": 17.797,
+   "words": [
+    [
+     "An",
+     13.095,
+     13.322
+    ],
+    [
+     "NSA",
+     13.322,
+     13.606
+    ],
+    [
+     "historian",
+     13.606,
+     14.231
+    ],
+    [
+     "later",
+     14.231,
+     14.628
+    ],
+    [
+     "found",
+     14.628,
+     15.026
+    ],
+    [
+     "the",
+     15.026,
+     15.31
+    ],
+    [
+     "intercepts",
+     15.31,
+     15.991
+    ],
+    [
+     "were",
+     15.991,
+     16.332
+    ],
+    [
+     "mishandled.",
+     16.332,
+     17.013
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 17.797,
+   "voiceEnd": 19.166,
+   "end": 20.566,
+   "words": [
+    [
+     "So.",
+     17.797,
+     17.966
+    ],
+    [
+     "Real,",
+     18.176,
+     18.429
+    ],
+    [
+     "or",
+     18.534,
+     18.703
+    ],
+    [
+     "fake?",
+     18.703,
+     18.955
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The August 2 clash was real. The August 4 attack almost certainly never happened, and an NSA history admitted the intercepts were misread.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "NSA history by Robert Hanyok, declassified 2005",
+   "start": 20.566,
+   "voiceEnd": 29.904,
+   "end": 30.654,
+   "words": [
+    [
+     "Real.",
+     20.566,
+     20.863
+    ],
+    [
+     "The",
+     21.111,
+     21.359
+    ],
+    [
+     "August",
+     21.359,
+     21.755
+    ],
+    [
+     "2",
+     21.755,
+     22.052
+    ],
+    [
+     "clash",
+     22.052,
+     22.399
+    ],
+    [
+     "was",
+     22.399,
+     22.647
+    ],
+    [
+     "real.",
+     22.647,
+     22.944
+    ],
+    [
+     "The",
+     23.192,
+     23.439
+    ],
+    [
+     "August",
+     23.439,
+     23.836
+    ],
+    [
+     "4",
+     23.836,
+     24.133
+    ],
+    [
+     "attack",
+     24.133,
+     24.529
+    ],
+    [
+     "almost",
+     24.529,
+     24.925
+    ],
+    [
+     "certainly",
+     24.925,
+     25.47
+    ],
+    [
+     "never",
+     25.47,
+     25.817
+    ],
+    [
+     "happened,",
+     25.817,
+     26.312
+    ],
+    [
+     "and",
+     26.436,
+     26.684
+    ],
+    [
+     "an",
+     26.684,
+     26.882
+    ],
+    [
+     "NSA",
+     26.882,
+     27.13
+    ],
+    [
+     "history",
+     27.13,
+     27.576
+    ],
+    [
+     "admitted",
+     27.576,
+     28.071
+    ],
+    [
+     "the",
+     28.071,
+     28.319
+    ],
+    [
+     "intercepts",
+     28.319,
+     28.913
+    ],
+    [
+     "were",
+     28.913,
+     29.211
+    ],
+    [
+     "misread.",
+     29.211,
+     29.656
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 30.654,
+   "voiceEnd": 32.226,
+   "end": 33.326,
+   "words": [
+    [
+     "Go",
+     30.654,
+     30.822
+    ],
+    [
+     "deeper,",
+     30.822,
+     31.157
+    ],
+    [
+     "on",
+     31.262,
+     31.429
+    ],
+    [
+     "Rabbit",
+     31.429,
+     31.765
+    ],
+    [
+     "Hole.",
+     31.765,
+     32.016
+    ]
+   ]
+  }
+ ]
+}

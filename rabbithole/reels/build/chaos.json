@@ -1,0 +1,361 @@
+{
+ "reel": "chaos",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "4528",
+ "hole": "Watching You",
+ "hue": 125,
+ "caseId": "chaos",
+ "duration": 36.085,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The CIA secretly spied on American anti-war protesters.",
+   "date": "1967",
+   "label": "Watching You",
+   "start": 0.35,
+   "voiceEnd": 5.036,
+   "end": 5.786,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.7
+    ],
+    [
+     "CIA",
+     0.7,
+     1.049
+    ],
+    [
+     "secretly",
+     1.049,
+     1.749
+    ],
+    [
+     "spied",
+     1.749,
+     2.238
+    ],
+    [
+     "on",
+     2.238,
+     2.518
+    ],
+    [
+     "American",
+     2.518,
+     3.218
+    ],
+    [
+     "anti-war",
+     3.218,
+     3.847
+    ],
+    [
+     "protesters.",
+     3.847,
+     4.686
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The program was Operation [[CHAOS]].",
+   "text": "The program was Operation CHAOS.",
+   "start": 5.786,
+   "voiceEnd": 7.961,
+   "end": 8.461,
+   "words": [
+    [
+     "The",
+     5.786,
+     6.045
+    ],
+    [
+     "program",
+     6.045,
+     6.511
+    ],
+    [
+     "was",
+     6.511,
+     6.77
+    ],
+    [
+     "Operation",
+     6.77,
+     7.34
+    ],
+    [
+     "CHAOS.",
+     7.34,
+     7.702
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "It kept files on [[7,200]] Americans.",
+   "text": "It kept files on 7,200 Americans.",
+   "start": 8.461,
+   "voiceEnd": 11.81,
+   "end": 12.31,
+   "words": [
+    [
+     "It",
+     8.461,
+     8.752
+    ],
+    [
+     "kept",
+     8.752,
+     9.189
+    ],
+    [
+     "files",
+     9.189,
+     9.699
+    ],
+    [
+     "on",
+     9.699,
+     9.99
+    ],
+    [
+     "7,200",
+     9.99,
+     10.645
+    ],
+    [
+     "Americans.",
+     10.645,
+     11.446
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "A [[New York Times]] reporter exposed it in 1974.",
+   "text": "A New York Times reporter exposed it in 1974.",
+   "start": 12.31,
+   "voiceEnd": 16.573,
+   "end": 17.073,
+   "words": [
+    [
+     "A",
+     12.31,
+     12.517
+    ],
+    [
+     "New",
+     12.517,
+     12.86
+    ],
+    [
+     "York",
+     12.86,
+     13.273
+    ],
+    [
+     "Times",
+     13.273,
+     13.754
+    ],
+    [
+     "reporter",
+     13.754,
+     14.442
+    ],
+    [
+     "exposed",
+     14.442,
+     15.06
+    ],
+    [
+     "it",
+     15.06,
+     15.336
+    ],
+    [
+     "in",
+     15.336,
+     15.611
+    ],
+    [
+     "1974.",
+     15.611,
+     16.229
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 17.073,
+   "voiceEnd": 18.411,
+   "end": 19.811,
+   "words": [
+    [
+     "So.",
+     17.073,
+     17.238
+    ],
+    [
+     "Real,",
+     17.443,
+     17.69
+    ],
+    [
+     "or",
+     17.793,
+     17.958
+    ],
+    [
+     "fake?",
+     17.958,
+     18.205
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Operation CHAOS ran from 1967 to 1974 and kept files on 7,200 Americans. Seymour Hersh exposed it.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Rockefeller Commission, 1975",
+   "start": 19.811,
+   "voiceEnd": 31.319,
+   "end": 32.069,
+   "words": [
+    [
+     "Real.",
+     19.811,
+     20.293
+    ],
+    [
+     "Operation",
+     20.696,
+     21.581
+    ],
+    [
+     "CHAOS",
+     21.581,
+     22.144
+    ],
+    [
+     "ran",
+     22.144,
+     22.547
+    ],
+    [
+     "from",
+     22.547,
+     23.03
+    ],
+    [
+     "1967",
+     23.03,
+     23.754
+    ],
+    [
+     "to",
+     23.754,
+     24.076
+    ],
+    [
+     "1974",
+     24.076,
+     24.8
+    ],
+    [
+     "and",
+     24.8,
+     25.203
+    ],
+    [
+     "kept",
+     25.203,
+     25.685
+    ],
+    [
+     "files",
+     25.685,
+     26.249
+    ],
+    [
+     "on",
+     26.249,
+     26.571
+    ],
+    [
+     "7,200",
+     26.571,
+     27.295
+    ],
+    [
+     "Americans.",
+     27.295,
+     28.18
+    ],
+    [
+     "Seymour",
+     28.583,
+     29.307
+    ],
+    [
+     "Hersh",
+     29.307,
+     29.87
+    ],
+    [
+     "exposed",
+     29.87,
+     30.595
+    ],
+    [
+     "it.",
+     30.595,
+     30.917
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 32.069,
+   "voiceEnd": 33.785,
+   "end": 34.885,
+   "words": [
+    [
+     "Go",
+     32.069,
+     32.252
+    ],
+    [
+     "deeper,",
+     32.252,
+     32.618
+    ],
+    [
+     "on",
+     32.732,
+     32.915
+    ],
+    [
+     "Rabbit",
+     32.915,
+     33.282
+    ],
+    [
+     "Hole.",
+     33.282,
+     33.556
+    ]
+   ]
+  }
+ ]
+}

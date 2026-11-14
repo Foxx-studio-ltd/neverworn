@@ -1,0 +1,371 @@
+{
+ "reel": "nessie",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "0377",
+ "hole": "Too Good to Be True",
+ "hue": 230,
+ "caseId": "nessie",
+ "duration": 27.284,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The famous 1934 photo of the Loch Ness Monster is real.",
+   "date": "1934",
+   "label": "Too Good to Be True",
+   "start": 0.35,
+   "voiceEnd": 4.864,
+   "end": 5.614,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.655
+    ],
+    [
+     "famous",
+     0.655,
+     1.143
+    ],
+    [
+     "1934",
+     1.143,
+     1.692
+    ],
+    [
+     "photo",
+     1.692,
+     2.119
+    ],
+    [
+     "of",
+     2.119,
+     2.363
+    ],
+    [
+     "the",
+     2.363,
+     2.668
+    ],
+    [
+     "Loch",
+     2.668,
+     3.034
+    ],
+    [
+     "Ness",
+     3.034,
+     3.4
+    ],
+    [
+     "Monster",
+     3.4,
+     3.949
+    ],
+    [
+     "is",
+     3.949,
+     4.193
+    ],
+    [
+     "real.",
+     4.193,
+     4.559
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "It was called the [[surgeon's photograph]].",
+   "text": "It was called the surgeon's photograph.",
+   "start": 5.614,
+   "voiceEnd": 7.304,
+   "end": 7.804,
+   "words": [
+    [
+     "It",
+     5.614,
+     5.752
+    ],
+    [
+     "was",
+     5.752,
+     5.924
+    ],
+    [
+     "called",
+     5.924,
+     6.2
+    ],
+    [
+     "the",
+     6.2,
+     6.373
+    ],
+    [
+     "surgeon's",
+     6.373,
+     6.718
+    ],
+    [
+     "photograph.",
+     6.718,
+     7.132
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The head was sculpted onto a [[toy submarine]].",
+   "text": "The head was sculpted onto a toy submarine.",
+   "start": 7.804,
+   "voiceEnd": 10.044,
+   "end": 10.544,
+   "words": [
+    [
+     "The",
+     7.804,
+     8.004
+    ],
+    [
+     "head",
+     8.004,
+     8.244
+    ],
+    [
+     "was",
+     8.244,
+     8.444
+    ],
+    [
+     "sculpted",
+     8.444,
+     8.844
+    ],
+    [
+     "onto",
+     8.844,
+     9.084
+    ],
+    [
+     "a",
+     9.084,
+     9.204
+    ],
+    [
+     "toy",
+     9.204,
+     9.404
+    ],
+    [
+     "submarine.",
+     9.404,
+     9.844
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The hoax was confessed in [[1994]].",
+   "text": "The hoax was confessed in 1994.",
+   "start": 10.544,
+   "voiceEnd": 12.938,
+   "end": 13.438,
+   "words": [
+    [
+     "The",
+     10.544,
+     10.81
+    ],
+    [
+     "hoax",
+     10.81,
+     11.129
+    ],
+    [
+     "was",
+     11.129,
+     11.395
+    ],
+    [
+     "confessed",
+     11.395,
+     11.981
+    ],
+    [
+     "in",
+     11.981,
+     12.193
+    ],
+    [
+     "1994.",
+     12.193,
+     12.672
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 13.438,
+   "voiceEnd": 14.886,
+   "end": 16.286,
+   "words": [
+    [
+     "So.",
+     13.438,
+     13.616
+    ],
+    [
+     "Real,",
+     13.839,
+     14.106
+    ],
+    [
+     "or",
+     14.217,
+     14.396
+    ],
+    [
+     "fake?",
+     14.396,
+     14.663
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Fake. The surgeon's photograph was a model on a toy submarine. The hoax came out in 1994.",
+   "verdict": "FAKE",
+   "cls": "red",
+   "source": "Sunday Telegraph, 1994",
+   "start": 16.286,
+   "voiceEnd": 22.667,
+   "end": 23.417,
+   "words": [
+    [
+     "Fake.",
+     16.286,
+     16.602
+    ],
+    [
+     "The",
+     16.866,
+     17.129
+    ],
+    [
+     "surgeon's",
+     17.129,
+     17.657
+    ],
+    [
+     "photograph",
+     17.657,
+     18.29
+    ],
+    [
+     "was",
+     18.29,
+     18.553
+    ],
+    [
+     "a",
+     18.553,
+     18.712
+    ],
+    [
+     "model",
+     18.712,
+     19.081
+    ],
+    [
+     "on",
+     19.081,
+     19.292
+    ],
+    [
+     "a",
+     19.292,
+     19.45
+    ],
+    [
+     "toy",
+     19.45,
+     19.714
+    ],
+    [
+     "submarine.",
+     19.714,
+     20.294
+    ],
+    [
+     "The",
+     20.558,
+     20.821
+    ],
+    [
+     "hoax",
+     20.821,
+     21.138
+    ],
+    [
+     "came",
+     21.138,
+     21.454
+    ],
+    [
+     "out",
+     21.454,
+     21.718
+    ],
+    [
+     "in",
+     21.718,
+     21.929
+    ],
+    [
+     "1994.",
+     21.929,
+     22.404
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 23.417,
+   "voiceEnd": 24.984,
+   "end": 26.084,
+   "words": [
+    [
+     "Go",
+     23.417,
+     23.585
+    ],
+    [
+     "deeper,",
+     23.585,
+     23.919
+    ],
+    [
+     "on",
+     24.023,
+     24.19
+    ],
+    [
+     "Rabbit",
+     24.19,
+     24.524
+    ],
+    [
+     "Hole.",
+     24.524,
+     24.775
+    ]
+   ]
+  }
+ ]
+}

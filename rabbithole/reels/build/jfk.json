@@ -1,0 +1,411 @@
+{
+ "reel": "jfk",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "6068",
+ "hole": "The Bureau",
+ "hue": 150,
+ "caseId": "jfk",
+ "duration": 35.781,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "A US government committee concluded JFK was probably killed in a conspiracy.",
+   "date": "1979",
+   "label": "The Bureau",
+   "start": 0.35,
+   "voiceEnd": 6.528,
+   "end": 7.278,
+   "words": [
+    [
+     "A",
+     0.35,
+     0.549
+    ],
+    [
+     "US",
+     0.549,
+     0.815
+    ],
+    [
+     "government",
+     0.815,
+     1.612
+    ],
+    [
+     "committee",
+     1.612,
+     2.343
+    ],
+    [
+     "concluded",
+     2.343,
+     3.074
+    ],
+    [
+     "JFK",
+     3.074,
+     3.406
+    ],
+    [
+     "was",
+     3.406,
+     3.738
+    ],
+    [
+     "probably",
+     3.738,
+     4.402
+    ],
+    [
+     "killed",
+     4.402,
+     4.934
+    ],
+    [
+     "in",
+     4.934,
+     5.2
+    ],
+    [
+     "a",
+     5.2,
+     5.399
+    ],
+    [
+     "conspiracy.",
+     5.399,
+     6.196
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "It was the [[House Select Committee on Assassinations]].",
+   "text": "It was the House Select Committee on Assassinations.",
+   "start": 7.278,
+   "voiceEnd": 10.182,
+   "end": 10.682,
+   "words": [
+    [
+     "It",
+     7.278,
+     7.457
+    ],
+    [
+     "was",
+     7.457,
+     7.68
+    ],
+    [
+     "the",
+     7.68,
+     7.904
+    ],
+    [
+     "House",
+     7.904,
+     8.217
+    ],
+    [
+     "Select",
+     8.217,
+     8.574
+    ],
+    [
+     "Committee",
+     8.574,
+     9.065
+    ],
+    [
+     "on",
+     9.065,
+     9.244
+    ],
+    [
+     "Assassinations.",
+     9.244,
+     9.959
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Its key evidence was a police [[audio recording]].",
+   "text": "Its key evidence was a police audio recording.",
+   "start": 10.682,
+   "voiceEnd": 13.647,
+   "end": 14.147,
+   "words": [
+    [
+     "Its",
+     10.682,
+     10.933
+    ],
+    [
+     "key",
+     10.933,
+     11.185
+    ],
+    [
+     "evidence",
+     11.185,
+     11.687
+    ],
+    [
+     "was",
+     11.687,
+     11.938
+    ],
+    [
+     "a",
+     11.938,
+     12.089
+    ],
+    [
+     "police",
+     12.089,
+     12.491
+    ],
+    [
+     "audio",
+     12.491,
+     12.843
+    ],
+    [
+     "recording.",
+     12.843,
+     13.395
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "In 1982 scientists said the audio [[didn't hold up]].",
+   "text": "In 1982 scientists said the audio didn't hold up.",
+   "start": 14.147,
+   "voiceEnd": 17.984,
+   "end": 18.484,
+   "words": [
+    [
+     "In",
+     14.147,
+     14.383
+    ],
+    [
+     "1982",
+     14.383,
+     14.914
+    ],
+    [
+     "scientists",
+     14.914,
+     15.623
+    ],
+    [
+     "said",
+     15.623,
+     15.977
+    ],
+    [
+     "the",
+     15.977,
+     16.272
+    ],
+    [
+     "audio",
+     16.272,
+     16.685
+    ],
+    [
+     "didn't",
+     16.685,
+     17.099
+    ],
+    [
+     "hold",
+     17.099,
+     17.453
+    ],
+    [
+     "up.",
+     17.453,
+     17.689
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 18.484,
+   "voiceEnd": 19.822,
+   "end": 21.222,
+   "words": [
+    [
+     "So.",
+     18.484,
+     18.649
+    ],
+    [
+     "Real,",
+     18.855,
+     19.101
+    ],
+    [
+     "or",
+     19.204,
+     19.369
+    ],
+    [
+     "fake?",
+     19.369,
+     19.616
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The House committee said probably a conspiracy in 1979. Scientists later rejected the audio evidence it relied on.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "National Archives, JFK records",
+   "start": 21.222,
+   "voiceEnd": 31.015,
+   "end": 31.765,
+   "words": [
+    [
+     "Real.",
+     21.222,
+     21.601
+    ],
+    [
+     "The",
+     21.917,
+     22.232
+    ],
+    [
+     "House",
+     22.232,
+     22.675
+    ],
+    [
+     "committee",
+     22.675,
+     23.37
+    ],
+    [
+     "said",
+     23.37,
+     23.749
+    ],
+    [
+     "probably",
+     23.749,
+     24.381
+    ],
+    [
+     "a",
+     24.381,
+     24.57
+    ],
+    [
+     "conspiracy",
+     24.57,
+     25.328
+    ],
+    [
+     "in",
+     25.328,
+     25.581
+    ],
+    [
+     "1979.",
+     25.581,
+     26.15
+    ],
+    [
+     "Scientists",
+     26.466,
+     27.224
+    ],
+    [
+     "later",
+     27.224,
+     27.666
+    ],
+    [
+     "rejected",
+     27.666,
+     28.298
+    ],
+    [
+     "the",
+     28.298,
+     28.614
+    ],
+    [
+     "audio",
+     28.614,
+     29.056
+    ],
+    [
+     "evidence",
+     29.056,
+     29.688
+    ],
+    [
+     "it",
+     29.688,
+     29.941
+    ],
+    [
+     "relied",
+     29.941,
+     30.446
+    ],
+    [
+     "on.",
+     30.446,
+     30.699
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 31.765,
+   "voiceEnd": 33.481,
+   "end": 34.581,
+   "words": [
+    [
+     "Go",
+     31.765,
+     31.948
+    ],
+    [
+     "deeper,",
+     31.948,
+     32.314
+    ],
+    [
+     "on",
+     32.428,
+     32.611
+    ],
+    [
+     "Rabbit",
+     32.611,
+     32.977
+    ],
+    [
+     "Hole.",
+     32.977,
+     33.252
+    ]
+   ]
+  }
+ ]
+}

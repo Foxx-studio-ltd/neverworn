@@ -1,0 +1,376 @@
+{
+ "reel": "radium",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "5647",
+ "hole": "Corporate Cover-ups",
+ "hue": 75,
+ "caseId": "radium",
+ "duration": 28.878,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Factory workers were told glow-in-the-dark radium paint was safe to put in their mouths.",
+   "date": "1917",
+   "label": "Corporate Cover-ups",
+   "start": 0.35,
+   "voiceEnd": 5.831,
+   "end": 6.581,
+   "words": [
+    [
+     "Factory",
+     0.35,
+     0.824
+    ],
+    [
+     "workers",
+     0.824,
+     1.299
+    ],
+    [
+     "were",
+     1.299,
+     1.615
+    ],
+    [
+     "told",
+     1.615,
+     1.931
+    ],
+    [
+     "glow-in-the-dark",
+     1.931,
+     2.721
+    ],
+    [
+     "radium",
+     2.721,
+     3.143
+    ],
+    [
+     "paint",
+     3.143,
+     3.512
+    ],
+    [
+     "was",
+     3.512,
+     3.775
+    ],
+    [
+     "safe",
+     3.775,
+     4.092
+    ],
+    [
+     "to",
+     4.092,
+     4.302
+    ],
+    [
+     "put",
+     4.302,
+     4.566
+    ],
+    [
+     "in",
+     4.566,
+     4.777
+    ],
+    [
+     "their",
+     4.777,
+     5.146
+    ],
+    [
+     "mouths.",
+     5.146,
+     5.567
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "They painted [[watch dials]].",
+   "text": "They painted watch dials.",
+   "start": 6.581,
+   "voiceEnd": 8.199,
+   "end": 8.699,
+   "words": [
+    [
+     "They",
+     6.581,
+     6.866
+    ],
+    [
+     "painted",
+     6.866,
+     7.295
+    ],
+    [
+     "watch",
+     7.295,
+     7.628
+    ],
+    [
+     "dials.",
+     7.628,
+     7.961
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "They shaped their brushes with their [[lips]].",
+   "text": "They shaped their brushes with their lips.",
+   "start": 8.699,
+   "voiceEnd": 10.74,
+   "end": 11.24,
+   "words": [
+    [
+     "They",
+     8.699,
+     8.926
+    ],
+    [
+     "shaped",
+     8.926,
+     9.228
+    ],
+    [
+     "their",
+     9.228,
+     9.493
+    ],
+    [
+     "brushes",
+     9.493,
+     9.833
+    ],
+    [
+     "with",
+     9.833,
+     10.059
+    ],
+    [
+     "their",
+     10.059,
+     10.324
+    ],
+    [
+     "lips.",
+     10.324,
+     10.551
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Many died of [[radiation poisoning]].",
+   "text": "Many died of radiation poisoning.",
+   "start": 11.24,
+   "voiceEnd": 13.359,
+   "end": 13.859,
+   "words": [
+    [
+     "Many",
+     11.24,
+     11.535
+    ],
+    [
+     "died",
+     11.535,
+     11.831
+    ],
+    [
+     "of",
+     11.831,
+     12.028
+    ],
+    [
+     "radiation",
+     12.028,
+     12.57
+    ],
+    [
+     "poisoning.",
+     12.57,
+     13.112
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 13.859,
+   "voiceEnd": 15.196,
+   "end": 16.596,
+   "words": [
+    [
+     "So.",
+     13.859,
+     14.023
+    ],
+    [
+     "Real,",
+     14.229,
+     14.476
+    ],
+    [
+     "or",
+     14.579,
+     14.743
+    ],
+    [
+     "fake?",
+     14.743,
+     14.99
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The Radium Girls were told the paint was harmless. Many died, and their lawsuits changed worker safety law.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "US Radium Corporation court cases",
+   "start": 16.596,
+   "voiceEnd": 24.112,
+   "end": 24.862,
+   "words": [
+    [
+     "Real.",
+     16.596,
+     16.904
+    ],
+    [
+     "The",
+     17.16,
+     17.417
+    ],
+    [
+     "Radium",
+     17.417,
+     17.827
+    ],
+    [
+     "Girls",
+     17.827,
+     18.186
+    ],
+    [
+     "were",
+     18.186,
+     18.494
+    ],
+    [
+     "told",
+     18.494,
+     18.802
+    ],
+    [
+     "the",
+     18.802,
+     19.059
+    ],
+    [
+     "paint",
+     19.059,
+     19.418
+    ],
+    [
+     "was",
+     19.418,
+     19.674
+    ],
+    [
+     "harmless.",
+     19.674,
+     20.187
+    ],
+    [
+     "Many",
+     20.444,
+     20.752
+    ],
+    [
+     "died,",
+     20.752,
+     21.059
+    ],
+    [
+     "and",
+     21.188,
+     21.444
+    ],
+    [
+     "their",
+     21.444,
+     21.803
+    ],
+    [
+     "lawsuits",
+     21.803,
+     22.316
+    ],
+    [
+     "changed",
+     22.316,
+     22.778
+    ],
+    [
+     "worker",
+     22.778,
+     23.188
+    ],
+    [
+     "safety",
+     23.188,
+     23.599
+    ],
+    [
+     "law.",
+     23.599,
+     23.855
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 24.862,
+   "voiceEnd": 26.578,
+   "end": 27.678,
+   "words": [
+    [
+     "Go",
+     24.862,
+     25.045
+    ],
+    [
+     "deeper,",
+     25.045,
+     25.411
+    ],
+    [
+     "on",
+     25.525,
+     25.708
+    ],
+    [
+     "Rabbit",
+     25.708,
+     26.074
+    ],
+    [
+     "Hole.",
+     26.074,
+     26.349
+    ]
+   ]
+  }
+ ]
+}

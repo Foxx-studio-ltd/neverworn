@@ -1,0 +1,401 @@
+{
+ "reel": "acoustickitty",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "1219",
+ "hole": "Mind Games",
+ "hue": 275,
+ "caseId": "acoustickitty",
+ "duration": 30.356,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The CIA tried to turn a cat into a walking microphone.",
+   "date": "1960s",
+   "label": "Mind Games",
+   "start": 0.35,
+   "voiceEnd": 4.07,
+   "end": 4.82,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.616
+    ],
+    [
+     "CIA",
+     0.616,
+     0.881
+    ],
+    [
+     "tried",
+     0.881,
+     1.253
+    ],
+    [
+     "to",
+     1.253,
+     1.466
+    ],
+    [
+     "turn",
+     1.466,
+     1.785
+    ],
+    [
+     "a",
+     1.785,
+     1.944
+    ],
+    [
+     "cat",
+     1.944,
+     2.21
+    ],
+    [
+     "into",
+     2.21,
+     2.529
+    ],
+    [
+     "a",
+     2.529,
+     2.688
+    ],
+    [
+     "walking",
+     2.688,
+     3.167
+    ],
+    [
+     "microphone.",
+     3.167,
+     3.804
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "A microphone was implanted in the [[ear canal]].",
+   "text": "A microphone was implanted in the ear canal.",
+   "start": 4.82,
+   "voiceEnd": 7.364,
+   "end": 7.864,
+   "words": [
+    [
+     "A",
+     4.82,
+     4.954
+    ],
+    [
+     "microphone",
+     4.954,
+     5.49
+    ],
+    [
+     "was",
+     5.49,
+     5.713
+    ],
+    [
+     "implanted",
+     5.713,
+     6.203
+    ],
+    [
+     "in",
+     6.203,
+     6.382
+    ],
+    [
+     "the",
+     6.382,
+     6.605
+    ],
+    [
+     "ear",
+     6.605,
+     6.828
+    ],
+    [
+     "canal.",
+     6.828,
+     7.141
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The antenna ran along the [[tail]].",
+   "text": "The antenna ran along the tail.",
+   "start": 7.864,
+   "voiceEnd": 9.53,
+   "end": 10.03,
+   "words": [
+    [
+     "The",
+     7.864,
+     8.062
+    ],
+    [
+     "antenna",
+     8.062,
+     8.419
+    ],
+    [
+     "ran",
+     8.419,
+     8.617
+    ],
+    [
+     "along",
+     8.617,
+     8.895
+    ],
+    [
+     "the",
+     8.895,
+     9.093
+    ],
+    [
+     "tail.",
+     9.093,
+     9.331
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The project was dropped in [[1967]].",
+   "text": "The project was dropped in 1967.",
+   "start": 10.03,
+   "voiceEnd": 12.602,
+   "end": 13.102,
+   "words": [
+    [
+     "The",
+     10.03,
+     10.309
+    ],
+    [
+     "project",
+     10.309,
+     10.812
+    ],
+    [
+     "was",
+     10.812,
+     11.092
+    ],
+    [
+     "dropped",
+     11.092,
+     11.595
+    ],
+    [
+     "in",
+     11.595,
+     11.819
+    ],
+    [
+     "1967.",
+     11.819,
+     12.322
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 13.102,
+   "voiceEnd": 14.471,
+   "end": 15.871,
+   "words": [
+    [
+     "So.",
+     13.102,
+     13.27
+    ],
+    [
+     "Real,",
+     13.481,
+     13.734
+    ],
+    [
+     "or",
+     13.839,
+     14.007
+    ],
+    [
+     "fake?",
+     14.007,
+     14.26
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The CIA really did wire up a cat. A 2001 memo called the idea workable but impractical. The taxi story is disputed.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "CIA memo \"Views on Trained Cats\", released 2001",
+   "start": 15.871,
+   "voiceEnd": 25.735,
+   "end": 26.485,
+   "words": [
+    [
+     "Real.",
+     15.871,
+     16.231
+    ],
+    [
+     "The",
+     16.532,
+     16.833
+    ],
+    [
+     "CIA",
+     16.833,
+     17.134
+    ],
+    [
+     "really",
+     17.134,
+     17.615
+    ],
+    [
+     "did",
+     17.615,
+     17.916
+    ],
+    [
+     "wire",
+     17.916,
+     18.276
+    ],
+    [
+     "up",
+     18.276,
+     18.517
+    ],
+    [
+     "a",
+     18.517,
+     18.697
+    ],
+    [
+     "cat.",
+     18.697,
+     18.998
+    ],
+    [
+     "A",
+     19.299,
+     19.479
+    ],
+    [
+     "2001",
+     19.479,
+     20.021
+    ],
+    [
+     "memo",
+     20.021,
+     20.382
+    ],
+    [
+     "called",
+     20.382,
+     20.863
+    ],
+    [
+     "the",
+     20.863,
+     21.164
+    ],
+    [
+     "idea",
+     21.164,
+     21.524
+    ],
+    [
+     "workable",
+     21.524,
+     22.126
+    ],
+    [
+     "but",
+     22.126,
+     22.427
+    ],
+    [
+     "impractical.",
+     22.427,
+     23.208
+    ],
+    [
+     "The",
+     23.509,
+     23.81
+    ],
+    [
+     "taxi",
+     23.81,
+     24.171
+    ],
+    [
+     "story",
+     24.171,
+     24.592
+    ],
+    [
+     "is",
+     24.592,
+     24.832
+    ],
+    [
+     "disputed.",
+     24.832,
+     25.434
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 26.485,
+   "voiceEnd": 28.056,
+   "end": 29.156,
+   "words": [
+    [
+     "Go",
+     26.485,
+     26.652
+    ],
+    [
+     "deeper,",
+     26.652,
+     26.988
+    ],
+    [
+     "on",
+     27.092,
+     27.26
+    ],
+    [
+     "Rabbit",
+     27.26,
+     27.595
+    ],
+    [
+     "Hole.",
+     27.595,
+     27.847
+    ]
+   ]
+  }
+ ]
+}

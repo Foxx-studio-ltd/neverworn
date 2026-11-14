@@ -1,0 +1,361 @@
+{
+ "reel": "dieselgate",
+ "voice": "bm_george",
+ "speed": 1.0,
+ "file": "6020",
+ "hole": "Corporate Cover-ups",
+ "hue": 75,
+ "caseId": "dieselgate",
+ "duration": 31.764,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Volkswagen built cars that knew when they were being tested.",
+   "date": "2015",
+   "label": "Corporate Cover-ups",
+   "start": 0.35,
+   "voiceEnd": 4.141,
+   "end": 4.891,
+   "words": [
+    [
+     "Volkswagen",
+     0.35,
+     0.957
+    ],
+    [
+     "built",
+     0.957,
+     1.31
+    ],
+    [
+     "cars",
+     1.31,
+     1.614
+    ],
+    [
+     "that",
+     1.614,
+     1.917
+    ],
+    [
+     "knew",
+     1.917,
+     2.22
+    ],
+    [
+     "when",
+     2.22,
+     2.524
+    ],
+    [
+     "they",
+     2.524,
+     2.827
+    ],
+    [
+     "were",
+     2.827,
+     3.13
+    ],
+    [
+     "being",
+     3.13,
+     3.484
+    ],
+    [
+     "tested.",
+     3.484,
+     3.889
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "Hidden software was called a [[defeat device]].",
+   "text": "Hidden software was called a defeat device.",
+   "start": 4.891,
+   "voiceEnd": 8.059,
+   "end": 8.559,
+   "words": [
+    [
+     "Hidden",
+     4.891,
+     5.352
+    ],
+    [
+     "software",
+     5.352,
+     5.928
+    ],
+    [
+     "was",
+     5.928,
+     6.216
+    ],
+    [
+     "called",
+     6.216,
+     6.677
+    ],
+    [
+     "a",
+     6.677,
+     6.85
+    ],
+    [
+     "defeat",
+     6.85,
+     7.31
+    ],
+    [
+     "device.",
+     7.31,
+     7.771
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "It was in about [[11 million]] cars.",
+   "text": "It was in about 11 million cars.",
+   "start": 8.559,
+   "voiceEnd": 11.132,
+   "end": 11.632,
+   "words": [
+    [
+     "It",
+     8.559,
+     8.778
+    ],
+    [
+     "was",
+     8.778,
+     9.052
+    ],
+    [
+     "in",
+     9.052,
+     9.271
+    ],
+    [
+     "about",
+     9.271,
+     9.654
+    ],
+    [
+     "11",
+     9.654,
+     10.037
+    ],
+    [
+     "million",
+     10.037,
+     10.53
+    ],
+    [
+     "cars.",
+     10.53,
+     10.858
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Volkswagen pleaded [[guilty]] in 2017.",
+   "text": "Volkswagen pleaded guilty in 2017.",
+   "start": 11.632,
+   "voiceEnd": 15.095,
+   "end": 15.595,
+   "words": [
+    [
+     "Volkswagen",
+     11.632,
+     12.516
+    ],
+    [
+     "pleaded",
+     12.516,
+     13.179
+    ],
+    [
+     "guilty",
+     13.179,
+     13.769
+    ],
+    [
+     "in",
+     13.769,
+     14.063
+    ],
+    [
+     "2017.",
+     14.063,
+     14.726
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 15.595,
+   "voiceEnd": 17.291,
+   "end": 18.691,
+   "words": [
+    [
+     "So.",
+     15.595,
+     15.804
+    ],
+    [
+     "Real,",
+     16.065,
+     16.378
+    ],
+    [
+     "or",
+     16.508,
+     16.717
+    ],
+    [
+     "fake?",
+     16.717,
+     17.03
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Dieselgate broke in 2015. About eleven million cars had the cheat software, and Volkswagen pleaded guilty.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "US Environmental Protection Agency, 2015",
+   "start": 18.691,
+   "voiceEnd": 26.67,
+   "end": 27.42,
+   "words": [
+    [
+     "Real.",
+     18.691,
+     19.018
+    ],
+    [
+     "Dieselgate",
+     19.291,
+     19.944
+    ],
+    [
+     "broke",
+     19.944,
+     20.325
+    ],
+    [
+     "in",
+     20.325,
+     20.543
+    ],
+    [
+     "2015.",
+     20.543,
+     21.033
+    ],
+    [
+     "About",
+     21.306,
+     21.687
+    ],
+    [
+     "eleven",
+     21.687,
+     22.123
+    ],
+    [
+     "million",
+     22.123,
+     22.613
+    ],
+    [
+     "cars",
+     22.613,
+     22.94
+    ],
+    [
+     "had",
+     22.94,
+     23.212
+    ],
+    [
+     "the",
+     23.212,
+     23.484
+    ],
+    [
+     "cheat",
+     23.484,
+     23.866
+    ],
+    [
+     "software,",
+     23.866,
+     24.41
+    ],
+    [
+     "and",
+     24.546,
+     24.819
+    ],
+    [
+     "Volkswagen",
+     24.819,
+     25.472
+    ],
+    [
+     "pleaded",
+     25.472,
+     25.962
+    ],
+    [
+     "guilty.",
+     25.962,
+     26.398
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 27.42,
+   "voiceEnd": 29.465,
+   "end": 30.565,
+   "words": [
+    [
+     "Go",
+     27.42,
+     27.638
+    ],
+    [
+     "deeper,",
+     27.638,
+     28.075
+    ],
+    [
+     "on",
+     28.211,
+     28.429
+    ],
+    [
+     "Rabbit",
+     28.429,
+     28.865
+    ],
+    [
+     "Hole.",
+     28.865,
+     29.192
+    ]
+   ]
+  }
+ ]
+}

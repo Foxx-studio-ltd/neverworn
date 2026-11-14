@@ -1,0 +1,431 @@
+{
+ "reel": "azorian",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "1917",
+ "hole": "Cold War Weirdness",
+ "hue": 185,
+ "caseId": "azorian",
+ "duration": 35.856,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The CIA used Howard Hughes as cover to steal a sunken Soviet submarine.",
+   "date": "1974",
+   "label": "Cold War Weirdness",
+   "start": 0.35,
+   "voiceEnd": 5.934,
+   "end": 6.684,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.664
+    ],
+    [
+     "CIA",
+     0.664,
+     0.977
+    ],
+    [
+     "used",
+     0.977,
+     1.354
+    ],
+    [
+     "Howard",
+     1.354,
+     1.856
+    ],
+    [
+     "Hughes",
+     1.856,
+     2.358
+    ],
+    [
+     "as",
+     2.358,
+     2.609
+    ],
+    [
+     "cover",
+     2.609,
+     3.048
+    ],
+    [
+     "to",
+     3.048,
+     3.299
+    ],
+    [
+     "steal",
+     3.299,
+     3.738
+    ],
+    [
+     "a",
+     3.738,
+     3.926
+    ],
+    [
+     "sunken",
+     3.926,
+     4.428
+    ],
+    [
+     "Soviet",
+     4.428,
+     4.93
+    ],
+    [
+     "submarine.",
+     4.93,
+     5.62
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The ship was the [[Hughes Glomar Explorer]].",
+   "text": "The ship was the Hughes Glomar Explorer.",
+   "start": 6.684,
+   "voiceEnd": 9.015,
+   "end": 9.515,
+   "words": [
+    [
+     "The",
+     6.684,
+     6.908
+    ],
+    [
+     "ship",
+     6.908,
+     7.177
+    ],
+    [
+     "was",
+     7.177,
+     7.401
+    ],
+    [
+     "the",
+     7.401,
+     7.626
+    ],
+    [
+     "Hughes",
+     7.626,
+     7.984
+    ],
+    [
+     "Glomar",
+     7.984,
+     8.343
+    ],
+    [
+     "Explorer.",
+     8.343,
+     8.791
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The cover story was [[seabed mining]].",
+   "text": "The cover story was seabed mining.",
+   "start": 9.515,
+   "voiceEnd": 11.55,
+   "end": 12.05,
+   "words": [
+    [
+     "The",
+     9.515,
+     9.741
+    ],
+    [
+     "cover",
+     9.741,
+     10.058
+    ],
+    [
+     "story",
+     10.058,
+     10.374
+    ],
+    [
+     "was",
+     10.374,
+     10.6
+    ],
+    [
+     "seabed",
+     10.6,
+     10.962
+    ],
+    [
+     "mining.",
+     10.962,
+     11.324
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The target was the Soviet sub [[K-129]].",
+   "text": "The target was the Soviet sub K-129.",
+   "start": 12.05,
+   "voiceEnd": 15.616,
+   "end": 16.116,
+   "words": [
+    [
+     "The",
+     12.05,
+     12.406
+    ],
+    [
+     "target",
+     12.406,
+     12.977
+    ],
+    [
+     "was",
+     12.977,
+     13.334
+    ],
+    [
+     "the",
+     13.334,
+     13.69
+    ],
+    [
+     "Soviet",
+     13.69,
+     14.261
+    ],
+    [
+     "sub",
+     14.261,
+     14.618
+    ],
+    [
+     "K-129.",
+     14.618,
+     15.26
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 16.116,
+   "voiceEnd": 17.454,
+   "end": 18.854,
+   "words": [
+    [
+     "So.",
+     16.116,
+     16.281
+    ],
+    [
+     "Real,",
+     16.487,
+     16.734
+    ],
+    [
+     "or",
+     16.837,
+     17.001
+    ],
+    [
+     "fake?",
+     17.001,
+     17.248
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Project Azorian was real. The CIA built a giant ship, called it a Howard Hughes mining project, and lifted part of a Soviet sub in 1974.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "CIA, Project Azorian history",
+   "start": 18.854,
+   "voiceEnd": 31.09,
+   "end": 31.84,
+   "words": [
+    [
+     "Real.",
+     18.854,
+     19.244
+    ],
+    [
+     "Project",
+     19.57,
+     20.156
+    ],
+    [
+     "Azorian",
+     20.156,
+     20.741
+    ],
+    [
+     "was",
+     20.741,
+     21.067
+    ],
+    [
+     "real.",
+     21.067,
+     21.457
+    ],
+    [
+     "The",
+     21.783,
+     22.108
+    ],
+    [
+     "CIA",
+     22.108,
+     22.434
+    ],
+    [
+     "built",
+     22.434,
+     22.889
+    ],
+    [
+     "a",
+     22.889,
+     23.084
+    ],
+    [
+     "giant",
+     23.084,
+     23.54
+    ],
+    [
+     "ship,",
+     23.54,
+     23.93
+    ],
+    [
+     "called",
+     24.093,
+     24.614
+    ],
+    [
+     "it",
+     24.614,
+     24.874
+    ],
+    [
+     "a",
+     24.874,
+     25.069
+    ],
+    [
+     "Howard",
+     25.069,
+     25.59
+    ],
+    [
+     "Hughes",
+     25.59,
+     26.111
+    ],
+    [
+     "mining",
+     26.111,
+     26.631
+    ],
+    [
+     "project,",
+     26.631,
+     27.217
+    ],
+    [
+     "and",
+     27.38,
+     27.705
+    ],
+    [
+     "lifted",
+     27.705,
+     28.226
+    ],
+    [
+     "part",
+     28.226,
+     28.617
+    ],
+    [
+     "of",
+     28.617,
+     28.877
+    ],
+    [
+     "a",
+     28.877,
+     29.072
+    ],
+    [
+     "Soviet",
+     29.072,
+     29.593
+    ],
+    [
+     "sub",
+     29.593,
+     29.918
+    ],
+    [
+     "in",
+     29.918,
+     30.179
+    ],
+    [
+     "1974.",
+     30.179,
+     30.764
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 31.84,
+   "voiceEnd": 33.556,
+   "end": 34.656,
+   "words": [
+    [
+     "Go",
+     31.84,
+     32.023
+    ],
+    [
+     "deeper,",
+     32.023,
+     32.389
+    ],
+    [
+     "on",
+     32.503,
+     32.686
+    ],
+    [
+     "Rabbit",
+     32.686,
+     33.052
+    ],
+    [
+     "Hole.",
+     33.052,
+     33.327
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,416 @@
+{
+ "reel": "dyatlov",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "8258",
+ "hole": "Unsolved",
+ "hue": 320,
+ "caseId": "dyatlov",
+ "duration": 29.282,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Nine hikers fled their tent into a frozen night and died. Nobody knew why.",
+   "date": "1959",
+   "label": "Unsolved",
+   "start": 0.35,
+   "voiceEnd": 5.144,
+   "end": 5.894,
+   "words": [
+    [
+     "Nine",
+     0.35,
+     0.647
+    ],
+    [
+     "hikers",
+     0.647,
+     1.042
+    ],
+    [
+     "fled",
+     1.042,
+     1.338
+    ],
+    [
+     "their",
+     1.338,
+     1.684
+    ],
+    [
+     "tent",
+     1.684,
+     1.981
+    ],
+    [
+     "into",
+     1.981,
+     2.277
+    ],
+    [
+     "a",
+     2.277,
+     2.426
+    ],
+    [
+     "frozen",
+     2.426,
+     2.821
+    ],
+    [
+     "night",
+     2.821,
+     3.167
+    ],
+    [
+     "and",
+     3.167,
+     3.414
+    ],
+    [
+     "died.",
+     3.414,
+     3.711
+    ],
+    [
+     "Nobody",
+     3.958,
+     4.353
+    ],
+    [
+     "knew",
+     4.353,
+     4.649
+    ],
+    [
+     "why.",
+     4.649,
+     4.897
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "It happened in the [[Ural Mountains]].",
+   "text": "It happened in the Ural Mountains.",
+   "start": 5.894,
+   "voiceEnd": 7.769,
+   "end": 8.269,
+   "words": [
+    [
+     "It",
+     5.894,
+     6.06
+    ],
+    [
+     "happened",
+     6.06,
+     6.477
+    ],
+    [
+     "in",
+     6.477,
+     6.644
+    ],
+    [
+     "the",
+     6.644,
+     6.852
+    ],
+    [
+     "Ural",
+     6.852,
+     7.102
+    ],
+    [
+     "Mountains.",
+     7.102,
+     7.561
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Their tent was cut open [[from the inside]].",
+   "text": "Their tent was cut open from the inside.",
+   "start": 8.269,
+   "voiceEnd": 10.479,
+   "end": 10.979,
+   "words": [
+    [
+     "Their",
+     8.269,
+     8.561
+    ],
+    [
+     "tent",
+     8.561,
+     8.811
+    ],
+    [
+     "was",
+     8.811,
+     9.02
+    ],
+    [
+     "cut",
+     9.02,
+     9.228
+    ],
+    [
+     "open",
+     9.228,
+     9.479
+    ],
+    [
+     "from",
+     9.479,
+     9.729
+    ],
+    [
+     "the",
+     9.729,
+     9.937
+    ],
+    [
+     "inside.",
+     9.937,
+     10.271
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "A 2021 study pointed to an [[avalanche]].",
+   "text": "A 2021 study pointed to an avalanche.",
+   "start": 10.979,
+   "voiceEnd": 13.813,
+   "end": 14.313,
+   "words": [
+    [
+     "A",
+     10.979,
+     11.143
+    ],
+    [
+     "2021",
+     11.143,
+     11.633
+    ],
+    [
+     "study",
+     11.633,
+     12.015
+    ],
+    [
+     "pointed",
+     12.015,
+     12.505
+    ],
+    [
+     "to",
+     12.505,
+     12.723
+    ],
+    [
+     "an",
+     12.723,
+     12.941
+    ],
+    [
+     "avalanche.",
+     12.941,
+     13.54
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 14.313,
+   "voiceEnd": 15.76,
+   "end": 17.16,
+   "words": [
+    [
+     "So.",
+     14.313,
+     14.491
+    ],
+    [
+     "Real,",
+     14.714,
+     14.981
+    ],
+    [
+     "or",
+     15.092,
+     15.27
+    ],
+    [
+     "fake?",
+     15.27,
+     15.538
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Half true. For sixty years it was a mystery. Now investigators think a small slab avalanche drove them out into the cold.",
+   "verdict": "HALF TRUE",
+   "cls": "ylw",
+   "source": "Russian Prosecutor General, 2020",
+   "start": 17.16,
+   "voiceEnd": 24.665,
+   "end": 25.415,
+   "words": [
+    [
+     "Half",
+     17.16,
+     17.449
+    ],
+    [
+     "true.",
+     17.449,
+     17.738
+    ],
+    [
+     "For",
+     17.978,
+     18.219
+    ],
+    [
+     "sixty",
+     18.219,
+     18.555
+    ],
+    [
+     "years",
+     18.555,
+     18.892
+    ],
+    [
+     "it",
+     18.892,
+     19.085
+    ],
+    [
+     "was",
+     19.085,
+     19.325
+    ],
+    [
+     "a",
+     19.325,
+     19.47
+    ],
+    [
+     "mystery.",
+     19.47,
+     19.902
+    ],
+    [
+     "Now",
+     20.143,
+     20.384
+    ],
+    [
+     "investigators",
+     20.384,
+     21.105
+    ],
+    [
+     "think",
+     21.105,
+     21.442
+    ],
+    [
+     "a",
+     21.442,
+     21.586
+    ],
+    [
+     "small",
+     21.586,
+     21.923
+    ],
+    [
+     "slab",
+     21.923,
+     22.212
+    ],
+    [
+     "avalanche",
+     22.212,
+     22.741
+    ],
+    [
+     "drove",
+     22.741,
+     23.078
+    ],
+    [
+     "them",
+     23.078,
+     23.366
+    ],
+    [
+     "out",
+     23.366,
+     23.607
+    ],
+    [
+     "into",
+     23.607,
+     23.895
+    ],
+    [
+     "the",
+     23.895,
+     24.136
+    ],
+    [
+     "cold.",
+     24.136,
+     24.425
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 25.415,
+   "voiceEnd": 26.982,
+   "end": 28.082,
+   "words": [
+    [
+     "Go",
+     25.415,
+     25.582
+    ],
+    [
+     "deeper,",
+     25.582,
+     25.917
+    ],
+    [
+     "on",
+     26.021,
+     26.188
+    ],
+    [
+     "Rabbit",
+     26.188,
+     26.522
+    ],
+    [
+     "Hole.",
+     26.522,
+     26.773
+    ]
+   ]
+  }
+ ]
+}

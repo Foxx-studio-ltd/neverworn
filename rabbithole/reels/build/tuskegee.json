@@ -1,0 +1,431 @@
+{
+ "reel": "tuskegee",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "6441",
+ "hole": "Human Subjects",
+ "hue": 38,
+ "caseId": "tuskegee",
+ "duration": 38.048,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "US health officials let hundreds of Black men go untreated for syphilis for 40 years.",
+   "date": "1932",
+   "label": "Human Subjects",
+   "start": 0.35,
+   "voiceEnd": 6.576,
+   "end": 7.326,
+   "words": [
+    [
+     "US",
+     0.35,
+     0.581
+    ],
+    [
+     "health",
+     0.581,
+     1.042
+    ],
+    [
+     "officials",
+     1.042,
+     1.676
+    ],
+    [
+     "let",
+     1.676,
+     1.964
+    ],
+    [
+     "hundreds",
+     1.964,
+     2.541
+    ],
+    [
+     "of",
+     2.541,
+     2.771
+    ],
+    [
+     "Black",
+     2.771,
+     3.175
+    ],
+    [
+     "men",
+     3.175,
+     3.463
+    ],
+    [
+     "go",
+     3.463,
+     3.694
+    ],
+    [
+     "untreated",
+     3.694,
+     4.328
+    ],
+    [
+     "for",
+     4.328,
+     4.616
+    ],
+    [
+     "syphilis",
+     4.616,
+     5.193
+    ],
+    [
+     "for",
+     5.193,
+     5.481
+    ],
+    [
+     "40",
+     5.481,
+     5.885
+    ],
+    [
+     "years.",
+     5.885,
+     6.288
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The study ran from [[1932 to 1972]].",
+   "text": "The study ran from 1932 to 1972.",
+   "start": 7.326,
+   "voiceEnd": 11.285,
+   "end": 11.785,
+   "words": [
+    [
+     "The",
+     7.326,
+     7.722
+    ],
+    [
+     "study",
+     7.722,
+     8.276
+    ],
+    [
+     "ran",
+     8.276,
+     8.672
+    ],
+    [
+     "from",
+     8.672,
+     9.147
+    ],
+    [
+     "1932",
+     9.147,
+     9.86
+    ],
+    [
+     "to",
+     9.86,
+     10.176
+    ],
+    [
+     "1972.",
+     10.176,
+     10.889
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "[[Penicillin]] was the standard cure by the late 1940s.",
+   "text": "Penicillin was the standard cure by the late 1940s.",
+   "start": 11.785,
+   "voiceEnd": 15.771,
+   "end": 16.271,
+   "words": [
+    [
+     "Penicillin",
+     11.785,
+     12.488
+    ],
+    [
+     "was",
+     12.488,
+     12.781
+    ],
+    [
+     "the",
+     12.781,
+     13.074
+    ],
+    [
+     "standard",
+     13.074,
+     13.661
+    ],
+    [
+     "cure",
+     13.661,
+     14.012
+    ],
+    [
+     "by",
+     14.012,
+     14.247
+    ],
+    [
+     "the",
+     14.247,
+     14.54
+    ],
+    [
+     "late",
+     14.54,
+     14.892
+    ],
+    [
+     "1940s.",
+     14.892,
+     15.478
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "It ended after an [[AP reporter]] broke the story.",
+   "text": "It ended after an AP reporter broke the story.",
+   "start": 16.271,
+   "voiceEnd": 19.807,
+   "end": 20.307,
+   "words": [
+    [
+     "It",
+     16.271,
+     16.507
+    ],
+    [
+     "ended",
+     16.507,
+     16.919
+    ],
+    [
+     "after",
+     16.919,
+     17.332
+    ],
+    [
+     "an",
+     17.332,
+     17.567
+    ],
+    [
+     "AP",
+     17.567,
+     17.803
+    ],
+    [
+     "reporter",
+     17.803,
+     18.392
+    ],
+    [
+     "broke",
+     18.392,
+     18.805
+    ],
+    [
+     "the",
+     18.805,
+     19.099
+    ],
+    [
+     "story.",
+     19.099,
+     19.512
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 20.307,
+   "voiceEnd": 21.644,
+   "end": 23.044,
+   "words": [
+    [
+     "So.",
+     20.307,
+     20.471
+    ],
+    [
+     "Real,",
+     20.677,
+     20.924
+    ],
+    [
+     "or",
+     21.027,
+     21.191
+    ],
+    [
+     "fake?",
+     21.191,
+     21.438
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The Public Health Service withheld treatment from Black men in Alabama for forty years. President Clinton apologised in 1997.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "CDC, The Syphilis Study at Tuskegee",
+   "start": 23.044,
+   "voiceEnd": 33.282,
+   "end": 34.032,
+   "words": [
+    [
+     "Real.",
+     23.044,
+     23.412
+    ],
+    [
+     "The",
+     23.718,
+     24.025
+    ],
+    [
+     "Public",
+     24.025,
+     24.515
+    ],
+    [
+     "Health",
+     24.515,
+     25.006
+    ],
+    [
+     "Service",
+     25.006,
+     25.558
+    ],
+    [
+     "withheld",
+     25.558,
+     26.171
+    ],
+    [
+     "treatment",
+     26.171,
+     26.845
+    ],
+    [
+     "from",
+     26.845,
+     27.213
+    ],
+    [
+     "Black",
+     27.213,
+     27.642
+    ],
+    [
+     "men",
+     27.642,
+     27.949
+    ],
+    [
+     "in",
+     27.949,
+     28.194
+    ],
+    [
+     "Alabama",
+     28.194,
+     28.746
+    ],
+    [
+     "for",
+     28.746,
+     29.052
+    ],
+    [
+     "forty",
+     29.052,
+     29.481
+    ],
+    [
+     "years.",
+     29.481,
+     29.91
+    ],
+    [
+     "President",
+     30.217,
+     30.891
+    ],
+    [
+     "Clinton",
+     30.891,
+     31.443
+    ],
+    [
+     "apologised",
+     31.443,
+     32.179
+    ],
+    [
+     "in",
+     32.179,
+     32.424
+    ],
+    [
+     "1997.",
+     32.424,
+     32.976
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 34.032,
+   "voiceEnd": 35.748,
+   "end": 36.848,
+   "words": [
+    [
+     "Go",
+     34.032,
+     34.215
+    ],
+    [
+     "deeper,",
+     34.215,
+     34.581
+    ],
+    [
+     "on",
+     34.696,
+     34.879
+    ],
+    [
+     "Rabbit",
+     34.879,
+     35.245
+    ],
+    [
+     "Hole.",
+     35.245,
+     35.52
+    ]
+   ]
+  }
+ ]
+}

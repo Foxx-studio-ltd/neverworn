@@ -1,0 +1,416 @@
+{
+ "reel": "ghostarmy",
+ "voice": "bm_george",
+ "speed": 1.0,
+ "file": "3084",
+ "hole": "False Flags",
+ "hue": 8,
+ "caseId": "ghostarmy",
+ "duration": 35.402,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The US Army fought part of WWII with inflatable tanks.",
+   "date": "1944",
+   "label": "False Flags",
+   "start": 0.35,
+   "voiceEnd": 4.944,
+   "end": 5.694,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.683
+    ],
+    [
+     "US",
+     0.683,
+     0.949
+    ],
+    [
+     "Army",
+     0.949,
+     1.349
+    ],
+    [
+     "fought",
+     1.349,
+     1.881
+    ],
+    [
+     "part",
+     1.881,
+     2.281
+    ],
+    [
+     "of",
+     2.281,
+     2.547
+    ],
+    [
+     "WWII",
+     2.547,
+     2.947
+    ],
+    [
+     "with",
+     2.947,
+     3.346
+    ],
+    [
+     "inflatable",
+     3.346,
+     4.145
+    ],
+    [
+     "tanks.",
+     4.145,
+     4.611
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The unit was the [[23rd Headquarters Special Troops]].",
+   "text": "The unit was the 23rd Headquarters Special Troops.",
+   "start": 5.694,
+   "voiceEnd": 9.415,
+   "end": 9.915,
+   "words": [
+    [
+     "The",
+     5.694,
+     5.976
+    ],
+    [
+     "unit",
+     5.976,
+     6.314
+    ],
+    [
+     "was",
+     6.314,
+     6.596
+    ],
+    [
+     "the",
+     6.596,
+     6.878
+    ],
+    [
+     "23rd",
+     6.878,
+     7.386
+    ],
+    [
+     "Headquarters",
+     7.386,
+     8.175
+    ],
+    [
+     "Special",
+     8.175,
+     8.682
+    ],
+    [
+     "Troops.",
+     8.682,
+     9.134
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "It used rubber tanks, fake radio traffic and [[recorded sound]].",
+   "text": "It used rubber tanks, fake radio traffic and recorded sound.",
+   "start": 9.915,
+   "voiceEnd": 14.079,
+   "end": 14.579,
+   "words": [
+    [
+     "It",
+     9.915,
+     10.133
+    ],
+    [
+     "used",
+     10.133,
+     10.46
+    ],
+    [
+     "rubber",
+     10.46,
+     10.895
+    ],
+    [
+     "tanks,",
+     10.895,
+     11.276
+    ],
+    [
+     "fake",
+     11.412,
+     11.739
+    ],
+    [
+     "radio",
+     11.739,
+     12.12
+    ],
+    [
+     "traffic",
+     12.12,
+     12.609
+    ],
+    [
+     "and",
+     12.609,
+     12.882
+    ],
+    [
+     "recorded",
+     12.882,
+     13.426
+    ],
+    [
+     "sound.",
+     13.426,
+     13.807
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Its work stayed secret for about [[50 years]].",
+   "text": "Its work stayed secret for about 50 years.",
+   "start": 14.579,
+   "voiceEnd": 17.558,
+   "end": 18.058,
+   "words": [
+    [
+     "Its",
+     14.579,
+     14.836
+    ],
+    [
+     "work",
+     14.836,
+     15.144
+    ],
+    [
+     "stayed",
+     15.144,
+     15.555
+    ],
+    [
+     "secret",
+     15.555,
+     15.966
+    ],
+    [
+     "for",
+     15.966,
+     16.222
+    ],
+    [
+     "about",
+     16.222,
+     16.582
+    ],
+    [
+     "50",
+     16.582,
+     16.941
+    ],
+    [
+     "years.",
+     16.941,
+     17.301
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 18.058,
+   "voiceEnd": 19.754,
+   "end": 21.154,
+   "words": [
+    [
+     "So.",
+     18.058,
+     18.266
+    ],
+    [
+     "Real,",
+     18.527,
+     18.841
+    ],
+    [
+     "or",
+     18.971,
+     19.18
+    ],
+    [
+     "fake?",
+     19.18,
+     19.493
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Eleven hundred artists and sound engineers faked whole divisions with rubber tanks and speakers. It stayed secret for fifty years.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "US Army records, declassified 1996",
+   "start": 21.154,
+   "voiceEnd": 30.308,
+   "end": 31.058,
+   "words": [
+    [
+     "Real.",
+     21.154,
+     21.477
+    ],
+    [
+     "Eleven",
+     21.747,
+     22.177
+    ],
+    [
+     "hundred",
+     22.177,
+     22.662
+    ],
+    [
+     "artists",
+     22.662,
+     23.146
+    ],
+    [
+     "and",
+     23.146,
+     23.416
+    ],
+    [
+     "sound",
+     23.416,
+     23.793
+    ],
+    [
+     "engineers",
+     23.793,
+     24.385
+    ],
+    [
+     "faked",
+     24.385,
+     24.762
+    ],
+    [
+     "whole",
+     24.762,
+     25.139
+    ],
+    [
+     "divisions",
+     25.139,
+     25.731
+    ],
+    [
+     "with",
+     25.731,
+     26.054
+    ],
+    [
+     "rubber",
+     26.054,
+     26.485
+    ],
+    [
+     "tanks",
+     26.485,
+     26.862
+    ],
+    [
+     "and",
+     26.862,
+     27.131
+    ],
+    [
+     "speakers.",
+     27.131,
+     27.669
+    ],
+    [
+     "It",
+     27.939,
+     28.154
+    ],
+    [
+     "stayed",
+     28.154,
+     28.585
+    ],
+    [
+     "secret",
+     28.585,
+     29.015
+    ],
+    [
+     "for",
+     29.015,
+     29.285
+    ],
+    [
+     "fifty",
+     29.285,
+     29.662
+    ],
+    [
+     "years.",
+     29.662,
+     30.038
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 31.058,
+   "voiceEnd": 33.102,
+   "end": 34.202,
+   "words": [
+    [
+     "Go",
+     31.058,
+     31.276
+    ],
+    [
+     "deeper,",
+     31.276,
+     31.712
+    ],
+    [
+     "on",
+     31.848,
+     32.066
+    ],
+    [
+     "Rabbit",
+     32.066,
+     32.502
+    ],
+    [
+     "Hole.",
+     32.502,
+     32.829
+    ]
+   ]
+  }
+ ]
+}

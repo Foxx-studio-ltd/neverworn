@@ -1,0 +1,376 @@
+{
+ "reel": "tictac",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "4576",
+ "hole": "The Sky Files",
+ "hue": 210,
+ "caseId": "tictac",
+ "duration": 30.988,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Navy pilots chased a Tic Tac-shaped object that outflew their jets.",
+   "date": "2004",
+   "label": "The Sky Files",
+   "start": 0.35,
+   "voiceEnd": 4.518,
+   "end": 5.268,
+   "words": [
+    [
+     "Navy",
+     0.35,
+     0.655
+    ],
+    [
+     "pilots",
+     0.655,
+     1.062
+    ],
+    [
+     "chased",
+     1.062,
+     1.468
+    ],
+    [
+     "a",
+     1.468,
+     1.621
+    ],
+    [
+     "Tic",
+     1.621,
+     1.875
+    ],
+    [
+     "Tac-shaped",
+     1.875,
+     2.434
+    ],
+    [
+     "object",
+     2.434,
+     2.841
+    ],
+    [
+     "that",
+     2.841,
+     3.146
+    ],
+    [
+     "outflew",
+     3.146,
+     3.603
+    ],
+    [
+     "their",
+     3.603,
+     3.959
+    ],
+    [
+     "jets.",
+     3.959,
+     4.264
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "It happened near the carrier [[USS Nimitz]].",
+   "text": "It happened near the carrier USS Nimitz.",
+   "start": 5.268,
+   "voiceEnd": 8.205,
+   "end": 8.705,
+   "words": [
+    [
+     "It",
+     5.268,
+     5.494
+    ],
+    [
+     "happened",
+     5.494,
+     6.059
+    ],
+    [
+     "near",
+     6.059,
+     6.398
+    ],
+    [
+     "the",
+     6.398,
+     6.68
+    ],
+    [
+     "carrier",
+     6.68,
+     7.189
+    ],
+    [
+     "USS",
+     7.189,
+     7.471
+    ],
+    [
+     "Nimitz.",
+     7.471,
+     7.923
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The lead pilot was Commander [[David Fravor]].",
+   "text": "The lead pilot was Commander David Fravor.",
+   "start": 8.705,
+   "voiceEnd": 11.337,
+   "end": 11.837,
+   "words": [
+    [
+     "The",
+     8.705,
+     8.949
+    ],
+    [
+     "lead",
+     8.949,
+     9.241
+    ],
+    [
+     "pilot",
+     9.241,
+     9.583
+    ],
+    [
+     "was",
+     9.583,
+     9.826
+    ],
+    [
+     "Commander",
+     9.826,
+     10.362
+    ],
+    [
+     "David",
+     10.362,
+     10.703
+    ],
+    [
+     "Fravor.",
+     10.703,
+     11.093
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The Pentagon officially released the video in [[2020]].",
+   "text": "The Pentagon officially released the video in 2020.",
+   "start": 11.837,
+   "voiceEnd": 15.329,
+   "end": 15.829,
+   "words": [
+    [
+     "The",
+     11.837,
+     12.097
+    ],
+    [
+     "Pentagon",
+     12.097,
+     12.619
+    ],
+    [
+     "officially",
+     12.619,
+     13.244
+    ],
+    [
+     "released",
+     13.244,
+     13.765
+    ],
+    [
+     "the",
+     13.765,
+     14.026
+    ],
+    [
+     "video",
+     14.026,
+     14.391
+    ],
+    [
+     "in",
+     14.391,
+     14.599
+    ],
+    [
+     "2020.",
+     14.599,
+     15.069
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 15.829,
+   "voiceEnd": 17.167,
+   "end": 18.567,
+   "words": [
+    [
+     "So.",
+     15.829,
+     15.994
+    ],
+    [
+     "Real,",
+     16.199,
+     16.446
+    ],
+    [
+     "or",
+     16.549,
+     16.714
+    ],
+    [
+     "fake?",
+     16.714,
+     16.961
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Nobody knows. The Pentagon released the video in 2020. The object has never been officially identified.",
+   "verdict": "UNEXPLAINED",
+   "cls": "ylw",
+   "source": "US Navy FLIR video, released 2020",
+   "start": 18.567,
+   "voiceEnd": 26.222,
+   "end": 26.972,
+   "words": [
+    [
+     "Nobody",
+     18.567,
+     19.02
+    ],
+    [
+     "knows.",
+     19.02,
+     19.417
+    ],
+    [
+     "The",
+     19.701,
+     19.984
+    ],
+    [
+     "Pentagon",
+     19.984,
+     20.551
+    ],
+    [
+     "released",
+     20.551,
+     21.118
+    ],
+    [
+     "the",
+     21.118,
+     21.402
+    ],
+    [
+     "video",
+     21.402,
+     21.799
+    ],
+    [
+     "in",
+     21.799,
+     22.026
+    ],
+    [
+     "2020.",
+     22.026,
+     22.536
+    ],
+    [
+     "The",
+     22.82,
+     23.103
+    ],
+    [
+     "object",
+     23.103,
+     23.557
+    ],
+    [
+     "has",
+     23.557,
+     23.84
+    ],
+    [
+     "never",
+     23.84,
+     24.237
+    ],
+    [
+     "been",
+     24.237,
+     24.577
+    ],
+    [
+     "officially",
+     24.577,
+     25.258
+    ],
+    [
+     "identified.",
+     25.258,
+     25.938
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 26.972,
+   "voiceEnd": 28.688,
+   "end": 29.788,
+   "words": [
+    [
+     "Go",
+     26.972,
+     27.155
+    ],
+    [
+     "deeper,",
+     27.155,
+     27.521
+    ],
+    [
+     "on",
+     27.635,
+     27.818
+    ],
+    [
+     "Rabbit",
+     27.818,
+     28.184
+    ],
+    [
+     "Hole.",
+     28.184,
+     28.459
+    ]
+   ]
+  }
+ ]
+}

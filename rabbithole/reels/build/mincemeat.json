@@ -1,0 +1,391 @@
+{
+ "reel": "mincemeat",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "2711",
+ "hole": "False Flags",
+ "hue": 8,
+ "caseId": "mincemeat",
+ "duration": 30.154,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "British spies fooled Hitler with a dead man carrying fake invasion plans.",
+   "date": "1943",
+   "label": "False Flags",
+   "start": 0.35,
+   "voiceEnd": 4.968,
+   "end": 5.718,
+   "words": [
+    [
+     "British",
+     0.35,
+     0.812
+    ],
+    [
+     "spies",
+     0.812,
+     1.171
+    ],
+    [
+     "fooled",
+     1.171,
+     1.581
+    ],
+    [
+     "Hitler",
+     1.581,
+     1.992
+    ],
+    [
+     "with",
+     1.992,
+     2.3
+    ],
+    [
+     "a",
+     2.3,
+     2.454
+    ],
+    [
+     "dead",
+     2.454,
+     2.761
+    ],
+    [
+     "man",
+     2.761,
+     3.018
+    ],
+    [
+     "carrying",
+     3.018,
+     3.531
+    ],
+    [
+     "fake",
+     3.531,
+     3.839
+    ],
+    [
+     "invasion",
+     3.839,
+     4.352
+    ],
+    [
+     "plans.",
+     4.352,
+     4.711
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The body was dressed as \"Major [[William Martin]]\".",
+   "text": "The body was dressed as \"Major William Martin\".",
+   "start": 5.718,
+   "voiceEnd": 8.389,
+   "end": 8.889,
+   "words": [
+    [
+     "The",
+     5.718,
+     5.948
+    ],
+    [
+     "body",
+     5.948,
+     6.224
+    ],
+    [
+     "was",
+     6.224,
+     6.455
+    ],
+    [
+     "dressed",
+     6.455,
+     6.869
+    ],
+    [
+     "as",
+     6.869,
+     7.054
+    ],
+    [
+     "\"Major",
+     7.054,
+     7.376
+    ],
+    [
+     "William",
+     7.376,
+     7.791
+    ],
+    [
+     "Martin\".",
+     7.791,
+     8.159
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "It washed ashore in [[Spain]].",
+   "text": "It washed ashore in Spain.",
+   "start": 8.889,
+   "voiceEnd": 10.253,
+   "end": 10.753,
+   "words": [
+    [
+     "It",
+     8.889,
+     9.041
+    ],
+    [
+     "washed",
+     9.041,
+     9.344
+    ],
+    [
+     "ashore",
+     9.344,
+     9.647
+    ],
+    [
+     "in",
+     9.647,
+     9.798
+    ],
+    [
+     "Spain.",
+     9.798,
+     10.064
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The real target was [[Sicily]].",
+   "text": "The real target was Sicily.",
+   "start": 10.753,
+   "voiceEnd": 12.076,
+   "end": 12.576,
+   "words": [
+    [
+     "The",
+     10.753,
+     10.932
+    ],
+    [
+     "real",
+     10.932,
+     11.146
+    ],
+    [
+     "target",
+     11.146,
+     11.432
+    ],
+    [
+     "was",
+     11.432,
+     11.611
+    ],
+    [
+     "Sicily.",
+     11.611,
+     11.897
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 12.576,
+   "voiceEnd": 14.023,
+   "end": 15.423,
+   "words": [
+    [
+     "So.",
+     12.576,
+     12.754
+    ],
+    [
+     "Real,",
+     12.977,
+     13.244
+    ],
+    [
+     "or",
+     13.355,
+     13.533
+    ],
+    [
+     "fake?",
+     13.533,
+     13.8
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The body of Glyndwr Michael carried forged letters. Hitler's spies believed them, and the Allies landed in Sicily in July 1943.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "UK National Archives, Operation Mincemeat",
+   "start": 15.423,
+   "voiceEnd": 25.538,
+   "end": 26.288,
+   "words": [
+    [
+     "Real.",
+     15.423,
+     15.777
+    ],
+    [
+     "The",
+     16.072,
+     16.367
+    ],
+    [
+     "body",
+     16.367,
+     16.721
+    ],
+    [
+     "of",
+     16.721,
+     16.957
+    ],
+    [
+     "Glyndwr",
+     16.957,
+     17.487
+    ],
+    [
+     "Michael",
+     17.487,
+     18.018
+    ],
+    [
+     "carried",
+     18.018,
+     18.549
+    ],
+    [
+     "forged",
+     18.549,
+     19.021
+    ],
+    [
+     "letters.",
+     19.021,
+     19.552
+    ],
+    [
+     "Hitler's",
+     19.846,
+     20.377
+    ],
+    [
+     "spies",
+     20.377,
+     20.79
+    ],
+    [
+     "believed",
+     20.79,
+     21.38
+    ],
+    [
+     "them,",
+     21.38,
+     21.734
+    ],
+    [
+     "and",
+     21.881,
+     22.176
+    ],
+    [
+     "the",
+     22.176,
+     22.471
+    ],
+    [
+     "Allies",
+     22.471,
+     22.943
+    ],
+    [
+     "landed",
+     22.943,
+     23.414
+    ],
+    [
+     "in",
+     23.414,
+     23.65
+    ],
+    [
+     "Sicily",
+     23.65,
+     24.122
+    ],
+    [
+     "in",
+     24.122,
+     24.358
+    ],
+    [
+     "July",
+     24.358,
+     24.712
+    ],
+    [
+     "1943.",
+     24.712,
+     25.243
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 26.288,
+   "voiceEnd": 27.854,
+   "end": 28.954,
+   "words": [
+    [
+     "Go",
+     26.288,
+     26.455
+    ],
+    [
+     "deeper,",
+     26.455,
+     26.789
+    ],
+    [
+     "on",
+     26.893,
+     27.06
+    ],
+    [
+     "Rabbit",
+     27.06,
+     27.395
+    ],
+    [
+     "Hole.",
+     27.395,
+     27.645
+    ]
+   ]
+  }
+ ]
+}

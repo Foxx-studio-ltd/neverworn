@@ -1,0 +1,421 @@
+{
+ "reel": "moon",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "7560",
+ "hole": "Too Good to Be True",
+ "hue": 230,
+ "caseId": "moon",
+ "duration": 30.358,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The Moon landings were filmed in a studio.",
+   "date": "1969",
+   "label": "Too Good to Be True",
+   "start": 0.35,
+   "voiceEnd": 2.571,
+   "end": 3.321,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.552
+    ],
+    [
+     "Moon",
+     0.552,
+     0.794
+    ],
+    [
+     "landings",
+     0.794,
+     1.198
+    ],
+    [
+     "were",
+     1.198,
+     1.44
+    ],
+    [
+     "filmed",
+     1.44,
+     1.764
+    ],
+    [
+     "in",
+     1.764,
+     1.925
+    ],
+    [
+     "a",
+     1.925,
+     2.046
+    ],
+    [
+     "studio.",
+     2.046,
+     2.369
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "Astronauts brought back [[382 kg]] of Moon rock.",
+   "text": "Astronauts brought back 382 kg of Moon rock.",
+   "start": 3.321,
+   "voiceEnd": 7.113,
+   "end": 7.613,
+   "words": [
+    [
+     "Astronauts",
+     3.321,
+     4.08
+    ],
+    [
+     "brought",
+     4.08,
+     4.648
+    ],
+    [
+     "back",
+     4.648,
+     5.028
+    ],
+    [
+     "382",
+     5.028,
+     5.533
+    ],
+    [
+     "kg",
+     5.533,
+     5.786
+    ],
+    [
+     "of",
+     5.786,
+     6.039
+    ],
+    [
+     "Moon",
+     6.039,
+     6.418
+    ],
+    [
+     "rock.",
+     6.418,
+     6.797
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Mirrors left on the Moon are still hit by [[lasers]] today.",
+   "text": "Mirrors left on the Moon are still hit by lasers today.",
+   "start": 7.613,
+   "voiceEnd": 10.812,
+   "end": 11.312,
+   "words": [
+    [
+     "Mirrors",
+     7.613,
+     8.019
+    ],
+    [
+     "left",
+     8.019,
+     8.289
+    ],
+    [
+     "on",
+     8.289,
+     8.469
+    ],
+    [
+     "the",
+     8.469,
+     8.694
+    ],
+    [
+     "Moon",
+     8.694,
+     8.965
+    ],
+    [
+     "are",
+     8.965,
+     9.19
+    ],
+    [
+     "still",
+     9.19,
+     9.505
+    ],
+    [
+     "hit",
+     9.505,
+     9.73
+    ],
+    [
+     "by",
+     9.73,
+     9.911
+    ],
+    [
+     "lasers",
+     9.911,
+     10.271
+    ],
+    [
+     "today.",
+     10.271,
+     10.586
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "A NASA orbiter [[photographed]] the landing sites from 2009.",
+   "text": "A NASA orbiter photographed the landing sites from 2009.",
+   "start": 11.312,
+   "voiceEnd": 15.204,
+   "end": 15.704,
+   "words": [
+    [
+     "A",
+     11.312,
+     11.472
+    ],
+    [
+     "NASA",
+     11.472,
+     11.791
+    ],
+    [
+     "orbiter",
+     11.791,
+     12.271
+    ],
+    [
+     "photographed",
+     12.271,
+     13.018
+    ],
+    [
+     "the",
+     13.018,
+     13.284
+    ],
+    [
+     "landing",
+     13.284,
+     13.764
+    ],
+    [
+     "sites",
+     13.764,
+     14.138
+    ],
+    [
+     "from",
+     14.138,
+     14.458
+    ],
+    [
+     "2009.",
+     14.458,
+     14.937
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 15.704,
+   "voiceEnd": 17.073,
+   "end": 18.473,
+   "words": [
+    [
+     "So.",
+     15.704,
+     15.872
+    ],
+    [
+     "Real,",
+     16.083,
+     16.336
+    ],
+    [
+     "or",
+     16.441,
+     16.609
+    ],
+    [
+     "fake?",
+     16.609,
+     16.862
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Fake. Moon rock, laser mirrors still in use and orbiter photos of the landing sites all say the same thing. They went.",
+   "verdict": "FAKE",
+   "cls": "red",
+   "source": "NASA Lunar Reconnaissance Orbiter",
+   "start": 18.473,
+   "voiceEnd": 25.736,
+   "end": 26.486,
+   "words": [
+    [
+     "Fake.",
+     18.473,
+     18.755
+    ],
+    [
+     "Moon",
+     18.99,
+     19.272
+    ],
+    [
+     "rock,",
+     19.272,
+     19.554
+    ],
+    [
+     "laser",
+     19.671,
+     20.0
+    ],
+    [
+     "mirrors",
+     20.0,
+     20.424
+    ],
+    [
+     "still",
+     20.424,
+     20.753
+    ],
+    [
+     "in",
+     20.753,
+     20.941
+    ],
+    [
+     "use",
+     20.941,
+     21.176
+    ],
+    [
+     "and",
+     21.176,
+     21.411
+    ],
+    [
+     "orbiter",
+     21.411,
+     21.834
+    ],
+    [
+     "photos",
+     21.834,
+     22.21
+    ],
+    [
+     "of",
+     22.21,
+     22.398
+    ],
+    [
+     "the",
+     22.398,
+     22.633
+    ],
+    [
+     "landing",
+     22.633,
+     23.056
+    ],
+    [
+     "sites",
+     23.056,
+     23.385
+    ],
+    [
+     "all",
+     23.385,
+     23.62
+    ],
+    [
+     "say",
+     23.62,
+     23.855
+    ],
+    [
+     "the",
+     23.855,
+     24.09
+    ],
+    [
+     "same",
+     24.09,
+     24.373
+    ],
+    [
+     "thing.",
+     24.373,
+     24.702
+    ],
+    [
+     "They",
+     24.937,
+     25.219
+    ],
+    [
+     "went.",
+     25.219,
+     25.501
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 26.486,
+   "voiceEnd": 28.058,
+   "end": 29.158,
+   "words": [
+    [
+     "Go",
+     26.486,
+     26.654
+    ],
+    [
+     "deeper,",
+     26.654,
+     26.989
+    ],
+    [
+     "on",
+     27.094,
+     27.261
+    ],
+    [
+     "Rabbit",
+     27.261,
+     27.597
+    ],
+    [
+     "Hole.",
+     27.597,
+     27.848
+    ]
+   ]
+  }
+ ]
+}

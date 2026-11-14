@@ -1,0 +1,421 @@
+{
+ "reel": "iceworm",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "1544",
+ "hole": "Cold War Weirdness",
+ "hue": 185,
+ "caseId": "iceworm",
+ "duration": 29.621,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The US Army planned to hide nuclear missiles under the Greenland ice.",
+   "date": "1960",
+   "label": "Cold War Weirdness",
+   "start": 0.35,
+   "voiceEnd": 4.562,
+   "end": 5.312,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.595
+    ],
+    [
+     "US",
+     0.595,
+     0.791
+    ],
+    [
+     "Army",
+     0.791,
+     1.085
+    ],
+    [
+     "planned",
+     1.085,
+     1.525
+    ],
+    [
+     "to",
+     1.525,
+     1.721
+    ],
+    [
+     "hide",
+     1.721,
+     2.015
+    ],
+    [
+     "nuclear",
+     2.015,
+     2.456
+    ],
+    [
+     "missiles",
+     2.456,
+     2.946
+    ],
+    [
+     "under",
+     2.946,
+     3.288
+    ],
+    [
+     "the",
+     3.288,
+     3.533
+    ],
+    [
+     "Greenland",
+     3.533,
+     4.072
+    ],
+    [
+     "ice.",
+     4.072,
+     4.317
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The plan was called Project [[Iceworm]].",
+   "text": "The plan was called Project Iceworm.",
+   "start": 5.312,
+   "voiceEnd": 7.21,
+   "end": 7.71,
+   "words": [
+    [
+     "The",
+     5.312,
+     5.514
+    ],
+    [
+     "plan",
+     5.514,
+     5.756
+    ],
+    [
+     "was",
+     5.756,
+     5.958
+    ],
+    [
+     "called",
+     5.958,
+     6.281
+    ],
+    [
+     "Project",
+     6.281,
+     6.645
+    ],
+    [
+     "Iceworm.",
+     6.645,
+     7.008
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Its public cover was a research base called [[Camp Century]].",
+   "text": "Its public cover was a research base called Camp Century.",
+   "start": 7.71,
+   "voiceEnd": 10.988,
+   "end": 11.488,
+   "words": [
+    [
+     "Its",
+     7.71,
+     7.938
+    ],
+    [
+     "public",
+     7.938,
+     8.302
+    ],
+    [
+     "cover",
+     8.302,
+     8.621
+    ],
+    [
+     "was",
+     8.621,
+     8.848
+    ],
+    [
+     "a",
+     8.848,
+     8.985
+    ],
+    [
+     "research",
+     8.985,
+     9.44
+    ],
+    [
+     "base",
+     9.44,
+     9.713
+    ],
+    [
+     "called",
+     9.713,
+     10.078
+    ],
+    [
+     "Camp",
+     10.078,
+     10.351
+    ],
+    [
+     "Century.",
+     10.351,
+     10.761
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Denmark never gave [[consent]].",
+   "text": "Denmark never gave consent.",
+   "start": 11.488,
+   "voiceEnd": 13.178,
+   "end": 13.678,
+   "words": [
+    [
+     "Denmark",
+     11.488,
+     11.911
+    ],
+    [
+     "never",
+     11.911,
+     12.239
+    ],
+    [
+     "gave",
+     12.239,
+     12.521
+    ],
+    [
+     "consent.",
+     12.521,
+     12.943
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 13.678,
+   "voiceEnd": 15.046,
+   "end": 16.446,
+   "words": [
+    [
+     "So.",
+     13.678,
+     13.846
+    ],
+    [
+     "Real,",
+     14.057,
+     14.309
+    ],
+    [
+     "or",
+     14.415,
+     14.583
+    ],
+    [
+     "fake?",
+     14.583,
+     14.836
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Camp Century was the cover story. The real plan was a missile network under the ice. It was never built, and Denmark was never asked.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Danish Institute for International Studies, 1997",
+   "start": 16.446,
+   "voiceEnd": 25.0,
+   "end": 25.75,
+   "words": [
+    [
+     "Real.",
+     16.446,
+     16.726
+    ],
+    [
+     "Camp",
+     16.959,
+     17.239
+    ],
+    [
+     "Century",
+     17.239,
+     17.658
+    ],
+    [
+     "was",
+     17.658,
+     17.891
+    ],
+    [
+     "the",
+     17.891,
+     18.124
+    ],
+    [
+     "cover",
+     18.124,
+     18.451
+    ],
+    [
+     "story.",
+     18.451,
+     18.777
+    ],
+    [
+     "The",
+     19.01,
+     19.243
+    ],
+    [
+     "real",
+     19.243,
+     19.523
+    ],
+    [
+     "plan",
+     19.523,
+     19.802
+    ],
+    [
+     "was",
+     19.802,
+     20.035
+    ],
+    [
+     "a",
+     20.035,
+     20.175
+    ],
+    [
+     "missile",
+     20.175,
+     20.595
+    ],
+    [
+     "network",
+     20.595,
+     21.014
+    ],
+    [
+     "under",
+     21.014,
+     21.341
+    ],
+    [
+     "the",
+     21.341,
+     21.574
+    ],
+    [
+     "ice.",
+     21.574,
+     21.807
+    ],
+    [
+     "It",
+     22.04,
+     22.226
+    ],
+    [
+     "was",
+     22.226,
+     22.459
+    ],
+    [
+     "never",
+     22.459,
+     22.786
+    ],
+    [
+     "built,",
+     22.786,
+     23.112
+    ],
+    [
+     "and",
+     23.228,
+     23.461
+    ],
+    [
+     "Denmark",
+     23.461,
+     23.881
+    ],
+    [
+     "was",
+     23.881,
+     24.114
+    ],
+    [
+     "never",
+     24.114,
+     24.44
+    ],
+    [
+     "asked.",
+     24.44,
+     24.767
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 25.75,
+   "voiceEnd": 27.321,
+   "end": 28.421,
+   "words": [
+    [
+     "Go",
+     25.75,
+     25.917
+    ],
+    [
+     "deeper,",
+     25.917,
+     26.253
+    ],
+    [
+     "on",
+     26.357,
+     26.525
+    ],
+    [
+     "Rabbit",
+     26.525,
+     26.86
+    ],
+    [
+     "Hole.",
+     26.86,
+     27.112
+    ]
+   ]
+  }
+ ]
+}

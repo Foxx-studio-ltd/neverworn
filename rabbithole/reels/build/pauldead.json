@@ -1,0 +1,386 @@
+{
+ "reel": "pauldead",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "8679",
+ "hole": "Too Good to Be True",
+ "hue": 230,
+ "caseId": "pauldead",
+ "duration": 29.88,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Paul McCartney died in 1966 and was replaced by a lookalike.",
+   "date": "1969",
+   "label": "Too Good to Be True",
+   "start": 0.35,
+   "voiceEnd": 5.032,
+   "end": 5.782,
+   "words": [
+    [
+     "Paul",
+     0.35,
+     0.706
+    ],
+    [
+     "McCartney",
+     0.706,
+     1.358
+    ],
+    [
+     "died",
+     1.358,
+     1.713
+    ],
+    [
+     "in",
+     1.713,
+     1.95
+    ],
+    [
+     "1966",
+     1.95,
+     2.484
+    ],
+    [
+     "and",
+     2.484,
+     2.78
+    ],
+    [
+     "was",
+     2.78,
+     3.076
+    ],
+    [
+     "replaced",
+     3.076,
+     3.669
+    ],
+    [
+     "by",
+     3.669,
+     3.906
+    ],
+    [
+     "a",
+     3.906,
+     4.084
+    ],
+    [
+     "lookalike.",
+     4.084,
+     4.736
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "Fans hunted for [[clues]] on album covers.",
+   "text": "Fans hunted for clues on album covers.",
+   "start": 5.782,
+   "voiceEnd": 7.984,
+   "end": 8.484,
+   "words": [
+    [
+     "Fans",
+     5.782,
+     6.047
+    ],
+    [
+     "hunted",
+     6.047,
+     6.399
+    ],
+    [
+     "for",
+     6.399,
+     6.619
+    ],
+    [
+     "clues",
+     6.619,
+     6.927
+    ],
+    [
+     "on",
+     6.927,
+     7.104
+    ],
+    [
+     "album",
+     7.104,
+     7.412
+    ],
+    [
+     "covers.",
+     7.412,
+     7.764
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The rumor peaked in [[1969]].",
+   "text": "The rumor peaked in 1969.",
+   "start": 8.484,
+   "voiceEnd": 10.477,
+   "end": 10.977,
+   "words": [
+    [
+     "The",
+     8.484,
+     8.747
+    ],
+    [
+     "rumor",
+     8.747,
+     9.114
+    ],
+    [
+     "peaked",
+     9.114,
+     9.533
+    ],
+    [
+     "in",
+     9.533,
+     9.743
+    ],
+    [
+     "1969.",
+     9.743,
+     10.215
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Life magazine's cover: \"[[Paul is still with us]]\".",
+   "text": "Life magazine's cover: \"Paul is still with us\".",
+   "start": 10.977,
+   "voiceEnd": 13.713,
+   "end": 14.213,
+   "words": [
+    [
+     "Life",
+     10.977,
+     11.27
+    ],
+    [
+     "magazine's",
+     11.27,
+     11.808
+    ],
+    [
+     "cover:",
+     11.808,
+     12.15
+    ],
+    [
+     "\"Paul",
+     12.15,
+     12.443
+    ],
+    [
+     "is",
+     12.443,
+     12.638
+    ],
+    [
+     "still",
+     12.638,
+     12.98
+    ],
+    [
+     "with",
+     12.98,
+     13.274
+    ],
+    [
+     "us\".",
+     13.274,
+     13.469
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 14.213,
+   "voiceEnd": 15.661,
+   "end": 17.061,
+   "words": [
+    [
+     "So.",
+     14.213,
+     14.392
+    ],
+    [
+     "Real,",
+     14.614,
+     14.882
+    ],
+    [
+     "or",
+     14.993,
+     15.171
+    ],
+    [
+     "fake?",
+     15.171,
+     15.438
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Fake. The rumour spread in 1969. Paul McCartney told Life magazine he was alive and well. He is still touring.",
+   "verdict": "FAKE",
+   "cls": "red",
+   "source": "Life magazine, November 1969",
+   "start": 17.061,
+   "voiceEnd": 25.263,
+   "end": 26.013,
+   "words": [
+    [
+     "Fake.",
+     17.061,
+     17.389
+    ],
+    [
+     "The",
+     17.662,
+     17.936
+    ],
+    [
+     "rumour",
+     17.936,
+     18.373
+    ],
+    [
+     "spread",
+     18.373,
+     18.811
+    ],
+    [
+     "in",
+     18.811,
+     19.029
+    ],
+    [
+     "1969.",
+     19.029,
+     19.522
+    ],
+    [
+     "Paul",
+     19.795,
+     20.123
+    ],
+    [
+     "McCartney",
+     20.123,
+     20.725
+    ],
+    [
+     "told",
+     20.725,
+     21.053
+    ],
+    [
+     "Life",
+     21.053,
+     21.381
+    ],
+    [
+     "magazine",
+     21.381,
+     21.928
+    ],
+    [
+     "he",
+     21.928,
+     22.146
+    ],
+    [
+     "was",
+     22.146,
+     22.42
+    ],
+    [
+     "alive",
+     22.42,
+     22.803
+    ],
+    [
+     "and",
+     22.803,
+     23.076
+    ],
+    [
+     "well.",
+     23.076,
+     23.404
+    ],
+    [
+     "He",
+     23.677,
+     23.896
+    ],
+    [
+     "is",
+     23.896,
+     24.115
+    ],
+    [
+     "still",
+     24.115,
+     24.498
+    ],
+    [
+     "touring.",
+     24.498,
+     24.99
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 26.013,
+   "voiceEnd": 27.58,
+   "end": 28.68,
+   "words": [
+    [
+     "Go",
+     26.013,
+     26.18
+    ],
+    [
+     "deeper,",
+     26.18,
+     26.514
+    ],
+    [
+     "on",
+     26.619,
+     26.786
+    ],
+    [
+     "Rabbit",
+     26.786,
+     27.12
+    ],
+    [
+     "Hole.",
+     27.12,
+     27.371
+    ]
+   ]
+  }
+ ]
+}

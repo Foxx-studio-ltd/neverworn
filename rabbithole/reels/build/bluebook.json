@@ -1,0 +1,351 @@
+{
+ "reel": "bluebook",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "4203",
+ "hole": "The Sky Files",
+ "hue": 210,
+ "caseId": "bluebook",
+ "duration": 32.735,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The US Air Force logged 701 UFOs it could never explain.",
+   "date": "1969",
+   "label": "The Sky Files",
+   "start": 0.35,
+   "voiceEnd": 5.549,
+   "end": 6.299,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.697
+    ],
+    [
+     "US",
+     0.697,
+     0.974
+    ],
+    [
+     "Air",
+     0.974,
+     1.321
+    ],
+    [
+     "Force",
+     1.321,
+     1.806
+    ],
+    [
+     "logged",
+     1.806,
+     2.36
+    ],
+    [
+     "701",
+     2.36,
+     2.915
+    ],
+    [
+     "UFOs",
+     2.915,
+     3.331
+    ],
+    [
+     "it",
+     3.331,
+     3.608
+    ],
+    [
+     "could",
+     3.608,
+     4.094
+    ],
+    [
+     "never",
+     4.094,
+     4.579
+    ],
+    [
+     "explain.",
+     4.579,
+     5.203
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The study was called [[Project Blue Book]].",
+   "text": "The study was called Project Blue Book.",
+   "start": 6.299,
+   "voiceEnd": 8.289,
+   "end": 8.789,
+   "words": [
+    [
+     "The",
+     6.299,
+     6.494
+    ],
+    [
+     "study",
+     6.494,
+     6.768
+    ],
+    [
+     "was",
+     6.768,
+     6.963
+    ],
+    [
+     "called",
+     6.963,
+     7.275
+    ],
+    [
+     "Project",
+     7.275,
+     7.626
+    ],
+    [
+     "Blue",
+     7.626,
+     7.86
+    ],
+    [
+     "Book.",
+     7.86,
+     8.094
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "It collected [[12,618]] sighting reports.",
+   "text": "It collected 12,618 sighting reports.",
+   "start": 8.789,
+   "voiceEnd": 12.086,
+   "end": 12.586,
+   "words": [
+    [
+     "It",
+     8.789,
+     9.058
+    ],
+    [
+     "collected",
+     9.058,
+     9.798
+    ],
+    [
+     "12,618",
+     9.798,
+     10.471
+    ],
+    [
+     "sighting",
+     10.471,
+     11.144
+    ],
+    [
+     "reports.",
+     11.144,
+     11.75
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "It was shut down in [[1969]].",
+   "text": "It was shut down in 1969.",
+   "start": 12.586,
+   "voiceEnd": 14.533,
+   "end": 15.033,
+   "words": [
+    [
+     "It",
+     12.586,
+     12.786
+    ],
+    [
+     "was",
+     12.786,
+     13.035
+    ],
+    [
+     "shut",
+     13.035,
+     13.335
+    ],
+    [
+     "down",
+     13.335,
+     13.634
+    ],
+    [
+     "in",
+     13.634,
+     13.834
+    ],
+    [
+     "1969.",
+     13.834,
+     14.283
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 15.033,
+   "voiceEnd": 16.401,
+   "end": 17.801,
+   "words": [
+    [
+     "So.",
+     15.033,
+     15.201
+    ],
+    [
+     "Real,",
+     15.412,
+     15.664
+    ],
+    [
+     "or",
+     15.77,
+     15.938
+    ],
+    [
+     "fake?",
+     15.938,
+     16.191
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Project Blue Book logged 12,618 reports from 1952 to 1969. 701 were never identified.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "US National Archives, Project Blue Book",
+   "start": 17.801,
+   "voiceEnd": 28.113,
+   "end": 28.863,
+   "words": [
+    [
+     "Real.",
+     17.801,
+     18.277
+    ],
+    [
+     "Project",
+     18.674,
+     19.388
+    ],
+    [
+     "Blue",
+     19.388,
+     19.864
+    ],
+    [
+     "Book",
+     19.864,
+     20.34
+    ],
+    [
+     "logged",
+     20.34,
+     20.974
+    ],
+    [
+     "12,618",
+     20.974,
+     21.767
+    ],
+    [
+     "reports",
+     21.767,
+     22.481
+    ],
+    [
+     "from",
+     22.481,
+     22.957
+    ],
+    [
+     "1952",
+     22.957,
+     23.671
+    ],
+    [
+     "to",
+     23.671,
+     23.988
+    ],
+    [
+     "1969.",
+     23.988,
+     24.702
+    ],
+    [
+     "701",
+     25.099,
+     25.733
+    ],
+    [
+     "were",
+     25.733,
+     26.209
+    ],
+    [
+     "never",
+     26.209,
+     26.765
+    ],
+    [
+     "identified.",
+     26.765,
+     27.716
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 28.863,
+   "voiceEnd": 30.435,
+   "end": 31.535,
+   "words": [
+    [
+     "Go",
+     28.863,
+     29.031
+    ],
+    [
+     "deeper,",
+     29.031,
+     29.366
+    ],
+    [
+     "on",
+     29.471,
+     29.638
+    ],
+    [
+     "Rabbit",
+     29.638,
+     29.974
+    ],
+    [
+     "Hole.",
+     29.974,
+     30.225
+    ]
+   ]
+  }
+ ]
+}

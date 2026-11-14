@@ -1,0 +1,336 @@
+{
+ "reel": "irancontra",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "4107",
+ "hole": "The Bureau",
+ "hue": 150,
+ "caseId": "irancontra",
+ "duration": 25.539,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "US officials secretly sold weapons to Iran to fund rebels in Nicaragua.",
+   "date": "1986",
+   "label": "The Bureau",
+   "start": 0.35,
+   "voiceEnd": 5.736,
+   "end": 6.486,
+   "words": [
+    [
+     "US",
+     0.35,
+     0.595
+    ],
+    [
+     "officials",
+     0.595,
+     1.268
+    ],
+    [
+     "secretly",
+     1.268,
+     1.88
+    ],
+    [
+     "sold",
+     1.88,
+     2.247
+    ],
+    [
+     "weapons",
+     2.247,
+     2.798
+    ],
+    [
+     "to",
+     2.798,
+     3.043
+    ],
+    [
+     "Iran",
+     3.043,
+     3.41
+    ],
+    [
+     "to",
+     3.41,
+     3.655
+    ],
+    [
+     "fund",
+     3.655,
+     4.022
+    ],
+    [
+     "rebels",
+     4.022,
+     4.512
+    ],
+    [
+     "in",
+     4.512,
+     4.756
+    ],
+    [
+     "Nicaragua.",
+     4.756,
+     5.43
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The rebels were the [[Contras]].",
+   "text": "The rebels were the Contras.",
+   "start": 6.486,
+   "voiceEnd": 7.859,
+   "end": 8.359,
+   "words": [
+    [
+     "The",
+     6.486,
+     6.666
+    ],
+    [
+     "rebels",
+     6.666,
+     6.956
+    ],
+    [
+     "were",
+     6.956,
+     7.172
+    ],
+    [
+     "the",
+     7.172,
+     7.353
+    ],
+    [
+     "Contras.",
+     7.353,
+     7.678
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Congress had [[banned]] funding them.",
+   "text": "Congress had banned funding them.",
+   "start": 8.359,
+   "voiceEnd": 9.932,
+   "end": 10.432,
+   "words": [
+    [
+     "Congress",
+     8.359,
+     8.725
+    ],
+    [
+     "had",
+     8.725,
+     8.908
+    ],
+    [
+     "banned",
+     8.908,
+     9.2
+    ],
+    [
+     "funding",
+     9.2,
+     9.529
+    ],
+    [
+     "them.",
+     9.529,
+     9.749
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The president was [[Ronald Reagan]].",
+   "text": "The president was Ronald Reagan.",
+   "start": 10.432,
+   "voiceEnd": 12.278,
+   "end": 12.778,
+   "words": [
+    [
+     "The",
+     10.432,
+     10.651
+    ],
+    [
+     "president",
+     10.651,
+     11.135
+    ],
+    [
+     "was",
+     11.135,
+     11.355
+    ],
+    [
+     "Ronald",
+     11.355,
+     11.707
+    ],
+    [
+     "Reagan.",
+     11.707,
+     12.058
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 12.778,
+   "voiceEnd": 14.147,
+   "end": 15.547,
+   "words": [
+    [
+     "So.",
+     12.778,
+     12.947
+    ],
+    [
+     "Real,",
+     13.157,
+     13.41
+    ],
+    [
+     "or",
+     13.515,
+     13.683
+    ],
+    [
+     "fake?",
+     13.683,
+     13.936
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Iran-Contra was real. Arms money went to the Contras in defiance of Congress.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Tower Commission, 1987",
+   "start": 15.547,
+   "voiceEnd": 20.918,
+   "end": 21.668,
+   "words": [
+    [
+     "Real.",
+     15.547,
+     15.842
+    ],
+    [
+     "Iran-Contra",
+     16.089,
+     16.68
+    ],
+    [
+     "was",
+     16.68,
+     16.926
+    ],
+    [
+     "real.",
+     16.926,
+     17.222
+    ],
+    [
+     "Arms",
+     17.468,
+     17.764
+    ],
+    [
+     "money",
+     17.764,
+     18.109
+    ],
+    [
+     "went",
+     18.109,
+     18.405
+    ],
+    [
+     "to",
+     18.405,
+     18.602
+    ],
+    [
+     "the",
+     18.602,
+     18.848
+    ],
+    [
+     "Contras",
+     18.848,
+     19.292
+    ],
+    [
+     "in",
+     19.292,
+     19.489
+    ],
+    [
+     "defiance",
+     19.489,
+     19.982
+    ],
+    [
+     "of",
+     19.982,
+     20.179
+    ],
+    [
+     "Congress.",
+     20.179,
+     20.671
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 21.668,
+   "voiceEnd": 23.239,
+   "end": 24.34,
+   "words": [
+    [
+     "Go",
+     21.668,
+     21.835
+    ],
+    [
+     "deeper,",
+     21.835,
+     22.171
+    ],
+    [
+     "on",
+     22.275,
+     22.443
+    ],
+    [
+     "Rabbit",
+     22.443,
+     22.778
+    ],
+    [
+     "Hole.",
+     22.778,
+     23.03
+    ]
+   ]
+  }
+ ]
+}

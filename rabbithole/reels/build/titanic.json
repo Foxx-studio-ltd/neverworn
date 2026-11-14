@@ -1,0 +1,421 @@
+{
+ "reel": "titanic",
+ "voice": "bm_george",
+ "speed": 1.0,
+ "file": "1123",
+ "hole": "Too Good to Be True",
+ "hue": 230,
+ "caseId": "titanic",
+ "duration": 34.308,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The ship that sank wasn't the Titanic. It was her sister ship, swapped for insurance.",
+   "date": "1912",
+   "label": "Too Good to Be True",
+   "start": 0.35,
+   "voiceEnd": 5.788,
+   "end": 6.538,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.598
+    ],
+    [
+     "ship",
+     0.598,
+     0.896
+    ],
+    [
+     "that",
+     0.896,
+     1.194
+    ],
+    [
+     "sank",
+     1.194,
+     1.492
+    ],
+    [
+     "wasn't",
+     1.492,
+     1.84
+    ],
+    [
+     "the",
+     1.84,
+     2.088
+    ],
+    [
+     "Titanic.",
+     2.088,
+     2.535
+    ],
+    [
+     "It",
+     2.784,
+     2.982
+    ],
+    [
+     "was",
+     2.982,
+     3.231
+    ],
+    [
+     "her",
+     3.231,
+     3.479
+    ],
+    [
+     "sister",
+     3.479,
+     3.876
+    ],
+    [
+     "ship,",
+     3.876,
+     4.174
+    ],
+    [
+     "swapped",
+     4.298,
+     4.745
+    ],
+    [
+     "for",
+     4.745,
+     4.994
+    ],
+    [
+     "insurance.",
+     4.994,
+     5.54
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The sister ship was the [[Olympic]].",
+   "text": "The sister ship was the Olympic.",
+   "start": 6.538,
+   "voiceEnd": 8.78,
+   "end": 9.28,
+   "words": [
+    [
+     "The",
+     6.538,
+     6.799
+    ],
+    [
+     "sister",
+     6.799,
+     7.216
+    ],
+    [
+     "ship",
+     7.216,
+     7.529
+    ],
+    [
+     "was",
+     7.529,
+     7.789
+    ],
+    [
+     "the",
+     7.789,
+     8.05
+    ],
+    [
+     "Olympic.",
+     8.05,
+     8.519
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Each ship had its own yard number, Titanic's was [[401]].",
+   "text": "Each ship had its own yard number, Titanic's was 401.",
+   "start": 9.28,
+   "voiceEnd": 13.672,
+   "end": 14.172,
+   "words": [
+    [
+     "Each",
+     9.28,
+     9.648
+    ],
+    [
+     "ship",
+     9.648,
+     10.017
+    ],
+    [
+     "had",
+     10.017,
+     10.324
+    ],
+    [
+     "its",
+     10.324,
+     10.631
+    ],
+    [
+     "own",
+     10.631,
+     10.938
+    ],
+    [
+     "yard",
+     10.938,
+     11.307
+    ],
+    [
+     "number,",
+     11.307,
+     11.798
+    ],
+    [
+     "Titanic's",
+     11.952,
+     12.566
+    ],
+    [
+     "was",
+     12.566,
+     12.874
+    ],
+    [
+     "401.",
+     12.874,
+     13.365
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Parts stamped [[401]] were found on the wreck.",
+   "text": "Parts stamped 401 were found on the wreck.",
+   "start": 14.172,
+   "voiceEnd": 17.547,
+   "end": 18.047,
+   "words": [
+    [
+     "Parts",
+     14.172,
+     14.58
+    ],
+    [
+     "stamped",
+     14.58,
+     15.103
+    ],
+    [
+     "401",
+     15.103,
+     15.569
+    ],
+    [
+     "were",
+     15.569,
+     15.918
+    ],
+    [
+     "found",
+     15.918,
+     16.325
+    ],
+    [
+     "on",
+     16.325,
+     16.558
+    ],
+    [
+     "the",
+     16.558,
+     16.849
+    ],
+    [
+     "wreck.",
+     16.849,
+     17.256
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 18.047,
+   "voiceEnd": 19.743,
+   "end": 21.143,
+   "words": [
+    [
+     "So.",
+     18.047,
+     18.255
+    ],
+    [
+     "Real,",
+     18.517,
+     18.83
+    ],
+    [
+     "or",
+     18.96,
+     19.169
+    ],
+    [
+     "fake?",
+     19.169,
+     19.482
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Fake. Parts recovered from the wreck carry Titanic's own yard number, 401. The ship that sank was the Titanic.",
+   "verdict": "FAKE",
+   "cls": "red",
+   "source": "Titanic wreck recoveries",
+   "start": 21.143,
+   "voiceEnd": 29.214,
+   "end": 29.964,
+   "words": [
+    [
+     "Fake.",
+     21.143,
+     21.476
+    ],
+    [
+     "Parts",
+     21.753,
+     22.142
+    ],
+    [
+     "recovered",
+     22.142,
+     22.752
+    ],
+    [
+     "from",
+     22.752,
+     23.085
+    ],
+    [
+     "the",
+     23.085,
+     23.362
+    ],
+    [
+     "wreck",
+     23.362,
+     23.75
+    ],
+    [
+     "carry",
+     23.75,
+     24.138
+    ],
+    [
+     "Titanic's",
+     24.138,
+     24.693
+    ],
+    [
+     "own",
+     24.693,
+     24.97
+    ],
+    [
+     "yard",
+     24.97,
+     25.303
+    ],
+    [
+     "number,",
+     25.303,
+     25.747
+    ],
+    [
+     "401.",
+     25.886,
+     26.329
+    ],
+    [
+     "The",
+     26.607,
+     26.884
+    ],
+    [
+     "ship",
+     26.884,
+     27.217
+    ],
+    [
+     "that",
+     27.217,
+     27.55
+    ],
+    [
+     "sank",
+     27.55,
+     27.883
+    ],
+    [
+     "was",
+     27.883,
+     28.16
+    ],
+    [
+     "the",
+     28.16,
+     28.437
+    ],
+    [
+     "Titanic.",
+     28.437,
+     28.936
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 29.964,
+   "voiceEnd": 32.008,
+   "end": 33.108,
+   "words": [
+    [
+     "Go",
+     29.964,
+     30.182
+    ],
+    [
+     "deeper,",
+     30.182,
+     30.618
+    ],
+    [
+     "on",
+     30.754,
+     30.972
+    ],
+    [
+     "Rabbit",
+     30.972,
+     31.408
+    ],
+    [
+     "Hole.",
+     31.408,
+     31.735
+    ]
+   ]
+  }
+ ]
+}

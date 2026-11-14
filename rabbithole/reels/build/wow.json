@@ -1,0 +1,406 @@
+{
+ "reel": "wow",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "4949",
+ "hole": "The Sky Files",
+ "hue": 210,
+ "caseId": "wow",
+ "duration": 30.137,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "A radio telescope caught a 72-second signal from space that nobody can explain.",
+   "date": "1977",
+   "label": "The Sky Files",
+   "start": 0.35,
+   "voiceEnd": 5.86,
+   "end": 6.61,
+   "words": [
+    [
+     "A",
+     0.35,
+     0.517
+    ],
+    [
+     "radio",
+     0.517,
+     0.907
+    ],
+    [
+     "telescope",
+     0.907,
+     1.519
+    ],
+    [
+     "caught",
+     1.519,
+     1.964
+    ],
+    [
+     "a",
+     1.964,
+     2.131
+    ],
+    [
+     "72-second",
+     2.131,
+     2.855
+    ],
+    [
+     "signal",
+     2.855,
+     3.3
+    ],
+    [
+     "from",
+     3.3,
+     3.634
+    ],
+    [
+     "space",
+     3.634,
+     4.023
+    ],
+    [
+     "that",
+     4.023,
+     4.357
+    ],
+    [
+     "nobody",
+     4.357,
+     4.803
+    ],
+    [
+     "can",
+     4.803,
+     5.081
+    ],
+    [
+     "explain.",
+     5.081,
+     5.582
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "Detected by the [[Big Ear]] telescope in Ohio.",
+   "text": "Detected by the Big Ear telescope in Ohio.",
+   "start": 6.61,
+   "voiceEnd": 9.117,
+   "end": 9.617,
+   "words": [
+    [
+     "Detected",
+     6.61,
+     7.066
+    ],
+    [
+     "by",
+     7.066,
+     7.248
+    ],
+    [
+     "the",
+     7.248,
+     7.476
+    ],
+    [
+     "Big",
+     7.476,
+     7.704
+    ],
+    [
+     "Ear",
+     7.704,
+     7.932
+    ],
+    [
+     "telescope",
+     7.932,
+     8.433
+    ],
+    [
+     "in",
+     8.433,
+     8.615
+    ],
+    [
+     "Ohio.",
+     8.615,
+     8.889
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "An astronomer circled it and wrote \"[[Wow!]]\".",
+   "text": "An astronomer circled it and wrote \"Wow!\".",
+   "start": 9.617,
+   "voiceEnd": 11.789,
+   "end": 12.289,
+   "words": [
+    [
+     "An",
+     9.617,
+     9.787
+    ],
+    [
+     "astronomer",
+     9.787,
+     10.298
+    ],
+    [
+     "circled",
+     10.298,
+     10.682
+    ],
+    [
+     "it",
+     10.682,
+     10.852
+    ],
+    [
+     "and",
+     10.852,
+     11.065
+    ],
+    [
+     "wrote",
+     11.065,
+     11.363
+    ],
+    [
+     "\"Wow!\".",
+     11.363,
+     11.576
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "It has never been [[detected again]].",
+   "text": "It has never been detected again.",
+   "start": 12.289,
+   "voiceEnd": 13.95,
+   "end": 14.45,
+   "words": [
+    [
+     "It",
+     12.289,
+     12.44
+    ],
+    [
+     "has",
+     12.44,
+     12.629
+    ],
+    [
+     "never",
+     12.629,
+     12.893
+    ],
+    [
+     "been",
+     12.893,
+     13.12
+    ],
+    [
+     "detected",
+     13.12,
+     13.497
+    ],
+    [
+     "again.",
+     13.497,
+     13.761
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 14.45,
+   "voiceEnd": 15.819,
+   "end": 17.219,
+   "words": [
+    [
+     "So.",
+     14.45,
+     14.619
+    ],
+    [
+     "Real,",
+     14.829,
+     15.082
+    ],
+    [
+     "or",
+     15.187,
+     15.356
+    ],
+    [
+     "fake?",
+     15.356,
+     15.608
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Nobody knows. The Wow! signal was strong, narrow and near the hydrogen line. It never repeated, and no explanation is settled.",
+   "verdict": "UNEXPLAINED",
+   "cls": "ylw",
+   "source": "Big Ear Radio Observatory, 1977",
+   "start": 17.219,
+   "voiceEnd": 25.515,
+   "end": 26.265,
+   "words": [
+    [
+     "Nobody",
+     17.219,
+     17.616
+    ],
+    [
+     "knows.",
+     17.616,
+     17.964
+    ],
+    [
+     "The",
+     18.212,
+     18.461
+    ],
+    [
+     "Wow!",
+     18.461,
+     18.709
+    ],
+    [
+     "signal",
+     18.957,
+     19.355
+    ],
+    [
+     "was",
+     19.355,
+     19.603
+    ],
+    [
+     "strong,",
+     19.603,
+     20.001
+    ],
+    [
+     "narrow",
+     20.125,
+     20.522
+    ],
+    [
+     "and",
+     20.522,
+     20.771
+    ],
+    [
+     "near",
+     20.771,
+     21.069
+    ],
+    [
+     "the",
+     21.069,
+     21.317
+    ],
+    [
+     "hydrogen",
+     21.317,
+     21.814
+    ],
+    [
+     "line.",
+     21.814,
+     22.112
+    ],
+    [
+     "It",
+     22.36,
+     22.559
+    ],
+    [
+     "never",
+     22.559,
+     22.907
+    ],
+    [
+     "repeated,",
+     22.907,
+     23.404
+    ],
+    [
+     "and",
+     23.528,
+     23.776
+    ],
+    [
+     "no",
+     23.776,
+     23.975
+    ],
+    [
+     "explanation",
+     23.975,
+     24.621
+    ],
+    [
+     "is",
+     24.621,
+     24.819
+    ],
+    [
+     "settled.",
+     24.819,
+     25.267
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 26.265,
+   "voiceEnd": 27.837,
+   "end": 28.937,
+   "words": [
+    [
+     "Go",
+     26.265,
+     26.433
+    ],
+    [
+     "deeper,",
+     26.433,
+     26.768
+    ],
+    [
+     "on",
+     26.873,
+     27.04
+    ],
+    [
+     "Rabbit",
+     27.04,
+     27.376
+    ],
+    [
+     "Hole.",
+     27.376,
+     27.627
+    ]
+   ]
+  }
+ ]
+}

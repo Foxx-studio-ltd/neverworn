@@ -1,0 +1,376 @@
+{
+ "reel": "haarp",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "1496",
+ "hole": "Too Good to Be True",
+ "hue": 230,
+ "caseId": "haarp",
+ "duration": 26.335,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "A secret antenna field in Alaska controls the weather.",
+   "date": "1993",
+   "label": "Too Good to Be True",
+   "start": 0.35,
+   "voiceEnd": 3.405,
+   "end": 4.155,
+   "words": [
+    [
+     "A",
+     0.35,
+     0.485
+    ],
+    [
+     "secret",
+     0.485,
+     0.844
+    ],
+    [
+     "antenna",
+     0.844,
+     1.249
+    ],
+    [
+     "field",
+     1.249,
+     1.563
+    ],
+    [
+     "in",
+     1.563,
+     1.743
+    ],
+    [
+     "Alaska",
+     1.743,
+     2.102
+    ],
+    [
+     "controls",
+     2.102,
+     2.551
+    ],
+    [
+     "the",
+     2.551,
+     2.776
+    ],
+    [
+     "weather.",
+     2.776,
+     3.18
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The site is called [[HAARP]].",
+   "text": "The site is called HAARP.",
+   "start": 4.155,
+   "voiceEnd": 5.336,
+   "end": 5.836,
+   "words": [
+    [
+     "The",
+     4.155,
+     4.324
+    ],
+    [
+     "site",
+     4.324,
+     4.526
+    ],
+    [
+     "is",
+     4.526,
+     4.661
+    ],
+    [
+     "called",
+     4.661,
+     4.931
+    ],
+    [
+     "HAARP.",
+     4.931,
+     5.167
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "It studies the [[ionosphere]], high above the weather.",
+   "text": "It studies the ionosphere, high above the weather.",
+   "start": 5.836,
+   "voiceEnd": 8.555,
+   "end": 9.055,
+   "words": [
+    [
+     "It",
+     5.836,
+     6.004
+    ],
+    [
+     "studies",
+     6.004,
+     6.384
+    ],
+    [
+     "the",
+     6.384,
+     6.594
+    ],
+    [
+     "ionosphere,",
+     6.594,
+     7.1
+    ],
+    [
+     "high",
+     7.206,
+     7.459
+    ],
+    [
+     "above",
+     7.459,
+     7.754
+    ],
+    [
+     "the",
+     7.754,
+     7.965
+    ],
+    [
+     "weather.",
+     7.965,
+     8.344
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "It's run by the [[University of Alaska]].",
+   "text": "It's run by the University of Alaska.",
+   "start": 9.055,
+   "voiceEnd": 11.186,
+   "end": 11.686,
+   "words": [
+    [
+     "It's",
+     9.055,
+     9.277
+    ],
+    [
+     "run",
+     9.277,
+     9.499
+    ],
+    [
+     "by",
+     9.499,
+     9.677
+    ],
+    [
+     "the",
+     9.677,
+     9.899
+    ],
+    [
+     "University",
+     9.899,
+     10.431
+    ],
+    [
+     "of",
+     10.431,
+     10.609
+    ],
+    [
+     "Alaska.",
+     10.609,
+     10.964
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 11.686,
+   "voiceEnd": 13.055,
+   "end": 14.455,
+   "words": [
+    [
+     "So.",
+     11.686,
+     11.854
+    ],
+    [
+     "Real,",
+     12.065,
+     12.318
+    ],
+    [
+     "or",
+     12.423,
+     12.591
+    ],
+    [
+     "fake?",
+     12.591,
+     12.844
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Fake. HAARP studies the ionosphere, far above where weather happens. A university runs it and opens it to the public.",
+   "verdict": "FAKE",
+   "cls": "red",
+   "source": "University of Alaska Fairbanks",
+   "start": 14.454,
+   "voiceEnd": 21.714,
+   "end": 22.464,
+   "words": [
+    [
+     "Fake.",
+     14.454,
+     14.742
+    ],
+    [
+     "HAARP",
+     14.982,
+     15.317
+    ],
+    [
+     "studies",
+     15.317,
+     15.748
+    ],
+    [
+     "the",
+     15.748,
+     15.988
+    ],
+    [
+     "ionosphere,",
+     15.988,
+     16.563
+    ],
+    [
+     "far",
+     16.683,
+     16.922
+    ],
+    [
+     "above",
+     16.922,
+     17.258
+    ],
+    [
+     "where",
+     17.258,
+     17.593
+    ],
+    [
+     "weather",
+     17.593,
+     18.024
+    ],
+    [
+     "happens.",
+     18.024,
+     18.455
+    ],
+    [
+     "A",
+     18.695,
+     18.839
+    ],
+    [
+     "university",
+     18.839,
+     19.414
+    ],
+    [
+     "runs",
+     19.414,
+     19.701
+    ],
+    [
+     "it",
+     19.701,
+     19.893
+    ],
+    [
+     "and",
+     19.893,
+     20.132
+    ],
+    [
+     "opens",
+     20.132,
+     20.468
+    ],
+    [
+     "it",
+     20.468,
+     20.659
+    ],
+    [
+     "to",
+     20.659,
+     20.851
+    ],
+    [
+     "the",
+     20.851,
+     21.091
+    ],
+    [
+     "public.",
+     21.091,
+     21.474
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 22.464,
+   "voiceEnd": 24.035,
+   "end": 25.135,
+   "words": [
+    [
+     "Go",
+     22.464,
+     22.631
+    ],
+    [
+     "deeper,",
+     22.631,
+     22.967
+    ],
+    [
+     "on",
+     23.071,
+     23.239
+    ],
+    [
+     "Rabbit",
+     23.239,
+     23.574
+    ],
+    [
+     "Hole.",
+     23.574,
+     23.826
+    ]
+   ]
+  }
+ ]
+}

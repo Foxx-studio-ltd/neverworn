@@ -1,0 +1,416 @@
+{
+ "reel": "stargate",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "0846",
+ "hole": "Mind Games",
+ "hue": 275,
+ "caseId": "stargate",
+ "duration": 32.481,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The US military paid psychics to spy on the Soviet Union.",
+   "date": "1978",
+   "label": "Mind Games",
+   "start": 0.35,
+   "voiceEnd": 4.683,
+   "end": 5.433,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.647
+    ],
+    [
+     "US",
+     0.647,
+     0.884
+    ],
+    [
+     "military",
+     0.884,
+     1.478
+    ],
+    [
+     "paid",
+     1.478,
+     1.834
+    ],
+    [
+     "psychics",
+     1.834,
+     2.428
+    ],
+    [
+     "to",
+     2.428,
+     2.665
+    ],
+    [
+     "spy",
+     2.665,
+     2.962
+    ],
+    [
+     "on",
+     2.962,
+     3.199
+    ],
+    [
+     "the",
+     3.199,
+     3.496
+    ],
+    [
+     "Soviet",
+     3.496,
+     3.971
+    ],
+    [
+     "Union.",
+     3.971,
+     4.386
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "Code names included [[Grill Flame]] and [[Star Gate]].",
+   "text": "Code names included Grill Flame and Star Gate.",
+   "start": 5.433,
+   "voiceEnd": 8.126,
+   "end": 8.626,
+   "words": [
+    [
+     "Code",
+     5.433,
+     5.707
+    ],
+    [
+     "names",
+     5.707,
+     6.027
+    ],
+    [
+     "included",
+     6.027,
+     6.483
+    ],
+    [
+     "Grill",
+     6.483,
+     6.803
+    ],
+    [
+     "Flame",
+     6.803,
+     7.122
+    ],
+    [
+     "and",
+     7.122,
+     7.35
+    ],
+    [
+     "Star",
+     7.35,
+     7.624
+    ],
+    [
+     "Gate.",
+     7.624,
+     7.898
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Viewers tried to see [[distant targets]] with their minds.",
+   "text": "Viewers tried to see distant targets with their minds.",
+   "start": 8.626,
+   "voiceEnd": 11.375,
+   "end": 11.875,
+   "words": [
+    [
+     "Viewers",
+     8.626,
+     8.99
+    ],
+    [
+     "tried",
+     8.99,
+     9.273
+    ],
+    [
+     "to",
+     9.273,
+     9.435
+    ],
+    [
+     "see",
+     9.435,
+     9.637
+    ],
+    [
+     "distant",
+     9.637,
+     10.0
+    ],
+    [
+     "targets",
+     10.0,
+     10.364
+    ],
+    [
+     "with",
+     10.364,
+     10.607
+    ],
+    [
+     "their",
+     10.607,
+     10.89
+    ],
+    [
+     "minds.",
+     10.89,
+     11.173
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "It ran for nearly [[two decades]].",
+   "text": "It ran for nearly two decades.",
+   "start": 11.875,
+   "voiceEnd": 13.417,
+   "end": 13.917,
+   "words": [
+    [
+     "It",
+     11.875,
+     12.025
+    ],
+    [
+     "ran",
+     12.025,
+     12.213
+    ],
+    [
+     "for",
+     12.213,
+     12.401
+    ],
+    [
+     "nearly",
+     12.401,
+     12.702
+    ],
+    [
+     "two",
+     12.702,
+     12.891
+    ],
+    [
+     "decades.",
+     12.891,
+     13.229
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 13.917,
+   "voiceEnd": 15.365,
+   "end": 16.765,
+   "words": [
+    [
+     "So.",
+     13.917,
+     14.095
+    ],
+    [
+     "Real,",
+     14.318,
+     14.585
+    ],
+    [
+     "or",
+     14.697,
+     14.875
+    ],
+    [
+     "fake?",
+     14.875,
+     15.142
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The Army, the DIA and the CIA funded psychic spies until 1995. A review found they never produced intelligence anyone could use.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "CIA CREST archive, released 2017",
+   "start": 16.765,
+   "voiceEnd": 27.865,
+   "end": 28.615,
+   "words": [
+    [
+     "Real.",
+     16.765,
+     17.146
+    ],
+    [
+     "The",
+     17.465,
+     17.783
+    ],
+    [
+     "Army,",
+     17.783,
+     18.164
+    ],
+    [
+     "the",
+     18.323,
+     18.641
+    ],
+    [
+     "DIA",
+     18.641,
+     18.959
+    ],
+    [
+     "and",
+     18.959,
+     19.277
+    ],
+    [
+     "the",
+     19.277,
+     19.595
+    ],
+    [
+     "CIA",
+     19.595,
+     19.914
+    ],
+    [
+     "funded",
+     19.914,
+     20.422
+    ],
+    [
+     "psychic",
+     20.422,
+     20.995
+    ],
+    [
+     "spies",
+     20.995,
+     21.44
+    ],
+    [
+     "until",
+     21.44,
+     21.885
+    ],
+    [
+     "1995.",
+     21.885,
+     22.458
+    ],
+    [
+     "A",
+     22.776,
+     22.967
+    ],
+    [
+     "review",
+     22.967,
+     23.476
+    ],
+    [
+     "found",
+     23.476,
+     23.921
+    ],
+    [
+     "they",
+     23.921,
+     24.303
+    ],
+    [
+     "never",
+     24.303,
+     24.748
+    ],
+    [
+     "produced",
+     24.748,
+     25.384
+    ],
+    [
+     "intelligence",
+     25.384,
+     26.275
+    ],
+    [
+     "anyone",
+     26.275,
+     26.783
+    ],
+    [
+     "could",
+     26.783,
+     27.229
+    ],
+    [
+     "use.",
+     27.229,
+     27.547
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 28.615,
+   "voiceEnd": 30.181,
+   "end": 31.281,
+   "words": [
+    [
+     "Go",
+     28.615,
+     28.782
+    ],
+    [
+     "deeper,",
+     28.782,
+     29.116
+    ],
+    [
+     "on",
+     29.22,
+     29.388
+    ],
+    [
+     "Rabbit",
+     29.388,
+     29.722
+    ],
+    [
+     "Hole.",
+     29.722,
+     29.972
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,381 @@
+{
+ "reel": "zodiac",
+ "voice": "bm_george",
+ "speed": 1.0,
+ "file": "7139",
+ "hole": "Unsolved",
+ "hue": 320,
+ "caseId": "zodiac",
+ "duration": 33.747,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Amateur codebreakers cracked the Zodiac killer's cipher 51 years later.",
+   "date": "2020",
+   "label": "Unsolved",
+   "start": 0.35,
+   "voiceEnd": 5.391,
+   "end": 6.141,
+   "words": [
+    [
+     "Amateur",
+     0.35,
+     0.866
+    ],
+    [
+     "codebreakers",
+     0.866,
+     1.667
+    ],
+    [
+     "cracked",
+     1.667,
+     2.183
+    ],
+    [
+     "the",
+     2.183,
+     2.469
+    ],
+    [
+     "Zodiac",
+     2.469,
+     2.928
+    ],
+    [
+     "killer's",
+     2.928,
+     3.443
+    ],
+    [
+     "cipher",
+     3.443,
+     3.901
+    ],
+    [
+     "51",
+     3.901,
+     4.302
+    ],
+    [
+     "years",
+     4.302,
+     4.703
+    ],
+    [
+     "later.",
+     4.703,
+     5.104
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The cipher had [[340]] characters.",
+   "text": "The cipher had 340 characters.",
+   "start": 6.141,
+   "voiceEnd": 9.035,
+   "end": 9.535,
+   "words": [
+    [
+     "The",
+     6.141,
+     6.477
+    ],
+    [
+     "cipher",
+     6.477,
+     7.016
+    ],
+    [
+     "had",
+     7.016,
+     7.352
+    ],
+    [
+     "340",
+     7.352,
+     7.891
+    ],
+    [
+     "characters.",
+     7.891,
+     8.698
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "It was mailed to a newspaper in [[1969]].",
+   "text": "It was mailed to a newspaper in 1969.",
+   "start": 9.535,
+   "voiceEnd": 13.136,
+   "end": 13.636,
+   "words": [
+    [
+     "It",
+     9.535,
+     9.807
+    ],
+    [
+     "was",
+     9.807,
+     10.147
+    ],
+    [
+     "mailed",
+     10.147,
+     10.69
+    ],
+    [
+     "to",
+     10.69,
+     10.962
+    ],
+    [
+     "a",
+     10.962,
+     11.166
+    ],
+    [
+     "newspaper",
+     11.166,
+     11.913
+    ],
+    [
+     "in",
+     11.913,
+     12.185
+    ],
+    [
+     "1969.",
+     12.185,
+     12.796
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "It was solved by a team of [[private citizens]].",
+   "text": "It was solved by a team of private citizens.",
+   "start": 13.636,
+   "voiceEnd": 16.407,
+   "end": 16.907,
+   "words": [
+    [
+     "It",
+     13.636,
+     13.827
+    ],
+    [
+     "was",
+     13.827,
+     14.066
+    ],
+    [
+     "solved",
+     14.066,
+     14.448
+    ],
+    [
+     "by",
+     14.448,
+     14.639
+    ],
+    [
+     "a",
+     14.639,
+     14.783
+    ],
+    [
+     "team",
+     14.783,
+     15.069
+    ],
+    [
+     "of",
+     15.069,
+     15.26
+    ],
+    [
+     "private",
+     15.26,
+     15.69
+    ],
+    [
+     "citizens.",
+     15.69,
+     16.168
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 16.907,
+   "voiceEnd": 18.603,
+   "end": 20.003,
+   "words": [
+    [
+     "So.",
+     16.907,
+     17.115
+    ],
+    [
+     "Real,",
+     17.377,
+     17.69
+    ],
+    [
+     "or",
+     17.82,
+     18.029
+    ],
+    [
+     "fake?",
+     18.029,
+     18.342
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The 340 cipher was solved in December 2020 by three amateurs. The killer has never been identified.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "FBI statement, December 2020",
+   "start": 20.003,
+   "voiceEnd": 28.653,
+   "end": 29.403,
+   "words": [
+    [
+     "Real.",
+     20.003,
+     20.369
+    ],
+    [
+     "The",
+     20.673,
+     20.978
+    ],
+    [
+     "340",
+     20.978,
+     21.465
+    ],
+    [
+     "cipher",
+     21.465,
+     21.953
+    ],
+    [
+     "was",
+     21.953,
+     22.257
+    ],
+    [
+     "solved",
+     22.257,
+     22.744
+    ],
+    [
+     "in",
+     22.744,
+     22.988
+    ],
+    [
+     "December",
+     22.988,
+     23.597
+    ],
+    [
+     "2020",
+     23.597,
+     24.145
+    ],
+    [
+     "by",
+     24.145,
+     24.389
+    ],
+    [
+     "three",
+     24.389,
+     24.815
+    ],
+    [
+     "amateurs.",
+     24.815,
+     25.425
+    ],
+    [
+     "The",
+     25.729,
+     26.034
+    ],
+    [
+     "killer",
+     26.034,
+     26.521
+    ],
+    [
+     "has",
+     26.521,
+     26.826
+    ],
+    [
+     "never",
+     26.826,
+     27.252
+    ],
+    [
+     "been",
+     27.252,
+     27.618
+    ],
+    [
+     "identified.",
+     27.618,
+     28.349
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 29.403,
+   "voiceEnd": 31.447,
+   "end": 32.547,
+   "words": [
+    [
+     "Go",
+     29.403,
+     29.621
+    ],
+    [
+     "deeper,",
+     29.621,
+     30.057
+    ],
+    [
+     "on",
+     30.193,
+     30.411
+    ],
+    [
+     "Rabbit",
+     30.411,
+     30.848
+    ],
+    [
+     "Hole.",
+     30.848,
+     31.175
+    ]
+   ]
+  }
+ ]
+}

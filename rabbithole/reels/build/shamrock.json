@@ -1,0 +1,391 @@
+{
+ "reel": "shamrock",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "3782",
+ "hole": "Watching You",
+ "hue": 125,
+ "caseId": "shamrock",
+ "duration": 37.851,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "For 30 years, the NSA read copies of Americans' international telegrams.",
+   "date": "1945",
+   "label": "Watching You",
+   "start": 0.35,
+   "voiceEnd": 5.961,
+   "end": 6.711,
+   "words": [
+    [
+     "For",
+     0.35,
+     0.657
+    ],
+    [
+     "30",
+     0.657,
+     1.086
+    ],
+    [
+     "years,",
+     1.086,
+     1.515
+    ],
+    [
+     "the",
+     1.668,
+     1.975
+    ],
+    [
+     "NSA",
+     1.975,
+     2.282
+    ],
+    [
+     "read",
+     2.282,
+     2.649
+    ],
+    [
+     "copies",
+     2.649,
+     3.14
+    ],
+    [
+     "of",
+     3.14,
+     3.385
+    ],
+    [
+     "Americans'",
+     3.385,
+     4.06
+    ],
+    [
+     "international",
+     4.06,
+     4.98
+    ],
+    [
+     "telegrams.",
+     4.98,
+     5.654
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The program was called [[SHAMROCK]].",
+   "text": "The program was called SHAMROCK.",
+   "start": 6.711,
+   "voiceEnd": 8.461,
+   "end": 8.961,
+   "words": [
+    [
+     "The",
+     6.711,
+     6.919
+    ],
+    [
+     "program",
+     6.919,
+     7.294
+    ],
+    [
+     "was",
+     7.294,
+     7.503
+    ],
+    [
+     "called",
+     7.503,
+     7.836
+    ],
+    [
+     "SHAMROCK.",
+     7.836,
+     8.253
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Telegraph companies handed over copies [[every day]].",
+   "text": "Telegraph companies handed over copies every day.",
+   "start": 8.961,
+   "voiceEnd": 12.186,
+   "end": 12.686,
+   "words": [
+    [
+     "Telegraph",
+     8.961,
+     9.543
+    ],
+    [
+     "companies",
+     9.543,
+     10.124
+    ],
+    [
+     "handed",
+     10.124,
+     10.547
+    ],
+    [
+     "over",
+     10.547,
+     10.864
+    ],
+    [
+     "copies",
+     10.864,
+     11.287
+    ],
+    [
+     "every",
+     11.287,
+     11.657
+    ],
+    [
+     "day.",
+     11.657,
+     11.922
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "At its peak the NSA analysed [[150,000]] messages a month.",
+   "text": "At its peak the NSA analysed 150,000 messages a month.",
+   "start": 12.686,
+   "voiceEnd": 18.33,
+   "end": 18.83,
+   "words": [
+    [
+     "At",
+     12.686,
+     13.004
+    ],
+    [
+     "its",
+     13.004,
+     13.401
+    ],
+    [
+     "peak",
+     13.401,
+     13.878
+    ],
+    [
+     "the",
+     13.878,
+     14.276
+    ],
+    [
+     "NSA",
+     14.276,
+     14.673
+    ],
+    [
+     "analysed",
+     14.673,
+     15.468
+    ],
+    [
+     "150,000",
+     15.468,
+     16.343
+    ],
+    [
+     "messages",
+     16.343,
+     17.138
+    ],
+    [
+     "a",
+     17.138,
+     17.376
+    ],
+    [
+     "month.",
+     17.376,
+     17.933
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 18.83,
+   "voiceEnd": 20.168,
+   "end": 21.568,
+   "words": [
+    [
+     "So.",
+     18.83,
+     18.995
+    ],
+    [
+     "Real,",
+     19.201,
+     19.448
+    ],
+    [
+     "or",
+     19.55,
+     19.715
+    ],
+    [
+     "fake?",
+     19.715,
+     19.962
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Project SHAMROCK ran from 1945 until Congress exposed it in 1975. Telegraph companies quietly handed over the messages.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Church Committee, 1975",
+   "start": 21.568,
+   "voiceEnd": 33.085,
+   "end": 33.835,
+   "words": [
+    [
+     "Real.",
+     21.568,
+     21.992
+    ],
+    [
+     "Project",
+     22.345,
+     22.981
+    ],
+    [
+     "SHAMROCK",
+     22.981,
+     23.687
+    ],
+    [
+     "ran",
+     23.687,
+     24.041
+    ],
+    [
+     "from",
+     24.041,
+     24.465
+    ],
+    [
+     "1945",
+     24.465,
+     25.101
+    ],
+    [
+     "until",
+     25.101,
+     25.595
+    ],
+    [
+     "Congress",
+     25.595,
+     26.302
+    ],
+    [
+     "exposed",
+     26.302,
+     26.938
+    ],
+    [
+     "it",
+     26.938,
+     27.22
+    ],
+    [
+     "in",
+     27.22,
+     27.503
+    ],
+    [
+     "1975.",
+     27.503,
+     28.139
+    ],
+    [
+     "Telegraph",
+     28.492,
+     29.269
+    ],
+    [
+     "companies",
+     29.269,
+     30.047
+    ],
+    [
+     "quietly",
+     30.047,
+     30.682
+    ],
+    [
+     "handed",
+     30.682,
+     31.248
+    ],
+    [
+     "over",
+     31.248,
+     31.672
+    ],
+    [
+     "the",
+     31.672,
+     32.025
+    ],
+    [
+     "messages.",
+     32.025,
+     32.732
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 33.835,
+   "voiceEnd": 35.551,
+   "end": 36.651,
+   "words": [
+    [
+     "Go",
+     33.835,
+     34.018
+    ],
+    [
+     "deeper,",
+     34.018,
+     34.384
+    ],
+    [
+     "on",
+     34.498,
+     34.681
+    ],
+    [
+     "Rabbit",
+     34.681,
+     35.047
+    ],
+    [
+     "Hole.",
+     35.047,
+     35.322
+    ]
+   ]
+  }
+ ]
+}

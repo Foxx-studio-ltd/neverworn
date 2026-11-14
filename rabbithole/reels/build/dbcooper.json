@@ -1,0 +1,391 @@
+{
+ "reel": "dbcooper",
+ "voice": "bm_george",
+ "speed": 1.0,
+ "file": "6766",
+ "hole": "Unsolved",
+ "hue": 320,
+ "caseId": "dbcooper",
+ "duration": 34.278,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "A hijacker jumped out of a jet with $200,000 and was never found.",
+   "date": "1971",
+   "label": "Unsolved",
+   "start": 0.35,
+   "voiceEnd": 5.677,
+   "end": 6.427,
+   "words": [
+    [
+     "A",
+     0.35,
+     0.54
+    ],
+    [
+     "hijacker",
+     0.54,
+     1.174
+    ],
+    [
+     "jumped",
+     1.174,
+     1.682
+    ],
+    [
+     "out",
+     1.682,
+     1.999
+    ],
+    [
+     "of",
+     1.999,
+     2.252
+    ],
+    [
+     "a",
+     2.252,
+     2.443
+    ],
+    [
+     "jet",
+     2.443,
+     2.76
+    ],
+    [
+     "with",
+     2.76,
+     3.14
+    ],
+    [
+     "$200,000",
+     3.14,
+     3.838
+    ],
+    [
+     "and",
+     3.838,
+     4.155
+    ],
+    [
+     "was",
+     4.155,
+     4.472
+    ],
+    [
+     "never",
+     4.472,
+     4.916
+    ],
+    [
+     "found.",
+     4.916,
+     5.36
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "He called himself [[Dan Cooper]].",
+   "text": "He called himself Dan Cooper.",
+   "start": 6.427,
+   "voiceEnd": 8.66,
+   "end": 9.16,
+   "words": [
+    [
+     "He",
+     6.427,
+     6.656
+    ],
+    [
+     "called",
+     6.656,
+     7.114
+    ],
+    [
+     "himself",
+     7.114,
+     7.629
+    ],
+    [
+     "Dan",
+     7.629,
+     7.916
+    ],
+    [
+     "Cooper.",
+     7.916,
+     8.374
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "He jumped somewhere over the [[Pacific Northwest]].",
+   "text": "He jumped somewhere over the Pacific Northwest.",
+   "start": 9.16,
+   "voiceEnd": 12.201,
+   "end": 12.701,
+   "words": [
+    [
+     "He",
+     9.16,
+     9.366
+    ],
+    [
+     "jumped",
+     9.366,
+     9.778
+    ],
+    [
+     "somewhere",
+     9.778,
+     10.346
+    ],
+    [
+     "over",
+     10.346,
+     10.655
+    ],
+    [
+     "the",
+     10.655,
+     10.913
+    ],
+    [
+     "Pacific",
+     10.913,
+     11.376
+    ],
+    [
+     "Northwest.",
+     11.376,
+     11.943
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "In 1980 a boy found [[$6,000]] of the cash by a river.",
+   "text": "In 1980 a boy found $6,000 of the cash by a river.",
+   "start": 12.701,
+   "voiceEnd": 17.628,
+   "end": 18.128,
+   "words": [
+    [
+     "In",
+     12.701,
+     12.979
+    ],
+    [
+     "1980",
+     12.979,
+     13.603
+    ],
+    [
+     "a",
+     13.603,
+     13.811
+    ],
+    [
+     "boy",
+     13.811,
+     14.158
+    ],
+    [
+     "found",
+     14.158,
+     14.644
+    ],
+    [
+     "$6,000",
+     14.644,
+     15.269
+    ],
+    [
+     "of",
+     15.269,
+     15.546
+    ],
+    [
+     "the",
+     15.546,
+     15.893
+    ],
+    [
+     "cash",
+     15.893,
+     16.31
+    ],
+    [
+     "by",
+     16.31,
+     16.587
+    ],
+    [
+     "a",
+     16.587,
+     16.795
+    ],
+    [
+     "river.",
+     16.795,
+     17.281
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 18.128,
+   "voiceEnd": 19.825,
+   "end": 21.225,
+   "words": [
+    [
+     "So.",
+     18.128,
+     18.337
+    ],
+    [
+     "Real,",
+     18.598,
+     18.911
+    ],
+    [
+     "or",
+     19.041,
+     19.25
+    ],
+    [
+     "fake?",
+     19.25,
+     19.564
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. D. B. Cooper was never identified. The FBI suspended its active investigation in 2016.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "FBI, D.B. Cooper case",
+   "start": 21.225,
+   "voiceEnd": 29.184,
+   "end": 29.934,
+   "words": [
+    [
+     "Real.",
+     21.225,
+     21.589
+    ],
+    [
+     "D.",
+     21.893,
+     22.075
+    ],
+    [
+     "B.",
+     22.379,
+     22.561
+    ],
+    [
+     "Cooper",
+     22.865,
+     23.351
+    ],
+    [
+     "was",
+     23.351,
+     23.655
+    ],
+    [
+     "never",
+     23.655,
+     24.08
+    ],
+    [
+     "identified.",
+     24.08,
+     24.809
+    ],
+    [
+     "The",
+     25.113,
+     25.417
+    ],
+    [
+     "FBI",
+     25.417,
+     25.721
+    ],
+    [
+     "suspended",
+     25.721,
+     26.389
+    ],
+    [
+     "its",
+     26.389,
+     26.693
+    ],
+    [
+     "active",
+     26.693,
+     27.179
+    ],
+    [
+     "investigation",
+     27.179,
+     28.09
+    ],
+    [
+     "in",
+     28.09,
+     28.334
+    ],
+    [
+     "2016.",
+     28.334,
+     28.88
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 29.934,
+   "voiceEnd": 31.978,
+   "end": 33.078,
+   "words": [
+    [
+     "Go",
+     29.934,
+     30.152
+    ],
+    [
+     "deeper,",
+     30.152,
+     30.588
+    ],
+    [
+     "on",
+     30.725,
+     30.943
+    ],
+    [
+     "Rabbit",
+     30.943,
+     31.379
+    ],
+    [
+     "Hole.",
+     31.379,
+     31.706
+    ]
+   ]
+  }
+ ]
+}

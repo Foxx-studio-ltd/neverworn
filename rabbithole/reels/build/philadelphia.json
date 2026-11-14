@@ -1,0 +1,391 @@
+{
+ "reel": "philadelphia",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "7933",
+ "hole": "Too Good to Be True",
+ "hue": 230,
+ "caseId": "philadelphia",
+ "duration": 28.803,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "In 1943 the Navy made a warship invisible and teleported it.",
+   "date": "1943",
+   "label": "Too Good to Be True",
+   "start": 0.35,
+   "voiceEnd": 4.986,
+   "end": 5.736,
+   "words": [
+    [
+     "In",
+     0.35,
+     0.585
+    ],
+    [
+     "1943",
+     0.585,
+     1.113
+    ],
+    [
+     "the",
+     1.113,
+     1.406
+    ],
+    [
+     "Navy",
+     1.406,
+     1.758
+    ],
+    [
+     "made",
+     1.758,
+     2.11
+    ],
+    [
+     "a",
+     2.11,
+     2.287
+    ],
+    [
+     "warship",
+     2.287,
+     2.815
+    ],
+    [
+     "invisible",
+     2.815,
+     3.46
+    ],
+    [
+     "and",
+     3.46,
+     3.754
+    ],
+    [
+     "teleported",
+     3.754,
+     4.458
+    ],
+    [
+     "it.",
+     4.458,
+     4.692
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The ship was the destroyer escort [[USS Eldridge]].",
+   "text": "The ship was the destroyer escort USS Eldridge.",
+   "start": 5.736,
+   "voiceEnd": 9.207,
+   "end": 9.707,
+   "words": [
+    [
+     "The",
+     5.736,
+     6.025
+    ],
+    [
+     "ship",
+     6.025,
+     6.372
+    ],
+    [
+     "was",
+     6.372,
+     6.662
+    ],
+    [
+     "the",
+     6.662,
+     6.951
+    ],
+    [
+     "destroyer",
+     6.951,
+     7.587
+    ],
+    [
+     "escort",
+     7.587,
+     8.05
+    ],
+    [
+     "USS",
+     8.05,
+     8.339
+    ],
+    [
+     "Eldridge.",
+     8.339,
+     8.918
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The story began with letters from \"[[Carlos Allende]]\".",
+   "text": "The story began with letters from \"Carlos Allende\".",
+   "start": 9.707,
+   "voiceEnd": 12.371,
+   "end": 12.871,
+   "words": [
+    [
+     "The",
+     9.707,
+     9.922
+    ],
+    [
+     "story",
+     9.922,
+     10.223
+    ],
+    [
+     "began",
+     10.223,
+     10.524
+    ],
+    [
+     "with",
+     10.524,
+     10.781
+    ],
+    [
+     "letters",
+     10.781,
+     11.168
+    ],
+    [
+     "from",
+     11.168,
+     11.426
+    ],
+    [
+     "\"Carlos",
+     11.426,
+     11.769
+    ],
+    [
+     "Allende\".",
+     11.769,
+     12.156
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The Navy says its records [[don't match]].",
+   "text": "The Navy says its records don't match.",
+   "start": 12.871,
+   "voiceEnd": 14.75,
+   "end": 15.25,
+   "words": [
+    [
+     "The",
+     12.871,
+     13.063
+    ],
+    [
+     "Navy",
+     13.063,
+     13.293
+    ],
+    [
+     "says",
+     13.293,
+     13.523
+    ],
+    [
+     "its",
+     13.523,
+     13.715
+    ],
+    [
+     "records",
+     13.715,
+     14.06
+    ],
+    [
+     "don't",
+     14.06,
+     14.29
+    ],
+    [
+     "match.",
+     14.29,
+     14.558
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 15.25,
+   "voiceEnd": 16.698,
+   "end": 18.098,
+   "words": [
+    [
+     "So.",
+     15.25,
+     15.428
+    ],
+    [
+     "Real,",
+     15.651,
+     15.918
+    ],
+    [
+     "or",
+     16.029,
+     16.208
+    ],
+    [
+     "fake?",
+     16.208,
+     16.475
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Fake. The story began with letters from a man called Carl Allen. The Navy says it never happened.",
+   "verdict": "FAKE",
+   "cls": "red",
+   "source": "US Naval History and Heritage Command",
+   "start": 18.098,
+   "voiceEnd": 24.187,
+   "end": 24.937,
+   "words": [
+    [
+     "Fake.",
+     18.098,
+     18.383
+    ],
+    [
+     "The",
+     18.621,
+     18.859
+    ],
+    [
+     "story",
+     18.859,
+     19.192
+    ],
+    [
+     "began",
+     19.192,
+     19.525
+    ],
+    [
+     "with",
+     19.525,
+     19.81
+    ],
+    [
+     "letters",
+     19.81,
+     20.238
+    ],
+    [
+     "from",
+     20.238,
+     20.524
+    ],
+    [
+     "a",
+     20.524,
+     20.666
+    ],
+    [
+     "man",
+     20.666,
+     20.904
+    ],
+    [
+     "called",
+     20.904,
+     21.285
+    ],
+    [
+     "Carl",
+     21.285,
+     21.57
+    ],
+    [
+     "Allen.",
+     21.57,
+     21.903
+    ],
+    [
+     "The",
+     22.141,
+     22.379
+    ],
+    [
+     "Navy",
+     22.379,
+     22.664
+    ],
+    [
+     "says",
+     22.664,
+     22.95
+    ],
+    [
+     "it",
+     22.95,
+     23.14
+    ],
+    [
+     "never",
+     23.14,
+     23.473
+    ],
+    [
+     "happened.",
+     23.473,
+     23.949
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 24.937,
+   "voiceEnd": 26.503,
+   "end": 27.603,
+   "words": [
+    [
+     "Go",
+     24.937,
+     25.104
+    ],
+    [
+     "deeper,",
+     25.104,
+     25.438
+    ],
+    [
+     "on",
+     25.542,
+     25.71
+    ],
+    [
+     "Rabbit",
+     25.71,
+     26.044
+    ],
+    [
+     "Hole.",
+     26.044,
+     26.294
+    ]
+   ]
+  }
+ ]
+}

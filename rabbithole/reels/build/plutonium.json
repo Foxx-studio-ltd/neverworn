@@ -1,0 +1,331 @@
+{
+ "reel": "plutonium",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "4853",
+ "hole": "Human Subjects",
+ "hue": 38,
+ "caseId": "plutonium",
+ "duration": 29.117,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Hospital patients were secretly injected with plutonium.",
+   "date": "1945",
+   "label": "Human Subjects",
+   "start": 0.35,
+   "voiceEnd": 4.128,
+   "end": 4.878,
+   "words": [
+    [
+     "Hospital",
+     0.35,
+     0.906
+    ],
+    [
+     "patients",
+     0.906,
+     1.461
+    ],
+    [
+     "were",
+     1.461,
+     1.795
+    ],
+    [
+     "secretly",
+     1.795,
+     2.35
+    ],
+    [
+     "injected",
+     2.35,
+     2.906
+    ],
+    [
+     "with",
+     2.906,
+     3.239
+    ],
+    [
+     "plutonium.",
+     3.239,
+     3.851
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The first was [[Ebb Cade]], in 1945.",
+   "text": "The first was Ebb Cade, in 1945.",
+   "start": 4.878,
+   "voiceEnd": 8.11,
+   "end": 8.61,
+   "words": [
+    [
+     "The",
+     4.878,
+     5.212
+    ],
+    [
+     "first",
+     5.212,
+     5.678
+    ],
+    [
+     "was",
+     5.678,
+     6.011
+    ],
+    [
+     "Ebb",
+     6.011,
+     6.344
+    ],
+    [
+     "Cade,",
+     6.344,
+     6.744
+    ],
+    [
+     "in",
+     6.91,
+     7.177
+    ],
+    [
+     "1945.",
+     7.177,
+     7.776
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "It happened at [[Oak Ridge]], Tennessee.",
+   "text": "It happened at Oak Ridge, Tennessee.",
+   "start": 8.61,
+   "voiceEnd": 10.674,
+   "end": 11.174,
+   "words": [
+    [
+     "It",
+     8.61,
+     8.78
+    ],
+    [
+     "happened",
+     8.78,
+     9.206
+    ],
+    [
+     "at",
+     9.206,
+     9.376
+    ],
+    [
+     "Oak",
+     9.376,
+     9.589
+    ],
+    [
+     "Ridge,",
+     9.589,
+     9.887
+    ],
+    [
+     "Tennessee.",
+     9.993,
+     10.462
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Patients [[weren't told]].",
+   "text": "Patients weren't told.",
+   "start": 11.174,
+   "voiceEnd": 12.387,
+   "end": 12.887,
+   "words": [
+    [
+     "Patients",
+     11.174,
+     11.592
+    ],
+    [
+     "weren't",
+     11.592,
+     11.927
+    ],
+    [
+     "told.",
+     11.927,
+     12.178
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 12.887,
+   "voiceEnd": 14.224,
+   "end": 15.624,
+   "words": [
+    [
+     "So.",
+     12.887,
+     13.051
+    ],
+    [
+     "Real,",
+     13.257,
+     13.504
+    ],
+    [
+     "or",
+     13.607,
+     13.772
+    ],
+    [
+     "fake?",
+     13.772,
+     14.018
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The plutonium injections were real. Patients weren't told, and the US government later investigated the experiments.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Advisory Committee on Human Radiation Experiments, 1995",
+   "start": 15.624,
+   "voiceEnd": 24.351,
+   "end": 25.101,
+   "words": [
+    [
+     "Real.",
+     15.624,
+     15.968
+    ],
+    [
+     "The",
+     16.254,
+     16.54
+    ],
+    [
+     "plutonium",
+     16.54,
+     17.169
+    ],
+    [
+     "injections",
+     17.169,
+     17.856
+    ],
+    [
+     "were",
+     17.856,
+     18.199
+    ],
+    [
+     "real.",
+     18.199,
+     18.543
+    ],
+    [
+     "Patients",
+     18.829,
+     19.401
+    ],
+    [
+     "weren't",
+     19.401,
+     19.859
+    ],
+    [
+     "told,",
+     19.859,
+     20.202
+    ],
+    [
+     "and",
+     20.345,
+     20.632
+    ],
+    [
+     "the",
+     20.632,
+     20.918
+    ],
+    [
+     "US",
+     20.918,
+     21.147
+    ],
+    [
+     "government",
+     21.147,
+     21.833
+    ],
+    [
+     "later",
+     21.833,
+     22.234
+    ],
+    [
+     "investigated",
+     22.234,
+     23.035
+    ],
+    [
+     "the",
+     23.035,
+     23.321
+    ],
+    [
+     "experiments.",
+     23.321,
+     24.065
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 25.101,
+   "voiceEnd": 26.817,
+   "end": 27.917,
+   "words": [
+    [
+     "Go",
+     25.101,
+     25.284
+    ],
+    [
+     "deeper,",
+     25.284,
+     25.651
+    ],
+    [
+     "on",
+     25.765,
+     25.948
+    ],
+    [
+     "Rabbit",
+     25.948,
+     26.314
+    ],
+    [
+     "Hole.",
+     26.314,
+     26.589
+    ]
+   ]
+  }
+ ]
+}

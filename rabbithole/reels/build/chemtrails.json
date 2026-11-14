@@ -1,0 +1,356 @@
+{
+ "reel": "chemtrails",
+ "voice": "bm_george",
+ "speed": 1.0,
+ "file": "2242",
+ "hole": "Too Good to Be True",
+ "hue": 230,
+ "caseId": "chemtrails",
+ "duration": 34.34,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Plane trails are chemicals sprayed on purpose.",
+   "date": "1996",
+   "label": "Too Good to Be True",
+   "start": 0.35,
+   "voiceEnd": 3.372,
+   "end": 4.122,
+   "words": [
+    [
+     "Plane",
+     0.35,
+     0.715
+    ],
+    [
+     "trails",
+     0.715,
+     1.132
+    ],
+    [
+     "are",
+     1.132,
+     1.392
+    ],
+    [
+     "chemicals",
+     1.392,
+     1.965
+    ],
+    [
+     "sprayed",
+     1.965,
+     2.434
+    ],
+    [
+     "on",
+     2.434,
+     2.643
+    ],
+    [
+     "purpose.",
+     2.643,
+     3.112
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "Scientists surveyed in 2016: [[77]].",
+   "text": "Scientists surveyed in 2016: 77.",
+   "start": 4.122,
+   "voiceEnd": 7.882,
+   "end": 8.382,
+   "words": [
+    [
+     "Scientists",
+     4.122,
+     5.082
+    ],
+    [
+     "surveyed",
+     5.082,
+     5.882
+    ],
+    [
+     "in",
+     5.882,
+     6.202
+    ],
+    [
+     "2016:",
+     6.202,
+     6.922
+    ],
+    [
+     "77.",
+     6.922,
+     7.482
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Who found evidence of a secret program: [[1]].",
+   "text": "Who found evidence of a secret program: 1.",
+   "start": 8.382,
+   "voiceEnd": 11.682,
+   "end": 12.182,
+   "words": [
+    [
+     "Who",
+     8.382,
+     8.671
+    ],
+    [
+     "found",
+     8.671,
+     9.077
+    ],
+    [
+     "evidence",
+     9.077,
+     9.656
+    ],
+    [
+     "of",
+     9.656,
+     9.887
+    ],
+    [
+     "a",
+     9.887,
+     10.061
+    ],
+    [
+     "secret",
+     10.061,
+     10.524
+    ],
+    [
+     "program:",
+     10.524,
+     11.045
+    ],
+    [
+     "1.",
+     11.045,
+     11.393
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Contrails are mostly [[ice crystals]].",
+   "text": "Contrails are mostly ice crystals.",
+   "start": 12.182,
+   "voiceEnd": 14.861,
+   "end": 15.361,
+   "words": [
+    [
+     "Contrails",
+     12.182,
+     12.852
+    ],
+    [
+     "are",
+     12.852,
+     13.156
+    ],
+    [
+     "mostly",
+     13.156,
+     13.643
+    ],
+    [
+     "ice",
+     13.643,
+     13.948
+    ],
+    [
+     "crystals.",
+     13.948,
+     14.557
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 15.361,
+   "voiceEnd": 17.058,
+   "end": 18.458,
+   "words": [
+    [
+     "So.",
+     15.361,
+     15.57
+    ],
+    [
+     "Real,",
+     15.831,
+     16.144
+    ],
+    [
+     "or",
+     16.275,
+     16.483
+    ],
+    [
+     "fake?",
+     16.483,
+     16.797
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Fake. In a 2016 survey, 76 out of 77 atmospheric scientists had seen no evidence. Contrails are frozen water vapour.",
+   "verdict": "FAKE",
+   "cls": "red",
+   "source": "Carnegie Institution for Science, 2016",
+   "start": 18.458,
+   "voiceEnd": 29.246,
+   "end": 29.996,
+   "words": [
+    [
+     "Fake.",
+     18.458,
+     18.864
+    ],
+    [
+     "In",
+     19.202,
+     19.472
+    ],
+    [
+     "a",
+     19.472,
+     19.675
+    ],
+    [
+     "2016",
+     19.675,
+     20.284
+    ],
+    [
+     "survey,",
+     20.284,
+     20.825
+    ],
+    [
+     "76",
+     20.994,
+     21.467
+    ],
+    [
+     "out",
+     21.467,
+     21.806
+    ],
+    [
+     "of",
+     21.806,
+     22.076
+    ],
+    [
+     "77",
+     22.076,
+     22.55
+    ],
+    [
+     "atmospheric",
+     22.55,
+     23.429
+    ],
+    [
+     "scientists",
+     23.429,
+     24.241
+    ],
+    [
+     "had",
+     24.241,
+     24.579
+    ],
+    [
+     "seen",
+     24.579,
+     24.985
+    ],
+    [
+     "no",
+     24.985,
+     25.255
+    ],
+    [
+     "evidence.",
+     25.255,
+     25.931
+    ],
+    [
+     "Contrails",
+     26.27,
+     27.014
+    ],
+    [
+     "are",
+     27.014,
+     27.352
+    ],
+    [
+     "frozen",
+     27.352,
+     27.893
+    ],
+    [
+     "water",
+     27.893,
+     28.366
+    ],
+    [
+     "vapour.",
+     28.366,
+     28.907
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 29.996,
+   "voiceEnd": 32.04,
+   "end": 33.14,
+   "words": [
+    [
+     "Go",
+     29.996,
+     30.214
+    ],
+    [
+     "deeper,",
+     30.214,
+     30.65
+    ],
+    [
+     "on",
+     30.786,
+     31.004
+    ],
+    [
+     "Rabbit",
+     31.004,
+     31.44
+    ],
+    [
+     "Hole.",
+     31.44,
+     31.767
+    ]
+   ]
+  }
+ ]
+}

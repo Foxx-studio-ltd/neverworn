@@ -1,0 +1,371 @@
+{
+ "reel": "voynich",
+ "voice": "bm_george",
+ "speed": 1.0,
+ "file": "7885",
+ "hole": "Unsolved",
+ "hue": 320,
+ "caseId": "voynich",
+ "duration": 31.869,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "A 600-year-old book is written in a language nobody can read.",
+   "date": "1404",
+   "label": "Unsolved",
+   "start": 0.35,
+   "voiceEnd": 4.977,
+   "end": 5.727,
+   "words": [
+    [
+     "A",
+     0.35,
+     0.528
+    ],
+    [
+     "600-year-old",
+     0.528,
+     1.418
+    ],
+    [
+     "book",
+     1.418,
+     1.774
+    ],
+    [
+     "is",
+     1.774,
+     2.011
+    ],
+    [
+     "written",
+     2.011,
+     2.545
+    ],
+    [
+     "in",
+     2.545,
+     2.782
+    ],
+    [
+     "a",
+     2.782,
+     2.96
+    ],
+    [
+     "language",
+     2.96,
+     3.553
+    ],
+    [
+     "nobody",
+     3.553,
+     4.028
+    ],
+    [
+     "can",
+     4.028,
+     4.324
+    ],
+    [
+     "read.",
+     4.324,
+     4.68
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "It's called the [[Voynich manuscript]].",
+   "text": "It's called the Voynich manuscript.",
+   "start": 5.727,
+   "voiceEnd": 7.967,
+   "end": 8.467,
+   "words": [
+    [
+     "It's",
+     5.727,
+     5.981
+    ],
+    [
+     "called",
+     5.981,
+     6.389
+    ],
+    [
+     "the",
+     6.389,
+     6.643
+    ],
+    [
+     "Voynich",
+     6.643,
+     7.101
+    ],
+    [
+     "manuscript.",
+     7.101,
+     7.712
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Its pages were carbon-dated to [[1404 to 1438]].",
+   "text": "Its pages were carbon-dated to 1404 to 1438.",
+   "start": 8.467,
+   "voiceEnd": 13.305,
+   "end": 13.805,
+   "words": [
+    [
+     "Its",
+     8.467,
+     8.857
+    ],
+    [
+     "pages",
+     8.857,
+     9.403
+    ],
+    [
+     "were",
+     9.403,
+     9.871
+    ],
+    [
+     "carbon-dated",
+     9.871,
+     10.886
+    ],
+    [
+     "to",
+     10.886,
+     11.198
+    ],
+    [
+     "1404",
+     11.198,
+     11.9
+    ],
+    [
+     "to",
+     11.9,
+     12.212
+    ],
+    [
+     "1438.",
+     12.212,
+     12.915
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "It's kept at [[Yale]].",
+   "text": "It's kept at Yale.",
+   "start": 13.805,
+   "voiceEnd": 15.122,
+   "end": 15.622,
+   "words": [
+    [
+     "It's",
+     13.805,
+     14.058
+    ],
+    [
+     "kept",
+     14.058,
+     14.362
+    ],
+    [
+     "at",
+     14.362,
+     14.565
+    ],
+    [
+     "Yale.",
+     14.565,
+     14.868
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 15.622,
+   "voiceEnd": 17.318,
+   "end": 18.718,
+   "words": [
+    [
+     "So.",
+     15.622,
+     15.83
+    ],
+    [
+     "Real,",
+     16.092,
+     16.405
+    ],
+    [
+     "or",
+     16.535,
+     16.744
+    ],
+    [
+     "fake?",
+     16.744,
+     17.057
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Nobody knows. The Voynich manuscript has never been deciphered. Nobody knows if it's a code, a language or a hoax.",
+   "verdict": "UNEXPLAINED",
+   "cls": "ylw",
+   "source": "Beinecke Library, Yale University",
+   "start": 18.718,
+   "voiceEnd": 26.775,
+   "end": 27.525,
+   "words": [
+    [
+     "Nobody",
+     18.718,
+     19.155
+    ],
+    [
+     "knows.",
+     19.155,
+     19.538
+    ],
+    [
+     "The",
+     19.811,
+     20.084
+    ],
+    [
+     "Voynich",
+     20.084,
+     20.575
+    ],
+    [
+     "manuscript",
+     20.575,
+     21.231
+    ],
+    [
+     "has",
+     21.231,
+     21.504
+    ],
+    [
+     "never",
+     21.504,
+     21.886
+    ],
+    [
+     "been",
+     21.886,
+     22.214
+    ],
+    [
+     "deciphered.",
+     22.214,
+     22.87
+    ],
+    [
+     "Nobody",
+     23.143,
+     23.58
+    ],
+    [
+     "knows",
+     23.58,
+     23.962
+    ],
+    [
+     "if",
+     23.962,
+     24.181
+    ],
+    [
+     "it's",
+     24.181,
+     24.454
+    ],
+    [
+     "a",
+     24.454,
+     24.618
+    ],
+    [
+     "code,",
+     24.618,
+     24.945
+    ],
+    [
+     "a",
+     25.082,
+     25.246
+    ],
+    [
+     "language",
+     25.246,
+     25.792
+    ],
+    [
+     "or",
+     25.792,
+     26.01
+    ],
+    [
+     "a",
+     26.01,
+     26.174
+    ],
+    [
+     "hoax.",
+     26.174,
+     26.502
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 27.525,
+   "voiceEnd": 29.569,
+   "end": 30.669,
+   "words": [
+    [
+     "Go",
+     27.525,
+     27.743
+    ],
+    [
+     "deeper,",
+     27.743,
+     28.179
+    ],
+    [
+     "on",
+     28.315,
+     28.534
+    ],
+    [
+     "Rabbit",
+     28.534,
+     28.97
+    ],
+    [
+     "Hole.",
+     28.97,
+     29.297
+    ]
+   ]
+  }
+ ]
+}

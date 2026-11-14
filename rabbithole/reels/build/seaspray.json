@@ -1,0 +1,381 @@
+{
+ "reel": "seaspray",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "6814",
+ "hole": "Human Subjects",
+ "hue": 38,
+ "caseId": "seaspray",
+ "duration": 28.186,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The US Navy secretly sprayed bacteria over San Francisco.",
+   "date": "1950",
+   "label": "Human Subjects",
+   "start": 0.35,
+   "voiceEnd": 4.469,
+   "end": 5.219,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.64
+    ],
+    [
+     "US",
+     0.64,
+     0.872
+    ],
+    [
+     "Navy",
+     0.872,
+     1.22
+    ],
+    [
+     "secretly",
+     1.22,
+     1.8
+    ],
+    [
+     "sprayed",
+     1.8,
+     2.322
+    ],
+    [
+     "bacteria",
+     2.322,
+     2.903
+    ],
+    [
+     "over",
+     2.903,
+     3.251
+    ],
+    [
+     "San",
+     3.251,
+     3.541
+    ],
+    [
+     "Francisco.",
+     3.541,
+     4.179
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The test was called Operation [[Sea-Spray]].",
+   "text": "The test was called Operation Sea-Spray.",
+   "start": 5.219,
+   "voiceEnd": 7.389,
+   "end": 7.889,
+   "words": [
+    [
+     "The",
+     5.219,
+     5.436
+    ],
+    [
+     "test",
+     5.436,
+     5.696
+    ],
+    [
+     "was",
+     5.696,
+     5.913
+    ],
+    [
+     "called",
+     5.913,
+     6.26
+    ],
+    [
+     "Operation",
+     6.26,
+     6.738
+    ],
+    [
+     "Sea-Spray.",
+     6.738,
+     7.172
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "A ship released the bacteria [[off the coast]].",
+   "text": "A ship released the bacteria off the coast.",
+   "start": 7.889,
+   "voiceEnd": 10.151,
+   "end": 10.651,
+   "words": [
+    [
+     "A",
+     7.889,
+     8.01
+    ],
+    [
+     "ship",
+     8.01,
+     8.252
+    ],
+    [
+     "released",
+     8.252,
+     8.656
+    ],
+    [
+     "the",
+     8.656,
+     8.858
+    ],
+    [
+     "bacteria",
+     8.858,
+     9.262
+    ],
+    [
+     "off",
+     9.262,
+     9.464
+    ],
+    [
+     "the",
+     9.464,
+     9.666
+    ],
+    [
+     "coast.",
+     9.666,
+     9.949
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Nobody in the city was [[told]].",
+   "text": "Nobody in the city was told.",
+   "start": 10.651,
+   "voiceEnd": 12.177,
+   "end": 12.677,
+   "words": [
+    [
+     "Nobody",
+     10.651,
+     10.964
+    ],
+    [
+     "in",
+     10.964,
+     11.12
+    ],
+    [
+     "the",
+     11.12,
+     11.316
+    ],
+    [
+     "city",
+     11.316,
+     11.551
+    ],
+    [
+     "was",
+     11.551,
+     11.747
+    ],
+    [
+     "told.",
+     11.747,
+     11.981
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 12.677,
+   "voiceEnd": 14.045,
+   "end": 15.445,
+   "words": [
+    [
+     "So.",
+     12.677,
+     12.845
+    ],
+    [
+     "Real,",
+     13.056,
+     13.309
+    ],
+    [
+     "or",
+     13.414,
+     13.582
+    ],
+    [
+     "fake?",
+     13.582,
+     13.835
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. In 1950 the Navy sprayed bacteria over San Francisco to test a germ attack. Nobody in the city was told.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "US Senate hearings, 1977",
+   "start": 15.445,
+   "voiceEnd": 23.564,
+   "end": 24.314,
+   "words": [
+    [
+     "Real.",
+     15.445,
+     15.777
+    ],
+    [
+     "In",
+     16.053,
+     16.274
+    ],
+    [
+     "1950",
+     16.274,
+     16.771
+    ],
+    [
+     "the",
+     16.771,
+     17.047
+    ],
+    [
+     "Navy",
+     17.047,
+     17.379
+    ],
+    [
+     "sprayed",
+     17.379,
+     17.876
+    ],
+    [
+     "bacteria",
+     17.876,
+     18.428
+    ],
+    [
+     "over",
+     18.428,
+     18.759
+    ],
+    [
+     "San",
+     18.759,
+     19.035
+    ],
+    [
+     "Francisco",
+     19.035,
+     19.643
+    ],
+    [
+     "to",
+     19.643,
+     19.864
+    ],
+    [
+     "test",
+     19.864,
+     20.195
+    ],
+    [
+     "a",
+     20.195,
+     20.361
+    ],
+    [
+     "germ",
+     20.361,
+     20.692
+    ],
+    [
+     "attack.",
+     20.692,
+     21.134
+    ],
+    [
+     "Nobody",
+     21.41,
+     21.852
+    ],
+    [
+     "in",
+     21.852,
+     22.073
+    ],
+    [
+     "the",
+     22.073,
+     22.349
+    ],
+    [
+     "city",
+     22.349,
+     22.681
+    ],
+    [
+     "was",
+     22.681,
+     22.957
+    ],
+    [
+     "told.",
+     22.957,
+     23.288
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 24.314,
+   "voiceEnd": 25.886,
+   "end": 26.986,
+   "words": [
+    [
+     "Go",
+     24.314,
+     24.482
+    ],
+    [
+     "deeper,",
+     24.482,
+     24.817
+    ],
+    [
+     "on",
+     24.922,
+     25.09
+    ],
+    [
+     "Rabbit",
+     25.09,
+     25.425
+    ],
+    [
+     "Hole.",
+     25.425,
+     25.677
+    ]
+   ]
+  }
+ ]
+}

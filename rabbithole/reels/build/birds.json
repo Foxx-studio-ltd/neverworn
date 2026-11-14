@@ -1,0 +1,346 @@
+{
+ "reel": "birds",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "9052",
+ "hole": "Too Good to Be True",
+ "hue": 230,
+ "caseId": "birds",
+ "duration": 26.908,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Birds aren't real. They're government surveillance drones.",
+   "date": "2017",
+   "label": "Too Good to Be True",
+   "start": 0.35,
+   "voiceEnd": 3.427,
+   "end": 4.177,
+   "words": [
+    [
+     "Birds",
+     0.35,
+     0.649
+    ],
+    [
+     "aren't",
+     0.649,
+     0.948
+    ],
+    [
+     "real.",
+     0.948,
+     1.205
+    ],
+    [
+     "They're",
+     1.418,
+     1.76
+    ],
+    [
+     "government",
+     1.76,
+     2.273
+    ],
+    [
+     "surveillance",
+     2.273,
+     2.871
+    ],
+    [
+     "drones.",
+     2.871,
+     3.213
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The movement began in [[2017]].",
+   "text": "The movement began in 2017.",
+   "start": 4.177,
+   "voiceEnd": 6.396,
+   "end": 6.896,
+   "words": [
+    [
+     "The",
+     4.177,
+     4.454
+    ],
+    [
+     "movement",
+     4.454,
+     5.009
+    ],
+    [
+     "began",
+     5.009,
+     5.397
+    ],
+    [
+     "in",
+     5.397,
+     5.619
+    ],
+    [
+     "2017.",
+     5.619,
+     6.119
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Its founder is [[Peter McIndoe]].",
+   "text": "Its founder is Peter McIndoe.",
+   "start": 6.896,
+   "voiceEnd": 8.619,
+   "end": 9.119,
+   "words": [
+    [
+     "Its",
+     6.896,
+     7.117
+    ],
+    [
+     "founder",
+     7.117,
+     7.515
+    ],
+    [
+     "is",
+     7.515,
+     7.691
+    ],
+    [
+     "Peter",
+     7.691,
+     8.0
+    ],
+    [
+     "McIndoe.",
+     8.0,
+     8.398
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "In 2021 he confirmed it was [[satire]].",
+   "text": "In 2021 he confirmed it was satire.",
+   "start": 9.119,
+   "voiceEnd": 11.892,
+   "end": 12.392,
+   "words": [
+    [
+     "In",
+     9.119,
+     9.341
+    ],
+    [
+     "2021",
+     9.341,
+     9.84
+    ],
+    [
+     "he",
+     9.84,
+     10.062
+    ],
+    [
+     "confirmed",
+     10.062,
+     10.672
+    ],
+    [
+     "it",
+     10.672,
+     10.893
+    ],
+    [
+     "was",
+     10.893,
+     11.171
+    ],
+    [
+     "satire.",
+     11.171,
+     11.614
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 12.392,
+   "voiceEnd": 13.839,
+   "end": 15.239,
+   "words": [
+    [
+     "So.",
+     12.392,
+     12.57
+    ],
+    [
+     "Real,",
+     12.793,
+     13.06
+    ],
+    [
+     "or",
+     13.171,
+     13.349
+    ],
+    [
+     "fake?",
+     13.349,
+     13.616
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Fake. Birds Aren't Real is a joke. Its founder confirmed in 2021 that it was satire from the start.",
+   "verdict": "FAKE",
+   "cls": "red",
+   "source": "The New York Times, 2021",
+   "start": 15.239,
+   "voiceEnd": 22.291,
+   "end": 23.041,
+   "words": [
+    [
+     "Fake.",
+     15.239,
+     15.557
+    ],
+    [
+     "Birds",
+     15.822,
+     16.194
+    ],
+    [
+     "Aren't",
+     16.194,
+     16.565
+    ],
+    [
+     "Real",
+     16.565,
+     16.883
+    ],
+    [
+     "is",
+     16.883,
+     17.095
+    ],
+    [
+     "a",
+     17.095,
+     17.254
+    ],
+    [
+     "joke.",
+     17.254,
+     17.572
+    ],
+    [
+     "Its",
+     17.837,
+     18.103
+    ],
+    [
+     "founder",
+     18.103,
+     18.58
+    ],
+    [
+     "confirmed",
+     18.58,
+     19.163
+    ],
+    [
+     "in",
+     19.163,
+     19.375
+    ],
+    [
+     "2021",
+     19.375,
+     19.852
+    ],
+    [
+     "that",
+     19.852,
+     20.17
+    ],
+    [
+     "it",
+     20.17,
+     20.383
+    ],
+    [
+     "was",
+     20.383,
+     20.648
+    ],
+    [
+     "satire",
+     20.648,
+     21.072
+    ],
+    [
+     "from",
+     21.072,
+     21.39
+    ],
+    [
+     "the",
+     21.39,
+     21.655
+    ],
+    [
+     "start.",
+     21.655,
+     22.026
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 23.041,
+   "voiceEnd": 24.608,
+   "end": 25.708,
+   "words": [
+    [
+     "Go",
+     23.041,
+     23.209
+    ],
+    [
+     "deeper,",
+     23.209,
+     23.543
+    ],
+    [
+     "on",
+     23.647,
+     23.814
+    ],
+    [
+     "Rabbit",
+     23.814,
+     24.148
+    ],
+    [
+     "Hole.",
+     24.148,
+     24.399
+    ]
+   ]
+  }
+ ]
+}

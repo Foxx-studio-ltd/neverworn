@@ -1,0 +1,386 @@
+{
+ "reel": "phoebus",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "5274",
+ "hole": "Corporate Cover-ups",
+ "hue": 75,
+ "caseId": "phoebus",
+ "duration": 27.953,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Lightbulb makers secretly agreed to make bulbs burn out faster.",
+   "date": "1924",
+   "label": "Corporate Cover-ups",
+   "start": 0.35,
+   "voiceEnd": 4.205,
+   "end": 4.955,
+   "words": [
+    [
+     "Lightbulb",
+     0.35,
+     0.894
+    ],
+    [
+     "makers",
+     0.894,
+     1.289
+    ],
+    [
+     "secretly",
+     1.289,
+     1.783
+    ],
+    [
+     "agreed",
+     1.783,
+     2.178
+    ],
+    [
+     "to",
+     2.178,
+     2.376
+    ],
+    [
+     "make",
+     2.376,
+     2.673
+    ],
+    [
+     "bulbs",
+     2.673,
+     3.019
+    ],
+    [
+     "burn",
+     3.019,
+     3.315
+    ],
+    [
+     "out",
+     3.315,
+     3.562
+    ],
+    [
+     "faster.",
+     3.562,
+     3.958
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The group was called the [[Phoebus cartel]].",
+   "text": "The group was called the Phoebus cartel.",
+   "start": 4.955,
+   "voiceEnd": 6.712,
+   "end": 7.212,
+   "words": [
+    [
+     "The",
+     4.955,
+     5.124
+    ],
+    [
+     "group",
+     5.124,
+     5.36
+    ],
+    [
+     "was",
+     5.36,
+     5.529
+    ],
+    [
+     "called",
+     5.529,
+     5.8
+    ],
+    [
+     "the",
+     5.8,
+     5.969
+    ],
+    [
+     "Phoebus",
+     5.969,
+     6.273
+    ],
+    [
+     "cartel.",
+     6.273,
+     6.543
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "They capped bulb life at [[1,000 hours]].",
+   "text": "They capped bulb life at 1,000 hours.",
+   "start": 7.212,
+   "voiceEnd": 9.455,
+   "end": 9.955,
+   "words": [
+    [
+     "They",
+     7.212,
+     7.476
+    ],
+    [
+     "capped",
+     7.476,
+     7.828
+    ],
+    [
+     "bulb",
+     7.828,
+     8.092
+    ],
+    [
+     "life",
+     8.092,
+     8.356
+    ],
+    [
+     "at",
+     8.356,
+     8.532
+    ],
+    [
+     "1,000",
+     8.532,
+     8.928
+    ],
+    [
+     "hours.",
+     8.928,
+     9.236
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Makers were [[fined]] for bulbs that lasted longer.",
+   "text": "Makers were fined for bulbs that lasted longer.",
+   "start": 9.955,
+   "voiceEnd": 12.629,
+   "end": 13.129,
+   "words": [
+    [
+     "Makers",
+     9.955,
+     10.312
+    ],
+    [
+     "were",
+     10.312,
+     10.579
+    ],
+    [
+     "fined",
+     10.579,
+     10.891
+    ],
+    [
+     "for",
+     10.891,
+     11.114
+    ],
+    [
+     "bulbs",
+     11.114,
+     11.426
+    ],
+    [
+     "that",
+     11.426,
+     11.693
+    ],
+    [
+     "lasted",
+     11.693,
+     12.05
+    ],
+    [
+     "longer.",
+     12.05,
+     12.406
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 13.129,
+   "voiceEnd": 14.498,
+   "end": 15.898,
+   "words": [
+    [
+     "So.",
+     13.129,
+     13.298
+    ],
+    [
+     "Real,",
+     13.508,
+     13.761
+    ],
+    [
+     "or",
+     13.866,
+     14.035
+    ],
+    [
+     "fake?",
+     14.035,
+     14.287
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The Phoebus cartel formed in 1924. Members were fined if their bulbs lasted more than a thousand hours.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Phoebus cartel records",
+   "start": 15.898,
+   "voiceEnd": 23.331,
+   "end": 24.081,
+   "words": [
+    [
+     "Real.",
+     15.898,
+     16.208
+    ],
+    [
+     "The",
+     16.466,
+     16.724
+    ],
+    [
+     "Phoebus",
+     16.724,
+     17.188
+    ],
+    [
+     "cartel",
+     17.188,
+     17.601
+    ],
+    [
+     "formed",
+     17.601,
+     18.014
+    ],
+    [
+     "in",
+     18.014,
+     18.221
+    ],
+    [
+     "1924.",
+     18.221,
+     18.685
+    ],
+    [
+     "Members",
+     18.943,
+     19.408
+    ],
+    [
+     "were",
+     19.408,
+     19.718
+    ],
+    [
+     "fined",
+     19.718,
+     20.079
+    ],
+    [
+     "if",
+     20.079,
+     20.286
+    ],
+    [
+     "their",
+     20.286,
+     20.647
+    ],
+    [
+     "bulbs",
+     20.647,
+     21.008
+    ],
+    [
+     "lasted",
+     21.008,
+     21.421
+    ],
+    [
+     "more",
+     21.421,
+     21.731
+    ],
+    [
+     "than",
+     21.731,
+     22.041
+    ],
+    [
+     "a",
+     22.041,
+     22.196
+    ],
+    [
+     "thousand",
+     22.196,
+     22.712
+    ],
+    [
+     "hours.",
+     22.712,
+     23.073
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 24.081,
+   "voiceEnd": 25.653,
+   "end": 26.753,
+   "words": [
+    [
+     "Go",
+     24.081,
+     24.249
+    ],
+    [
+     "deeper,",
+     24.249,
+     24.584
+    ],
+    [
+     "on",
+     24.689,
+     24.857
+    ],
+    [
+     "Rabbit",
+     24.857,
+     25.192
+    ],
+    [
+     "Hole.",
+     25.192,
+     25.443
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,386 @@
+{
+ "reel": "snowwhite",
+ "voice": "bm_george",
+ "speed": 1.0,
+ "file": "4901",
+ "hole": "Watching You",
+ "hue": 125,
+ "caseId": "snowwhite",
+ "duration": 37.409,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The Church of Scientology infiltrated the US government and stole its files.",
+   "date": "1977",
+   "label": "Watching You",
+   "start": 0.35,
+   "voiceEnd": 5.963,
+   "end": 6.713,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.652
+    ],
+    [
+     "Church",
+     0.652,
+     1.135
+    ],
+    [
+     "of",
+     1.135,
+     1.376
+    ],
+    [
+     "Scientology",
+     1.376,
+     2.161
+    ],
+    [
+     "infiltrated",
+     2.161,
+     2.945
+    ],
+    [
+     "the",
+     2.945,
+     3.247
+    ],
+    [
+     "US",
+     3.247,
+     3.488
+    ],
+    [
+     "government",
+     3.488,
+     4.213
+    ],
+    [
+     "and",
+     4.213,
+     4.515
+    ],
+    [
+     "stole",
+     4.515,
+     4.937
+    ],
+    [
+     "its",
+     4.937,
+     5.239
+    ],
+    [
+     "files.",
+     5.239,
+     5.661
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "It was called Operation [[Snow White]].",
+   "text": "It was called Operation Snow White.",
+   "start": 6.713,
+   "voiceEnd": 9.232,
+   "end": 9.732,
+   "words": [
+    [
+     "It",
+     6.713,
+     6.932
+    ],
+    [
+     "was",
+     6.932,
+     7.206
+    ],
+    [
+     "called",
+     7.206,
+     7.644
+    ],
+    [
+     "Operation",
+     7.644,
+     8.246
+    ],
+    [
+     "Snow",
+     8.246,
+     8.575
+    ],
+    [
+     "White.",
+     8.575,
+     8.958
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The main target was the [[IRS]].",
+   "text": "The main target was the IRS.",
+   "start": 9.732,
+   "voiceEnd": 12.3,
+   "end": 12.8,
+   "words": [
+    [
+     "The",
+     9.732,
+     10.061
+    ],
+    [
+     "main",
+     10.061,
+     10.456
+    ],
+    [
+     "target",
+     10.456,
+     10.983
+    ],
+    [
+     "was",
+     10.983,
+     11.312
+    ],
+    [
+     "the",
+     11.312,
+     11.641
+    ],
+    [
+     "IRS.",
+     11.641,
+     11.971
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "In 1977 the [[FBI]] raided church offices.",
+   "text": "In 1977 the FBI raided church offices.",
+   "start": 12.8,
+   "voiceEnd": 17.608,
+   "end": 18.108,
+   "words": [
+    [
+     "In",
+     12.8,
+     13.163
+    ],
+    [
+     "1977",
+     13.163,
+     13.979
+    ],
+    [
+     "the",
+     13.979,
+     14.433
+    ],
+    [
+     "FBI",
+     14.433,
+     14.887
+    ],
+    [
+     "raided",
+     14.887,
+     15.612
+    ],
+    [
+     "church",
+     15.612,
+     16.338
+    ],
+    [
+     "offices.",
+     16.338,
+     17.155
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 18.108,
+   "voiceEnd": 19.805,
+   "end": 21.205,
+   "words": [
+    [
+     "So.",
+     18.108,
+     18.317
+    ],
+    [
+     "Real,",
+     18.578,
+     18.891
+    ],
+    [
+     "or",
+     19.022,
+     19.231
+    ],
+    [
+     "fake?",
+     19.231,
+     19.544
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Operation Snow White was real. After a 1977 FBI raid, eleven church executives were convicted, including Mary Sue Hubbard.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "United States v. Mary Sue Hubbard, 1979",
+   "start": 21.205,
+   "voiceEnd": 32.314,
+   "end": 33.064,
+   "words": [
+    [
+     "Real.",
+     21.205,
+     21.604
+    ],
+    [
+     "Operation",
+     21.937,
+     22.668
+    ],
+    [
+     "Snow",
+     22.668,
+     23.068
+    ],
+    [
+     "White",
+     23.068,
+     23.533
+    ],
+    [
+     "was",
+     23.533,
+     23.866
+    ],
+    [
+     "real.",
+     23.866,
+     24.265
+    ],
+    [
+     "After",
+     24.598,
+     25.063
+    ],
+    [
+     "a",
+     25.063,
+     25.263
+    ],
+    [
+     "1977",
+     25.263,
+     25.862
+    ],
+    [
+     "FBI",
+     25.862,
+     26.194
+    ],
+    [
+     "raid,",
+     26.194,
+     26.593
+    ],
+    [
+     "eleven",
+     26.76,
+     27.292
+    ],
+    [
+     "church",
+     27.292,
+     27.824
+    ],
+    [
+     "executives",
+     27.824,
+     28.622
+    ],
+    [
+     "were",
+     28.622,
+     29.022
+    ],
+    [
+     "convicted,",
+     29.022,
+     29.753
+    ],
+    [
+     "including",
+     29.92,
+     30.651
+    ],
+    [
+     "Mary",
+     30.651,
+     31.05
+    ],
+    [
+     "Sue",
+     31.05,
+     31.383
+    ],
+    [
+     "Hubbard.",
+     31.383,
+     31.982
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 33.064,
+   "voiceEnd": 35.108,
+   "end": 36.209,
+   "words": [
+    [
+     "Go",
+     33.064,
+     33.282
+    ],
+    [
+     "deeper,",
+     33.282,
+     33.719
+    ],
+    [
+     "on",
+     33.855,
+     34.073
+    ],
+    [
+     "Rabbit",
+     34.073,
+     34.509
+    ],
+    [
+     "Hole.",
+     34.509,
+     34.836
+    ]
+   ]
+  }
+ ]
+}

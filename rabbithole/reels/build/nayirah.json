@@ -1,0 +1,436 @@
+{
+ "reel": "nayirah",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "2338",
+ "hole": "False Flags",
+ "hue": 8,
+ "caseId": "nayirah",
+ "duration": 32.679,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The tearful teenage witness who helped sell the Gulf War was the ambassador's daughter.",
+   "date": "1990",
+   "label": "False Flags",
+   "start": 0.35,
+   "voiceEnd": 4.962,
+   "end": 5.712,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.57
+    ],
+    [
+     "tearful",
+     0.57,
+     0.965
+    ],
+    [
+     "teenage",
+     0.965,
+     1.36
+    ],
+    [
+     "witness",
+     1.36,
+     1.755
+    ],
+    [
+     "who",
+     1.755,
+     1.975
+    ],
+    [
+     "helped",
+     1.975,
+     2.326
+    ],
+    [
+     "sell",
+     2.326,
+     2.59
+    ],
+    [
+     "the",
+     2.59,
+     2.809
+    ],
+    [
+     "Gulf",
+     2.809,
+     3.073
+    ],
+    [
+     "War",
+     3.073,
+     3.293
+    ],
+    [
+     "was",
+     3.293,
+     3.512
+    ],
+    [
+     "the",
+     3.512,
+     3.732
+    ],
+    [
+     "ambassador's",
+     3.732,
+     4.303
+    ],
+    [
+     "daughter.",
+     4.303,
+     4.742
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "She said soldiers took babies from [[incubators]].",
+   "text": "She said soldiers took babies from incubators.",
+   "start": 5.712,
+   "voiceEnd": 8.212,
+   "end": 8.712,
+   "words": [
+    [
+     "She",
+     5.712,
+     5.927
+    ],
+    [
+     "said",
+     5.927,
+     6.186
+    ],
+    [
+     "soldiers",
+     6.186,
+     6.617
+    ],
+    [
+     "took",
+     6.617,
+     6.876
+    ],
+    [
+     "babies",
+     6.876,
+     7.22
+    ],
+    [
+     "from",
+     7.22,
+     7.479
+    ],
+    [
+     "incubators.",
+     7.479,
+     7.996
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "PR firm [[Hill & Knowlton]] helped prepare the testimony.",
+   "text": "PR firm Hill & Knowlton helped prepare the testimony.",
+   "start": 8.712,
+   "voiceEnd": 11.851,
+   "end": 12.351,
+   "words": [
+    [
+     "PR",
+     8.712,
+     8.902
+    ],
+    [
+     "firm",
+     8.902,
+     9.188
+    ],
+    [
+     "Hill",
+     9.188,
+     9.473
+    ],
+    [
+     "&",
+     9.473,
+     9.568
+    ],
+    [
+     "Knowlton",
+     9.568,
+     10.044
+    ],
+    [
+     "helped",
+     10.044,
+     10.424
+    ],
+    [
+     "prepare",
+     10.424,
+     10.852
+    ],
+    [
+     "the",
+     10.852,
+     11.09
+    ],
+    [
+     "testimony.",
+     11.09,
+     11.613
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Her father was Kuwait's [[ambassador to the US]].",
+   "text": "Her father was Kuwait's ambassador to the US.",
+   "start": 12.351,
+   "voiceEnd": 15.068,
+   "end": 15.568,
+   "words": [
+    [
+     "Her",
+     12.351,
+     12.589
+    ],
+    [
+     "father",
+     12.589,
+     12.971
+    ],
+    [
+     "was",
+     12.971,
+     13.209
+    ],
+    [
+     "Kuwait's",
+     13.209,
+     13.638
+    ],
+    [
+     "ambassador",
+     13.638,
+     14.21
+    ],
+    [
+     "to",
+     14.21,
+     14.401
+    ],
+    [
+     "the",
+     14.401,
+     14.639
+    ],
+    [
+     "US.",
+     14.639,
+     14.83
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 15.568,
+   "voiceEnd": 16.936,
+   "end": 18.336,
+   "words": [
+    [
+     "So.",
+     15.568,
+     15.736
+    ],
+    [
+     "Real,",
+     15.947,
+     16.199
+    ],
+    [
+     "or",
+     16.305,
+     16.473
+    ],
+    [
+     "fake?",
+     16.473,
+     16.726
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Nayirah was the Kuwaiti ambassador's daughter, and her testimony was tied to a PR campaign. Investigators found no support for her story.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Congressional Human Rights Caucus, 1990",
+   "start": 18.336,
+   "voiceEnd": 28.058,
+   "end": 28.808,
+   "words": [
+    [
+     "Real.",
+     18.336,
+     18.661
+    ],
+    [
+     "Nayirah",
+     18.932,
+     19.42
+    ],
+    [
+     "was",
+     19.42,
+     19.69
+    ],
+    [
+     "the",
+     19.69,
+     19.961
+    ],
+    [
+     "Kuwaiti",
+     19.961,
+     20.449
+    ],
+    [
+     "ambassador's",
+     20.449,
+     21.153
+    ],
+    [
+     "daughter,",
+     21.153,
+     21.694
+    ],
+    [
+     "and",
+     21.83,
+     22.1
+    ],
+    [
+     "her",
+     22.1,
+     22.371
+    ],
+    [
+     "testimony",
+     22.371,
+     22.967
+    ],
+    [
+     "was",
+     22.967,
+     23.238
+    ],
+    [
+     "tied",
+     23.238,
+     23.563
+    ],
+    [
+     "to",
+     23.563,
+     23.779
+    ],
+    [
+     "a",
+     23.779,
+     23.942
+    ],
+    [
+     "PR",
+     23.942,
+     24.158
+    ],
+    [
+     "campaign.",
+     24.158,
+     24.7
+    ],
+    [
+     "Investigators",
+     24.971,
+     25.783
+    ],
+    [
+     "found",
+     25.783,
+     26.162
+    ],
+    [
+     "no",
+     26.162,
+     26.379
+    ],
+    [
+     "support",
+     26.379,
+     26.866
+    ],
+    [
+     "for",
+     26.866,
+     27.137
+    ],
+    [
+     "her",
+     27.137,
+     27.408
+    ],
+    [
+     "story.",
+     27.408,
+     27.787
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 28.808,
+   "voiceEnd": 30.379,
+   "end": 31.479,
+   "words": [
+    [
+     "Go",
+     28.808,
+     28.975
+    ],
+    [
+     "deeper,",
+     28.975,
+     29.311
+    ],
+    [
+     "on",
+     29.415,
+     29.583
+    ],
+    [
+     "Rabbit",
+     29.583,
+     29.918
+    ],
+    [
+     "Hole.",
+     29.918,
+     30.17
+    ]
+   ]
+  }
+ ]
+}

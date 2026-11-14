@@ -1,0 +1,416 @@
+{
+ "reel": "greatwall",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "1869",
+ "hole": "Too Good to Be True",
+ "hue": 230,
+ "caseId": "greatwall",
+ "duration": 30.339,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The Great Wall of China is visible from the Moon.",
+   "date": "1754",
+   "label": "Too Good to Be True",
+   "start": 0.35,
+   "voiceEnd": 2.967,
+   "end": 3.717,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.554
+    ],
+    [
+     "Great",
+     0.554,
+     0.841
+    ],
+    [
+     "Wall",
+     0.841,
+     1.086
+    ],
+    [
+     "of",
+     1.086,
+     1.25
+    ],
+    [
+     "China",
+     1.25,
+     1.536
+    ],
+    [
+     "is",
+     1.536,
+     1.7
+    ],
+    [
+     "visible",
+     1.7,
+     2.068
+    ],
+    [
+     "from",
+     2.068,
+     2.313
+    ],
+    [
+     "the",
+     2.313,
+     2.517
+    ],
+    [
+     "Moon.",
+     2.517,
+     2.763
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The Moon is about [[384,000 km]] away.",
+   "text": "The Moon is about 384,000 km away.",
+   "start": 3.717,
+   "voiceEnd": 7.51,
+   "end": 8.01,
+   "words": [
+    [
+     "The",
+     3.717,
+     4.112
+    ],
+    [
+     "Moon",
+     4.112,
+     4.586
+    ],
+    [
+     "is",
+     4.586,
+     4.902
+    ],
+    [
+     "about",
+     4.902,
+     5.455
+    ],
+    [
+     "384,000",
+     5.455,
+     6.324
+    ],
+    [
+     "km",
+     6.324,
+     6.641
+    ],
+    [
+     "away.",
+     6.641,
+     7.115
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "From there, the Wall is like a [[hair]] seen from 3 km.",
+   "text": "From there, the Wall is like a hair seen from 3 km.",
+   "start": 8.01,
+   "voiceEnd": 11.638,
+   "end": 12.138,
+   "words": [
+    [
+     "From",
+     8.01,
+     8.31
+    ],
+    [
+     "there,",
+     8.31,
+     8.66
+    ],
+    [
+     "the",
+     8.785,
+     9.036
+    ],
+    [
+     "Wall",
+     9.036,
+     9.336
+    ],
+    [
+     "is",
+     9.336,
+     9.536
+    ],
+    [
+     "like",
+     9.536,
+     9.836
+    ],
+    [
+     "a",
+     9.836,
+     9.987
+    ],
+    [
+     "hair",
+     9.987,
+     10.287
+    ],
+    [
+     "seen",
+     10.287,
+     10.587
+    ],
+    [
+     "from",
+     10.587,
+     10.887
+    ],
+    [
+     "3",
+     10.887,
+     11.188
+    ],
+    [
+     "km.",
+     11.188,
+     11.388
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The myth dates back to [[1754]].",
+   "text": "The myth dates back to 1754.",
+   "start": 12.138,
+   "voiceEnd": 14.601,
+   "end": 15.101,
+   "words": [
+    [
+     "The",
+     12.138,
+     12.431
+    ],
+    [
+     "myth",
+     12.431,
+     12.783
+    ],
+    [
+     "dates",
+     12.783,
+     13.194
+    ],
+    [
+     "back",
+     13.194,
+     13.546
+    ],
+    [
+     "to",
+     13.546,
+     13.78
+    ],
+    [
+     "1754.",
+     13.78,
+     14.308
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 15.101,
+   "voiceEnd": 16.549,
+   "end": 17.949,
+   "words": [
+    [
+     "So.",
+     15.101,
+     15.279
+    ],
+    [
+     "Real,",
+     15.502,
+     15.769
+    ],
+    [
+     "or",
+     15.881,
+     16.059
+    ],
+    [
+     "fake?",
+     16.059,
+     16.326
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Fake. From the Moon, the Wall is like a human hair seen from three kilometres away. The myth is older than spaceflight.",
+   "verdict": "FAKE",
+   "cls": "red",
+   "source": "NASA",
+   "start": 17.949,
+   "voiceEnd": 25.722,
+   "end": 26.472,
+   "words": [
+    [
+     "Fake.",
+     17.949,
+     18.249
+    ],
+    [
+     "From",
+     18.499,
+     18.799
+    ],
+    [
+     "the",
+     18.799,
+     19.049
+    ],
+    [
+     "Moon,",
+     19.049,
+     19.348
+    ],
+    [
+     "the",
+     19.473,
+     19.723
+    ],
+    [
+     "Wall",
+     19.723,
+     20.023
+    ],
+    [
+     "is",
+     20.023,
+     20.223
+    ],
+    [
+     "like",
+     20.223,
+     20.523
+    ],
+    [
+     "a",
+     20.523,
+     20.673
+    ],
+    [
+     "human",
+     20.673,
+     21.023
+    ],
+    [
+     "hair",
+     21.023,
+     21.323
+    ],
+    [
+     "seen",
+     21.323,
+     21.623
+    ],
+    [
+     "from",
+     21.623,
+     21.923
+    ],
+    [
+     "three",
+     21.923,
+     22.273
+    ],
+    [
+     "kilometres",
+     22.273,
+     22.873
+    ],
+    [
+     "away.",
+     22.873,
+     23.173
+    ],
+    [
+     "The",
+     23.423,
+     23.673
+    ],
+    [
+     "myth",
+     23.673,
+     23.973
+    ],
+    [
+     "is",
+     23.973,
+     24.173
+    ],
+    [
+     "older",
+     24.173,
+     24.522
+    ],
+    [
+     "than",
+     24.522,
+     24.822
+    ],
+    [
+     "spaceflight.",
+     24.822,
+     25.472
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 26.472,
+   "voiceEnd": 28.039,
+   "end": 29.139,
+   "words": [
+    [
+     "Go",
+     26.472,
+     26.639
+    ],
+    [
+     "deeper,",
+     26.639,
+     26.974
+    ],
+    [
+     "on",
+     27.078,
+     27.245
+    ],
+    [
+     "Rabbit",
+     27.245,
+     27.579
+    ],
+    [
+     "Hole.",
+     27.579,
+     27.83
+    ]
+   ]
+  }
+ ]
+}

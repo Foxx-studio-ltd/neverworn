@@ -1,0 +1,386 @@
+{
+ "reel": "washtub",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "2663",
+ "hole": "Cold War Weirdness",
+ "hue": 185,
+ "caseId": "washtub",
+ "duration": 32.694,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The FBI trained ordinary Alaskans as secret spies for a Soviet invasion.",
+   "date": "1951",
+   "label": "Cold War Weirdness",
+   "start": 0.35,
+   "voiceEnd": 5.938,
+   "end": 6.688,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.664
+    ],
+    [
+     "FBI",
+     0.664,
+     0.978
+    ],
+    [
+     "trained",
+     0.978,
+     1.543
+    ],
+    [
+     "ordinary",
+     1.543,
+     2.171
+    ],
+    [
+     "Alaskans",
+     2.171,
+     2.799
+    ],
+    [
+     "as",
+     2.799,
+     3.05
+    ],
+    [
+     "secret",
+     3.05,
+     3.552
+    ],
+    [
+     "spies",
+     3.552,
+     3.992
+    ],
+    [
+     "for",
+     3.992,
+     4.305
+    ],
+    [
+     "a",
+     4.305,
+     4.494
+    ],
+    [
+     "Soviet",
+     4.494,
+     4.996
+    ],
+    [
+     "invasion.",
+     4.996,
+     5.624
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The program was Operation [[Washtub]].",
+   "text": "The program was Operation Washtub.",
+   "start": 6.688,
+   "voiceEnd": 8.679,
+   "end": 9.179,
+   "words": [
+    [
+     "The",
+     6.688,
+     6.914
+    ],
+    [
+     "program",
+     6.914,
+     7.321
+    ],
+    [
+     "was",
+     7.321,
+     7.548
+    ],
+    [
+     "Operation",
+     7.548,
+     8.045
+    ],
+    [
+     "Washtub.",
+     8.045,
+     8.453
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Recruits were [[fishermen, pilots and trappers]].",
+   "text": "Recruits were fishermen, pilots and trappers.",
+   "start": 9.179,
+   "voiceEnd": 11.7,
+   "end": 12.2,
+   "words": [
+    [
+     "Recruits",
+     9.179,
+     9.617
+    ],
+    [
+     "were",
+     9.617,
+     9.881
+    ],
+    [
+     "fishermen,",
+     9.881,
+     10.363
+    ],
+    [
+     "pilots",
+     10.472,
+     10.823
+    ],
+    [
+     "and",
+     10.823,
+     11.042
+    ],
+    [
+     "trappers.",
+     11.042,
+     11.481
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "It ran until Alaska became a [[state]].",
+   "text": "It ran until Alaska became a state.",
+   "start": 12.2,
+   "voiceEnd": 14.191,
+   "end": 14.691,
+   "words": [
+    [
+     "It",
+     12.2,
+     12.37
+    ],
+    [
+     "ran",
+     12.37,
+     12.581
+    ],
+    [
+     "until",
+     12.581,
+     12.878
+    ],
+    [
+     "Alaska",
+     12.878,
+     13.217
+    ],
+    [
+     "became",
+     13.217,
+     13.556
+    ],
+    [
+     "a",
+     13.556,
+     13.683
+    ],
+    [
+     "state.",
+     13.683,
+     13.98
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 14.691,
+   "voiceEnd": 16.06,
+   "end": 17.46,
+   "words": [
+    [
+     "So.",
+     14.691,
+     14.86
+    ],
+    [
+     "Real,",
+     15.07,
+     15.323
+    ],
+    [
+     "or",
+     15.428,
+     15.597
+    ],
+    [
+     "fake?",
+     15.597,
+     15.849
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Operation Washtub ran from 1951 to 1959. The idea was a ready-made spy network if the Soviets ever occupied Alaska.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Declassified FBI and Air Force records",
+   "start": 17.46,
+   "voiceEnd": 28.072,
+   "end": 28.822,
+   "words": [
+    [
+     "Real.",
+     17.46,
+     17.858
+    ],
+    [
+     "Operation",
+     18.19,
+     18.919
+    ],
+    [
+     "Washtub",
+     18.919,
+     19.516
+    ],
+    [
+     "ran",
+     19.516,
+     19.848
+    ],
+    [
+     "from",
+     19.848,
+     20.246
+    ],
+    [
+     "1951",
+     20.246,
+     20.843
+    ],
+    [
+     "to",
+     20.843,
+     21.108
+    ],
+    [
+     "1959.",
+     21.108,
+     21.705
+    ],
+    [
+     "The",
+     22.036,
+     22.368
+    ],
+    [
+     "idea",
+     22.368,
+     22.766
+    ],
+    [
+     "was",
+     22.766,
+     23.098
+    ],
+    [
+     "a",
+     23.098,
+     23.296
+    ],
+    [
+     "ready-made",
+     23.296,
+     24.026
+    ],
+    [
+     "spy",
+     24.026,
+     24.358
+    ],
+    [
+     "network",
+     24.358,
+     24.955
+    ],
+    [
+     "if",
+     24.955,
+     25.22
+    ],
+    [
+     "the",
+     25.22,
+     25.551
+    ],
+    [
+     "Soviets",
+     25.551,
+     26.148
+    ],
+    [
+     "ever",
+     26.148,
+     26.546
+    ],
+    [
+     "occupied",
+     26.546,
+     27.21
+    ],
+    [
+     "Alaska.",
+     27.21,
+     27.74
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 28.822,
+   "voiceEnd": 30.394,
+   "end": 31.494,
+   "words": [
+    [
+     "Go",
+     28.822,
+     28.989
+    ],
+    [
+     "deeper,",
+     28.989,
+     29.325
+    ],
+    [
+     "on",
+     29.43,
+     29.597
+    ],
+    [
+     "Rabbit",
+     29.597,
+     29.932
+    ],
+    [
+     "Hole.",
+     29.932,
+     30.184
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,346 @@
+{
+ "reel": "sunshine",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "4480",
+ "hole": "Human Subjects",
+ "hue": 38,
+ "caseId": "sunshine",
+ "duration": 28.371,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Government scientists collected dead babies' bodies to measure nuclear fallout.",
+   "date": "1953",
+   "label": "Human Subjects",
+   "start": 0.35,
+   "voiceEnd": 5.177,
+   "end": 5.927,
+   "words": [
+    [
+     "Government",
+     0.35,
+     0.973
+    ],
+    [
+     "scientists",
+     0.973,
+     1.596
+    ],
+    [
+     "collected",
+     1.596,
+     2.167
+    ],
+    [
+     "dead",
+     2.167,
+     2.478
+    ],
+    [
+     "babies'",
+     2.478,
+     2.893
+    ],
+    [
+     "bodies",
+     2.893,
+     3.308
+    ],
+    [
+     "to",
+     3.308,
+     3.516
+    ],
+    [
+     "measure",
+     3.516,
+     3.983
+    ],
+    [
+     "nuclear",
+     3.983,
+     4.45
+    ],
+    [
+     "fallout.",
+     4.45,
+     4.917
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The study was Project [[Sunshine]].",
+   "text": "The study was Project Sunshine.",
+   "start": 5.927,
+   "voiceEnd": 7.547,
+   "end": 8.047,
+   "words": [
+    [
+     "The",
+     5.927,
+     6.125
+    ],
+    [
+     "study",
+     6.125,
+     6.401
+    ],
+    [
+     "was",
+     6.401,
+     6.599
+    ],
+    [
+     "Project",
+     6.599,
+     6.954
+    ],
+    [
+     "Sunshine.",
+     6.954,
+     7.35
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "About [[1,500]] bodies were sampled.",
+   "text": "About 1,500 bodies were sampled.",
+   "start": 8.047,
+   "voiceEnd": 10.621,
+   "end": 11.121,
+   "words": [
+    [
+     "About",
+     8.047,
+     8.457
+    ],
+    [
+     "1,500",
+     8.457,
+     8.983
+    ],
+    [
+     "bodies",
+     8.983,
+     9.451
+    ],
+    [
+     "were",
+     9.451,
+     9.802
+    ],
+    [
+     "sampled.",
+     9.802,
+     10.328
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Parents often [[weren't told]].",
+   "text": "Parents often weren't told.",
+   "start": 11.121,
+   "voiceEnd": 12.412,
+   "end": 12.912,
+   "words": [
+    [
+     "Parents",
+     11.121,
+     11.453
+    ],
+    [
+     "often",
+     11.453,
+     11.711
+    ],
+    [
+     "weren't",
+     11.711,
+     12.006
+    ],
+    [
+     "told.",
+     12.006,
+     12.228
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 12.912,
+   "voiceEnd": 14.36,
+   "end": 15.76,
+   "words": [
+    [
+     "So.",
+     12.912,
+     13.09
+    ],
+    [
+     "Real,",
+     13.313,
+     13.58
+    ],
+    [
+     "or",
+     13.692,
+     13.87
+    ],
+    [
+     "fake?",
+     13.87,
+     14.137
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Project Sunshine took samples from about fifteen hundred bodies, many of them babies, often without telling the parents.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "US Atomic Energy Commission",
+   "start": 15.76,
+   "voiceEnd": 23.754,
+   "end": 24.504,
+   "words": [
+    [
+     "Real.",
+     15.76,
+     16.065
+    ],
+    [
+     "Project",
+     16.32,
+     16.778
+    ],
+    [
+     "Sunshine",
+     16.778,
+     17.287
+    ],
+    [
+     "took",
+     17.287,
+     17.593
+    ],
+    [
+     "samples",
+     17.593,
+     18.051
+    ],
+    [
+     "from",
+     18.051,
+     18.357
+    ],
+    [
+     "about",
+     18.357,
+     18.713
+    ],
+    [
+     "fifteen",
+     18.713,
+     19.171
+    ],
+    [
+     "hundred",
+     19.171,
+     19.63
+    ],
+    [
+     "bodies,",
+     19.63,
+     20.037
+    ],
+    [
+     "many",
+     20.164,
+     20.47
+    ],
+    [
+     "of",
+     20.47,
+     20.674
+    ],
+    [
+     "them",
+     20.674,
+     20.979
+    ],
+    [
+     "babies,",
+     20.979,
+     21.386
+    ],
+    [
+     "often",
+     21.514,
+     21.87
+    ],
+    [
+     "without",
+     21.87,
+     22.328
+    ],
+    [
+     "telling",
+     22.328,
+     22.787
+    ],
+    [
+     "the",
+     22.787,
+     23.041
+    ],
+    [
+     "parents.",
+     23.041,
+     23.5
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 24.504,
+   "voiceEnd": 26.071,
+   "end": 27.171,
+   "words": [
+    [
+     "Go",
+     24.504,
+     24.671
+    ],
+    [
+     "deeper,",
+     24.671,
+     25.006
+    ],
+    [
+     "on",
+     25.11,
+     25.277
+    ],
+    [
+     "Rabbit",
+     25.277,
+     25.611
+    ],
+    [
+     "Hole.",
+     25.611,
+     25.862
+    ]
+   ]
+  }
+ ]
+}

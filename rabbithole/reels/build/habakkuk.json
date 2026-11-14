@@ -1,0 +1,396 @@
+{
+ "reel": "habakkuk",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "2290",
+ "hole": "Cold War Weirdness",
+ "hue": 185,
+ "caseId": "habakkuk",
+ "duration": 27.659,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Britain tried to build an aircraft carrier out of ice.",
+   "date": "1943",
+   "label": "Cold War Weirdness",
+   "start": 0.35,
+   "voiceEnd": 3.256,
+   "end": 4.006,
+   "words": [
+    [
+     "Britain",
+     0.35,
+     0.729
+    ],
+    [
+     "tried",
+     0.729,
+     1.024
+    ],
+    [
+     "to",
+     1.024,
+     1.192
+    ],
+    [
+     "build",
+     1.192,
+     1.487
+    ],
+    [
+     "an",
+     1.487,
+     1.656
+    ],
+    [
+     "aircraft",
+     1.656,
+     2.077
+    ],
+    [
+     "carrier",
+     2.077,
+     2.456
+    ],
+    [
+     "out",
+     2.456,
+     2.666
+    ],
+    [
+     "of",
+     2.666,
+     2.835
+    ],
+    [
+     "ice.",
+     2.835,
+     3.045
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The material was ice mixed with [[wood pulp]].",
+   "text": "The material was ice mixed with wood pulp.",
+   "start": 4.006,
+   "voiceEnd": 6.158,
+   "end": 6.658,
+   "words": [
+    [
+     "The",
+     4.006,
+     4.202
+    ],
+    [
+     "material",
+     4.202,
+     4.593
+    ],
+    [
+     "was",
+     4.593,
+     4.789
+    ],
+    [
+     "ice",
+     4.789,
+     4.984
+    ],
+    [
+     "mixed",
+     4.984,
+     5.258
+    ],
+    [
+     "with",
+     5.258,
+     5.493
+    ],
+    [
+     "wood",
+     5.493,
+     5.728
+    ],
+    [
+     "pulp.",
+     5.728,
+     5.963
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "It was nicknamed [[pykrete]].",
+   "text": "It was nicknamed pykrete.",
+   "start": 6.658,
+   "voiceEnd": 8.032,
+   "end": 8.532,
+   "words": [
+    [
+     "It",
+     6.658,
+     6.82
+    ],
+    [
+     "was",
+     6.82,
+     7.022
+    ],
+    [
+     "nicknamed",
+     7.022,
+     7.466
+    ],
+    [
+     "pykrete.",
+     7.466,
+     7.83
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "A prototype was built on a lake in [[Canada]].",
+   "text": "A prototype was built on a lake in Canada.",
+   "start": 8.532,
+   "voiceEnd": 10.993,
+   "end": 11.493,
+   "words": [
+    [
+     "A",
+     8.532,
+     8.664
+    ],
+    [
+     "prototype",
+     8.664,
+     9.147
+    ],
+    [
+     "was",
+     9.147,
+     9.367
+    ],
+    [
+     "built",
+     9.367,
+     9.674
+    ],
+    [
+     "on",
+     9.674,
+     9.85
+    ],
+    [
+     "a",
+     9.85,
+     9.982
+    ],
+    [
+     "lake",
+     9.982,
+     10.246
+    ],
+    [
+     "in",
+     10.246,
+     10.422
+    ],
+    [
+     "Canada.",
+     10.422,
+     10.773
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 11.493,
+   "voiceEnd": 12.94,
+   "end": 14.34,
+   "words": [
+    [
+     "So.",
+     11.493,
+     11.671
+    ],
+    [
+     "Real,",
+     11.894,
+     12.161
+    ],
+    [
+     "or",
+     12.272,
+     12.45
+    ],
+    [
+     "fake?",
+     12.45,
+     12.718
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Project Habakkuk got as far as a prototype on a Canadian lake. Then costs rose, and longer-range planes made it pointless.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Combined Operations records",
+   "start": 14.34,
+   "voiceEnd": 23.042,
+   "end": 23.792,
+   "words": [
+    [
+     "Real.",
+     14.34,
+     14.66
+    ],
+    [
+     "Project",
+     14.926,
+     15.405
+    ],
+    [
+     "Habakkuk",
+     15.405,
+     15.937
+    ],
+    [
+     "got",
+     15.937,
+     16.203
+    ],
+    [
+     "as",
+     16.203,
+     16.416
+    ],
+    [
+     "far",
+     16.416,
+     16.682
+    ],
+    [
+     "as",
+     16.682,
+     16.895
+    ],
+    [
+     "a",
+     16.895,
+     17.055
+    ],
+    [
+     "prototype",
+     17.055,
+     17.64
+    ],
+    [
+     "on",
+     17.64,
+     17.853
+    ],
+    [
+     "a",
+     17.853,
+     18.013
+    ],
+    [
+     "Canadian",
+     18.013,
+     18.545
+    ],
+    [
+     "lake.",
+     18.545,
+     18.864
+    ],
+    [
+     "Then",
+     19.13,
+     19.45
+    ],
+    [
+     "costs",
+     19.45,
+     19.822
+    ],
+    [
+     "rose,",
+     19.822,
+     20.142
+    ],
+    [
+     "and",
+     20.275,
+     20.541
+    ],
+    [
+     "longer-range",
+     20.541,
+     21.233
+    ],
+    [
+     "planes",
+     21.233,
+     21.658
+    ],
+    [
+     "made",
+     21.658,
+     21.978
+    ],
+    [
+     "it",
+     21.978,
+     22.191
+    ],
+    [
+     "pointless.",
+     22.191,
+     22.776
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 23.792,
+   "voiceEnd": 25.359,
+   "end": 26.459,
+   "words": [
+    [
+     "Go",
+     23.792,
+     23.959
+    ],
+    [
+     "deeper,",
+     23.959,
+     24.293
+    ],
+    [
+     "on",
+     24.398,
+     24.565
+    ],
+    [
+     "Rabbit",
+     24.565,
+     24.899
+    ],
+    [
+     "Hole.",
+     24.899,
+     25.15
+    ]
+   ]
+  }
+ ]
+}

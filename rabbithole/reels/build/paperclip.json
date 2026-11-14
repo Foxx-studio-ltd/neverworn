@@ -1,0 +1,441 @@
+{
+ "reel": "paperclip",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "7187",
+ "hole": "Human Subjects",
+ "hue": 38,
+ "caseId": "paperclip",
+ "duration": 34.643,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "After WWII the US quietly hired Nazi scientists and cleaned up their records.",
+   "date": "1945",
+   "label": "Human Subjects",
+   "start": 0.35,
+   "voiceEnd": 5.986,
+   "end": 6.736,
+   "words": [
+    [
+     "After",
+     0.35,
+     0.765
+    ],
+    [
+     "WWII",
+     0.765,
+     1.121
+    ],
+    [
+     "the",
+     1.121,
+     1.418
+    ],
+    [
+     "US",
+     1.418,
+     1.655
+    ],
+    [
+     "quietly",
+     1.655,
+     2.189
+    ],
+    [
+     "hired",
+     2.189,
+     2.604
+    ],
+    [
+     "Nazi",
+     2.604,
+     2.96
+    ],
+    [
+     "scientists",
+     2.96,
+     3.672
+    ],
+    [
+     "and",
+     3.672,
+     3.969
+    ],
+    [
+     "cleaned",
+     3.969,
+     4.503
+    ],
+    [
+     "up",
+     4.503,
+     4.74
+    ],
+    [
+     "their",
+     4.74,
+     5.155
+    ],
+    [
+     "records.",
+     5.155,
+     5.689
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The program was Operation [[Paperclip]].",
+   "text": "The program was Operation Paperclip.",
+   "start": 6.736,
+   "voiceEnd": 8.774,
+   "end": 9.274,
+   "words": [
+    [
+     "The",
+     6.736,
+     6.957
+    ],
+    [
+     "program",
+     6.957,
+     7.356
+    ],
+    [
+     "was",
+     7.356,
+     7.578
+    ],
+    [
+     "Operation",
+     7.578,
+     8.065
+    ],
+    [
+     "Paperclip.",
+     8.065,
+     8.553
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "More than [[1,600]] German scientists and engineers came over.",
+   "text": "More than 1,600 German scientists and engineers came over.",
+   "start": 9.274,
+   "voiceEnd": 13.748,
+   "end": 14.248,
+   "words": [
+    [
+     "More",
+     9.274,
+     9.637
+    ],
+    [
+     "than",
+     9.637,
+     10.0
+    ],
+    [
+     "1,600",
+     10.0,
+     10.544
+    ],
+    [
+     "German",
+     10.544,
+     11.027
+    ],
+    [
+     "scientists",
+     11.027,
+     11.753
+    ],
+    [
+     "and",
+     11.753,
+     12.055
+    ],
+    [
+     "engineers",
+     12.055,
+     12.72
+    ],
+    [
+     "came",
+     12.72,
+     13.083
+    ],
+    [
+     "over.",
+     13.083,
+     13.445
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The best known was rocket engineer [[Wernher von Braun]].",
+   "text": "The best known was rocket engineer Wernher von Braun.",
+   "start": 14.248,
+   "voiceEnd": 17.224,
+   "end": 17.724,
+   "words": [
+    [
+     "The",
+     14.248,
+     14.47
+    ],
+    [
+     "best",
+     14.47,
+     14.736
+    ],
+    [
+     "known",
+     14.736,
+     15.047
+    ],
+    [
+     "was",
+     15.047,
+     15.269
+    ],
+    [
+     "rocket",
+     15.269,
+     15.625
+    ],
+    [
+     "engineer",
+     15.625,
+     16.069
+    ],
+    [
+     "Wernher",
+     16.069,
+     16.469
+    ],
+    [
+     "von",
+     16.469,
+     16.691
+    ],
+    [
+     "Braun.",
+     16.691,
+     17.002
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 17.724,
+   "voiceEnd": 19.093,
+   "end": 20.493,
+   "words": [
+    [
+     "So.",
+     17.724,
+     17.893
+    ],
+    [
+     "Real,",
+     18.103,
+     18.356
+    ],
+    [
+     "or",
+     18.461,
+     18.63
+    ],
+    [
+     "fake?",
+     18.63,
+     18.882
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. More than 1,600 German scientists came to the US. Some files were cleaned up, and Wernher von Braun went on to build the Moon rocket.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "US National Archives, Paperclip records",
+   "start": 20.493,
+   "voiceEnd": 30.021,
+   "end": 30.771,
+   "words": [
+    [
+     "Real.",
+     20.493,
+     20.808
+    ],
+    [
+     "More",
+     21.07,
+     21.385
+    ],
+    [
+     "than",
+     21.385,
+     21.7
+    ],
+    [
+     "1,600",
+     21.7,
+     22.173
+    ],
+    [
+     "German",
+     22.173,
+     22.593
+    ],
+    [
+     "scientists",
+     22.593,
+     23.223
+    ],
+    [
+     "came",
+     23.223,
+     23.538
+    ],
+    [
+     "to",
+     23.538,
+     23.748
+    ],
+    [
+     "the",
+     23.748,
+     24.01
+    ],
+    [
+     "US.",
+     24.01,
+     24.22
+    ],
+    [
+     "Some",
+     24.483,
+     24.798
+    ],
+    [
+     "files",
+     24.798,
+     25.165
+    ],
+    [
+     "were",
+     25.165,
+     25.48
+    ],
+    [
+     "cleaned",
+     25.48,
+     25.953
+    ],
+    [
+     "up,",
+     25.953,
+     26.163
+    ],
+    [
+     "and",
+     26.294,
+     26.556
+    ],
+    [
+     "Wernher",
+     26.556,
+     27.029
+    ],
+    [
+     "von",
+     27.029,
+     27.291
+    ],
+    [
+     "Braun",
+     27.291,
+     27.659
+    ],
+    [
+     "went",
+     27.659,
+     27.974
+    ],
+    [
+     "on",
+     27.974,
+     28.184
+    ],
+    [
+     "to",
+     28.184,
+     28.394
+    ],
+    [
+     "build",
+     28.394,
+     28.761
+    ],
+    [
+     "the",
+     28.761,
+     29.024
+    ],
+    [
+     "Moon",
+     29.024,
+     29.339
+    ],
+    [
+     "rocket.",
+     29.339,
+     29.759
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 30.771,
+   "voiceEnd": 32.343,
+   "end": 33.443,
+   "words": [
+    [
+     "Go",
+     30.771,
+     30.939
+    ],
+    [
+     "deeper,",
+     30.939,
+     31.274
+    ],
+    [
+     "on",
+     31.379,
+     31.546
+    ],
+    [
+     "Rabbit",
+     31.546,
+     31.882
+    ],
+    [
+     "Hole.",
+     31.882,
+     32.133
+    ]
+   ]
+  }
+ ]
+}

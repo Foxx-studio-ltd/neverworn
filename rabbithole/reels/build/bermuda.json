@@ -1,0 +1,456 @@
+{
+ "reel": "bermuda",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "8306",
+ "hole": "Too Good to Be True",
+ "hue": 230,
+ "caseId": "bermuda",
+ "duration": 32.506,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Ships and planes vanish in the Bermuda Triangle more than anywhere else.",
+   "date": "1964",
+   "label": "Too Good to Be True",
+   "start": 0.35,
+   "voiceEnd": 4.507,
+   "end": 5.257,
+   "words": [
+    [
+     "Ships",
+     0.35,
+     0.677
+    ],
+    [
+     "and",
+     0.677,
+     0.91
+    ],
+    [
+     "planes",
+     0.91,
+     1.284
+    ],
+    [
+     "vanish",
+     1.284,
+     1.658
+    ],
+    [
+     "in",
+     1.658,
+     1.845
+    ],
+    [
+     "the",
+     1.845,
+     2.078
+    ],
+    [
+     "Bermuda",
+     2.078,
+     2.499
+    ],
+    [
+     "Triangle",
+     2.499,
+     2.966
+    ],
+    [
+     "more",
+     2.966,
+     3.246
+    ],
+    [
+     "than",
+     3.246,
+     3.526
+    ],
+    [
+     "anywhere",
+     3.526,
+     3.993
+    ],
+    [
+     "else.",
+     3.993,
+     4.273
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "Insurer [[Lloyd's of London]] doesn't treat it as extra risky.",
+   "text": "Insurer Lloyd's of London doesn't treat it as extra risky.",
+   "start": 5.257,
+   "voiceEnd": 8.569,
+   "end": 9.069,
+   "words": [
+    [
+     "Insurer",
+     5.257,
+     5.677
+    ],
+    [
+     "Lloyd's",
+     5.677,
+     6.05
+    ],
+    [
+     "of",
+     6.05,
+     6.237
+    ],
+    [
+     "London",
+     6.237,
+     6.61
+    ],
+    [
+     "doesn't",
+     6.61,
+     6.983
+    ],
+    [
+     "treat",
+     6.983,
+     7.309
+    ],
+    [
+     "it",
+     7.309,
+     7.496
+    ],
+    [
+     "as",
+     7.496,
+     7.683
+    ],
+    [
+     "extra",
+     7.683,
+     8.009
+    ],
+    [
+     "risky.",
+     8.009,
+     8.336
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The US Coast Guard [[doesn't recognize]] it as a danger zone.",
+   "text": "The US Coast Guard doesn't recognize it as a danger zone.",
+   "start": 9.069,
+   "voiceEnd": 12.763,
+   "end": 13.263,
+   "words": [
+    [
+     "The",
+     9.069,
+     9.325
+    ],
+    [
+     "US",
+     9.325,
+     9.531
+    ],
+    [
+     "Coast",
+     9.531,
+     9.89
+    ],
+    [
+     "Guard",
+     9.89,
+     10.249
+    ],
+    [
+     "doesn't",
+     10.249,
+     10.659
+    ],
+    [
+     "recognize",
+     10.659,
+     11.224
+    ],
+    [
+     "it",
+     11.224,
+     11.429
+    ],
+    [
+     "as",
+     11.429,
+     11.634
+    ],
+    [
+     "a",
+     11.634,
+     11.788
+    ],
+    [
+     "danger",
+     11.788,
+     12.198
+    ],
+    [
+     "zone.",
+     12.198,
+     12.506
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "It's one of the [[busiest]] stretches of ocean on Earth.",
+   "text": "It's one of the busiest stretches of ocean on Earth.",
+   "start": 13.263,
+   "voiceEnd": 15.668,
+   "end": 16.168,
+   "words": [
+    [
+     "It's",
+     13.263,
+     13.445
+    ],
+    [
+     "one",
+     13.445,
+     13.627
+    ],
+    [
+     "of",
+     13.627,
+     13.773
+    ],
+    [
+     "the",
+     13.773,
+     13.955
+    ],
+    [
+     "busiest",
+     13.955,
+     14.283
+    ],
+    [
+     "stretches",
+     14.283,
+     14.684
+    ],
+    [
+     "of",
+     14.684,
+     14.83
+    ],
+    [
+     "ocean",
+     14.83,
+     15.085
+    ],
+    [
+     "on",
+     15.085,
+     15.231
+    ],
+    [
+     "Earth.",
+     15.231,
+     15.486
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 16.168,
+   "voiceEnd": 17.537,
+   "end": 18.936,
+   "words": [
+    [
+     "So.",
+     16.168,
+     16.336
+    ],
+    [
+     "Real,",
+     16.547,
+     16.8
+    ],
+    [
+     "or",
+     16.905,
+     17.073
+    ],
+    [
+     "fake?",
+     17.073,
+     17.326
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Fake. The Triangle has no more disappearances than any other busy stretch of ocean. The legend came from a 1964 magazine story.",
+   "verdict": "FAKE",
+   "cls": "red",
+   "source": "US Coast Guard; NOAA",
+   "start": 18.936,
+   "voiceEnd": 27.884,
+   "end": 28.634,
+   "words": [
+    [
+     "Fake.",
+     18.936,
+     19.262
+    ],
+    [
+     "The",
+     19.533,
+     19.804
+    ],
+    [
+     "Triangle",
+     19.804,
+     20.346
+    ],
+    [
+     "has",
+     20.346,
+     20.618
+    ],
+    [
+     "no",
+     20.618,
+     20.835
+    ],
+    [
+     "more",
+     20.835,
+     21.16
+    ],
+    [
+     "disappearances",
+     21.16,
+     22.028
+    ],
+    [
+     "than",
+     22.028,
+     22.353
+    ],
+    [
+     "any",
+     22.353,
+     22.624
+    ],
+    [
+     "other",
+     22.624,
+     23.004
+    ],
+    [
+     "busy",
+     23.004,
+     23.329
+    ],
+    [
+     "stretch",
+     23.329,
+     23.817
+    ],
+    [
+     "of",
+     23.817,
+     24.034
+    ],
+    [
+     "ocean.",
+     24.034,
+     24.414
+    ],
+    [
+     "The",
+     24.685,
+     24.956
+    ],
+    [
+     "legend",
+     24.956,
+     25.39
+    ],
+    [
+     "came",
+     25.39,
+     25.715
+    ],
+    [
+     "from",
+     25.715,
+     26.041
+    ],
+    [
+     "a",
+     26.041,
+     26.203
+    ],
+    [
+     "1964",
+     26.203,
+     26.691
+    ],
+    [
+     "magazine",
+     26.691,
+     27.234
+    ],
+    [
+     "story.",
+     27.234,
+     27.613
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 28.634,
+   "voiceEnd": 30.206,
+   "end": 31.306,
+   "words": [
+    [
+     "Go",
+     28.634,
+     28.802
+    ],
+    [
+     "deeper,",
+     28.802,
+     29.137
+    ],
+    [
+     "on",
+     29.242,
+     29.41
+    ],
+    [
+     "Rabbit",
+     29.41,
+     29.745
+    ],
+    [
+     "Hole.",
+     29.745,
+     29.996
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,351 @@
+{
+ "reel": "sugar",
+ "voice": "bm_george",
+ "speed": 1.0,
+ "file": "6393",
+ "hole": "Corporate Cover-ups",
+ "hue": 75,
+ "caseId": "sugar",
+ "duration": 31.47,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The sugar industry paid Harvard scientists to point the finger at fat.",
+   "date": "1967",
+   "label": "Corporate Cover-ups",
+   "start": 0.35,
+   "voiceEnd": 4.94,
+   "end": 5.69,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.614
+    ],
+    [
+     "sugar",
+     0.614,
+     0.983
+    ],
+    [
+     "industry",
+     0.983,
+     1.511
+    ],
+    [
+     "paid",
+     1.511,
+     1.827
+    ],
+    [
+     "Harvard",
+     1.827,
+     2.302
+    ],
+    [
+     "scientists",
+     2.302,
+     2.935
+    ],
+    [
+     "to",
+     2.935,
+     3.146
+    ],
+    [
+     "point",
+     3.146,
+     3.515
+    ],
+    [
+     "the",
+     3.515,
+     3.779
+    ],
+    [
+     "finger",
+     3.779,
+     4.201
+    ],
+    [
+     "at",
+     4.201,
+     4.412
+    ],
+    [
+     "fat.",
+     4.412,
+     4.676
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The scientists were paid about [[$6,500]].",
+   "text": "The scientists were paid about $6,500.",
+   "start": 5.69,
+   "voiceEnd": 9.554,
+   "end": 10.054,
+   "words": [
+    [
+     "The",
+     5.69,
+     6.076
+    ],
+    [
+     "scientists",
+     6.076,
+     7.004
+    ],
+    [
+     "were",
+     7.004,
+     7.468
+    ],
+    [
+     "paid",
+     7.468,
+     7.931
+    ],
+    [
+     "about",
+     7.931,
+     8.472
+    ],
+    [
+     "$6,500.",
+     8.472,
+     9.168
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The payments were [[never disclosed]].",
+   "text": "The payments were never disclosed.",
+   "start": 10.054,
+   "voiceEnd": 12.381,
+   "end": 12.881,
+   "words": [
+    [
+     "The",
+     10.054,
+     10.319
+    ],
+    [
+     "payments",
+     10.319,
+     10.847
+    ],
+    [
+     "were",
+     10.847,
+     11.165
+    ],
+    [
+     "never",
+     11.165,
+     11.535
+    ],
+    [
+     "disclosed.",
+     11.535,
+     12.116
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Historians uncovered it in [[2016]].",
+   "text": "Historians uncovered it in 2016.",
+   "start": 12.881,
+   "voiceEnd": 15.953,
+   "end": 16.453,
+   "words": [
+    [
+     "Historians",
+     12.881,
+     13.7
+    ],
+    [
+     "uncovered",
+     13.7,
+     14.451
+    ],
+    [
+     "it",
+     14.451,
+     14.724
+    ],
+    [
+     "in",
+     14.724,
+     14.997
+    ],
+    [
+     "2016.",
+     14.997,
+     15.611
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 16.453,
+   "voiceEnd": 18.149,
+   "end": 19.549,
+   "words": [
+    [
+     "So.",
+     16.453,
+     16.661
+    ],
+    [
+     "Real,",
+     16.922,
+     17.236
+    ],
+    [
+     "or",
+     17.366,
+     17.575
+    ],
+    [
+     "fake?",
+     17.575,
+     17.888
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. A sugar industry group paid for the 1960s review. The documents came out in 2016.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "JAMA Internal Medicine, 2016",
+   "start": 19.549,
+   "voiceEnd": 26.376,
+   "end": 27.126,
+   "words": [
+    [
+     "Real.",
+     19.549,
+     19.885
+    ],
+    [
+     "A",
+     20.165,
+     20.333
+    ],
+    [
+     "sugar",
+     20.333,
+     20.724
+    ],
+    [
+     "industry",
+     20.724,
+     21.284
+    ],
+    [
+     "group",
+     21.284,
+     21.676
+    ],
+    [
+     "paid",
+     21.676,
+     22.011
+    ],
+    [
+     "for",
+     22.011,
+     22.291
+    ],
+    [
+     "the",
+     22.291,
+     22.571
+    ],
+    [
+     "1960s",
+     22.571,
+     23.131
+    ],
+    [
+     "review.",
+     23.131,
+     23.578
+    ],
+    [
+     "The",
+     23.858,
+     24.138
+    ],
+    [
+     "documents",
+     24.138,
+     24.753
+    ],
+    [
+     "came",
+     24.753,
+     25.089
+    ],
+    [
+     "out",
+     25.089,
+     25.369
+    ],
+    [
+     "in",
+     25.369,
+     25.593
+    ],
+    [
+     "2016.",
+     25.593,
+     26.096
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 27.126,
+   "voiceEnd": 29.17,
+   "end": 30.27,
+   "words": [
+    [
+     "Go",
+     27.126,
+     27.344
+    ],
+    [
+     "deeper,",
+     27.344,
+     27.78
+    ],
+    [
+     "on",
+     27.917,
+     28.135
+    ],
+    [
+     "Rabbit",
+     28.135,
+     28.571
+    ],
+    [
+     "Hole.",
+     28.571,
+     28.898
+    ]
+   ]
+  }
+ ]
+}

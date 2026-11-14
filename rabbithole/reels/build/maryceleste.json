@@ -1,0 +1,396 @@
+{
+ "reel": "maryceleste",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "7512",
+ "hole": "Unsolved",
+ "hue": 320,
+ "caseId": "maryceleste",
+ "duration": 27.332,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "A ship was found sailing with no one on board, and its crew was never seen again.",
+   "date": "1872",
+   "label": "Unsolved",
+   "start": 0.35,
+   "voiceEnd": 5.328,
+   "end": 6.078,
+   "words": [
+    [
+     "A",
+     0.35,
+     0.493
+    ],
+    [
+     "ship",
+     0.493,
+     0.779
+    ],
+    [
+     "was",
+     0.779,
+     1.017
+    ],
+    [
+     "found",
+     1.017,
+     1.35
+    ],
+    [
+     "sailing",
+     1.35,
+     1.779
+    ],
+    [
+     "with",
+     1.779,
+     2.065
+    ],
+    [
+     "no",
+     2.065,
+     2.256
+    ],
+    [
+     "one",
+     2.256,
+     2.494
+    ],
+    [
+     "on",
+     2.494,
+     2.684
+    ],
+    [
+     "board,",
+     2.684,
+     3.018
+    ],
+    [
+     "and",
+     3.137,
+     3.375
+    ],
+    [
+     "its",
+     3.375,
+     3.613
+    ],
+    [
+     "crew",
+     3.613,
+     3.899
+    ],
+    [
+     "was",
+     3.899,
+     4.137
+    ],
+    [
+     "never",
+     4.137,
+     4.471
+    ],
+    [
+     "seen",
+     4.471,
+     4.757
+    ],
+    [
+     "again.",
+     4.757,
+     5.09
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "She was found off the [[Azores]].",
+   "text": "She was found off the Azores.",
+   "start": 6.078,
+   "voiceEnd": 7.805,
+   "end": 8.305,
+   "words": [
+    [
+     "She",
+     6.078,
+     6.294
+    ],
+    [
+     "was",
+     6.294,
+     6.51
+    ],
+    [
+     "found",
+     6.51,
+     6.812
+    ],
+    [
+     "off",
+     6.812,
+     7.028
+    ],
+    [
+     "the",
+     7.028,
+     7.244
+    ],
+    [
+     "Azores.",
+     7.244,
+     7.589
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The cargo of [[alcohol]] was still there.",
+   "text": "The cargo of alcohol was still there.",
+   "start": 8.305,
+   "voiceEnd": 10.394,
+   "end": 10.894,
+   "words": [
+    [
+     "The",
+     8.305,
+     8.518
+    ],
+    [
+     "cargo",
+     8.518,
+     8.816
+    ],
+    [
+     "of",
+     8.816,
+     8.987
+    ],
+    [
+     "alcohol",
+     8.987,
+     9.371
+    ],
+    [
+     "was",
+     9.371,
+     9.584
+    ],
+    [
+     "still",
+     9.584,
+     9.882
+    ],
+    [
+     "there.",
+     9.882,
+     10.181
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The [[lifeboat]] was missing.",
+   "text": "The lifeboat was missing.",
+   "start": 10.894,
+   "voiceEnd": 12.375,
+   "end": 12.875,
+   "words": [
+    [
+     "The",
+     10.894,
+     11.112
+    ],
+    [
+     "lifeboat",
+     11.112,
+     11.547
+    ],
+    [
+     "was",
+     11.547,
+     11.765
+    ],
+    [
+     "missing.",
+     11.765,
+     12.157
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 12.875,
+   "voiceEnd": 14.213,
+   "end": 15.613,
+   "words": [
+    [
+     "So.",
+     12.875,
+     13.04
+    ],
+    [
+     "Real,",
+     13.246,
+     13.492
+    ],
+    [
+     "or",
+     13.595,
+     13.76
+    ],
+    [
+     "fake?",
+     13.76,
+     14.007
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Nobody knows. The crew of the Mary Celeste was never found. Nobody knows why they left a seaworthy ship.",
+   "verdict": "UNEXPLAINED",
+   "cls": "ylw",
+   "source": "Gibraltar salvage hearing, 1873",
+   "start": 15.613,
+   "voiceEnd": 22.566,
+   "end": 23.316,
+   "words": [
+    [
+     "Nobody",
+     15.613,
+     16.022
+    ],
+    [
+     "knows.",
+     16.022,
+     16.38
+    ],
+    [
+     "The",
+     16.635,
+     16.891
+    ],
+    [
+     "crew",
+     16.891,
+     17.198
+    ],
+    [
+     "of",
+     17.198,
+     17.402
+    ],
+    [
+     "the",
+     17.402,
+     17.658
+    ],
+    [
+     "Mary",
+     17.658,
+     17.965
+    ],
+    [
+     "Celeste",
+     17.965,
+     18.425
+    ],
+    [
+     "was",
+     18.425,
+     18.68
+    ],
+    [
+     "never",
+     18.68,
+     19.038
+    ],
+    [
+     "found.",
+     19.038,
+     19.396
+    ],
+    [
+     "Nobody",
+     19.652,
+     20.061
+    ],
+    [
+     "knows",
+     20.061,
+     20.419
+    ],
+    [
+     "why",
+     20.419,
+     20.675
+    ],
+    [
+     "they",
+     20.675,
+     20.981
+    ],
+    [
+     "left",
+     20.981,
+     21.288
+    ],
+    [
+     "a",
+     21.288,
+     21.442
+    ],
+    [
+     "seaworthy",
+     21.442,
+     22.004
+    ],
+    [
+     "ship.",
+     22.004,
+     22.311
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 23.316,
+   "voiceEnd": 25.032,
+   "end": 26.132,
+   "words": [
+    [
+     "Go",
+     23.316,
+     23.499
+    ],
+    [
+     "deeper,",
+     23.499,
+     23.866
+    ],
+    [
+     "on",
+     23.98,
+     24.163
+    ],
+    [
+     "Rabbit",
+     24.163,
+     24.529
+    ],
+    [
+     "Hole.",
+     24.529,
+     24.804
+    ]
+   ]
+  }
+ ]
+}

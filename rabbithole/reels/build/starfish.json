@@ -1,0 +1,436 @@
+{
+ "reel": "starfish",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "0798",
+ "hole": "Cold War Weirdness",
+ "hue": 185,
+ "caseId": "starfish",
+ "duration": 37.671,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The US set off a nuclear bomb in space and lit up the sky over Hawaii.",
+   "date": "1962",
+   "label": "Cold War Weirdness",
+   "start": 0.35,
+   "voiceEnd": 5.605,
+   "end": 6.355,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.639
+    ],
+    [
+     "US",
+     0.639,
+     0.87
+    ],
+    [
+     "set",
+     0.87,
+     1.158
+    ],
+    [
+     "off",
+     1.158,
+     1.447
+    ],
+    [
+     "a",
+     1.447,
+     1.62
+    ],
+    [
+     "nuclear",
+     1.62,
+     2.14
+    ],
+    [
+     "bomb",
+     2.14,
+     2.487
+    ],
+    [
+     "in",
+     2.487,
+     2.718
+    ],
+    [
+     "space",
+     2.718,
+     3.122
+    ],
+    [
+     "and",
+     3.122,
+     3.411
+    ],
+    [
+     "lit",
+     3.411,
+     3.699
+    ],
+    [
+     "up",
+     3.699,
+     3.93
+    ],
+    [
+     "the",
+     3.93,
+     4.219
+    ],
+    [
+     "sky",
+     4.219,
+     4.508
+    ],
+    [
+     "over",
+     4.508,
+     4.854
+    ],
+    [
+     "Hawaii.",
+     4.854,
+     5.316
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "It exploded [[400 km]] above the Pacific.",
+   "text": "It exploded 400 km above the Pacific.",
+   "start": 6.355,
+   "voiceEnd": 9.838,
+   "end": 10.338,
+   "words": [
+    [
+     "It",
+     6.355,
+     6.623
+    ],
+    [
+     "exploded",
+     6.623,
+     7.293
+    ],
+    [
+     "400",
+     7.293,
+     7.829
+    ],
+    [
+     "km",
+     7.829,
+     8.097
+    ],
+    [
+     "above",
+     8.097,
+     8.566
+    ],
+    [
+     "the",
+     8.566,
+     8.9
+    ],
+    [
+     "Pacific.",
+     8.9,
+     9.503
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Its yield was about [[1.4 megatons]].",
+   "text": "Its yield was about 1.4 megatons.",
+   "start": 10.338,
+   "voiceEnd": 13.008,
+   "end": 13.508,
+   "words": [
+    [
+     "Its",
+     10.338,
+     10.628
+    ],
+    [
+     "yield",
+     10.628,
+     11.035
+    ],
+    [
+     "was",
+     11.035,
+     11.325
+    ],
+    [
+     "about",
+     11.325,
+     11.731
+    ],
+    [
+     "1.4",
+     11.731,
+     12.138
+    ],
+    [
+     "megatons.",
+     12.138,
+     12.718
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The pulse knocked out about [[300 streetlights]] in Hawaii.",
+   "text": "The pulse knocked out about 300 streetlights in Hawaii.",
+   "start": 13.508,
+   "voiceEnd": 16.915,
+   "end": 17.415,
+   "words": [
+    [
+     "The",
+     13.508,
+     13.745
+    ],
+    [
+     "pulse",
+     13.745,
+     14.076
+    ],
+    [
+     "knocked",
+     14.076,
+     14.502
+    ],
+    [
+     "out",
+     14.502,
+     14.739
+    ],
+    [
+     "about",
+     14.739,
+     15.07
+    ],
+    [
+     "300",
+     15.07,
+     15.448
+    ],
+    [
+     "streetlights",
+     15.448,
+     16.111
+    ],
+    [
+     "in",
+     16.111,
+     16.3
+    ],
+    [
+     "Hawaii.",
+     16.3,
+     16.678
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 17.415,
+   "voiceEnd": 18.752,
+   "end": 20.152,
+   "words": [
+    [
+     "So.",
+     17.415,
+     17.579
+    ],
+    [
+     "Real,",
+     17.785,
+     18.032
+    ],
+    [
+     "or",
+     18.135,
+     18.3
+    ],
+    [
+     "fake?",
+     18.3,
+     18.547
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Starfish Prime exploded 400 kilometres up in July 1962. It made artificial auroras and knocked out streetlights in Hawaii, 900 miles away.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Defense Atomic Support Agency records",
+   "start": 20.152,
+   "voiceEnd": 32.905,
+   "end": 33.655,
+   "words": [
+    [
+     "Real.",
+     20.152,
+     20.554
+    ],
+    [
+     "Starfish",
+     20.889,
+     21.558
+    ],
+    [
+     "Prime",
+     21.558,
+     22.027
+    ],
+    [
+     "exploded",
+     22.027,
+     22.696
+    ],
+    [
+     "400",
+     22.696,
+     23.232
+    ],
+    [
+     "kilometres",
+     23.232,
+     24.035
+    ],
+    [
+     "up",
+     24.035,
+     24.303
+    ],
+    [
+     "in",
+     24.303,
+     24.57
+    ],
+    [
+     "July",
+     24.57,
+     24.972
+    ],
+    [
+     "1962.",
+     24.972,
+     25.575
+    ],
+    [
+     "It",
+     25.909,
+     26.177
+    ],
+    [
+     "made",
+     26.177,
+     26.579
+    ],
+    [
+     "artificial",
+     26.579,
+     27.382
+    ],
+    [
+     "auroras",
+     27.382,
+     27.984
+    ],
+    [
+     "and",
+     27.984,
+     28.319
+    ],
+    [
+     "knocked",
+     28.319,
+     28.922
+    ],
+    [
+     "out",
+     28.922,
+     29.256
+    ],
+    [
+     "streetlights",
+     29.256,
+     30.194
+    ],
+    [
+     "in",
+     30.194,
+     30.461
+    ],
+    [
+     "Hawaii,",
+     30.461,
+     30.997
+    ],
+    [
+     "900",
+     31.164,
+     31.7
+    ],
+    [
+     "miles",
+     31.7,
+     32.168
+    ],
+    [
+     "away.",
+     32.168,
+     32.57
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 33.655,
+   "voiceEnd": 35.371,
+   "end": 36.471,
+   "words": [
+    [
+     "Go",
+     33.655,
+     33.838
+    ],
+    [
+     "deeper,",
+     33.838,
+     34.204
+    ],
+    [
+     "on",
+     34.318,
+     34.501
+    ],
+    [
+     "Rabbit",
+     34.501,
+     34.867
+    ],
+    [
+     "Hole.",
+     34.867,
+     35.142
+    ]
+   ]
+  }
+ ]
+}

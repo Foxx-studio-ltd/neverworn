@@ -1,0 +1,381 @@
+{
+ "reel": "rendlesham",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "8631",
+ "hole": "Unsolved",
+ "hue": 320,
+ "caseId": "rendlesham",
+ "duration": 29.37,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "US airmen reported a UFO landing in an English forest.",
+   "date": "1980",
+   "label": "Unsolved",
+   "start": 0.35,
+   "voiceEnd": 4.923,
+   "end": 5.673,
+   "words": [
+    [
+     "US",
+     0.35,
+     0.615
+    ],
+    [
+     "airmen",
+     0.615,
+     1.145
+    ],
+    [
+     "reported",
+     1.145,
+     1.808
+    ],
+    [
+     "a",
+     1.808,
+     2.007
+    ],
+    [
+     "UFO",
+     2.007,
+     2.338
+    ],
+    [
+     "landing",
+     2.338,
+     2.935
+    ],
+    [
+     "in",
+     2.935,
+     3.2
+    ],
+    [
+     "an",
+     3.2,
+     3.465
+    ],
+    [
+     "English",
+     3.465,
+     4.062
+    ],
+    [
+     "forest.",
+     4.062,
+     4.592
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "It happened near the base at [[RAF Woodbridge]].",
+   "text": "It happened near the base at RAF Woodbridge.",
+   "start": 5.673,
+   "voiceEnd": 8.297,
+   "end": 8.797,
+   "words": [
+    [
+     "It",
+     5.673,
+     5.857
+    ],
+    [
+     "happened",
+     5.857,
+     6.318
+    ],
+    [
+     "near",
+     6.318,
+     6.594
+    ],
+    [
+     "the",
+     6.594,
+     6.824
+    ],
+    [
+     "base",
+     6.824,
+     7.1
+    ],
+    [
+     "at",
+     7.1,
+     7.284
+    ],
+    [
+     "RAF",
+     7.284,
+     7.515
+    ],
+    [
+     "Woodbridge.",
+     7.515,
+     8.067
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The deputy commander, [[Charles Halt]], wrote a memo.",
+   "text": "The deputy commander, Charles Halt, wrote a memo.",
+   "start": 8.797,
+   "voiceEnd": 11.608,
+   "end": 12.108,
+   "words": [
+    [
+     "The",
+     8.797,
+     9.013
+    ],
+    [
+     "deputy",
+     9.013,
+     9.359
+    ],
+    [
+     "commander,",
+     9.359,
+     9.835
+    ],
+    [
+     "Charles",
+     9.943,
+     10.332
+    ],
+    [
+     "Halt,",
+     10.332,
+     10.592
+    ],
+    [
+     "wrote",
+     10.7,
+     11.002
+    ],
+    [
+     "a",
+     11.002,
+     11.132
+    ],
+    [
+     "memo.",
+     11.132,
+     11.391
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Sceptics blame a [[lighthouse]].",
+   "text": "Sceptics blame a lighthouse.",
+   "start": 12.108,
+   "voiceEnd": 13.565,
+   "end": 14.065,
+   "words": [
+    [
+     "Sceptics",
+     12.108,
+     12.501
+    ],
+    [
+     "blame",
+     12.501,
+     12.777
+    ],
+    [
+     "a",
+     12.777,
+     12.895
+    ],
+    [
+     "lighthouse.",
+     12.895,
+     13.368
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 14.065,
+   "voiceEnd": 15.512,
+   "end": 16.912,
+   "words": [
+    [
+     "So.",
+     14.065,
+     14.243
+    ],
+    [
+     "Real,",
+     14.466,
+     14.733
+    ],
+    [
+     "or",
+     14.844,
+     15.022
+    ],
+    [
+     "fake?",
+     15.022,
+     15.29
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Nobody knows. The memo is real. Sceptics point to a lighthouse and a fireball. Believers still call it Britain's Roswell.",
+   "verdict": "UNEXPLAINED",
+   "cls": "ylw",
+   "source": "UK Ministry of Defence files",
+   "start": 16.912,
+   "voiceEnd": 24.754,
+   "end": 25.504,
+   "words": [
+    [
+     "Nobody",
+     16.912,
+     17.312
+    ],
+    [
+     "knows.",
+     17.312,
+     17.662
+    ],
+    [
+     "The",
+     17.911,
+     18.161
+    ],
+    [
+     "memo",
+     18.161,
+     18.461
+    ],
+    [
+     "is",
+     18.461,
+     18.66
+    ],
+    [
+     "real.",
+     18.66,
+     18.96
+    ],
+    [
+     "Sceptics",
+     19.21,
+     19.709
+    ],
+    [
+     "point",
+     19.709,
+     20.059
+    ],
+    [
+     "to",
+     20.059,
+     20.259
+    ],
+    [
+     "a",
+     20.259,
+     20.408
+    ],
+    [
+     "lighthouse",
+     20.408,
+     21.008
+    ],
+    [
+     "and",
+     21.008,
+     21.258
+    ],
+    [
+     "a",
+     21.258,
+     21.407
+    ],
+    [
+     "fireball.",
+     21.407,
+     21.907
+    ],
+    [
+     "Believers",
+     22.157,
+     22.706
+    ],
+    [
+     "still",
+     22.706,
+     23.056
+    ],
+    [
+     "call",
+     23.056,
+     23.355
+    ],
+    [
+     "it",
+     23.355,
+     23.555
+    ],
+    [
+     "Britain's",
+     23.555,
+     24.054
+    ],
+    [
+     "Roswell.",
+     24.054,
+     24.504
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 25.504,
+   "voiceEnd": 27.07,
+   "end": 28.17,
+   "words": [
+    [
+     "Go",
+     25.504,
+     25.671
+    ],
+    [
+     "deeper,",
+     25.671,
+     26.005
+    ],
+    [
+     "on",
+     26.109,
+     26.276
+    ],
+    [
+     "Rabbit",
+     26.276,
+     26.611
+    ],
+    [
+     "Hole.",
+     26.611,
+     26.861
+    ]
+   ]
+  }
+ ]
+}

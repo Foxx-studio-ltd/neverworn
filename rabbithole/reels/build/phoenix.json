@@ -1,0 +1,351 @@
+{
+ "reel": "phoenix",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "2615",
+ "hole": "The Sky Files",
+ "hue": 210,
+ "caseId": "phoenix",
+ "duration": 27.364,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Thousands saw a giant UFO over Phoenix.",
+   "date": "1997",
+   "label": "The Sky Files",
+   "start": 0.35,
+   "voiceEnd": 3.494,
+   "end": 4.244,
+   "words": [
+    [
+     "Thousands",
+     0.35,
+     1.028
+    ],
+    [
+     "saw",
+     1.028,
+     1.336
+    ],
+    [
+     "a",
+     1.336,
+     1.521
+    ],
+    [
+     "giant",
+     1.521,
+     1.953
+    ],
+    [
+     "UFO",
+     1.953,
+     2.261
+    ],
+    [
+     "over",
+     2.261,
+     2.631
+    ],
+    [
+     "Phoenix.",
+     2.631,
+     3.186
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "It happened on [[March 13]], 1997.",
+   "text": "It happened on March 13, 1997.",
+   "start": 4.244,
+   "voiceEnd": 7.477,
+   "end": 7.977,
+   "words": [
+    [
+     "It",
+     4.244,
+     4.511
+    ],
+    [
+     "happened",
+     4.511,
+     5.177
+    ],
+    [
+     "on",
+     5.177,
+     5.444
+    ],
+    [
+     "March",
+     5.444,
+     5.911
+    ],
+    [
+     "13,",
+     5.911,
+     6.377
+    ],
+    [
+     "1997.",
+     6.544,
+     7.144
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Planes from Operation [[Snowbird]] were in the area.",
+   "text": "Planes from Operation Snowbird were in the area.",
+   "start": 7.977,
+   "voiceEnd": 11.025,
+   "end": 11.525,
+   "words": [
+    [
+     "Planes",
+     7.977,
+     8.377
+    ],
+    [
+     "from",
+     8.377,
+     8.676
+    ],
+    [
+     "Operation",
+     8.676,
+     9.226
+    ],
+    [
+     "Snowbird",
+     9.226,
+     9.726
+    ],
+    [
+     "were",
+     9.726,
+     10.026
+    ],
+    [
+     "in",
+     10.026,
+     10.226
+    ],
+    [
+     "the",
+     10.226,
+     10.476
+    ],
+    [
+     "area.",
+     10.476,
+     10.775
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The lights were [[A-10 jets]] and flares.",
+   "text": "The lights were A-10 jets and flares.",
+   "start": 11.525,
+   "voiceEnd": 13.727,
+   "end": 14.227,
+   "words": [
+    [
+     "The",
+     11.525,
+     11.741
+    ],
+    [
+     "lights",
+     11.741,
+     12.087
+    ],
+    [
+     "were",
+     12.087,
+     12.346
+    ],
+    [
+     "A-10",
+     12.346,
+     12.691
+    ],
+    [
+     "jets",
+     12.691,
+     12.95
+    ],
+    [
+     "and",
+     12.95,
+     13.166
+    ],
+    [
+     "flares.",
+     13.166,
+     13.512
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 14.227,
+   "voiceEnd": 15.565,
+   "end": 16.965,
+   "words": [
+    [
+     "So.",
+     14.227,
+     14.392
+    ],
+    [
+     "Real,",
+     14.598,
+     14.845
+    ],
+    [
+     "or",
+     14.948,
+     15.112
+    ],
+    [
+     "fake?",
+     15.112,
+     15.359
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Fake. The lights were real, but they were A-10 jets and flares from a training exercise.",
+   "verdict": "FAKE",
+   "cls": "red",
+   "source": "Air National Guard",
+   "start": 16.965,
+   "voiceEnd": 22.598,
+   "end": 23.348,
+   "words": [
+    [
+     "Fake.",
+     16.965,
+     17.255
+    ],
+    [
+     "The",
+     17.497,
+     17.738
+    ],
+    [
+     "lights",
+     17.738,
+     18.125
+    ],
+    [
+     "were",
+     18.125,
+     18.415
+    ],
+    [
+     "real,",
+     18.415,
+     18.705
+    ],
+    [
+     "but",
+     18.826,
+     19.068
+    ],
+    [
+     "they",
+     19.068,
+     19.358
+    ],
+    [
+     "were",
+     19.358,
+     19.648
+    ],
+    [
+     "A-10",
+     19.648,
+     20.035
+    ],
+    [
+     "jets",
+     20.035,
+     20.325
+    ],
+    [
+     "and",
+     20.325,
+     20.567
+    ],
+    [
+     "flares",
+     20.567,
+     20.954
+    ],
+    [
+     "from",
+     20.954,
+     21.244
+    ],
+    [
+     "a",
+     21.244,
+     21.389
+    ],
+    [
+     "training",
+     21.389,
+     21.872
+    ],
+    [
+     "exercise.",
+     21.872,
+     22.356
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 23.348,
+   "voiceEnd": 25.064,
+   "end": 26.164,
+   "words": [
+    [
+     "Go",
+     23.348,
+     23.531
+    ],
+    [
+     "deeper,",
+     23.531,
+     23.897
+    ],
+    [
+     "on",
+     24.011,
+     24.194
+    ],
+    [
+     "Rabbit",
+     24.194,
+     24.56
+    ],
+    [
+     "Hole.",
+     24.56,
+     24.835
+    ]
+   ]
+  }
+ ]
+}

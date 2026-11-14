@@ -1,0 +1,416 @@
+{
+ "reel": "havana",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "0425",
+ "hole": "Too Good to Be True",
+ "hue": 230,
+ "caseId": "havana",
+ "duration": 35.707,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "US diplomats were hit by a secret energy weapon in Havana.",
+   "date": "2016",
+   "label": "Too Good to Be True",
+   "start": 0.35,
+   "voiceEnd": 4.494,
+   "end": 5.244,
+   "words": [
+    [
+     "US",
+     0.35,
+     0.574
+    ],
+    [
+     "diplomats",
+     0.574,
+     1.19
+    ],
+    [
+     "were",
+     1.19,
+     1.526
+    ],
+    [
+     "hit",
+     1.526,
+     1.806
+    ],
+    [
+     "by",
+     1.806,
+     2.03
+    ],
+    [
+     "a",
+     2.03,
+     2.198
+    ],
+    [
+     "secret",
+     2.198,
+     2.646
+    ],
+    [
+     "energy",
+     2.646,
+     3.094
+    ],
+    [
+     "weapon",
+     3.094,
+     3.542
+    ],
+    [
+     "in",
+     3.542,
+     3.766
+    ],
+    [
+     "Havana.",
+     3.766,
+     4.214
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "Symptoms were first reported in [[2016]].",
+   "text": "Symptoms were first reported in 2016.",
+   "start": 5.244,
+   "voiceEnd": 8.157,
+   "end": 8.657,
+   "words": [
+    [
+     "Symptoms",
+     5.244,
+     5.815
+    ],
+    [
+     "were",
+     5.815,
+     6.158
+    ],
+    [
+     "first",
+     6.158,
+     6.558
+    ],
+    [
+     "reported",
+     6.558,
+     7.129
+    ],
+    [
+     "in",
+     7.129,
+     7.357
+    ],
+    [
+     "2016.",
+     7.357,
+     7.871
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "In 2023 most US spy agencies called a foreign attack [[very unlikely]].",
+   "text": "In 2023 most US spy agencies called a foreign attack very unlikely.",
+   "start": 8.657,
+   "voiceEnd": 14.764,
+   "end": 15.264,
+   "words": [
+    [
+     "In",
+     8.657,
+     8.938
+    ],
+    [
+     "2023",
+     8.938,
+     9.569
+    ],
+    [
+     "most",
+     9.569,
+     9.991
+    ],
+    [
+     "US",
+     9.991,
+     10.271
+    ],
+    [
+     "spy",
+     10.271,
+     10.622
+    ],
+    [
+     "agencies",
+     10.622,
+     11.324
+    ],
+    [
+     "called",
+     11.324,
+     11.886
+    ],
+    [
+     "a",
+     11.886,
+     12.097
+    ],
+    [
+     "foreign",
+     12.097,
+     12.728
+    ],
+    [
+     "attack",
+     12.728,
+     13.29
+    ],
+    [
+     "very",
+     13.29,
+     13.711
+    ],
+    [
+     "unlikely.",
+     13.711,
+     14.413
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "Many of those affected still [[disagree]].",
+   "text": "Many of those affected still disagree.",
+   "start": 15.264,
+   "voiceEnd": 17.511,
+   "end": 18.011,
+   "words": [
+    [
+     "Many",
+     15.264,
+     15.54
+    ],
+    [
+     "of",
+     15.54,
+     15.723
+    ],
+    [
+     "those",
+     15.723,
+     16.044
+    ],
+    [
+     "affected",
+     16.044,
+     16.502
+    ],
+    [
+     "still",
+     16.502,
+     16.823
+    ],
+    [
+     "disagree.",
+     16.823,
+     17.282
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 18.011,
+   "voiceEnd": 19.349,
+   "end": 20.749,
+   "words": [
+    [
+     "So.",
+     18.011,
+     18.176
+    ],
+    [
+     "Real,",
+     18.382,
+     18.629
+    ],
+    [
+     "or",
+     18.731,
+     18.896
+    ],
+    [
+     "fake?",
+     18.896,
+     19.143
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Nobody knows. A 2023 assessment found a foreign attack very unlikely, but many of those affected disagree. The case is still open.",
+   "verdict": "UNEXPLAINED",
+   "cls": "ylw",
+   "source": "Office of the Director of National Intelligence, 2023",
+   "start": 20.749,
+   "voiceEnd": 30.941,
+   "end": 31.691,
+   "words": [
+    [
+     "Nobody",
+     20.749,
+     21.23
+    ],
+    [
+     "knows.",
+     21.23,
+     21.651
+    ],
+    [
+     "A",
+     21.951,
+     22.132
+    ],
+    [
+     "2023",
+     22.132,
+     22.673
+    ],
+    [
+     "assessment",
+     22.673,
+     23.394
+    ],
+    [
+     "found",
+     23.394,
+     23.815
+    ],
+    [
+     "a",
+     23.815,
+     23.996
+    ],
+    [
+     "foreign",
+     23.996,
+     24.537
+    ],
+    [
+     "attack",
+     24.537,
+     25.018
+    ],
+    [
+     "very",
+     25.018,
+     25.379
+    ],
+    [
+     "unlikely,",
+     25.379,
+     25.98
+    ],
+    [
+     "but",
+     26.131,
+     26.431
+    ],
+    [
+     "many",
+     26.431,
+     26.792
+    ],
+    [
+     "of",
+     26.792,
+     27.033
+    ],
+    [
+     "those",
+     27.033,
+     27.453
+    ],
+    [
+     "affected",
+     27.453,
+     28.055
+    ],
+    [
+     "disagree.",
+     28.055,
+     28.656
+    ],
+    [
+     "The",
+     28.957,
+     29.257
+    ],
+    [
+     "case",
+     29.257,
+     29.618
+    ],
+    [
+     "is",
+     29.618,
+     29.859
+    ],
+    [
+     "still",
+     29.859,
+     30.28
+    ],
+    [
+     "open.",
+     30.28,
+     30.64
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 31.691,
+   "voiceEnd": 33.407,
+   "end": 34.507,
+   "words": [
+    [
+     "Go",
+     31.691,
+     31.874
+    ],
+    [
+     "deeper,",
+     31.874,
+     32.24
+    ],
+    [
+     "on",
+     32.355,
+     32.538
+    ],
+    [
+     "Rabbit",
+     32.538,
+     32.904
+    ],
+    [
+     "Hole.",
+     32.904,
+     33.178
+    ]
+   ]
+  }
+ ]
+}

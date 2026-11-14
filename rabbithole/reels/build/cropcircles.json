@@ -1,0 +1,381 @@
+{
+ "reel": "cropcircles",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "0750",
+ "hole": "Too Good to Be True",
+ "hue": 230,
+ "caseId": "cropcircles",
+ "duration": 27.69,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "Crop circles are made by something that isn't human.",
+   "date": "1991",
+   "label": "Too Good to Be True",
+   "start": 0.35,
+   "voiceEnd": 3.354,
+   "end": 4.104,
+   "words": [
+    [
+     "Crop",
+     0.35,
+     0.627
+    ],
+    [
+     "circles",
+     0.627,
+     1.043
+    ],
+    [
+     "are",
+     1.043,
+     1.274
+    ],
+    [
+     "made",
+     1.274,
+     1.552
+    ],
+    [
+     "by",
+     1.552,
+     1.737
+    ],
+    [
+     "something",
+     1.737,
+     2.245
+    ],
+    [
+     "that",
+     2.245,
+     2.522
+    ],
+    [
+     "isn't",
+     2.522,
+     2.8
+    ],
+    [
+     "human.",
+     2.8,
+     3.123
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "Two men, [[Doug Bower and Dave Chorley]], came forward.",
+   "text": "Two men, Doug Bower and Dave Chorley, came forward.",
+   "start": 4.104,
+   "voiceEnd": 7.177,
+   "end": 7.677,
+   "words": [
+    [
+     "Two",
+     4.104,
+     4.33
+    ],
+    [
+     "men,",
+     4.33,
+     4.556
+    ],
+    [
+     "Doug",
+     4.669,
+     4.94
+    ],
+    [
+     "Bower",
+     4.94,
+     5.257
+    ],
+    [
+     "and",
+     5.257,
+     5.483
+    ],
+    [
+     "Dave",
+     5.483,
+     5.754
+    ],
+    [
+     "Chorley,",
+     5.754,
+     6.161
+    ],
+    [
+     "came",
+     6.274,
+     6.545
+    ],
+    [
+     "forward.",
+     6.545,
+     6.951
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "They said they started in [[1978]].",
+   "text": "They said they started in 1978.",
+   "start": 7.677,
+   "voiceEnd": 10.222,
+   "end": 10.722,
+   "words": [
+    [
+     "They",
+     7.677,
+     8.017
+    ],
+    [
+     "said",
+     8.017,
+     8.356
+    ],
+    [
+     "they",
+     8.356,
+     8.695
+    ],
+    [
+     "started",
+     8.695,
+     9.204
+    ],
+    [
+     "in",
+     9.204,
+     9.43
+    ],
+    [
+     "1978.",
+     9.43,
+     9.939
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "They used [[planks and rope]].",
+   "text": "They used planks and rope.",
+   "start": 10.722,
+   "voiceEnd": 12.211,
+   "end": 12.711,
+   "words": [
+    [
+     "They",
+     10.722,
+     10.97
+    ],
+    [
+     "used",
+     10.97,
+     11.218
+    ],
+    [
+     "planks",
+     11.218,
+     11.549
+    ],
+    [
+     "and",
+     11.549,
+     11.756
+    ],
+    [
+     "rope.",
+     11.756,
+     12.004
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 12.711,
+   "voiceEnd": 14.048,
+   "end": 15.448,
+   "words": [
+    [
+     "So.",
+     12.711,
+     12.875
+    ],
+    [
+     "Real,",
+     13.081,
+     13.328
+    ],
+    [
+     "or",
+     13.431,
+     13.595
+    ],
+    [
+     "fake?",
+     13.595,
+     13.842
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Fake. In 1991 two men in England showed how they made more than two hundred crop circles with planks and rope.",
+   "verdict": "FAKE",
+   "cls": "red",
+   "source": "Today newspaper, 1991",
+   "start": 15.448,
+   "voiceEnd": 22.924,
+   "end": 23.674,
+   "words": [
+    [
+     "Fake.",
+     15.448,
+     15.762
+    ],
+    [
+     "In",
+     16.023,
+     16.232
+    ],
+    [
+     "1991",
+     16.232,
+     16.703
+    ],
+    [
+     "two",
+     16.703,
+     16.964
+    ],
+    [
+     "men",
+     16.964,
+     17.225
+    ],
+    [
+     "in",
+     17.225,
+     17.435
+    ],
+    [
+     "England",
+     17.435,
+     17.905
+    ],
+    [
+     "showed",
+     17.905,
+     18.323
+    ],
+    [
+     "how",
+     18.323,
+     18.585
+    ],
+    [
+     "they",
+     18.585,
+     18.898
+    ],
+    [
+     "made",
+     18.898,
+     19.212
+    ],
+    [
+     "more",
+     19.212,
+     19.526
+    ],
+    [
+     "than",
+     19.526,
+     19.839
+    ],
+    [
+     "two",
+     19.839,
+     20.101
+    ],
+    [
+     "hundred",
+     20.101,
+     20.571
+    ],
+    [
+     "crop",
+     20.571,
+     20.885
+    ],
+    [
+     "circles",
+     20.885,
+     21.356
+    ],
+    [
+     "with",
+     21.356,
+     21.669
+    ],
+    [
+     "planks",
+     21.669,
+     22.087
+    ],
+    [
+     "and",
+     22.087,
+     22.349
+    ],
+    [
+     "rope.",
+     22.349,
+     22.663
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 23.674,
+   "voiceEnd": 25.39,
+   "end": 26.49,
+   "words": [
+    [
+     "Go",
+     23.674,
+     23.857
+    ],
+    [
+     "deeper,",
+     23.857,
+     24.223
+    ],
+    [
+     "on",
+     24.337,
+     24.52
+    ],
+    [
+     "Rabbit",
+     24.52,
+     24.886
+    ],
+    [
+     "Hole.",
+     24.886,
+     25.161
+    ]
+   ]
+  }
+ ]
+}

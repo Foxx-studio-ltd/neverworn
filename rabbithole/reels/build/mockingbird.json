@@ -1,0 +1,381 @@
+{
+ "reel": "mockingbird",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "file": "5695",
+ "hole": "The Bureau",
+ "hue": 150,
+ "caseId": "mockingbird",
+ "duration": 35.592,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The CIA had hundreds of American journalists secretly helping it.",
+   "date": "1977",
+   "label": "The Bureau",
+   "start": 0.35,
+   "voiceEnd": 4.989,
+   "end": 5.739,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.64
+    ],
+    [
+     "CIA",
+     0.64,
+     0.93
+    ],
+    [
+     "had",
+     0.93,
+     1.22
+    ],
+    [
+     "hundreds",
+     1.22,
+     1.8
+    ],
+    [
+     "of",
+     1.8,
+     2.032
+    ],
+    [
+     "American",
+     2.032,
+     2.611
+    ],
+    [
+     "journalists",
+     2.611,
+     3.365
+    ],
+    [
+     "secretly",
+     3.365,
+     3.945
+    ],
+    [
+     "helping",
+     3.945,
+     4.467
+    ],
+    [
+     "it.",
+     4.467,
+     4.699
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "A 1977 report counted about [[400]] journalists.",
+   "text": "A 1977 report counted about 400 journalists.",
+   "start": 5.739,
+   "voiceEnd": 10.291,
+   "end": 10.791,
+   "words": [
+    [
+     "A",
+     5.739,
+     5.959
+    ],
+    [
+     "1977",
+     5.959,
+     6.62
+    ],
+    [
+     "report",
+     6.62,
+     7.207
+    ],
+    [
+     "counted",
+     7.207,
+     7.868
+    ],
+    [
+     "about",
+     7.868,
+     8.382
+    ],
+    [
+     "400",
+     8.382,
+     8.969
+    ],
+    [
+     "journalists.",
+     8.969,
+     9.924
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The reporter was [[Carl Bernstein]].",
+   "text": "The reporter was Carl Bernstein.",
+   "start": 10.791,
+   "voiceEnd": 12.672,
+   "end": 13.172,
+   "words": [
+    [
+     "The",
+     10.791,
+     11.015
+    ],
+    [
+     "reporter",
+     11.015,
+     11.463
+    ],
+    [
+     "was",
+     11.463,
+     11.687
+    ],
+    [
+     "Carl",
+     11.687,
+     11.956
+    ],
+    [
+     "Bernstein.",
+     11.956,
+     12.448
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The name \"Mockingbird\" belonged to a [[1963 wiretap]].",
+   "text": "The name \"Mockingbird\" belonged to a 1963 wiretap.",
+   "start": 13.172,
+   "voiceEnd": 17.331,
+   "end": 17.831,
+   "words": [
+    [
+     "The",
+     13.172,
+     13.497
+    ],
+    [
+     "name",
+     13.497,
+     13.887
+    ],
+    [
+     "\"Mockingbird\"",
+     13.887,
+     14.732
+    ],
+    [
+     "belonged",
+     14.732,
+     15.381
+    ],
+    [
+     "to",
+     15.381,
+     15.641
+    ],
+    [
+     "a",
+     15.641,
+     15.836
+    ],
+    [
+     "1963",
+     15.836,
+     16.421
+    ],
+    [
+     "wiretap.",
+     16.421,
+     17.006
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 17.831,
+   "voiceEnd": 19.168,
+   "end": 20.568,
+   "words": [
+    [
+     "So.",
+     17.831,
+     17.995
+    ],
+    [
+     "Real,",
+     18.201,
+     18.448
+    ],
+    [
+     "or",
+     18.551,
+     18.715
+    ],
+    [
+     "fake?",
+     18.715,
+     18.962
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Half true. The Church Committee confirmed CIA ties to journalists. Whether one big program called Mockingbird existed is still disputed.",
+   "verdict": "HALF TRUE",
+   "cls": "ylw",
+   "source": "CIA \"Family Jewels\", released 2007",
+   "start": 20.568,
+   "voiceEnd": 30.826,
+   "end": 31.576,
+   "words": [
+    [
+     "Half",
+     20.568,
+     20.932
+    ],
+    [
+     "true.",
+     20.932,
+     21.296
+    ],
+    [
+     "The",
+     21.6,
+     21.903
+    ],
+    [
+     "Church",
+     21.903,
+     22.389
+    ],
+    [
+     "Committee",
+     22.389,
+     23.057
+    ],
+    [
+     "confirmed",
+     23.057,
+     23.724
+    ],
+    [
+     "CIA",
+     23.724,
+     24.028
+    ],
+    [
+     "ties",
+     24.028,
+     24.392
+    ],
+    [
+     "to",
+     24.392,
+     24.635
+    ],
+    [
+     "journalists.",
+     24.635,
+     25.424
+    ],
+    [
+     "Whether",
+     25.727,
+     26.274
+    ],
+    [
+     "one",
+     26.274,
+     26.577
+    ],
+    [
+     "big",
+     26.577,
+     26.881
+    ],
+    [
+     "program",
+     26.881,
+     27.427
+    ],
+    [
+     "called",
+     27.427,
+     27.912
+    ],
+    [
+     "Mockingbird",
+     27.912,
+     28.701
+    ],
+    [
+     "existed",
+     28.701,
+     29.248
+    ],
+    [
+     "is",
+     29.248,
+     29.491
+    ],
+    [
+     "still",
+     29.491,
+     29.915
+    ],
+    [
+     "disputed.",
+     29.915,
+     30.522
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 31.576,
+   "voiceEnd": 33.292,
+   "end": 34.392,
+   "words": [
+    [
+     "Go",
+     31.576,
+     31.759
+    ],
+    [
+     "deeper,",
+     31.759,
+     32.125
+    ],
+    [
+     "on",
+     32.239,
+     32.422
+    ],
+    [
+     "Rabbit",
+     32.422,
+     32.788
+    ],
+    [
+     "Hole.",
+     32.788,
+     33.063
+    ]
+   ]
+  }
+ ]
+}

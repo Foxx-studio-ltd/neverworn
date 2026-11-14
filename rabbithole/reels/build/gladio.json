@@ -1,0 +1,366 @@
+{
+ "reel": "gladio",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "3036",
+ "hole": "Cold War Weirdness",
+ "hue": 185,
+ "caseId": "gladio",
+ "duration": 29.503,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "NATO countries kept secret armies hidden across Europe for decades.",
+   "date": "1990",
+   "label": "Cold War Weirdness",
+   "start": 0.35,
+   "voiceEnd": 4.361,
+   "end": 5.111,
+   "words": [
+    [
+     "NATO",
+     0.35,
+     0.643
+    ],
+    [
+     "countries",
+     0.643,
+     1.181
+    ],
+    [
+     "kept",
+     1.181,
+     1.475
+    ],
+    [
+     "secret",
+     1.475,
+     1.866
+    ],
+    [
+     "armies",
+     1.866,
+     2.257
+    ],
+    [
+     "hidden",
+     2.257,
+     2.649
+    ],
+    [
+     "across",
+     2.649,
+     3.04
+    ],
+    [
+     "Europe",
+     3.04,
+     3.431
+    ],
+    [
+     "for",
+     3.431,
+     3.676
+    ],
+    [
+     "decades.",
+     3.676,
+     4.116
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "Italy's branch was called [[Gladio]].",
+   "text": "Italy's branch was called Gladio.",
+   "start": 5.111,
+   "voiceEnd": 6.924,
+   "end": 7.424,
+   "words": [
+    [
+     "Italy's",
+     5.111,
+     5.456
+    ],
+    [
+     "branch",
+     5.456,
+     5.801
+    ],
+    [
+     "was",
+     5.801,
+     6.017
+    ],
+    [
+     "called",
+     6.017,
+     6.362
+    ],
+    [
+     "Gladio.",
+     6.362,
+     6.708
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The prime minister admitted it to parliament in [[1990]].",
+   "text": "The prime minister admitted it to parliament in 1990.",
+   "start": 7.424,
+   "voiceEnd": 10.902,
+   "end": 11.402,
+   "words": [
+    [
+     "The",
+     7.424,
+     7.672
+    ],
+    [
+     "prime",
+     7.672,
+     8.02
+    ],
+    [
+     "minister",
+     8.02,
+     8.517
+    ],
+    [
+     "admitted",
+     8.517,
+     9.014
+    ],
+    [
+     "it",
+     9.014,
+     9.212
+    ],
+    [
+     "to",
+     9.212,
+     9.411
+    ],
+    [
+     "parliament",
+     9.411,
+     10.007
+    ],
+    [
+     "in",
+     10.007,
+     10.206
+    ],
+    [
+     "1990.",
+     10.206,
+     10.653
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "They were built to fight a [[Soviet invasion]].",
+   "text": "They were built to fight a Soviet invasion.",
+   "start": 11.402,
+   "voiceEnd": 13.524,
+   "end": 14.024,
+   "words": [
+    [
+     "They",
+     11.402,
+     11.629
+    ],
+    [
+     "were",
+     11.629,
+     11.857
+    ],
+    [
+     "built",
+     11.857,
+     12.122
+    ],
+    [
+     "to",
+     12.122,
+     12.274
+    ],
+    [
+     "fight",
+     12.274,
+     12.539
+    ],
+    [
+     "a",
+     12.539,
+     12.653
+    ],
+    [
+     "Soviet",
+     12.653,
+     12.956
+    ],
+    [
+     "invasion.",
+     12.956,
+     13.335
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 14.024,
+   "voiceEnd": 15.393,
+   "end": 16.793,
+   "words": [
+    [
+     "So.",
+     14.024,
+     14.193
+    ],
+    [
+     "Real,",
+     14.403,
+     14.656
+    ],
+    [
+     "or",
+     14.761,
+     14.93
+    ],
+    [
+     "fake?",
+     14.93,
+     15.182
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. Italy's prime minister revealed Gladio in 1990. Similar stay-behind networks existed across Western Europe.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Italian Chamber of Deputies, 1990",
+   "start": 16.793,
+   "voiceEnd": 24.881,
+   "end": 25.631,
+   "words": [
+    [
+     "Real.",
+     16.793,
+     17.135
+    ],
+    [
+     "Italy's",
+     17.419,
+     17.875
+    ],
+    [
+     "prime",
+     17.875,
+     18.274
+    ],
+    [
+     "minister",
+     18.274,
+     18.844
+    ],
+    [
+     "revealed",
+     18.844,
+     19.413
+    ],
+    [
+     "Gladio",
+     19.413,
+     19.869
+    ],
+    [
+     "in",
+     19.869,
+     20.097
+    ],
+    [
+     "1990.",
+     20.097,
+     20.609
+    ],
+    [
+     "Similar",
+     20.894,
+     21.407
+    ],
+    [
+     "stay-behind",
+     21.407,
+     22.09
+    ],
+    [
+     "networks",
+     22.09,
+     22.66
+    ],
+    [
+     "existed",
+     22.66,
+     23.173
+    ],
+    [
+     "across",
+     23.173,
+     23.628
+    ],
+    [
+     "Western",
+     23.628,
+     24.141
+    ],
+    [
+     "Europe.",
+     24.141,
+     24.597
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 25.631,
+   "voiceEnd": 27.203,
+   "end": 28.303,
+   "words": [
+    [
+     "Go",
+     25.631,
+     25.799
+    ],
+    [
+     "deeper,",
+     25.799,
+     26.134
+    ],
+    [
+     "on",
+     26.239,
+     26.407
+    ],
+    [
+     "Rabbit",
+     26.407,
+     26.742
+    ],
+    [
+     "Hole.",
+     26.742,
+     26.994
+    ]
+   ]
+  }
+ ]
+}

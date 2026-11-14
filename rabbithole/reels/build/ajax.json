@@ -1,0 +1,361 @@
+{
+ "reel": "ajax",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "3361",
+ "hole": "False Flags",
+ "hue": 8,
+ "caseId": "ajax",
+ "duration": 30.338,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The CIA admitted it helped overthrow Iran's elected government.",
+   "date": "1953",
+   "label": "False Flags",
+   "start": 0.35,
+   "voiceEnd": 4.754,
+   "end": 5.504,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.64
+    ],
+    [
+     "CIA",
+     0.64,
+     0.929
+    ],
+    [
+     "admitted",
+     0.929,
+     1.509
+    ],
+    [
+     "it",
+     1.509,
+     1.741
+    ],
+    [
+     "helped",
+     1.741,
+     2.204
+    ],
+    [
+     "overthrow",
+     2.204,
+     2.842
+    ],
+    [
+     "Iran's",
+     2.842,
+     3.247
+    ],
+    [
+     "elected",
+     3.247,
+     3.769
+    ],
+    [
+     "government.",
+     3.769,
+     4.464
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The prime minister was [[Mohammad Mosaddegh]].",
+   "text": "The prime minister was Mohammad Mosaddegh.",
+   "start": 5.504,
+   "voiceEnd": 7.932,
+   "end": 8.432,
+   "words": [
+    [
+     "The",
+     5.504,
+     5.733
+    ],
+    [
+     "prime",
+     5.733,
+     6.054
+    ],
+    [
+     "minister",
+     6.054,
+     6.512
+    ],
+    [
+     "was",
+     6.512,
+     6.741
+    ],
+    [
+     "Mohammad",
+     6.741,
+     7.199
+    ],
+    [
+     "Mosaddegh.",
+     7.199,
+     7.703
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "Britain's [[MI6]] was in on it.",
+   "text": "Britain's MI6 was in on it.",
+   "start": 8.432,
+   "voiceEnd": 10.647,
+   "end": 11.147,
+   "words": [
+    [
+     "Britain's",
+     8.432,
+     8.986
+    ],
+    [
+     "MI6",
+     8.986,
+     9.429
+    ],
+    [
+     "was",
+     9.429,
+     9.706
+    ],
+    [
+     "in",
+     9.706,
+     9.927
+    ],
+    [
+     "on",
+     9.927,
+     10.149
+    ],
+    [
+     "it.",
+     10.149,
+     10.37
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The US released the files in [[2013]].",
+   "text": "The US released the files in 2013.",
+   "start": 11.147,
+   "voiceEnd": 13.844,
+   "end": 14.344,
+   "words": [
+    [
+     "The",
+     11.147,
+     11.422
+    ],
+    [
+     "US",
+     11.422,
+     11.642
+    ],
+    [
+     "released",
+     11.642,
+     12.193
+    ],
+    [
+     "the",
+     12.193,
+     12.468
+    ],
+    [
+     "files",
+     12.468,
+     12.853
+    ],
+    [
+     "in",
+     12.853,
+     13.074
+    ],
+    [
+     "2013.",
+     13.074,
+     13.569
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 14.344,
+   "voiceEnd": 15.713,
+   "end": 17.113,
+   "words": [
+    [
+     "So.",
+     14.344,
+     14.513
+    ],
+    [
+     "Real,",
+     14.723,
+     14.976
+    ],
+    [
+     "or",
+     15.081,
+     15.25
+    ],
+    [
+     "fake?",
+     15.25,
+     15.502
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The coup happened in 1953 after Iran nationalised its oil. The US released the documents in 2013.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "CIA documents released 2013",
+   "start": 17.113,
+   "voiceEnd": 25.716,
+   "end": 26.466,
+   "words": [
+    [
+     "Real.",
+     17.113,
+     17.482
+    ],
+    [
+     "The",
+     17.789,
+     18.096
+    ],
+    [
+     "coup",
+     18.096,
+     18.465
+    ],
+    [
+     "happened",
+     18.465,
+     19.079
+    ],
+    [
+     "in",
+     19.079,
+     19.325
+    ],
+    [
+     "1953",
+     19.325,
+     19.878
+    ],
+    [
+     "after",
+     19.878,
+     20.308
+    ],
+    [
+     "Iran",
+     20.308,
+     20.677
+    ],
+    [
+     "nationalised",
+     20.677,
+     21.537
+    ],
+    [
+     "its",
+     21.537,
+     21.845
+    ],
+    [
+     "oil.",
+     21.845,
+     22.152
+    ],
+    [
+     "The",
+     22.459,
+     22.767
+    ],
+    [
+     "US",
+     22.767,
+     23.012
+    ],
+    [
+     "released",
+     23.012,
+     23.627
+    ],
+    [
+     "the",
+     23.627,
+     23.934
+    ],
+    [
+     "documents",
+     23.934,
+     24.61
+    ],
+    [
+     "in",
+     24.61,
+     24.856
+    ],
+    [
+     "2013.",
+     24.856,
+     25.409
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 26.466,
+   "voiceEnd": 28.038,
+   "end": 29.138,
+   "words": [
+    [
+     "Go",
+     26.466,
+     26.634
+    ],
+    [
+     "deeper,",
+     26.634,
+     26.969
+    ],
+    [
+     "on",
+     27.074,
+     27.242
+    ],
+    [
+     "Rabbit",
+     27.242,
+     27.577
+    ],
+    [
+     "Hole.",
+     27.577,
+     27.828
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,446 @@
+{
+ "reel": "roswell",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "3457",
+ "hole": "The Sky Files",
+ "hue": 210,
+ "caseId": "roswell",
+ "duration": 32.155,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The US Army announced it had captured a flying disc.",
+   "date": "1947",
+   "label": "The Sky Files",
+   "start": 0.35,
+   "voiceEnd": 3.937,
+   "end": 4.687,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.618
+    ],
+    [
+     "US",
+     0.618,
+     0.832
+    ],
+    [
+     "Army",
+     0.832,
+     1.153
+    ],
+    [
+     "announced",
+     1.153,
+     1.742
+    ],
+    [
+     "it",
+     1.742,
+     1.956
+    ],
+    [
+     "had",
+     1.956,
+     2.224
+    ],
+    [
+     "captured",
+     2.224,
+     2.759
+    ],
+    [
+     "a",
+     2.759,
+     2.92
+    ],
+    [
+     "flying",
+     2.92,
+     3.348
+    ],
+    [
+     "disc.",
+     3.348,
+     3.67
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The press release came from [[Roswell Army Air Field]].",
+   "text": "The press release came from Roswell Army Air Field.",
+   "start": 4.687,
+   "voiceEnd": 7.405,
+   "end": 7.905,
+   "words": [
+    [
+     "The",
+     4.687,
+     4.896
+    ],
+    [
+     "press",
+     4.896,
+     5.189
+    ],
+    [
+     "release",
+     5.189,
+     5.566
+    ],
+    [
+     "came",
+     5.566,
+     5.816
+    ],
+    [
+     "from",
+     5.816,
+     6.067
+    ],
+    [
+     "Roswell",
+     6.067,
+     6.444
+    ],
+    [
+     "Army",
+     6.444,
+     6.695
+    ],
+    [
+     "Air",
+     6.695,
+     6.904
+    ],
+    [
+     "Field.",
+     6.904,
+     7.196
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "The next day it became a [[weather balloon]].",
+   "text": "The next day it became a weather balloon.",
+   "start": 7.905,
+   "voiceEnd": 9.857,
+   "end": 10.357,
+   "words": [
+    [
+     "The",
+     7.905,
+     8.086
+    ],
+    [
+     "next",
+     8.086,
+     8.303
+    ],
+    [
+     "day",
+     8.303,
+     8.484
+    ],
+    [
+     "it",
+     8.484,
+     8.628
+    ],
+    [
+     "became",
+     8.628,
+     8.917
+    ],
+    [
+     "a",
+     8.917,
+     9.026
+    ],
+    [
+     "weather",
+     9.026,
+     9.351
+    ],
+    [
+     "balloon.",
+     9.351,
+     9.676
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "In 1994 the Air Force named it [[Project Mogul]].",
+   "text": "In 1994 the Air Force named it Project Mogul.",
+   "start": 10.357,
+   "voiceEnd": 13.975,
+   "end": 14.475,
+   "words": [
+    [
+     "In",
+     10.357,
+     10.59
+    ],
+    [
+     "1994",
+     10.59,
+     11.115
+    ],
+    [
+     "the",
+     11.115,
+     11.407
+    ],
+    [
+     "Air",
+     11.407,
+     11.699
+    ],
+    [
+     "Force",
+     11.699,
+     12.108
+    ],
+    [
+     "named",
+     12.108,
+     12.516
+    ],
+    [
+     "it",
+     12.516,
+     12.75
+    ],
+    [
+     "Project",
+     12.75,
+     13.275
+    ],
+    [
+     "Mogul.",
+     13.275,
+     13.683
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 14.475,
+   "voiceEnd": 15.923,
+   "end": 17.323,
+   "words": [
+    [
+     "So.",
+     14.475,
+     14.653
+    ],
+    [
+     "Real,",
+     14.876,
+     15.143
+    ],
+    [
+     "or",
+     15.255,
+     15.433
+    ],
+    [
+     "fake?",
+     15.433,
+     15.7
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The base really announced a flying disc. In 1994 the Air Force said it was Project Mogul, a secret balloon built to spy on Soviet nukes.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "US Air Force Roswell report, 1994",
+   "start": 17.323,
+   "voiceEnd": 27.539,
+   "end": 28.289,
+   "words": [
+    [
+     "Real.",
+     17.323,
+     17.651
+    ],
+    [
+     "The",
+     17.925,
+     18.199
+    ],
+    [
+     "base",
+     18.199,
+     18.528
+    ],
+    [
+     "really",
+     18.528,
+     18.966
+    ],
+    [
+     "announced",
+     18.966,
+     19.569
+    ],
+    [
+     "a",
+     19.569,
+     19.733
+    ],
+    [
+     "flying",
+     19.733,
+     20.171
+    ],
+    [
+     "disc.",
+     20.171,
+     20.5
+    ],
+    [
+     "In",
+     20.774,
+     20.993
+    ],
+    [
+     "1994",
+     20.993,
+     21.486
+    ],
+    [
+     "the",
+     21.486,
+     21.76
+    ],
+    [
+     "Air",
+     21.76,
+     22.034
+    ],
+    [
+     "Force",
+     22.034,
+     22.417
+    ],
+    [
+     "said",
+     22.417,
+     22.746
+    ],
+    [
+     "it",
+     22.746,
+     22.965
+    ],
+    [
+     "was",
+     22.965,
+     23.239
+    ],
+    [
+     "Project",
+     23.239,
+     23.732
+    ],
+    [
+     "Mogul,",
+     23.732,
+     24.115
+    ],
+    [
+     "a",
+     24.252,
+     24.416
+    ],
+    [
+     "secret",
+     24.416,
+     24.855
+    ],
+    [
+     "balloon",
+     24.855,
+     25.348
+    ],
+    [
+     "built",
+     25.348,
+     25.731
+    ],
+    [
+     "to",
+     25.731,
+     25.95
+    ],
+    [
+     "spy",
+     25.95,
+     26.224
+    ],
+    [
+     "on",
+     26.224,
+     26.443
+    ],
+    [
+     "Soviet",
+     26.443,
+     26.881
+    ],
+    [
+     "nukes.",
+     26.881,
+     27.265
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 28.289,
+   "voiceEnd": 29.855,
+   "end": 30.955,
+   "words": [
+    [
+     "Go",
+     28.289,
+     28.456
+    ],
+    [
+     "deeper,",
+     28.456,
+     28.79
+    ],
+    [
+     "on",
+     28.894,
+     29.061
+    ],
+    [
+     "Rabbit",
+     29.061,
+     29.396
+    ],
+    [
+     "Hole.",
+     29.396,
+     29.646
+    ]
+   ]
+  }
+ ]
+}

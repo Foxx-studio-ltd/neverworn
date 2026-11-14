@@ -1,0 +1,446 @@
+{
+ "reel": "cointelpro",
+ "voice": "af_heart",
+ "speed": 1.0,
+ "file": "5322",
+ "hole": "The Bureau",
+ "hue": 150,
+ "caseId": "cointelpro",
+ "duration": 38.089,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The FBI mailed Martin Luther King Jr. an anonymous letter urging him to kill himself.",
+   "date": "1964",
+   "label": "The Bureau",
+   "start": 0.35,
+   "voiceEnd": 6.762,
+   "end": 7.512,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.644
+    ],
+    [
+     "FBI",
+     0.644,
+     0.938
+    ],
+    [
+     "mailed",
+     0.938,
+     1.409
+    ],
+    [
+     "Martin",
+     1.409,
+     1.879
+    ],
+    [
+     "Luther",
+     1.879,
+     2.35
+    ],
+    [
+     "King",
+     2.35,
+     2.703
+    ],
+    [
+     "Jr.",
+     2.703,
+     2.938
+    ],
+    [
+     "an",
+     3.232,
+     3.468
+    ],
+    [
+     "anonymous",
+     3.468,
+     4.115
+    ],
+    [
+     "letter",
+     4.115,
+     4.585
+    ],
+    [
+     "urging",
+     4.585,
+     5.056
+    ],
+    [
+     "him",
+     5.056,
+     5.35
+    ],
+    [
+     "to",
+     5.35,
+     5.585
+    ],
+    [
+     "kill",
+     5.585,
+     5.938
+    ],
+    [
+     "himself.",
+     5.938,
+     6.467
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The program was called [[COINTELPRO]].",
+   "text": "The program was called COINTELPRO.",
+   "start": 7.512,
+   "voiceEnd": 9.36,
+   "end": 9.86,
+   "words": [
+    [
+     "The",
+     7.512,
+     7.722
+    ],
+    [
+     "program",
+     7.722,
+     8.1
+    ],
+    [
+     "was",
+     8.1,
+     8.31
+    ],
+    [
+     "called",
+     8.31,
+     8.646
+    ],
+    [
+     "COINTELPRO.",
+     8.646,
+     9.15
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "It was exposed by a [[break-in]] at an FBI office in 1971.",
+   "text": "It was exposed by a break-in at an FBI office in 1971.",
+   "start": 9.86,
+   "voiceEnd": 14.864,
+   "end": 15.364,
+   "words": [
+    [
+     "It",
+     9.86,
+     10.134
+    ],
+    [
+     "was",
+     10.134,
+     10.477
+    ],
+    [
+     "exposed",
+     10.477,
+     11.094
+    ],
+    [
+     "by",
+     11.094,
+     11.368
+    ],
+    [
+     "a",
+     11.368,
+     11.574
+    ],
+    [
+     "break-in",
+     11.574,
+     12.191
+    ],
+    [
+     "at",
+     12.191,
+     12.465
+    ],
+    [
+     "an",
+     12.465,
+     12.739
+    ],
+    [
+     "FBI",
+     12.739,
+     13.082
+    ],
+    [
+     "office",
+     13.082,
+     13.63
+    ],
+    [
+     "in",
+     13.63,
+     13.904
+    ],
+    [
+     "1971.",
+     13.904,
+     14.521
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The burglars stayed anonymous for [[43 years]].",
+   "text": "The burglars stayed anonymous for 43 years.",
+   "start": 15.364,
+   "voiceEnd": 17.923,
+   "end": 18.423,
+   "words": [
+    [
+     "The",
+     15.364,
+     15.584
+    ],
+    [
+     "burglars",
+     15.584,
+     16.026
+    ],
+    [
+     "stayed",
+     16.026,
+     16.379
+    ],
+    [
+     "anonymous",
+     16.379,
+     16.864
+    ],
+    [
+     "for",
+     16.864,
+     17.085
+    ],
+    [
+     "43",
+     17.085,
+     17.394
+    ],
+    [
+     "years.",
+     17.394,
+     17.703
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 18.423,
+   "voiceEnd": 19.792,
+   "end": 21.192,
+   "words": [
+    [
+     "So.",
+     18.423,
+     18.592
+    ],
+    [
+     "Real,",
+     18.802,
+     19.055
+    ],
+    [
+     "or",
+     19.16,
+     19.329
+    ],
+    [
+     "fake?",
+     19.329,
+     19.581
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. The FBI ran COINTELPRO from 1956 to 1971. Activists exposed it by stealing files from an FBI office, and the Senate confirmed it.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "Church Committee final report, 1976",
+   "start": 21.192,
+   "voiceEnd": 33.467,
+   "end": 34.217,
+   "words": [
+    [
+     "Real.",
+     21.192,
+     21.602
+    ],
+    [
+     "The",
+     21.944,
+     22.286
+    ],
+    [
+     "FBI",
+     22.286,
+     22.628
+    ],
+    [
+     "ran",
+     22.628,
+     22.97
+    ],
+    [
+     "COINTELPRO",
+     22.97,
+     23.791
+    ],
+    [
+     "from",
+     23.791,
+     24.201
+    ],
+    [
+     "1956",
+     24.201,
+     24.816
+    ],
+    [
+     "to",
+     24.816,
+     25.09
+    ],
+    [
+     "1971.",
+     25.09,
+     25.705
+    ],
+    [
+     "Activists",
+     26.047,
+     26.8
+    ],
+    [
+     "exposed",
+     26.8,
+     27.415
+    ],
+    [
+     "it",
+     27.415,
+     27.689
+    ],
+    [
+     "by",
+     27.689,
+     27.962
+    ],
+    [
+     "stealing",
+     27.962,
+     28.646
+    ],
+    [
+     "files",
+     28.646,
+     29.125
+    ],
+    [
+     "from",
+     29.125,
+     29.535
+    ],
+    [
+     "an",
+     29.535,
+     29.809
+    ],
+    [
+     "FBI",
+     29.809,
+     30.151
+    ],
+    [
+     "office,",
+     30.151,
+     30.698
+    ],
+    [
+     "and",
+     30.869,
+     31.211
+    ],
+    [
+     "the",
+     31.211,
+     31.553
+    ],
+    [
+     "Senate",
+     31.553,
+     32.1
+    ],
+    [
+     "confirmed",
+     32.1,
+     32.852
+    ],
+    [
+     "it.",
+     32.852,
+     33.126
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 34.217,
+   "voiceEnd": 35.789,
+   "end": 36.889,
+   "words": [
+    [
+     "Go",
+     34.217,
+     34.385
+    ],
+    [
+     "deeper,",
+     34.385,
+     34.72
+    ],
+    [
+     "on",
+     34.825,
+     34.993
+    ],
+    [
+     "Rabbit",
+     34.993,
+     35.328
+    ],
+    [
+     "Hole.",
+     35.328,
+     35.58
+    ]
+   ]
+  }
+ ]
+}

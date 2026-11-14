@@ -1,0 +1,406 @@
+{
+ "reel": "prism",
+ "voice": "af_bella",
+ "speed": 1.0,
+ "file": "4155",
+ "hole": "Watching You",
+ "hue": 125,
+ "caseId": "prism",
+ "duration": 31.111,
+ "scenes": [
+  {
+   "scene": "hook",
+   "text": "The NSA ran a secret program to collect data from Google, Facebook and Apple.",
+   "date": "2013",
+   "label": "Watching You",
+   "start": 0.35,
+   "voiceEnd": 5.924,
+   "end": 6.674,
+   "words": [
+    [
+     "The",
+     0.35,
+     0.636
+    ],
+    [
+     "NSA",
+     0.636,
+     0.922
+    ],
+    [
+     "ran",
+     0.922,
+     1.208
+    ],
+    [
+     "a",
+     1.208,
+     1.379
+    ],
+    [
+     "secret",
+     1.379,
+     1.836
+    ],
+    [
+     "program",
+     1.836,
+     2.351
+    ],
+    [
+     "to",
+     2.351,
+     2.58
+    ],
+    [
+     "collect",
+     2.58,
+     3.094
+    ],
+    [
+     "data",
+     3.094,
+     3.437
+    ],
+    [
+     "from",
+     3.437,
+     3.78
+    ],
+    [
+     "Google,",
+     3.78,
+     4.238
+    ],
+    [
+     "Facebook",
+     4.381,
+     4.952
+    ],
+    [
+     "and",
+     4.952,
+     5.238
+    ],
+    [
+     "Apple.",
+     5.238,
+     5.638
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 1,
+   "raw": "The program was called [[PRISM]].",
+   "text": "The program was called PRISM.",
+   "start": 6.674,
+   "voiceEnd": 8.116,
+   "end": 8.616,
+   "words": [
+    [
+     "The",
+     6.674,
+     6.859
+    ],
+    [
+     "program",
+     6.859,
+     7.192
+    ],
+    [
+     "was",
+     7.192,
+     7.376
+    ],
+    [
+     "called",
+     7.376,
+     7.672
+    ],
+    [
+     "PRISM.",
+     7.672,
+     7.931
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 2,
+   "raw": "It was leaked by contractor [[Edward Snowden]].",
+   "text": "It was leaked by contractor Edward Snowden.",
+   "start": 8.616,
+   "voiceEnd": 10.954,
+   "end": 11.454,
+   "words": [
+    [
+     "It",
+     8.616,
+     8.786
+    ],
+    [
+     "was",
+     8.786,
+     8.998
+    ],
+    [
+     "leaked",
+     8.998,
+     9.338
+    ],
+    [
+     "by",
+     9.338,
+     9.508
+    ],
+    [
+     "contractor",
+     9.508,
+     10.019
+    ],
+    [
+     "Edward",
+     10.019,
+     10.359
+    ],
+    [
+     "Snowden.",
+     10.359,
+     10.741
+    ]
+   ]
+  },
+  {
+   "scene": "ev",
+   "n": 3,
+   "raw": "The story broke in [[June 2013]].",
+   "text": "The story broke in June 2013.",
+   "start": 11.454,
+   "voiceEnd": 13.593,
+   "end": 14.093,
+   "words": [
+    [
+     "The",
+     11.454,
+     11.703
+    ],
+    [
+     "story",
+     11.703,
+     12.051
+    ],
+    [
+     "broke",
+     12.051,
+     12.399
+    ],
+    [
+     "in",
+     12.399,
+     12.598
+    ],
+    [
+     "June",
+     12.598,
+     12.896
+    ],
+    [
+     "2013.",
+     12.896,
+     13.344
+    ]
+   ]
+  },
+  {
+   "scene": "call",
+   "text": "So. Real, or fake?",
+   "start": 14.093,
+   "voiceEnd": 15.54,
+   "end": 16.94,
+   "words": [
+    [
+     "So.",
+     14.093,
+     14.271
+    ],
+    [
+     "Real,",
+     14.494,
+     14.761
+    ],
+    [
+     "or",
+     14.872,
+     15.05
+    ],
+    [
+     "fake?",
+     15.05,
+     15.318
+    ]
+   ]
+  },
+  {
+   "scene": "verdict",
+   "text": "Real. PRISM was revealed in June 2013 from Edward Snowden's leaks. The companies said the government never had direct access to their servers.",
+   "verdict": "REAL",
+   "cls": "grn",
+   "source": "The Guardian, The Washington Post, 2013",
+   "start": 16.94,
+   "voiceEnd": 26.495,
+   "end": 27.245,
+   "words": [
+    [
+     "Real.",
+     16.94,
+     17.259
+    ],
+    [
+     "PRISM",
+     17.524,
+     17.896
+    ],
+    [
+     "was",
+     17.896,
+     18.161
+    ],
+    [
+     "revealed",
+     18.161,
+     18.692
+    ],
+    [
+     "in",
+     18.692,
+     18.904
+    ],
+    [
+     "June",
+     18.904,
+     19.223
+    ],
+    [
+     "2013",
+     19.223,
+     19.701
+    ],
+    [
+     "from",
+     19.701,
+     20.019
+    ],
+    [
+     "Edward",
+     20.019,
+     20.444
+    ],
+    [
+     "Snowden's",
+     20.444,
+     20.974
+    ],
+    [
+     "leaks.",
+     20.974,
+     21.346
+    ],
+    [
+     "The",
+     21.611,
+     21.877
+    ],
+    [
+     "companies",
+     21.877,
+     22.461
+    ],
+    [
+     "said",
+     22.461,
+     22.779
+    ],
+    [
+     "the",
+     22.779,
+     23.045
+    ],
+    [
+     "government",
+     23.045,
+     23.681
+    ],
+    [
+     "never",
+     23.681,
+     24.053
+    ],
+    [
+     "had",
+     24.053,
+     24.318
+    ],
+    [
+     "direct",
+     24.318,
+     24.743
+    ],
+    [
+     "access",
+     24.743,
+     25.168
+    ],
+    [
+     "to",
+     25.168,
+     25.38
+    ],
+    [
+     "their",
+     25.38,
+     25.752
+    ],
+    [
+     "servers.",
+     25.752,
+     26.229
+    ]
+   ]
+  },
+  {
+   "scene": "end",
+   "text": "Go deeper, on Rabbit Hole.",
+   "start": 27.245,
+   "voiceEnd": 28.811,
+   "end": 29.911,
+   "words": [
+    [
+     "Go",
+     27.245,
+     27.412
+    ],
+    [
+     "deeper,",
+     27.412,
+     27.746
+    ],
+    [
+     "on",
+     27.85,
+     28.017
+    ],
+    [
+     "Rabbit",
+     28.017,
+     28.352
+    ],
+    [
+     "Hole.",
+     28.352,
+     28.602
+    ]
+   ]
+  }
+ ]
+}
