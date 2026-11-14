@@ -350,8 +350,8 @@
   "mkultra": {
    "mp4": "reels/lib/mkultra.mp4",
    "poster": "reels/lib/mkultra.jpg",
-   "ask": 43.73,
-   "verdictAt": 45.58
+   "ask": 43.22,
+   "verdictAt": 43.82
   },
   "moon": {
    "mp4": "reels/lib/moon.mp4",
@@ -362,8 +362,8 @@
   "northwoods": {
    "mp4": "reels/lib/northwoods.mp4",
    "poster": "reels/lib/northwoods.jpg",
-   "ask": 42.24,
-   "verdictAt": 44.09
+   "ask": 41.72,
+   "verdictAt": 42.32
   },
   "shamrock": {
    "mp4": "reels/lib/shamrock.mp4",
@@ -532,6 +532,174 @@
    "poster": "reels/lib/acoustickitty.jpg",
    "ask": 19.69,
    "verdictAt": 21.54
+  },
+  "pauldead": {
+   "mp4": "reels/lib/pauldead.mp4",
+   "poster": "reels/lib/pauldead.jpg",
+   "ask": 20.53,
+   "verdictAt": 22.38
+  },
+  "mincemeat": {
+   "mp4": "reels/lib/mincemeat.mp4",
+   "poster": "reels/lib/mincemeat.jpg",
+   "ask": 18.63,
+   "verdictAt": 20.48
+  },
+  "snowwhite": {
+   "mp4": "reels/lib/snowwhite.mp4",
+   "poster": "reels/lib/snowwhite.jpg",
+   "ask": 21.76,
+   "verdictAt": 23.61
+  },
+  "sugar": {
+   "mp4": "reels/lib/sugar.mp4",
+   "poster": "reels/lib/sugar.jpg",
+   "ask": 20.45,
+   "verdictAt": 22.3
+  },
+  "irancontra": {
+   "mp4": "reels/lib/irancontra.mp4",
+   "poster": "reels/lib/irancontra.jpg",
+   "ask": 19.19,
+   "verdictAt": 21.04
+  },
+  "sunshine": {
+   "mp4": "reels/lib/sunshine.mp4",
+   "poster": "reels/lib/sunshine.jpg",
+   "ask": 18.93,
+   "verdictAt": 20.78
+  },
+  "voynich": {
+   "mp4": "reels/lib/voynich.mp4",
+   "poster": "reels/lib/voynich.jpg",
+   "ask": 20.69,
+   "verdictAt": 22.54
+  },
+  "wow": {
+   "mp4": "reels/lib/wow.mp4",
+   "poster": "reels/lib/wow.jpg",
+   "ask": 21.24,
+   "verdictAt": 23.09
+  },
+  "habakkuk": {
+   "mp4": "reels/lib/habakkuk.mp4",
+   "poster": "reels/lib/habakkuk.jpg",
+   "ask": 17.93,
+   "verdictAt": 19.78
+  },
+  "birds": {
+   "mp4": "reels/lib/birds.mp4",
+   "poster": "reels/lib/birds.jpg",
+   "ask": 19.27,
+   "verdictAt": 21.12
+  },
+  "ghostarmy": {
+   "mp4": "reels/lib/ghostarmy.mp4",
+   "poster": "reels/lib/ghostarmy.jpg",
+   "ask": 22.19,
+   "verdictAt": 24.04
+  },
+  "plutonium": {
+   "mp4": "reels/lib/plutonium.mp4",
+   "poster": "reels/lib/plutonium.jpg",
+   "ask": 19.14,
+   "verdictAt": 20.99
+  },
+  "rendlesham": {
+   "mp4": "reels/lib/rendlesham.mp4",
+   "poster": "reels/lib/rendlesham.jpg",
+   "ask": 20.3,
+   "verdictAt": 22.15
+  },
+  "phoenix": {
+   "mp4": "reels/lib/phoenix.mp4",
+   "poster": "reels/lib/phoenix.jpg",
+   "ask": 19.81,
+   "verdictAt": 21.66
+  },
+  "washtub": {
+   "mp4": "reels/lib/washtub.mp4",
+   "poster": "reels/lib/washtub.jpg",
+   "ask": 21.03,
+   "verdictAt": 22.88
+  },
+  "havana": {
+   "mp4": "reels/lib/havana.mp4",
+   "poster": "reels/lib/havana.jpg",
+   "ask": 23.04,
+   "verdictAt": 24.89
+  },
+  "ajax": {
+   "mp4": "reels/lib/ajax.mp4",
+   "poster": "reels/lib/ajax.jpg",
+   "ask": 20.44,
+   "verdictAt": 22.29
+  },
+  "somerton": {
+   "mp4": "reels/lib/somerton.mp4",
+   "poster": "reels/lib/somerton.jpg",
+   "ask": 19.46,
+   "verdictAt": 21.31
+  },
+  "grusch": {
+   "mp4": "reels/lib/grusch.mp4",
+   "poster": "reels/lib/grusch.jpg",
+   "ask": 22.3,
+   "verdictAt": 24.15
+  },
+  "gladio": {
+   "mp4": "reels/lib/gladio.mp4",
+   "poster": "reels/lib/gladio.jpg",
+   "ask": 20.6,
+   "verdictAt": 22.45
+  },
+  "nessie": {
+   "mp4": "reels/lib/nessie.mp4",
+   "poster": "reels/lib/nessie.jpg",
+   "ask": 20.37,
+   "verdictAt": 22.22
+  },
+  "castro": {
+   "mp4": "reels/lib/castro.mp4",
+   "poster": "reels/lib/castro.jpg",
+   "ask": 21.09,
+   "verdictAt": 22.95
+  },
+  "popeye": {
+   "mp4": "reels/lib/popeye.mp4",
+   "poster": "reels/lib/popeye.jpg",
+   "ask": 19.02,
+   "verdictAt": 20.87
+  },
+  "cropcircles": {
+   "mp4": "reels/lib/cropcircles.mp4",
+   "poster": "reels/lib/cropcircles.jpg",
+   "ask": 18.98,
+   "verdictAt": 20.83
+  },
+  "titanic": {
+   "mp4": "reels/lib/titanic.mp4",
+   "poster": "reels/lib/titanic.jpg",
+   "ask": 22.44,
+   "verdictAt": 24.29
+  },
+  "haarp": {
+   "mp4": "reels/lib/haarp.mp4",
+   "poster": "reels/lib/haarp.jpg",
+   "ask": 17.94,
+   "verdictAt": 19.79
+  },
+  "greatwall": {
+   "mp4": "reels/lib/greatwall.mp4",
+   "poster": "reels/lib/greatwall.jpg",
+   "ask": 20.5,
+   "verdictAt": 22.35
+  },
+  "chemtrails": {
+   "mp4": "reels/lib/chemtrails.mp4",
+   "poster": "reels/lib/chemtrails.jpg",
+   "ask": 18.89,
+   "verdictAt": 20.75
   }
  },
  "artifactReels": [
