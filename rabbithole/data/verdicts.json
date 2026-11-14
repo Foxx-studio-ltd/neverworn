@@ -334,5 +334,125 @@
 "verdict": 2.62,
 "reveal": 3.65,
 "more": 10.04
+},
+"dbcooper": {
+"f": "media/verdict/dbcooper.mp3",
+"dur": 13.56,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.65,
+"more": 11.42
+},
+"zodiac": {
+"f": "media/verdict/zodiac.mp3",
+"dur": 13.57,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.87,
+"more": 11.72
+},
+"maryceleste": {
+"f": "media/verdict/maryceleste.mp3",
+"dur": 11.38,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 4.15,
+"more": 9.63
+},
+"voynich": {
+"f": "media/verdict/voynich.mp3",
+"dur": 13.17,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.62,
+"more": 11.42
+},
+"dyatlov": {
+"f": "media/verdict/dyatlov.mp3",
+"dur": 13.28,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 11.43
+},
+"rendlesham": {
+"f": "media/verdict/rendlesham.mp3",
+"dur": 12.94,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.93,
+"more": 10.8
+},
+"somerton": {
+"f": "media/verdict/somerton.mp3",
+"dur": 13.05,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.64,
+"more": 11.21
+},
+"nessie": {
+"f": "media/verdict/nessie.mp3",
+"dur": 11.9,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.66,
+"more": 10.06
+},
+"cropcircles": {
+"f": "media/verdict/cropcircles.mp3",
+"dur": 12.48,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.88,
+"more": 10.63
+},
+"titanic": {
+"f": "media/verdict/titanic.mp3",
+"dur": 13.07,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.88,
+"more": 11.31
+},
+"haarp": {
+"f": "media/verdict/haarp.mp3",
+"dur": 13.03,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.66,
+"more": 10.89
+},
+"greatwall": {
+"f": "media/verdict/greatwall.mp3",
+"dur": 12.82,
+"call": 0.15,
+"verdict": 2.62,
+"reveal": 3.66,
+"more": 10.97
+},
+"chemtrails": {
+"f": "media/verdict/chemtrails.mp3",
+"dur": 15.83,
+"call": 0.15,
+"verdict": 2.83,
+"reveal": 3.88,
+"more": 13.69
+},
+"phoenix": {
+"f": "media/verdict/phoenix.mp3",
+"dur": 11.25,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.36,
+"more": 9.4
+},
+"grusch": {
+"f": "media/verdict/grusch.mp3",
+"dur": 13.12,
+"call": 0.15,
+"verdict": 3.31,
+"reveal": 4.34,
+"more": 10.98
 }
 }

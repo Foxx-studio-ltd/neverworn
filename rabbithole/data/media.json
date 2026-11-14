@@ -404,6 +404,12 @@
    "ask": 20.49,
    "verdictAt": 22.34
   },
+  "epsteindeath": {
+   "mp4": "reels/lib/epsteindeath.mp4",
+   "poster": "reels/lib/epsteindeath.jpg",
+   "ask": 17.98,
+   "verdictAt": 19.83
+  },
   "starfish": {
    "mp4": "reels/lib/starfish.mp4",
    "poster": "reels/lib/starfish.jpg",
@@ -428,6 +434,12 @@
    "ask": 21.36,
    "verdictAt": 23.21
   },
+  "jfkruby": {
+   "mp4": "reels/lib/jfkruby.mp4",
+   "poster": "reels/lib/jfkruby.jpg",
+   "ask": 24.02,
+   "verdictAt": 25.88
+  },
   "moon": {
    "mp4": "reels/lib/moon.mp4",
    "poster": "reels/lib/moon.jpg",
@@ -451,6 +463,18 @@
    "poster": "reels/lib/phoebus.jpg",
    "ask": 19.58,
    "verdictAt": 21.43
+  },
+  "jfkfiles": {
+   "mp4": "reels/lib/jfkfiles.mp4",
+   "poster": "reels/lib/jfkfiles.jpg",
+   "ask": 22.95,
+   "verdictAt": 24.8
+  },
+  "epsteinminute": {
+   "mp4": "reels/lib/epsteinminute.mp4",
+   "poster": "reels/lib/epsteinminute.jpg",
+   "ask": 21.86,
+   "verdictAt": 23.71
   },
   "cointelpro": {
    "mp4": "reels/lib/cointelpro.mp4",
@@ -805,16 +829,46 @@
    "poster": "reels/lib/chemtrails.jpg",
    "ask": 18.89,
    "verdictAt": 20.75
+  },
+  "jfkbullet": {
+   "mp4": "reels/lib/jfkbullet.mp4",
+   "poster": "reels/lib/jfkbullet.jpg",
+   "ask": 20.85,
+   "verdictAt": 22.7
+  },
+  "epsteindeal": {
+   "mp4": "reels/lib/epsteindeal.mp4",
+   "poster": "reels/lib/epsteindeal.jpg",
+   "ask": 21.64,
+   "verdictAt": 23.49
+  },
+  "jfkmexico": {
+   "mp4": "reels/lib/jfkmexico.mp4",
+   "poster": "reels/lib/jfkmexico.jpg",
+   "ask": 22.28,
+   "verdictAt": 24.13
+  },
+  "jfkumbrella": {
+   "mp4": "reels/lib/jfkumbrella.mp4",
+   "poster": "reels/lib/jfkumbrella.jpg",
+   "ask": 22.15,
+   "verdictAt": 24.0
+  },
+  "epsteinlist": {
+   "mp4": "reels/lib/epsteinlist.mp4",
+   "poster": "reels/lib/epsteinlist.jpg",
+   "ask": 20.93,
+   "verdictAt": 22.78
   }
  },
  "artifactReels": [
   "dyatlov",
   "roswell",
+  "epsteindeath",
   "starfish",
   "bigfoot",
   "mkultra",
   "yeti",
-  "moon",
-  "northwoods"
+  "jfkruby"
  ]
 }
