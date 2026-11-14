@@ -202,6 +202,19 @@ const ART = {
   pyramid(c, t, P) { sky(c, '#14101c', hue(P, 16, 40)); for (let i = 0; i < 24; i++) rays(c, 540, 520, i / 24 * TAU + t * .1, .03, 900, 'rgba(242,225,76,.06)');
     c.fillStyle = '#3a3150'; c.beginPath(); c.moveTo(540, 380); c.lineTo(900, 1080); c.lineTo(180, 1080); c.fill(); c.strokeStyle = 'rgba(239,227,196,.15)'; c.lineWidth = 3; for (let y = 520; y < 1080; y += 70) { const w = (y - 380) / 700 * 360; c.beginPath(); c.moveTo(540 - w, y); c.lineTo(540 + w, y); c.stroke(); }
     c.fillStyle = '#f2e14c'; c.beginPath(); c.moveTo(540, 300); c.lineTo(660, 500); c.lineTo(420, 500); c.fill(); eye(c, 540, 440, 40, t); txt(c, 'MDCCLXXVI', 540, 1150, 60, 'rgba(239,227,196,.7)', 'Courier Prime', 700); },
+  snowprint(c, t, P) { sky(c, '#9fb3c8', '#e9f0f5'); hills(c, 760, 260, '#c9d6e2', 3, .003); c.fillStyle = '#f5f8fb'; c.fillRect(0, 760, W, H);
+    for (let i = 0; i < 8; i++) { const k = cl(t * 1.2 - i * .35); if (k <= 0) continue; const x = 300 + i * 70 + (i % 2) * 60, y = 1180 - i * 60; c.globalAlpha = k; c.fillStyle = '#8fa3b8'; c.beginPath(); c.ellipse(x, y, 34, 70, -.2, 0, TAU); c.fill(); for (let j = 0; j < 5; j++) { c.beginPath(); c.arc(x - 24 + j * 12, y - 70, 8, 0, TAU); c.fill(); } c.globalAlpha = 1; }
+    c.strokeStyle = '#5a4630'; c.lineWidth = 10; c.beginPath(); c.moveTo(760, 1000); c.lineTo(860, 1180); c.stroke(); c.fillStyle = '#6a6a6a'; c.fillRect(730, 985, 60, 18); snow(c, t, 120, 70, 30); txt(c, 'EVEREST · 1951', 540, 400, 50, '#2a3a4a', 'Courier Prime', 700); },
+  goat(c, t, P) { nightBase(c, t, P, 41); moon(c, 820, 300, 60); c.fillStyle = '#16121c'; c.fillRect(0, 1000, W, H); c.fillStyle = '#2a2018'; for (let i = 0; i < 12; i++) c.fillRect(80 + i * 80, 960, 10, 60); c.fillRect(60, 975, 900, 8);
+    c.fillStyle = '#dcd4c0'; c.beginPath(); c.ellipse(320, 920, 90, 50, 0, 0, TAU); c.fill(); c.beginPath(); c.arc(400, 880, 30, 0, TAU); c.fill(); c.fillRect(270, 950, 12, 50); c.fillRect(360, 950, 12, 50);
+    const x = 760 + Math.sin(t * .8) * 30; c.fillStyle = '#0b0910'; c.beginPath(); c.ellipse(x, 930, 110, 46, 0, 0, TAU); c.fill(); c.beginPath(); c.arc(x + 100, 890, 34, 0, TAU); c.fill();
+    for (let i = 0; i < 6; i++) { c.beginPath(); c.moveTo(x - 80 + i * 30, 890); c.lineTo(x - 70 + i * 30, 850 - (i % 2) * 14); c.lineTo(x - 60 + i * 30, 890); c.fill(); }
+    c.fillStyle = Math.sin(t * 3) > -.6 ? RED : '#400'; c.beginPath(); c.arc(x + 110, 884, 6, 0, TAU); c.fill(); txt(c, 'PUERTO RICO · 1995', 540, 440, 46, 'rgba(239,227,196,.7)', 'Courier Prime', 700); },
+  wings(c, t, P) { nightBase(c, t, P, 43); c.fillStyle = '#100d16'; c.fillRect(0, 1060, W, H); c.strokeStyle = '#3a3448'; c.lineWidth = 14; c.beginPath(); c.moveTo(0, 980); c.quadraticCurveTo(540, 860, W, 980); c.stroke(); for (let i = 0; i < 9; i++) { c.beginPath(); c.moveTo(i * 130, 980 - Math.sin(i / 8 * Math.PI) * 100); c.lineTo(i * 130, 1060); c.stroke(); }
+    const flap = Math.sin(t * 2.4) * .5; c.save(); c.translate(540, 600 + Math.sin(t) * 20); c.fillStyle = '#0a0810';
+    [-1, 1].forEach(sd => { c.save(); c.scale(sd, 1); c.rotate(flap * .5); c.beginPath(); c.moveTo(20, -40); c.quadraticCurveTo(220, -160 - flap * 80, 320, 40); c.quadraticCurveTo(200, 0, 20, 60); c.fill(); c.restore(); });
+    c.beginPath(); c.ellipse(0, 20, 50, 110, 0, 0, TAU); c.fill(); c.fillStyle = RED; glow(c, -18, -40, 30, 'rgba(208,55,44,.8)'); glow(c, 18, -40, 30, 'rgba(208,55,44,.8)'); c.beginPath(); c.arc(-18, -40, 8, 0, TAU); c.arc(18, -40, 8, 0, TAU); c.fill(); c.restore();
+    txt(c, 'POINT PLEASANT · 1966', 540, 1160, 44, 'rgba(239,227,196,.7)', 'Courier Prime', 700); },
   dome(c, t, P) { sky(c, '#1b1726', '#3a3050'); glow(c, 540, 700, 500, hue(P, 40, 50, .4)); c.fillStyle = PAPER; c.fillRect(515, 360, 50, 80); c.beginPath(); c.ellipse(540, 620, 220, 190, 0, Math.PI, TAU); c.fill(); c.fillRect(300, 620, 480, 40); for (let i = 0; i < 12; i++) c.fillRect(320 + i * 38, 670, 18, 200); c.fillRect(200, 870, 680, 40); c.fillRect(160, 910, 760, 40);
     for (let i = 0; i < 8; i++) { const on = rnd(i + Math.floor(t * 3)) > .75; if (on) glow(c, 160 + i * 110, 1050, 80, 'rgba(255,255,255,.5)'); } if (P.text) txt(c, P.text, 540, 1150, 46, MARK); },
 };
@@ -221,7 +234,7 @@ const MAP = {
   dbcooper: ['parachute'], zodiac: ['cipher', { text: 'I HOPE YOU ARE HAVING LOTS OF FUN' }], maryceleste: ['ghostship', { text: 'DEC 4 1872 · NO CREW' }], voynich: ['cipher', { mode: 'never' }],
   dyatlov: ['tent'], rendlesham: ['saucer', { text: 'RENDLESHAM FOREST · 1980' }], somerton: ['beach'],
   nessie: ['lake', { mode: 'reveal' }], cropcircles: ['crop'], titanic: ['titanic'], haarp: ['antenna'], greatwall: ['wall'], chemtrails: ['contrail'],
-  phoenix: ['lights'], bigfoot: ['forest'], flatearth: ['horizon'], illuminati: ['pyramid'], elvis: ['mic', { text: 'ELVIS HAS LEFT THE BUILDING' }], grusch: ['mic', { text: 'UNDER OATH · JULY 2023' }], ajax: ['oil'], castro: ['cigar'], irancontra: ['crates'], sunshine: ['geiger'], plutonium: ['geiger', { text: 'Pu-239' }],
+  phoenix: ['lights'], bigfoot: ['forest'], yeti: ['snowprint'], chupacabra: ['goat'], mothman: ['wings'], flatearth: ['horizon'], illuminati: ['pyramid'], elvis: ['mic', { text: 'ELVIS HAS LEFT THE BUILDING' }], grusch: ['mic', { text: 'UNDER OATH · JULY 2023' }], ajax: ['oil'], castro: ['cigar'], irancontra: ['crates'], sunshine: ['geiger'], plutonium: ['geiger', { text: 'Pu-239' }],
 };
 window.RHART = { ART, MAP, draw(c, id, t, hueN) { const m = MAP[id]; if (!m || !ART[m[0]]) return false; c.save(); ART[m[0]](c, t, { hue: hueN, ...(m[1] || {}) }); c.restore(); return true; } };
 })();

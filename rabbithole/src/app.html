@@ -387,6 +387,37 @@ button.src { text-align: left; text-decoration: none; color: var(--mark); font-w
 .autopill { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); padding: 8px 14px; border-radius: 999px; background: var(--text); color: var(--ink); font-weight: 700; font-size: 13px; z-index: 3; white-space: nowrap; }
 .tog-row input { width: 22px; height: 22px; accent-color: var(--mark); }
 
+/* intro, refresh, streak, comments, search, studio */
+.go-btn.pulse { animation: pulse 1.8s ease-in-out infinite; } @keyframes pulse { 50% { box-shadow: 0 0 0 6px rgba(242,225,76,.18), 0 0 46px rgba(242,225,76,.5); } }
+.intro-cap { margin: 0; min-height: 2.2em; font-family: var(--f-display); font-weight: 900; font-size: clamp(30px, 8.5vw, 44px); line-height: 1; text-transform: uppercase; opacity: 0; transform: translateY(8px); transition: opacity .35s, transform .35s; }
+.intro-cap.on { opacity: 1; transform: none; }
+#onb.intro-on .wordmark, #onb.intro-on .tagline, #onb.intro-on #onbSub { opacity: .25; transition: opacity .6s; }
+.onb-logo { transition: transform .08s; }
+#ptrG { position: absolute; z-index: 60; left: 50%; top: 0; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-size: 22px; font-weight: 800; color: var(--text); opacity: 0; transform: translate(-50%, -50px); pointer-events: none;
+  background: linear-gradient(160deg, rgba(255,255,255,.2), rgba(255,255,255,.05)), rgba(30,25,41,.5); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.3); }
+#ptrG.ready { color: var(--mark); border-color: rgba(242,225,76,.7); }
+.streak-pill, #hudStreak { cursor: pointer; }
+.sdays { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; }
+.sday { display: grid; gap: 4px; justify-items: center; padding: 8px 0; border-radius: 12px; border: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.sday.on { color: var(--v-mixed); border-color: rgba(245,181,68,.5); background: rgba(245,181,68,.08); } .sday.today { outline: 2px solid rgba(242,225,76,.5); }
+.cmt .who .ava { border-width: 1px; }
+.cmt .acts { align-items: center; } .cmt .acts button { display: inline-flex; align-items: center; gap: 4px; } .cmt .acts .ico { width: 16px; height: 16px; }
+.cmt .acts button[aria-pressed="true"] { color: var(--string); } .cmt .acts button[aria-pressed="true"] .ico { fill: currentColor; }
+.views { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); }
+.door-sub { display: block; font-size: 13.5px; color: #d4cede; font-weight: 400; } .door mark, .door-sub mark { background: var(--mark); color: var(--ink); border-radius: 3px; padding: 0 2px; }
+.studio { display: grid; gap: 10px; padding: 14px; border-radius: 16px; border: 1px solid rgba(242,225,76,.35); background: linear-gradient(160deg, rgba(242,225,76,.08), transparent 60%); }
+.studio-head { display: grid; gap: 2px; } .studio-head b { font-family: var(--f-display); font-size: 22px; text-transform: uppercase; }
+.studio-tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.tool { display: grid; justify-items: center; gap: 6px; padding: 14px 6px; border-radius: 14px; font-size: 12.5px; font-weight: 700; text-align: center; cursor: pointer;
+  background: linear-gradient(160deg, rgba(255,255,255,.17), rgba(255,255,255,.05)), rgba(30,25,41,.36); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.24); box-shadow: inset 0 1px 0 rgba(255,255,255,.4); }
+.tool .ico { width: 28px; height: 28px; color: var(--mark); }
+.studio-files { display: flex; gap: 6px; overflow-x: auto; } .sf { position: relative; flex: none; width: 84px; height: 84px; border-radius: 10px; overflow: hidden; background: #000; }
+.sf img, .sf video { width: 100%; height: 100%; object-fit: cover; } .sf button { position: absolute; top: 2px; right: 2px; width: 24px; height: 24px; border-radius: 50%; background: rgba(0,0,0,.7); color: #fff; font-weight: 800; }
+.studio-list { display: grid; gap: 8px; } .sl-h { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.ev-card { display: grid; grid-template-columns: 84px 1fr auto; gap: 10px; align-items: start; padding: 8px; border-radius: 12px; border: 1px solid var(--line); background: rgba(19,16,28,.5); }
+.ev-media img, .ev-media video { width: 84px; height: 84px; object-fit: cover; border-radius: 8px; background: #000; } .ev-media:empty { width: 84px; height: 84px; border-radius: 8px; background: var(--ink-2); }
+.ev-card p { margin: 0 0 4px; font-size: 14px; }
+
 /* ---------- Liquid glass: translucent, blurred, with a light edge and a top highlight ---------- */
 .scrim { background: rgba(8,6,12,.32) !important; }
 .sheet { background: linear-gradient(170deg, rgba(255,255,255,.14), rgba(255,255,255,.04) 40%), rgba(26,21,36,.66) !important; -webkit-backdrop-filter: blur(26px) saturate(170%); backdrop-filter: blur(26px) saturate(170%);
@@ -475,6 +506,7 @@ button:active, .pill:active, .disc:active { transform: scale(.96); filter: brigh
     <button data-tab="mod" hidden></button>
   </nav>
   <div id="onb" hidden></div>
+  <div id="ptrG" aria-hidden="true">↻</div>
 </div>
 
 <script>
@@ -528,6 +560,10 @@ const I = {
   search: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
   send: '<path d="M4 12l16-8-6 16-3-7z"/><path d="M11 13l9-9"/>',
   heart: '<path d="M12 20s-7-4.4-9.2-9A5 5 0 0 1 12 6a5 5 0 0 1 9.2 5c-2.2 4.6-9.2 9-9.2 9z"/>',
+  eye: '<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  camera: '<path d="M4 7h4l2-2h4l2 2h4v12H4z"/><circle cx="12" cy="13" r="4"/>',
+  upload: '<path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 20h16"/>',
+  trash: '<path d="M5 7h14M9 7V4h6v3M7 7l1 13h8l1-13"/>',
   bell: '<path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/>'
 };
 const ico = (n, extra = "") => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" ${extra}>${I[n]}</svg>`;
@@ -750,13 +786,13 @@ const CaseFile = (() => {
         <button class="cta" data-act="unlock">${ico("lock")} Unlock the deep record</button><p class="credit">Everything else in Rabbit Hole stays free, with no ads.</p></div>`;
       return d.paras.map(x => `<p>${esc(x)}</p>`).join("") + `<p class="credit">From Wikipedia: <a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.title)}</a> · CC BY-SA 4.0</p>`; }
     if (i === 4) return `<p class="credit">Three ways to keep going from here:</p><div class="doors">${Explore.doors(c, []).map(([label, d]) => `<button class="door" data-open="${esc(d.id)}"><small>${label}</small><b>${esc(capFirst(d.tease))}</b></button>`).join("")}</div>`;
-    if (i === 5) return `<label class="fld">Your notes on this file<textarea id="cfNotes" rows="4" placeholder="What doesn't add up? What would you look into next? Only you can see this.">${esc(S.notes[c.id] || "")}</textarea></label><p class="credit" id="cfSaved"></p><div class="cf-community"></div>`;
+    if (i === 5) return `<div class="studio" data-case="${esc(c.id)}"></div><label class="fld">Private notes<textarea id="cfNotes" rows="3" placeholder="What doesn't add up? Only you can see this.">${esc(S.notes[c.id] || "")}</textarea></label><p class="credit" id="cfSaved"></p><div class="cf-community"></div>`;
   }
   function addLayer(i, scroll) {
     const sec = document.createElement("section"); sec.className = "layer" + (scroll ? " layer-in" : ""); sec.dataset.layer = i;
     sec.innerHTML = `<h3><span>Layer ${i + 1}</span>${LAYERS[i]}${i === 3 && !S.cleared ? ` ${ico("lock")}` : ""}</h3>` + layer(i);
     $(".layers", s).append(sec);
-    if (i === 5) Contrib.mountCase($(".cf-community", sec), c.id);
+    if (i === 5) { Studio.mount($(".studio", sec), c.id); Contrib.mountCase($(".cf-community", sec), c.id); }
     if (scroll) setTimeout(() => sec.scrollIntoView({ behavior: "smooth", block: "start" }), 60);
   }
   function foot() {
@@ -796,6 +832,56 @@ const CaseFile = (() => {
     });
   }
   return { open, refresh() { if (s && s.isConnected && c) { const k = shown; open(c.id, k); } } };
+})();
+
+/* ---------- Build this story: add evidence, photos and videos to a case ---------- */
+// Your contributions are kept on this device (IndexedDB, files included). Where the shared store is on,
+// they are also sent to the moderation queue, and published once a moderator approves them.
+const Studio = (() => {
+  let dbp = null;
+  const idb = () => dbp || (dbp = new Promise((res, rej) => { try { const r = indexedDB.open("rabbithole", 1); r.onupgradeneeded = () => r.result.createObjectStore("files"); r.onsuccess = () => res(r.result); r.onerror = () => rej(r.error); } catch (e) { rej(e); } }));
+  const put = (k, v) => idb().then(d => new Promise((res, rej) => { const t = d.transaction("files", "readwrite"); t.objectStore("files").put(v, k); t.oncomplete = res; t.onerror = () => rej(t.error); }));
+  const get = k => idb().then(d => new Promise(res => { const r = d.transaction("files").objectStore("files").get(k); r.onsuccess = () => res(r.result); r.onerror = () => res(null); }));
+  const del = k => idb().then(d => new Promise(res => { const t = d.transaction("files", "readwrite"); t.objectStore("files").delete(k); t.oncomplete = res; }));
+  S.contribs = S.contribs || {};
+  function mount(el, caseId) {
+    let files = [];
+    const list = () => (S.contribs[caseId] || []);
+    async function draw() {
+      const L = list();
+      el.innerHTML = `<div class="studio-head"><b>Add to this case</b><span class="credit">Know something the file doesn't? Add the evidence.</span></div>
+        <div class="studio-tools">
+          <label class="tool">${ico("camera")}<span>Take photo</span><input type="file" accept="image/*" capture="environment" data-pick hidden></label>
+          <label class="tool">${ico("watch")}<span>Record video</span><input type="file" accept="video/*" capture="environment" data-pick hidden></label>
+          <label class="tool">${ico("upload")}<span>Upload files</span><input type="file" accept="image/*,video/*" multiple data-pick hidden></label></div>
+        <div class="studio-files">${files.map((f, i) => `<div class="sf">${f.type.startsWith("video") ? `<video src="${f.url}" muted playsinline></video>` : `<img src="${f.url}" alt="">`}<button data-rmfile="${i}" aria-label="Remove">×</button></div>`).join("")}</div>
+        <label class="fld">What does this show?<textarea id="stCap" rows="2" maxlength="500" placeholder="Describe the evidence. Dates, places, what you saw."></textarea></label>
+        <label class="fld">Where is it from? (optional)<input id="stSrc" inputmode="url" placeholder="A link, a book, an archive, or “my own photo”"></label>
+        <button class="cta" data-addev>${ico("upload")} Add evidence</button>
+        <div class="studio-list">${L.length ? `<b class="sl-h">Your evidence on this case · ${L.length}</b>` : ""}${L.map(x => `<div class="ev-card" data-ev="${esc(x.id)}"><div class="ev-media" data-media="${esc(x.id)}"></div><div><p>${esc(x.caption || "")}</p>${x.source ? `<p class="credit">Source: ${esc(x.source)}</p>` : ""}<span class="badge ${x.status === "published" ? "real" : "wait"}">${x.status === "pending" ? "Waiting for a moderator" : x.status === "published" ? "Published" : "Saved on this device"}</span></div><button class="ghost sm" data-rmev="${esc(x.id)}" aria-label="Delete">${ico("trash")}</button></div>`).join("")}</div>`;
+      for (const x of L) for (const fk of (x.files || []).slice(0, 1)) { const b = await get(fk); const m = $(`[data-media="${CSS.escape(x.id)}"]`, el); if (b && m) { const u = URL.createObjectURL(b); m.innerHTML = b.type.startsWith("video") ? `<video src="${u}" controls playsinline></video>` : `<img src="${u}" alt="">`; } }
+    }
+    el.addEventListener("change", e => { if (!e.target.matches("[data-pick]")) return; for (const f of e.target.files) { if (f.size > 60 * 1024 * 1024) { toast("Files must be under 60 MB."); continue; } files.push({ blob: f, type: f.type || "", url: URL.createObjectURL(f) }); } e.target.value = ""; draw(); FX.tap(); });
+    el.addEventListener("click", async e => {
+      const rf = e.target.closest("[data-rmfile]"); if (rf) { files.splice(+rf.dataset.rmfile, 1); return draw(); }
+      const re = e.target.closest("[data-rmev]"); if (re) { const id = re.dataset.rmev, x = list().find(y => y.id === id); (x.files || []).forEach(k => del(k).catch(() => {})); S.contribs[caseId] = list().filter(y => y.id !== id); save(); toast("Removed"); return draw(); }
+      if (!e.target.closest("[data-addev]")) return;
+      const cap = $("#stCap", el).value.trim(), src = $("#stSrc", el).value.trim();
+      if (!cap && !files.length) return toast("Add a photo, a video, or describe what you know.");
+      const f = Filter(cap + " " + src, []); if (f.block.filter(x => x !== "Link").length) return toast(`This can't be added: ${f.block.join(", ")}.`);
+      const id = Math.random().toString(36).slice(2, 10), keys = [];
+      try { for (const [i, x] of files.entries()) { const k = id + ":" + i; await put(k, x.blob); keys.push(k); } } catch (er) { return toast("Couldn't save the files on this device."); }
+      let status = "local";
+      if (Community.on) {
+        try { const v = files.find(x => x.type.startsWith("video") || x.type.startsWith("image")); const asset = v && Community.canUpload ? await Community.upload(v.blob) : undefined;
+          const err = Community.submit({ type: v && v.type.startsWith("video") ? "video" : "tip", caseId, text: cap, ...(/^https:\/\//.test(src) ? { source: src } : {}), ...(asset ? { asset } : {}) }); if (!err) status = "pending"; } catch (er) {}
+      }
+      (S.contribs[caseId] = list()).unshift({ id, caption: cap, source: src, files: keys, status, at: Date.now() }); save();
+      files = []; addDepth(25); toast(status === "pending" ? "Evidence sent. It's published once a moderator approves it." : "Evidence added to your case file."); draw();
+    });
+    draw();
+  }
+  return { mount };
 })();
 
 /* ---------- Feed queue: follow the chain ---------- */
@@ -941,8 +1027,18 @@ const Explore = (() => {
     return { c, f, all: new Set([...f.title, ...f.hook, ...f.rest].map(stem)) }; });
   // theories that target real people or groups with no evidence never get a file
   const NOFILE = /\b(lizards?|reptil\w*|shape-?shift\w*|jews?|jewish|zionis\w*|rothschilds?|soros|bloodlines?|globalists?)\b/i;
+  // keyword search: each word you type is matched inside every file (title, hook, evidence, record), and every match is listed
   function search(q) {
     if (NOFILE.test(q)) return [];
+    const kw = [...new Set((q.toLowerCase().match(/[a-z0-9]+/g) || []).filter(w => w.length > 1 && !STOP.has(w)))];
+    const jw = (q.toLowerCase().match(/[a-z0-9]+/g) || []).slice(1).map((w, i, a) => (q.toLowerCase().match(/[a-z0-9]+/g) || [])[i] + w);
+    const all = [...kw, ...jw, ...kw.flatMap(w => (SYN[w] || "").split(" ").filter(Boolean))];
+    if (all.length) { const hits = CASES.map(c => { const T = (c.title + " " + plain(c.hook) + " " + c.tease).toLowerCase(), B = (c.ev.join(" ") + " " + c.truth + " " + HOLES[c.hole].name + " " + c.year).replace(/\[\[|\]\]/g, "").toLowerCase();
+        const has = (txt, w) => new RegExp("\\b" + w.replace(/[^a-z0-9]/g, ""), "i").test(txt);
+        let sc = 0, matched = 0; kw.concat(jw).forEach(w => { const st = stem(w); if (has(T, st)) { sc += 3; matched++; } else if (has(B, st)) { sc += 1; matched++; } });
+        all.slice(kw.length + jw.length).forEach(w => { if (has(T, w)) sc += 1; });
+        return { c, sc: sc + matched * 2 }; }).filter(x => x.sc > 0).sort((a, b) => b.sc - a.sc);
+      if (hits.length) return hits.map(x => x.c); }
     const raw = (q.toLowerCase().match(/[a-z0-9-]+/g) || []), qs = words(q), joined = raw.slice(1).map((w, i) => raw[i] + w);
     const terms = new Set(); [...qs, ...joined].forEach(w => { terms.add(stem(w)); (SYN[w] || "").split(" ").filter(Boolean).forEach(x => terms.add(stem(x))); });
     if (!terms.size) return [];
@@ -974,8 +1070,10 @@ const Explore = (() => {
     if (!results.length) return `<div class="nofile"><b>Alice hasn't opened that file.</b><p>Nothing in the record matches "${esc(query)}" yet. Some theories target real people with no evidence at all, and Rabbit Hole only opens files it can source. Try a different angle:</p>
       <div class="doors">${["moon", "birds", "chemtrails"].map(id => byId[id]).map(d => `<button class="door" data-start="${d.id}"><small>Too Good to Be True</small><b>${esc(capFirst(d.tease))}</b></button>`).join("")}</div>
       ${Community.on ? `<button class="ghost" data-propose>Think it deserves a file? Propose it</button>` : ""}</div>`;
-    return `<p class="credit">Alice found ${results.length} file${results.length > 1 ? "s" : ""}. Start with the strongest lead:</p>
-      <div class="doors">${results.slice(0, 3).map((d, i) => `<button class="door${isLocked(d) ? " locked" : ""}" data-start="${d.id}"><small>${i ? "Another way in" : "Strongest lead"}${isLocked(d) ? " · clearance" : ""}</small><b>${esc(capFirst(d.tease))}</b></button>`).join("")}</div>`;
+    const words = [...new Set((query.toLowerCase().match(/[a-z0-9]+/g) || []).filter(w => w.length > 1 && !STOP.has(w)))];
+    const hl = t => esc(t).replace(new RegExp("(" + words.map(w => w.replace(/[^a-z0-9]/g, "")).filter(Boolean).join("|") + ")", "gi"), "<mark>$1</mark>");
+    return `<p class="credit">${results.length} file${results.length > 1 ? "s" : ""} match "${esc(query)}". Strongest first:</p>
+      <div class="doors">${results.map((d, i) => `<button class="door" data-start="${d.id}"><small>${i ? esc(HOLES[d.hole].name) : "Strongest lead"} · ${esc(d.year)}</small><b>${hl(capFirst(d.title))}</b><span class="door-sub">${words.length ? hl(plain(d.hook)) : esc(plain(d.hook))}</span></button>`).join("")}</div>`;
   }
   function html() {
     return `<form class="ask" role="search"><label for="askQ" class="sr" hidden>Ask Alice</label>${ico("search")}<input id="askQ" type="search" enterkeyhint="search" autocomplete="off" placeholder="Ask Alice anything. A rumour, a name, a question." value="${esc(query)}"><button class="cta" type="submit">Ask</button></form>
@@ -1123,7 +1221,7 @@ const Community = (() => {
   const pub = caseId => (approved[caseId] || []).filter(x => !banned(x.by) && !(myReports.items || []).some(r => r.key === x.key));
   const visible = caseId => pub(caseId).filter(x => (x.type || "comment") === "comment");
   const count = caseId => visible(caseId).length + Social.castComments(caseId).length + ((S.myComments || {})[caseId] || []).length;
-  let openId = null, side = null, replyTo = null, view = "queue";
+  let openId = null, side = null, replyTo = null, view = "queue", sortBy = "top";
   let changed = function () {
     $$("[data-count]").forEach(x => x.textContent = count(x.dataset.count) || "Discuss");
     document.body.classList.toggle("community-on", live && (settings.enabled || admin));
@@ -1213,18 +1311,20 @@ const Community = (() => {
   const discussOn = () => live && (settings.enabled || admin);
   function itemHTML(it, parent) {
     const reb = parent && parent.side !== it.side;
-    return `<li class="cmt"><div class="who"><button class="handle-link" data-who="${esc(it.by)}">${esc(Social.nameOf(it.by))}</button>${it.cast ? '<span class="badge wait">Cast</span>' : ""}<span class="badge ${it.side}">${it.side}</span>${reb ? '<span class="badge reb">Rebuttal</span>' : ""}<span>${ago(it.at)}</span>
+    return `<li class="cmt"><div class="who">${Social.avatar(it.by, 28)}<button class="handle-link" data-who="${esc(it.by)}">${esc(Social.nameOf(it.by))}</button>${it.cast ? '<span class="badge wait">Cast</span>' : ""}<span>${ago(it.at)}</span>
       ${it.status === "pending" ? '<span class="badge wait">Waiting for a moderator</span>' : it.status === "rejected" || it.status === "removed" ? `<span class="badge fake">Not published${it.reason ? ": " + esc(it.reason) : ""}</span>` : it.local ? '<span class="badge wait">Only you can see this for now</span>' : ""}</div>
-      <p>${esc(it.text)}</p><div class="acts">${parent ? "" : `<button data-reply="${esc(it.key)}">Reply</button>`}${!it.cast && !it.local && it.by !== me && it.status === undefined ? `<button data-report="${esc(it.key)}">Report</button>` : ""}</div>`;
+      <p>${esc(it.text)}</p><div class="acts"><button data-clike="${esc(it.key)}" aria-pressed="${!!S.liked["c:" + it.key]}">${ico("heart")} <span>${Social.fmt(Social.likes("c:" + it.key))}</span></button><span class="views">${ico("eye")} ${Social.fmt(Social.views("c:" + it.key))}</span>${parent ? "" : `<button data-reply="${esc(it.key)}">Reply</button>`}${!it.cast && !it.local && it.by !== me && it.status === undefined ? `<button data-report="${esc(it.key)}">Report</button>` : ""}</div>`;
   }
   function renderThread() {
     const sc = $(".debate"); if (!sc) return;
     const all = threadItems(openId), tops = all.filter(x => !x.parent), kids = all.filter(x => x.parent);
     resolveNames(all.map(x => x.by).filter(x => !String(x).startsWith("cast:")));
     $(".dcount", sc).textContent = `${all.length} comment${all.length === 1 ? "" : "s"}`;
-    $(".thread", sc).innerHTML = tops.length ? tops.sort((a, b) => b.at - a.at).map(it => itemHTML(it) + (kids.some(k => k.parent === it.key) ? `<ol>${kids.filter(k => k.parent === it.key).sort((a, b) => a.at - b.at).map(k => itemHTML(k, it) + "</li>").join("")}</ol>` : "") + "</li>").join("")
+    all.forEach(x => Social.seen("c:" + x.key));
+    const order = sortBy === "top" ? (a, b) => Social.likes("c:" + b.key) - Social.likes("c:" + a.key) || b.at - a.at : (a, b) => b.at - a.at;
+    $$(".dsort button", sc).forEach(b => b.setAttribute("aria-pressed", b.dataset.sort === sortBy));
+    $(".thread", sc).innerHTML = tops.length ? tops.sort(order).map(it => itemHTML(it) + (kids.some(k => k.parent === it.key) ? `<ol>${kids.filter(k => k.parent === it.key).sort((a, b) => a.at - b.at).map(k => itemHTML(k, it) + "</li>").join("")}</ol>` : "") + "</li>").join("")
       : `<li class="empty-thread">No comments yet. Start the conversation.</li>`;
-    $$(".pick-side button", sc).forEach(b => b.setAttribute("aria-pressed", b.dataset.side === side));
     const rt = replyTo && all.find(x => x.key === replyTo); $(".replying", sc).hidden = !rt; if (rt) $(".replying span", sc).textContent = `Replying to ${Social.nameOf(rt.by)}`;
     $(".send", sc).disabled = !$("#argText", sc).value.trim();
     $(".compose", sc).hidden = !S.rulesOk || banned(me); $(".rules", sc).hidden = !!S.rulesOk; $(".banned", sc).hidden = !banned(me);
@@ -1234,14 +1334,14 @@ const Community = (() => {
     const c = byId[caseId]; openId = caseId; replyTo = null; side = c.ans === "false" ? "fake" : "real";
     const s = document.createElement("div"); s.className = "scrim";
     s.innerHTML = `<div class="sheet debate" role="dialog" aria-modal="true" aria-labelledby="dbT">
-      <header><div><h2 id="dbT">Discussion</h2><span class="credit dcount"></span></div><button class="x" data-x>Close</button></header>
-      <p class="prompt"><b>Alice asks</b>${esc(plain(c.hook))} ${esc(PROMPT[c.ans])}</p>
+      <header><div><h2 id="dbT">Comments</h2><span class="credit dcount"></span></div><button class="x" data-x>Close</button></header>
+      <p class="credit" style="margin:-6px 0 0">${esc(capFirst(c.title))}</p>
+      <div class="filters dsort"><button data-sort="top">Top</button><button data-sort="new">Newest</button></div>
       <ol class="thread" aria-live="polite"></ol>
       <div class="rules"><b>House rules</b><p>${esc(settings.rules).replace(/\n/g, "<br>")}</p><button class="cta" data-agree>I agree</button></div>
       <p class="banned fine" hidden>You can't post here.</p>
       <form class="compose" hidden>
         <div class="replying" hidden><span></span><button type="button" data-cancel>Cancel</button></div>
-        <div class="pick-side" role="group" aria-label="Your take"><button type="button" class="real" data-side="real">Real</button><button type="button" class="fake" data-side="fake">Fake</button></div>
         <div class="sendrow"><textarea id="argText" maxlength="280" rows="1" aria-label="Your comment" placeholder="Add a comment…"></textarea><button class="send" type="submit" aria-label="Send">${ico("send")}</button></div>
         <p class="credit">${discussOn() ? "A moderator reads every comment before everyone can see it." : "Public comments open with accounts. Until then your comments are saved on this device."}</p></form></div>`;
     $("#app").append(s);
@@ -1250,7 +1350,8 @@ const Community = (() => {
       if (e.target === s || e.target.closest("[data-x]")) { openId = null; return s.remove(); }
       if (e.target.closest("[data-agree]")) { S.rulesOk = true; save(); return renderThread(); }
       const who = e.target.closest("[data-who]"); if (who) return Social.profile(who.dataset.who);
-      const sd = e.target.closest("[data-side]"); if (sd) { side = sd.dataset.side; return renderThread(); }
+      const so = e.target.closest("[data-sort]"); if (so) { sortBy = so.dataset.sort; return renderThread(); }
+      const cl = e.target.closest("[data-clike]"); if (cl) { Social.like("c:" + cl.dataset.clike); return renderThread(); }
       const rp = e.target.closest("[data-reply]"); if (rp) { replyTo = rp.dataset.reply; renderThread(); return $("#argText", s).focus(); }
       if (e.target.closest("[data-cancel]")) { replyTo = null; return renderThread(); }
       const rep = e.target.closest("[data-report]");
@@ -1513,6 +1614,7 @@ const Feed = (() => {
     const a = e.target.closest("[data-act]");
     if (a) return ({ save: () => toggleSave(el, a), debate: () => Community.open(el.dataset.id), file: () => CaseFile.open(el.dataset.id) })[a.dataset.act]?.();
     const vid = $("video", el); if (!vid) return;
+    if (Media.justUnlocked) { if (vid.paused) playVid(vid); return; }
     vid.paused ? vid.play().catch(() => {}) : vid.pause();
   });
   Community.onChange(() => { if (!v.hidden) render(); });
@@ -1594,24 +1696,47 @@ const Social = (() => {
     });
   }
   function tab_people(key) { tab("people"); setTimeout(() => { const el = $(`#people .post-reel[data-key="${CSS.escape(key)}"]`); if (el) el.scrollIntoView(); }, 120); }
-  return { meId, following, followers, likes, shares, like, shared, toggleFollow, nameOf, profile, castComments, fmt, isFollowing: id => S.following.includes(id), sync };
+  // views: the cast who read a comment, plus you once it has been on your screen
+  S.viewed = S.viewed || {};
+  const views = key => CAST.filter(c => hsh(key + "👁" + c.id) % 10 < 8).length + (S.viewed[key] ? 1 : 0) + others().length;
+  function seen(key) { if (!S.viewed[key]) { S.viewed[key] = 1; save(); } }
+  return { meId, following, followers, likes, shares, like, shared, toggleFollow, nameOf, profile, castComments, fmt, views, seen, avatar, isFollowing: id => S.following.includes(id), sync };
 })();
+
+/* ---------- Streak: what it is, the last 7 days, the weekly skip and the next badge ---------- */
+function streakSheet() {
+  $(".scrim")?.remove(); const d = dropNow(), BADGES = [3, 7, 14, 30, 100], next = BADGES.find(b => b > S.streak) || S.streak + 50;
+  const days = Array.from({ length: 7 }, (_, i) => { const idx = d.idx - 6 + i; const on = S.lastDrop != null && idx <= S.lastDrop && idx > S.lastDrop - S.streak; const dt = new Date(); dt.setDate(dt.getDate() - (6 - i));
+    return `<div class="sday${on ? " on" : ""}${i === 6 ? " today" : ""}"><b>${ico(on ? "flame" : "check")}</b><span>${dt.toLocaleDateString([], { weekday: "narrow" })}</span></div>`; }).join("");
+  const s = document.createElement("div"); s.className = "scrim";
+  s.innerHTML = `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="stT"><button class="x" data-x>Close</button>
+    <h2 id="stT">${S.streak}-day streak</h2>
+    <p class="onb-sub" style="margin:0">A day counts when you open that day's drop. A new file lands every day at ${hourLabel()}.</p>
+    <div class="sdays">${days}</div>
+    <div class="stats" style="margin:0"><div class="stat"><b>${S.skips ? 1 : 0}</b><span>Skip left this week</span></div><div class="stat"><b>${next}</b><span>Next badge (days)</span></div></div>
+    <p class="credit" style="margin:0">Miss one day and your weekly skip saves the streak. Earn a new skip every 7 days.</p>
+    <div class="row-btns">${S.notify ? "" : `<button class="cta" data-act="alerts">${ico("bell")} Remind me at ${hourLabel()}</button>`}<button class="ghost" data-todrop>Watch today's drop</button></div></div>`;
+  $("#app").append(s);
+  s.addEventListener("click", e => { if (e.target === s || e.target.closest("[data-x]")) return s.remove(); if (e.target.closest("[data-act=alerts]")) return Alerts.enable(); if (e.target.closest("[data-todrop]")) { s.remove(); tab("watch"); Watch.home(); } });
+}
+document.addEventListener("click", e => { if (e.target.closest(".streak-pill, #hudStreak")) { e.stopPropagation(); streakSheet(); } }, true);
 
 /* ---------- Pull to refresh (Home and Community) ---------- */
 function pullToRefresh(view, onRefresh) {
-  let y0 = null;
-  view.addEventListener("touchstart", e => { y0 = view.scrollTop <= 0 ? e.touches[0].clientY : null; }, { passive: true });
-  view.addEventListener("touchmove", e => { if (y0 == null) return; const d = e.touches[0].clientY - y0, p = $(".ptr", view); if (p) { p.style.opacity = Math.min(1, d / 80); p.textContent = d > 80 ? "Release to refresh" : "Pull to refresh"; } }, { passive: true });
-  view.addEventListener("touchend", e => { if (y0 == null) return; const d = ((e.changedTouches[0] || {}).clientY || y0) - y0; y0 = null; const p = $(".ptr", view); if (p) p.style.opacity = 0; if (d > 80) { FX.tap(); onRefresh(); } });
+  let y0 = null, d = 0; const ind = () => $("#ptrG");
+  view.addEventListener("touchstart", e => { y0 = view.scrollTop <= 1 && !$(".scrim") ? e.touches[0].clientY : null; d = 0; }, { passive: true });
+  view.addEventListener("touchmove", e => { if (y0 == null) return; d = e.touches[0].clientY - y0; if (d < 0 && view.scrollTop > 1) { y0 = null; return; }
+    const p = ind(); p.style.transform = `translate(-50%, ${Math.min(90, Math.max(0, d) * .6) - 50}px) rotate(${d * 3}deg)`; p.style.opacity = Math.min(1, Math.max(0, d) / 90); p.classList.toggle("ready", d > 90); }, { passive: true });
+  view.addEventListener("touchend", () => { if (y0 == null) return; y0 = null; const p = ind(); p.style.opacity = 0; p.style.transform = "translate(-50%, -50px)"; if (d > 90) { FX.tap(); onRefresh(); } d = 0; });
 }
 
 /* ---------- Video playback shared by Home and Community ---------- */
 // Clips start on their own (muted autoplay is always allowed). The first tap anywhere turns sound on for every clip after it.
 const Media = { sound: false };
 function playVid(vid) { vid.muted = !Media.sound; const p = vid.play(); if (p && p.catch) p.catch(() => { vid.muted = true; vid.play().catch(() => {}); $$("[data-sound]").forEach(b => b.hidden = false); }); }
-["click", "touchend"].forEach(ev => document.addEventListener(ev, () => {
-  if (Media.sound) return; Media.sound = true;
-  $$(".reel video").forEach(v => { if (!v.paused) { v.muted = false; v.play().catch(() => {}); } }); $$("[data-sound]").forEach(b => b.hidden = true);
+["click", "touchend"].forEach(ev => document.addEventListener(ev, e => {
+  if (Media.sound || !S.onboarded || !$("#onb").hidden) return; Media.sound = true; Media.justUnlocked = true; setTimeout(() => { Media.justUnlocked = false; }, 400);
+  $$(".view:not([hidden]) .reel video").forEach(v => { if (!v.paused) { v.muted = false; v.play().catch(() => {}); } }); $$("[data-sound]").forEach(b => b.hidden = true);
 }, { capture: true }));
 
 /* ---------- Watch: Alice's episodes, played as one chain ---------- */
@@ -1649,8 +1774,8 @@ const Watch = (() => {
   function nextUp(el) {
     const nx = el.nextElementSibling, c = byId[el.dataset.id]; let n = 2;
     const box = document.createElement("div"); box.className = "nextup";
-    box.innerHTML = `<small>Real or fake? Go further to find out</small><b>${esc(capFirst(c.title))}</b>
-      <div class="two"><button class="dig" data-digreel>${ico("deeper")}<span><small>Layer by layer</small>Go further</span></button>${nx ? `<button class="deeper" data-skipnext><span><small>Next file in <span class="n">${n}</span></small>${esc(capFirst(byId[nx.dataset.id].tease))}</span></button>` : ""}</div>`;
+    box.innerHTML = `<small>Want the whole story?</small><b>${esc(capFirst(c.title))}</b>
+      <div class="two"><button class="dig" data-digreel>${ico("deeper")}<span><small>Layer by layer</small>Go further into this file</span></button>${nx ? `<button class="deeper" data-skipnext><span><small>Next file in <span class="n">${n}</span></small>${esc(capFirst(byId[nx.dataset.id].tease))}</span></button>` : ""}</div>`;
     el.append(box);
     if (!nx) return;
     const step = () => { n--; if (n <= 0) { box.remove(); nx.scrollIntoView({ behavior: "smooth" }); return; } $(".n", box).textContent = n; timer = setTimeout(step, 1000); };
@@ -1666,6 +1791,7 @@ const Watch = (() => {
     if (a) return ({ save: () => toggleSave(el, a), debate: () => Community.open(el.dataset.id), share: () => share(el), file: () => CaseFile.open(el.dataset.id) })[a.dataset.act]?.();
     const vid = $("video", el);
     if (e.target.closest("[data-sound]")) { Media.sound = true; vid.muted = false; vid.play().catch(() => {}); $$("[data-sound]").forEach(b => b.hidden = true); return; }
+    if (Media.justUnlocked) { if (vid.paused) playVid(vid); return; }   // the tap that turned sound on never pauses
     vid.paused ? vid.play().catch(() => {}) : vid.pause();
   });
   pullToRefresh(v, () => { built = false; render(); v.scrollTop = 0; toast("Fresh mix of episodes"); });
@@ -1676,13 +1802,38 @@ const Watch = (() => {
 /* ---------- Tabs ---------- */
 const TABS = { feed: ["file", "Classified"], watch: ["home", "Home"], people: ["debate", "Community"], holes: ["search", "Explore"], me: ["me", "You"], mod: ["shield", "Mod"] };
 $$(".tabs button").forEach(b => { if (!TABS[b.dataset.tab]) return; const [i, l] = TABS[b.dataset.tab]; b.innerHTML = ico(i) + (b.dataset.tab === "mod" ? `<span class="count">${l}</span>` : l); });
-function tab(name) {
+/* ---------- Back: swipe from the left edge (or the phone's back) goes to the previous screen ---------- */
+const Nav = (() => {
+  const stack = []; let ignore = 0, cur = null;
+  function pushTab(name) { if (cur === name) return; if (cur) { stack.push(cur); history.pushState({ rh: "tab" }, ""); } cur = name; }
+  // one history step per open sheet (replacing one sheet with another keeps the same step)
+  let sheetStep = false;
+  window.addEventListener("popstate", () => {
+    if (ignore) { ignore--; return; }
+    const sc = $$(".scrim"); if (sc.length) { sheetStep = false; sc.forEach(x => { x.dataset.navClose = "1"; x.remove(); }); return; }
+    const prev = stack.pop(); if (prev) { cur = prev; tab(prev, true); }
+  });
+  new MutationObserver(() => {
+    const open = !!$(".scrim");
+    if (open && !sheetStep) { sheetStep = true; history.pushState({ rh: "sheet" }, ""); }
+    else if (!open && sheetStep) { sheetStep = false; ignore++; history.back(); }
+  }).observe($("#app"), { childList: true });
+  let sx = null, sy = 0;
+  document.addEventListener("touchstart", e => { const t = e.touches[0]; sx = t.clientX < 28 ? t.clientX : null; sy = t.clientY; }, { passive: true });
+  document.addEventListener("touchend", e => { if (sx == null) return; const t = e.changedTouches[0], dx = t.clientX - sx, dy = Math.abs(t.clientY - sy); sx = null; if (dx > 70 && dy < 80) history.back(); }, { passive: true });
+  return { pushTab, get current() { return cur; } };
+})();
+
+function tab(name, fromNav) {
+  if (!fromNav) Nav.pushTab(name);
   $$(".tabs button").forEach(b => b.dataset.tab === name ? b.setAttribute("aria-current", "page") : b.removeAttribute("aria-current"));
   ["feed", "watch", "people", "holes", "board", "me", "mod"].forEach(v => $("#" + v).hidden = v !== name);
-  Watch.active(name === "watch"); Feed.active(name === "people"); if (name !== "feed") Art.stop();
+  Watch.active(name === "watch" && S.onboarded); Feed.active(name === "people" && S.onboarded); if (name !== "feed") Art.stop();
   $("#hud").hidden = name !== "feed";
   if (name === "watch") Watch.render(); if (name === "people") Feed.render(); if (name === "holes") renderHoles(); if (name === "board") renderBoard(); if (name === "me") renderMe(); if (name === "mod") Community.render();
 }
+pullToRefresh(feed, () => { startFeed(); toast("Fresh files"); });
+["holes", "me", "mod"].forEach(id => pullToRefresh($("#" + id), () => { tab(id); toast("Refreshed"); }));
 $(".tabs").addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (!b) return; if (b.dataset.tab === "watch" && !$("#watch").hidden) return Watch.home(); if (b.dataset.tab === "feed" && !$("#feed").hidden) { feed.scrollTo({ top: 0, behavior: "smooth" }); return; } tab(b.dataset.tab); });
 
 /* ---------- Onboarding ---------- */
@@ -1692,8 +1843,10 @@ function onboarding() {
       ${MARK("onb-logo")}
       <h1 class="wordmark">Rabbit<br>H${RINGS}le</h1>
       <p class="tagline">Some of it was <mark>true.</mark></p>
-      <p class="onb-sub">One new file every day at ${hourLabel()}, opened by your host, Alice. Call it real or fake, then follow the chain down.</p>
-      <button class="go-btn" id="go1">Pick your first holes</button></div>`;
+      <p class="onb-sub" id="onbSub">One new file every day at ${hourLabel()}. Some of it was true.</p>
+      <p class="intro-cap" id="introCap" aria-live="polite"></p>
+      <button class="go-btn pulse" id="go0">${ico("watch")} Tap to enter</button>
+      <button class="ghost" id="go1" hidden>Skip</button><p class="credit" id="sndHint">Sound on for the full experience</p></div>`;
   const cv = $("#tunnel", o), ctx = cv.getContext("2d"); let t = 0, raf, speed = 1;
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   function draw() {
@@ -1710,7 +1863,22 @@ function onboarding() {
     t += .006 * speed; if (!reduce) raf = requestAnimationFrame(draw);
   }
   draw();
+  // Alice's intro: a short, suspenseful warning of what this app is, with the logo pulsing to her voice
+  const INTRO = DATA.intro || { captions: [] }; let audio = null, capT = 0;
+  $("#go0", o).onclick = () => {
+    $("#go0", o).hidden = true; $("#sndHint", o).hidden = true; $("#go1", o).hidden = false; $("#go1", o).textContent = "Skip intro"; speed = 2.2;
+    o.classList.add("intro-on");
+    try { audio = new Audio("media/intro.mp3"); audio.play().catch(() => finish()); } catch (e) { return finish(); }
+    audio.addEventListener("ended", finish);
+    const loop = () => { if (!audio) return; const t = audio.currentTime, c = INTRO.captions.find(x => t >= x.start - .05 && t < x.end + .6);
+      $("#introCap", o).textContent = c ? c.text : ""; $("#introCap", o).classList.toggle("on", !!c);
+      const logo = $(".onb-logo", o); if (logo) logo.style.transform = `scale(${1 + (c ? .06 + .04 * Math.sin(t * 9) : 0)})`;
+      capT = requestAnimationFrame(loop); };
+    loop();
+  };
+  function finish() { if (audio) { audio.pause(); audio = null; } cancelAnimationFrame(capT); o.classList.remove("intro-on"); speed = 1; $("#go1", o)?.click(); }
   $("#go1", o).onclick = () => {
+    if (audio) { audio.pause(); audio = null; cancelAnimationFrame(capT); }
     const picks = new Set(S.picks);
     $("#step1", o).outerHTML = `<div class="onb-step" id="step2"><h2 class="onb-h">Alice wants to know: what keeps you up at night?</h2><p class="onb-sub">Pick at least one. We'll start you there.</p>
       <div class="picks">${Object.entries(HOLES).map(([k, h]) => `<button class="pick" data-k="${k}" aria-pressed="${picks.has(k)}" style="--hue:${h.hue}"><b>${esc(h.name)}</b><small>${esc(h.blurb)}</small></button>`).join("")}</div>
@@ -1722,7 +1890,7 @@ function onboarding() {
       if (e.target.closest("#go2")) {
         S.picks = [...picks]; S.onboarded = true; save();
         speed = 9; step.style.transition = "opacity .5s"; step.style.opacity = 0;
-        startFeed();
+        startFeed(); tab(Object.keys(MEDIA.reels || {}).length ? "watch" : "feed");
         setTimeout(() => { cancelAnimationFrame(raf); o.hidden = true; o.innerHTML = ""; }, reduce ? 0 : 900);
       }
     });

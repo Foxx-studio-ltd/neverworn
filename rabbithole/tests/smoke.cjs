@@ -34,7 +34,10 @@ const FAKE = (opts) => {
   ok(await p.isVisible('#onb .wordmark'), 'onboarding shows the wordmark');
   ok(/every day at/.test(await p.textContent('#onb')), 'onboarding promises the daily drop');
   await shot('1-splash');
-  await p.click('#go1'); await p.waitForTimeout(300);
+  ok(await p.isVisible('#go0') && await p.evaluate(() => [...document.querySelectorAll('#watch video')].every(v => v.paused)), 'nothing plays behind the intro');
+  await p.click('#go0'); await p.waitForTimeout(1800);
+  ok(await p.evaluate(() => [...document.querySelectorAll('#watch video')].every(v => v.paused || v.muted)), 'no clip sound while the intro runs');
+  if (await p.isVisible('#go1')) await p.click('#go1'); await p.waitForTimeout(400);
   await p.click('.pick[data-k="mind"]'); await p.click('#go2'); await p.waitForTimeout(1300);
   ok(await p.isVisible('[data-tab="watch"]') && /Home/.test(await p.textContent('[data-tab="watch"]')), 'there is a Home tab');
   const drop = await p.evaluate(() => RabbitHole.dropNow().c.id);
@@ -111,9 +114,9 @@ const FAKE = (opts) => {
   ok(/CC BY-SA/.test(await p.textContent('.casefile')), 'clearance opens the deep record, with its attribution');
   await p.click('.casefile [data-x]');
   await p.click('[data-tab="holes"]'); await p.waitForTimeout(300);
-  ok(await p.locator('.hole').count() === 10, 'ten holes listed');
+  ok(await p.locator('.hole').count() === 11, 'eleven holes listed, including Cryptids');
   await p.fill('#askQ', 'did the CIA try to control minds'); await p.press('#askQ', 'Enter'); await p.waitForTimeout(300);
-  ok(/Alice found/.test(await p.textContent('#holes')), 'Ask Alice finds files for a plain-English question');
+  ok(/files? match/.test(await p.textContent('#holes')) && await p.locator('#holes [data-start]').count() >= 3, 'Ask Alice lists every file matching the words you typed');
   await p.locator('#holes [data-start]').first().click(); await p.waitForTimeout(300);
   ok(await p.locator('#holes .door').count() === 3, 'each file in the maze offers three doors');
   await p.locator('#holes [data-door]').first().click(); await p.waitForTimeout(300);
@@ -136,6 +139,23 @@ const FAKE = (opts) => {
   await p.click('[data-tab="watch"]'); await p.waitForTimeout(800);
   ok(await p.locator('.reel video').count() > 0 || await p.isVisible('.watch-empty'), 'watch tab shows episodes or an empty state');
   await shot('7-watch');
+  // the streak pill explains itself
+  await p.click('[data-tab="watch"]'); await p.waitForTimeout(300); await p.click('#watch .streak-pill'); await p.waitForTimeout(200);
+  ok(await p.locator('.sheet .sdays .sday').count() === 7, 'tapping the streak shows the last 7 days and how it works');
+  await p.goBack(); await p.waitForTimeout(300);
+  ok(await p.locator('.scrim').count() === 0, 'going back closes the sheet');
+  await p.click('[data-tab="me"]'); await p.waitForTimeout(200); await p.goBack(); await p.waitForTimeout(300);
+  ok(await p.isVisible('#watch'), 'going back returns to the previous tab');
+  // build this story: add evidence with a photo
+  await p.evaluate(() => RabbitHole.CaseFile.open('dyatlov', 5, true)); await p.waitForTimeout(400);
+  ok(await p.locator('.studio .tool').count() === 3, 'Build this story offers Take photo, Record video and Upload files');
+  await p.setInputFiles('.studio input[accept="image/*,video/*"]', { name: 'tent.png', mimeType: 'image/png', buffer: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', 'base64') });
+  await p.waitForTimeout(200);
+  ok(await p.locator('.studio .sf').count() === 1, 'a chosen photo shows as a preview before you add it');
+  await p.fill('#stCap', 'The tent was found half buried, cut from the inside.'); await p.click('.studio [data-addev]'); await p.waitForTimeout(600);
+  ok(await p.locator('.studio .ev-card').count() === 1 && await p.locator('.studio .ev-card img').count() === 1, 'added evidence appears in the case with its photo');
+  await p.screenshot({ path: `${out}/7c-studio.png` });
+  await p.click('.casefile [data-x]');
   // light streak: one missed day is forgiven, two are not
   await p.evaluate(() => { const s = RabbitHole.state, i = RabbitHole.dropNow().idx; s.lastDrop = i - 2; s.streak = 5; s.skips = 1; RabbitHole.markDrop(); });
   await p.waitForTimeout(600);
@@ -197,7 +217,7 @@ const FAKE = (opts) => {
   ok(/Sam Rivera/.test(await o.textContent('.debate .thread')) && /shadows/.test(await o.textContent('.debate .thread')), 'approved post shows in the discussion with its author');
   ok(!/NASA LIES/.test(await o.textContent('.debate .thread')), 'rejected post never appears');
   ok(await o.isVisible('.rules'), 'house rules come before the first post');
-  await o.click('[data-agree]'); await o.click('.pick-side .real');
+  await o.click('[data-agree]');
   await o.fill('#argText', 'Proof here: www.example.com'); await o.click('.debate .send'); await o.waitForTimeout(200);
   ok(/Link/.test(await o.textContent('#toast')), 'a post with a link is refused with the reason');
   await o.fill('#argText', 'Only sheeple believe that'); await o.click('.debate .send'); await o.waitForTimeout(200);

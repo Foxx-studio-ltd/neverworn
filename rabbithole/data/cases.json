@@ -49,6 +49,11 @@
    "name": "Unsolved",
    "hue": 320,
    "blurb": "Vanished hijackers, ghost ships and a book nobody can read."
+  },
+  "cryptid": {
+   "name": "Cryptids",
+   "hue": 100,
+   "blurb": "Bigfoot's cousins: the Yeti, the Chupacabra and the Mothman."
   }
  },
  "cases": [
@@ -1376,6 +1381,66 @@
    ],
    "title": "Elvis is alive",
    "tease": "fans swear the King of Rock and Roll faked his own death"
+  },
+  {
+   "id": "yeti",
+   "hole": "cryptid",
+   "year": "1951",
+   "ans": "false",
+   "hook": "A giant *ape-man* called the Yeti roams the Himalayas.",
+   "ev": [
+    "A climber photographed huge [[footprints]] near Everest in 1951.",
+    "His name was [[Eric Shipton]].",
+    "A 2017 study tested [[DNA]] from yeti samples."
+   ],
+   "truth": "Eric Shipton's 1951 photos of large prints made the Yeti famous. In 2017, scientists analysed hair, bone and skin said to come from yetis. Almost all of it came from local bears, and one sample came from a dog.",
+   "reveal": "The 2017 DNA study found bears. Almost every yeti sample came from Himalayan bears, and one came from a dog.",
+   "src": [
+    "Proceedings of the Royal Society B, 2017",
+    "https://en.wikipedia.org/wiki/Yeti"
+   ],
+   "title": "the Yeti",
+   "tease": "a giant ape-man supposedly walks the Himalayan snow"
+  },
+  {
+   "id": "chupacabra",
+   "hole": "cryptid",
+   "year": "1995",
+   "ans": "false",
+   "hook": "A *blood-drinking creature* is attacking farm animals in the Americas.",
+   "ev": [
+    "The first sightings came from [[Puerto Rico]] in 1995.",
+    "A radio comedian gave it the name [[chupacabra]], goat-sucker.",
+    "Animals caught in the US were [[canines with mange]]."
+   ],
+   "truth": "The chupacabra story began in Puerto Rico in 1995. Creatures caught or found in Mexico and the southern US have turned out to be coyotes and dogs with severe mange, which leaves them hairless and strange-looking.",
+   "reveal": "Every chupacabra anyone has caught turned out to be a coyote or dog with severe mange.",
+   "src": [
+    "Wildlife investigations, US and Mexico",
+    "https://en.wikipedia.org/wiki/Chupacabra"
+   ],
+   "title": "the Chupacabra",
+   "tease": "something was draining the blood from farm animals"
+  },
+  {
+   "id": "mothman",
+   "hole": "cryptid",
+   "year": "1966",
+   "ans": "unknown",
+   "hook": "A *winged figure with red eyes* was seen around one small American town.",
+   "ev": [
+    "The town was [[Point Pleasant]], West Virginia.",
+    "The sightings ran from [[November 1966]] to December 1967.",
+    "Local newspapers called it a [[man-sized bird]]."
+   ],
+   "truth": "Mothman was reported around Point Pleasant for about a year. A 1975 book tied the sightings to the collapse of the town's Silver Bridge in December 1967. Researchers think the sightings were most likely sandhill cranes or barred owls.",
+   "reveal": "Nobody can say for sure. The leading explanation is a large bird, like a sandhill crane or a barred owl, seen at night.",
+   "src": [
+    "Point Pleasant Register, 1966",
+    "https://en.wikipedia.org/wiki/Mothman"
+   ],
+   "title": "the Mothman",
+   "tease": "a winged figure with red eyes haunted a small town"
   }
  ],
  "chain": [
@@ -1444,7 +1509,10 @@
   "voynich",
   "dyatlov",
   "rendlesham",
-  "somerton"
+  "somerton",
+  "yeti",
+  "chupacabra",
+  "mothman"
  ],
  "drops": {
   "launch": "2026-11-14",
@@ -1455,6 +1523,7 @@
    "starfish",
    "bigfoot",
    "mkultra",
+   "yeti",
    "moon",
    "northwoods",
    "shamrock",
@@ -1463,6 +1532,7 @@
    "flatearth",
    "tuskegee",
    "dbcooper",
+   "chupacabra",
    "area51",
    "a119",
    "midnight",
@@ -1471,6 +1541,7 @@
    "tonkin",
    "prism",
    "radium",
+   "mothman",
    "mockingbird",
    "seaspray",
    "zodiac",
