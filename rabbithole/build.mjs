@@ -12,7 +12,7 @@ const src = fill(media);
 const head = `<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#13101c">
 <meta name="description" content="Declassified files, cover-ups and famous hoaxes. Swipe, call it real or fake, then go deeper.">
 <meta name="apple-mobile-web-app-capable" content="yes">

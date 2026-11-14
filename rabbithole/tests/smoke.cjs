@@ -36,6 +36,8 @@ const FAKE = (opts) => {
   await shot('1-splash');
   await p.click('#go1'); await p.waitForTimeout(300);
   await p.click('.pick[data-k="mind"]'); await p.click('#go2'); await p.waitForTimeout(1300);
+  ok(await p.isVisible('[data-tab="watch"]') && /Home/.test(await p.textContent('[data-tab="watch"]')), 'there is a Home tab');
+  await p.evaluate(() => RabbitHole.tab('feed'));
   const drop = await p.evaluate(() => { const d = RabbitHole.dropNow(); return { id: d.c.id, free: RabbitHole.freeToday() }; });
   const first = p.locator('.card').first();
   ok(await first.getAttribute('data-id') === drop.id, "feed opens on today's drop");
@@ -63,8 +65,17 @@ const FAKE = (opts) => {
   ok(await p.locator('.card').count() > 5, 'the chain keeps going after clearance');
   await p.click('[data-tab="holes"]'); await p.waitForTimeout(300);
   ok(await p.locator('.hole').count() === 10, 'ten holes listed');
+  await p.fill('#askQ', 'did the CIA try to control minds'); await p.press('#askQ', 'Enter'); await p.waitForTimeout(300);
+  ok(/Alice found/.test(await p.textContent('#holes')), 'Ask Alice finds files for a plain-English question');
+  await p.locator('#holes [data-start]').first().click(); await p.waitForTimeout(300);
+  ok(await p.locator('#holes .door').count() === 3, 'each file in the maze offers three doors');
+  await p.locator('#holes [data-door]').first().click(); await p.waitForTimeout(300);
+  ok(await p.locator('#holes .crumbs button').count() === 2, 'the trail remembers the path, one layer at a time');
+  await p.screenshot({ path: `${out}/6b-maze.png` });
+  await p.fill('#askQ', 'I heard the royals are lizards'); await p.press('#askQ', 'Enter'); await p.waitForTimeout(300);
+  ok(/hasn't opened that file/.test(await p.textContent('#holes')), 'theories that target people get no file, just other ways in');
   await p.evaluate(() => { const s = RabbitHole.state; ['mkultra', 'stargate', 'acoustickitty', 'paperclip', 'moon'].forEach(id => s.saved.includes(id) || s.saved.push(id)); });
-  await p.click('[data-tab="board"]'); await p.waitForTimeout(300);
+  await p.evaluate(() => RabbitHole.tab('board')); await p.waitForTimeout(300);
   ok(await p.locator('.board svg.strings path').count() >= 2, 'case board strings connect related files');
   await p.click('[data-tab="me"]'); await p.waitForTimeout(300);
   ok(/Daily drop at/.test(await p.textContent('#me')), 'depth page offers the drop reminder');
@@ -91,9 +102,9 @@ const FAKE = (opts) => {
 
   // ---------- Part B: member on a moderated backend, community switched off ----------
   const cm = await b.newContext({ ...devices['iPhone 13'] });
-  await cm.addInitScript(FAKE, { me: 'u2', owner: false, seed: {} });
+  await cm.addInitScript(FAKE, { me: 'u2', owner: false, seed: { 'mod/settings': { enabled: false } } });
   const m = await cm.newPage(); watch(m, 'B-member');
-  await m.goto(URL0); await m.waitForTimeout(1500);
+  await m.goto(URL0); await m.waitForTimeout(1500); await m.evaluate(() => RabbitHole.tab('feed'));
   ok(await m.locator('.card').first().locator('[data-act="debate"]').isHidden(), 'members see no discussion while community is off');
   ok(await m.isHidden('[data-tab="mod"]'), 'members get no mod tab');
 
@@ -103,7 +114,7 @@ const FAKE = (opts) => {
     'posts/u2': { items: [{ id: 'a1', caseId: 'moon', side: 'fake', text: 'The shadows are wrong.', at: Date.now() - 6e5, parent: null, status: 'pending', flags: [] }] },
     'posts/u3': { items: [{ id: 'b1', caseId: 'moon', side: 'fake', text: 'NASA LIES AND THE VACCINE IS NEXT', at: Date.now() - 3e5, parent: null, status: 'pending', flags: ['Health claim', 'Shouting'] }] } } });
   const o = await co.newPage(); watch(o, 'C-owner');
-  await o.goto(URL0); await o.waitForTimeout(1500);
+  await o.goto(URL0); await o.waitForTimeout(1500); await o.evaluate(() => RabbitHole.tab('feed'));
   ok(await o.isVisible('[data-tab="mod"]'), 'owner gets the mod tab');
   ok(/2/.test(await o.textContent('[data-tab="mod"]')), 'mod tab shows the queue size');
   await o.click('[data-tab="mod"]'); await o.waitForTimeout(600);
@@ -120,7 +131,7 @@ const FAKE = (opts) => {
   ok(await o.locator('.mq').count() === 2, 'both decisions are in the audit log');
   // settings: switch community on
   await o.locator('[data-mv="settings"]').click(); await o.waitForTimeout(200);
-  await o.check('#mEnabled'); await o.fill('#mWords', 'sheeple'); await o.click('[data-savesettings]'); await o.waitForTimeout(300);
+  await o.check('#mEnabled'); await o.fill('#mSlow', '0'); await o.fill('#mWords', 'sheeple'); await o.click('[data-savesettings]'); await o.waitForTimeout(300);
   ok(await o.evaluate(() => window.__fake.docs.get('mod/settings').enabled === true), 'settings switch community on');
   // the public thread
   await o.click('[data-tab="feed"]'); await o.evaluate(() => RabbitHole.startFeed([RabbitHole.CASES.find(c => c.id === 'moon')])); await o.waitForTimeout(400);
@@ -148,6 +159,34 @@ const FAKE = (opts) => {
   ok(await o.evaluate(() => window.__fake.docs.get('mod/bans').ids.some(x => x.id === 'u2')), 'ban is recorded');
   ok(await o.evaluate(() => (window.__fake.docs.get('approved/moon') || { items: [] }).items.length) === 0, 'ban and remove takes their posts down');
   await o.screenshot({ path: `${out}/10-modreported.png` });
+  // the expanded case file, contributions, profiles and the community tab
+  await o.evaluate(() => RabbitHole.CaseFile.open('dyatlov')); await o.waitForTimeout(400);
+  ok(await o.locator('.casefile .ev-item').count() === 3, 'case file lists the evidence');
+  await o.locator('.casefile .ev-item summary').first().click();
+  ok(await o.locator('.casefile .ev-item[open]').count() === 1, 'evidence expands to show where it comes from');
+  ok(await o.locator('.casefile .cf-sibs button').count() >= 5, 'case file links to related files to keep digging');
+  await o.screenshot({ path: `${out}/11-casefile.png` });
+  await o.click('.casefile [data-add]'); await o.waitForTimeout(300);
+  ok(await o.isVisible('#pfH'), 'first contribution asks for a profile handle');
+  await o.fill('#pfH', 'groomlake_watcher'); await o.fill('#pfB', 'I read declassified PDFs for fun.'); await o.click('.sheet .cta'); await o.waitForTimeout(300);
+  ok(await o.evaluate(() => window.__fake.docs.get('profiles/mod1').handle) === 'groomlake_watcher', 'profile is saved');
+  await o.fill('#cpText', 'The 2021 EPFL study modelled the slab with snow data from the actual slope.'); await o.fill('#cpSrc', 'https://www.nature.com/articles/s43247-020-00081-8');
+  await o.click('.compose-sheet .cta'); await o.waitForTimeout(400);
+  const tip = await o.evaluate(() => window.__fake.docs.get('posts/mod1').items.find(x => x.type === 'tip'));
+  ok(tip && tip.status === 'pending' && tip.source && tip.flags.includes('Has a source link'), 'a tip with a source goes to the queue, flagged for the link');
+  await o.click('[data-tab="mod"]'); await o.waitForTimeout(300); await o.locator('[data-mv="queue"]').click(); await o.waitForTimeout(200);
+  ok(/Evidence tip/.test(await o.textContent('#mod')), 'moderators see what kind of contribution it is');
+  await o.locator('[data-approve]').last().click(); await o.waitForTimeout(400);
+  await o.click('[data-tab="people"]'); await o.waitForTimeout(400);
+  ok(/@groomlake_watcher/.test(await o.textContent('#people')) && /EPFL/.test(await o.textContent('#people')), 'approved evidence shows in the Community tab with the handle');
+  await o.click('#people [data-new]'); await o.waitForTimeout(300);
+  ok(await o.isVisible('#cpTitle'), 'anyone can open a new case');
+  await o.fill('#cpTitle', 'The Taos Hum'); await o.fill('#cpText', 'Residents in Taos have reported a low hum since the 1990s.'); await o.click('.compose-sheet .cta'); await o.waitForTimeout(300);
+  ok(await o.evaluate(() => window.__fake.docs.get('posts/mod1').items.some(x => x.type === 'case' && x.title === 'The Taos Hum' && x.status === 'pending')), 'new case proposals go to moderation');
+  await o.locator('#people [data-profile]').first().click(); await o.waitForTimeout(300);
+  ok(/I read declassified/.test(await o.textContent('.sheet')), 'profiles show the bio and published posts');
+  await o.screenshot({ path: `${out}/12-community.png` });
+  ok(await o.evaluate(() => { const c = document.querySelector('meta[name=viewport]'); return getComputedStyle(document.body).touchAction === 'manipulation'; }), 'the app blocks zoom gestures');
   await b.close();
   console.log(errs.length ? '\nERRORS:\n' + errs.join('\n') : '\nAll good.');
   process.exit(errs.length ? 1 : 0);

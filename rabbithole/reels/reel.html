@@ -325,8 +325,8 @@ function render(t) {
   document.getElementById('host').style.opacity = showHost ? 1 : 0;
   if (showHost) document.getElementById('host').innerHTML = `${HOSTMARK(116, amp(t))}<div><b>ALICE</b><span>Your host</span></div>`;
   const last = SLAMS.filter(x => x <= t).pop(), dt = last === undefined ? 9 : t - last;
-  const amp = dt < .25 ? (1 - dt / .25) * 18 : 0;
-  document.getElementById('shake').style.transform = `translate(${(rnd(t * 100) - .5) * amp}px,${(rnd(t * 77) - .5) * amp}px)`;
+  const shk = dt < .25 ? (1 - dt / .25) * 18 : 0;
+  document.getElementById('shake').style.transform = `translate(${(rnd(t * 100) - .5) * shk}px,${(rnd(t * 77) - .5) * shk}px)`;
 }
 const preload = srcs => Promise.all(srcs.map(u => new Promise(res => { const im = new Image(); im.onload = im.onerror = res; im.src = u; })));
 window.ready = Promise.all([fetch(`build/${R}.json`).then(r => r.json()), fetch('../data/media.json').then(r => r.json()).catch(() => ({}))]).then(async ([j, media]) => {

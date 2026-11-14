@@ -24,6 +24,11 @@
   color-scheme: dark;
 }
 html, body { height: 100%; }
+/* iPhone: the app never zooms, slides sideways or rubber-bands; only feeds and panels scroll, vertically */
+html, body { position: fixed; inset: 0; overflow: hidden; overscroll-behavior: none; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; touch-action: manipulation; }
+#feed, #watch, .page, .sheet, .doc, .tt, .thread { touch-action: pan-y; overscroll-behavior: contain; }
+.card, .reel { overflow-x: hidden; }
+input, textarea, select { font-size: 16px !important; }
 body { margin: 0; background: var(--ink); color: var(--text); font: 15px/1.45 var(--f-ui); overflow: hidden; -webkit-tap-highlight-color: transparent; overscroll-behavior: none; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
 button:focus-visible, a:focus-visible, [role="button"]:focus-visible { outline: 2px solid var(--mark); outline-offset: 3px; }
@@ -204,6 +209,9 @@ a { color: inherit; }
 .onb-h { margin: 0; font-family: var(--f-display); font-weight: 900; font-size: 40px; line-height: .95; text-transform: uppercase; }
 
 /* ---------- Watch (reels) ---------- */
+.watch-top { position: sticky; top: 0; height: 0; z-index: 6; }
+.watch-top > div { position: absolute; left: max(12px, env(safe-area-inset-left, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px; pointer-events: none; }
+.watch-top .pill { pointer-events: auto; background: rgba(19,16,28,.72); backdrop-filter: blur(6px); font-size: 12px; }
 #watch { overflow-y: auto; scroll-snap-type: y mandatory; scrollbar-width: none; background: #000; }
 #watch::-webkit-scrollbar { display: none; }
 .reel { position: relative; height: 100%; scroll-snap-align: start; scroll-snap-stop: always; overflow: hidden; display: grid; place-items: center; background: #000; }
@@ -289,6 +297,60 @@ a { color: inherit; }
 .reel.locked video { filter: blur(14px) brightness(.5); }
 .reel .unlock { position: absolute; left: 24px; right: 24px; bottom: 140px; }
 
+.casefile { max-height: 94%; gap: 14px; }
+.casefile header { display: flex; align-items: center; gap: 10px; }
+.casefile header .x { margin-left: auto; }
+.casefile figure { margin: 0; display: grid; gap: 4px; }
+.casefile figure img, .cf-art { width: 100%; max-height: 260px; object-fit: cover; border-radius: 12px; filter: grayscale(.3) contrast(1.05); background: var(--ink); }
+.casefile .hook { font-size: clamp(26px, 7vw, 36px); }
+.casefile h3 { margin: 0 0 6px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.casefile section p { margin: 0; color: #ddd6c8; }
+.stamp-chip { display: inline-block; padding: 4px 12px; border: 3px solid currentColor; border-radius: 8px; font-family: var(--f-display); font-weight: 900; font-size: 26px; text-transform: uppercase; transform: rotate(-4deg); background: var(--paper); }
+.ev-item { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; background: var(--ink); }
+.ev-item summary { cursor: pointer; display: flex; gap: 10px; font-family: var(--f-type); font-size: 15px; list-style: none; }
+.ev-item summary::-webkit-details-marker { display: none; }
+.ev-item summary::after { content: "+"; margin-left: auto; color: var(--mark); font-weight: 700; }
+.ev-item[open] summary::after { content: "–"; }
+.ev-item .n { color: var(--mark); font-weight: 700; }
+.ev-item p { margin-top: 8px !important; font-size: 14px; }
+.ev-item a, .cf-link { color: var(--mark); }
+.cf-sibs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.cf-sibs button { display: inline-flex; align-items: center; gap: 4px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--line); font-size: 13px; }
+.cf-sibs .ico { width: 14px; height: 14px; }
+button.src { text-align: left; text-decoration: none; color: var(--mark); font-weight: 600; }
+
+.post { display: grid; gap: 6px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.post .who { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; color: var(--muted); }
+.post .handle { font-weight: 700; color: var(--text); font-size: 14px; }
+.post h4 { margin: 0; font-family: var(--f-display); font-size: 24px; text-transform: uppercase; line-height: 1; }
+.post p { margin: 0; font-size: 15px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.post video, .mq-vid { width: 100%; max-height: 420px; border-radius: 12px; background: #000; }
+.caselink { justify-self: start; display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); font-size: 13px; color: var(--mark); }
+.caselink .ico { width: 14px; height: 14px; }
+.row-btns { display: flex; gap: 8px; margin-bottom: 8px; } .row-btns .cta { flex: 1; height: 48px; }
+.fld { display: grid; gap: 6px; font-size: 14px; font-weight: 600; }
+.fld input, .fld textarea { padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--ink); color: var(--text); font: 16px/1.4 var(--f-ui); }
+.cf-community { display: grid; gap: 8px; }
+
+.ask { display: flex; align-items: center; gap: 8px; padding: 6px 6px 6px 12px; border-radius: 14px; background: var(--ink-2); border: 1px solid var(--line); margin-bottom: 12px; }
+.ask input { flex: 1; min-width: 0; border: 0; background: none; color: var(--text); font: 16px var(--f-ui); outline: none; }
+.ask .cta { height: 40px; padding: 0 16px; }
+.ask .ico { color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.chips button { padding: 8px 12px; border-radius: 999px; border: 1px solid var(--line); font-size: 13.5px; text-align: left; }
+.doors { display: grid; gap: 8px; margin: 8px 0 16px; }
+.door { display: grid; gap: 4px; text-align: left; padding: 14px; border-radius: 14px; border: 1px solid var(--line); background: linear-gradient(135deg, rgba(242,225,76,.08), transparent 60%), var(--ink-2); }
+.door small { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--mark); font-weight: 700; }
+.door b { font-size: 16px; line-height: 1.3; }
+.door.locked { opacity: .75; } .door.locked small { color: var(--muted); }
+.trail .crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.trail .crumbs button { padding: 3px 8px; border-radius: 999px; border: 1px solid var(--line); font-size: 12px; }
+.trail .crumbs button[aria-current] { border-color: var(--mark); color: var(--mark); }
+.door-card { display: grid; gap: 12px; padding: 16px; border-radius: 16px; background: radial-gradient(90% 120% at 100% 100%, hsla(var(--hue), 55%, 40%, .5), transparent 70%), var(--ink-2); border: 1px solid var(--line); }
+.door-card .hook { font-size: clamp(28px, 7.4vw, 38px); }
+.doors-h, .sec-h { margin: 16px 0 6px; font-family: var(--f-display); font-size: 26px; text-transform: uppercase; }
+.nofile { display: grid; gap: 8px; } .nofile p { margin: 0; color: #d4cede; }
+
 #toast { position: absolute; z-index: 50; left: 50%; bottom: calc(var(--tab-h) + 14px); transform: translateX(-50%); max-width: calc(100% - 32px); padding: 10px 16px; border-radius: 10px; background: var(--text); color: var(--ink); font-weight: 600; font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.4); animation: rise .25s; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -307,15 +369,16 @@ a { color: inherit; }
     <span class="pill" id="hudStreak" title="Daily streak"></span>
   </div>
   <section id="watch" class="view" hidden aria-label="Reels"></section>
+  <section id="people" class="view page" hidden aria-label="Community"></section>
   <section id="holes" class="view page" hidden aria-label="Holes"></section>
   <section id="board" class="view page" hidden aria-label="Case board"></section>
   <section id="me" class="view page" hidden aria-label="Your depth"></section>
   <section id="mod" class="view page" hidden aria-label="Moderation"></section>
   <nav class="tabs" aria-label="Main">
-    <button data-tab="feed" aria-current="page"></button>
-    <button data-tab="watch"></button>
+    <button data-tab="watch" aria-current="page"></button>
+    <button data-tab="feed"></button>
+    <button data-tab="people"></button>
     <button data-tab="holes"></button>
-    <button data-tab="board"></button>
     <button data-tab="me"></button>
     <button data-tab="mod" hidden></button>
   </nav>
@@ -369,12 +432,16 @@ const I = {
   debate: '<path d="M3 5h11v8H8l-4 3v-3H3z"/><path d="M14 9h7v8h-1v3l-4-3h-5v-3"/>',
   file: '<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/>',
   shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+  home: '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h5v-6h4v6h5V10"/>',
+  search: '<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',
   bell: '<path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 20a2 2 0 0 0 4 0"/>'
 };
 const ico = (n, extra = "") => `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true" ${extra}>${I[n]}</svg>`;
 
 /* ---------- Content: real, sourced case files ---------- */
 /*ANIM*/
+["gesturestart", "gesturechange", "gestureend"].forEach(t => document.addEventListener(t, e => e.preventDefault(), { passive: false }));
+document.addEventListener("touchmove", e => { if (e.touches.length > 1) e.preventDefault(); }, { passive: false });
 const DATA = /*DATA*/{"holes":{},"cases":[]}/*END*/;
 const HOLES = DATA.holes, CASES = DATA.cases, MEDIA = DATA.media || {};
 const photoOf = c => ((MEDIA.photos || {})[c.id] || [])[0] || null;
@@ -459,6 +526,7 @@ function card(c, opt = {}) {
     <aside class="rail">
       <button data-act="save" aria-pressed="${saved}" aria-label="Pin to case board"><span class="disc">${ico("pin")}</span>Pin</button>
       <button data-act="debate" aria-label="Open the discussion"><span class="disc">${ico("debate")}</span><span class="count" data-count="${c.id}">${Debate.count(c.id) || "Discuss"}</span></button>
+      <button data-act="casefile" aria-label="Open the full case file"><span class="disc">${ico("file")}</span>Case</button>
       <button data-act="share" aria-label="Share this file"><span class="disc">${ico("share")}</span>Share</button>
       <button data-act="deeper" aria-label="Go deeper"><span class="disc">${ico("deeper")}</span>Deeper</button>
     </aside>${opt.first ? '<div class="swipe-hint">Swipe up for the next file</div>' : ""}`;
@@ -500,7 +568,7 @@ function callIt(el, g) {
     : `<b style="color:${VERDICT[c.ans][2]}">${VERDICT[c.ans][0]}.</b>Nobody can call this one yet. +25 m`;
   const t = document.createElement("div"); t.className = "truth";
   t.innerHTML = `<p class="verdict-line">${line}</p><p class="tt">${esc(c.truth)}</p>
-    <a class="src" href="${esc(c.src[1])}" target="_blank" rel="noopener">Source: ${esc(c.src[0])}</a>${photoOf(c) ? `<span class="credit">Photo: ${esc(photoOf(c).credit)}</span>` : ""}
+    <button class="src" data-act="casefile">Open the full case file ▸</button>${photoOf(c) ? `<span class="credit">Photo: ${esc(photoOf(c).credit)}</span>` : ""}
     <button class="deeper" data-act="deeper">${ico("deeper")}<span><small>Next file${isLocked(nx) ? " · clearance" : ""}</small>${esc(capFirst(nx.tease))}</span></button>`;
   $(".call", el).replaceWith(t);
 }
@@ -534,9 +602,41 @@ feed.addEventListener("click", e => {
   if (rx && !rx.classList.contains("open")) { rx.classList.add("open"); el.dataset.peeked = "1"; return; }
   const g = e.target.closest("[data-g]"); if (g) return callIt(el, g.dataset.g);
   const a = e.target.closest("[data-act]"); if (!a) return;
-  ({ save: () => toggleSave(el, a), share: () => share(el), deeper: () => goDeeper(el), unlock: () => paywall(), alerts: () => Alerts.enable(), debate: () => Debate.open(el.dataset.id) })[a.dataset.act]?.();
+  ({ save: () => toggleSave(el, a), share: () => share(el), deeper: () => goDeeper(el), unlock: () => paywall(), alerts: () => Alerts.enable(), casefile: () => CaseFile.open(el.dataset.id), debate: () => Debate.open(el.dataset.id) })[a.dataset.act]?.();
 });
 feed.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("rx")) { e.preventDefault(); e.target.click(); } });
+
+/* ---------- Case file: the story expanded ---------- */
+const CaseFile = (() => {
+  function open(id) {
+    const c = byId[id]; if (!c) return; $(".scrim")?.remove();
+    if (isLocked(c)) return paywall();
+    const ph = photoOf(c), called = c.id in S.calls || S.cleared, nx = chainNext(c), sib = HOLES[c.hole].ids.filter(x => x !== c.id).map(x => byId[x]);
+    const s = document.createElement("div"); s.className = "scrim";
+    s.innerHTML = `<div class="sheet casefile" role="dialog" aria-modal="true" aria-labelledby="cfT" style="--hue:${HOLES[c.hole].hue}">
+      <header><span class="chip">${esc(HOLES[c.hole].name)}</span><span class="credit">File ${fileNo(c)} · ${esc(c.year)}</span><button class="x" data-x>Close</button></header>
+      ${ph ? `<figure><img src="${esc(ph.f)}" alt=""><figcaption class="credit">Photo: ${esc(ph.credit)}</figcaption></figure>` : `<canvas class="cf-art" width="540" height="560" aria-hidden="true"></canvas>`}
+      <h2 id="cfT" class="hook">${hookHTML(c.hook)}</h2>
+      <div class="cf-verdict">${called ? `<span class="stamp-chip ${VERDICT[c.ans][1]}">${VERDICT[c.ans][0]}</span>` : `<button class="ghost" data-reveal>Reveal the verdict</button>`}</div>
+      <section><h3>What the record shows</h3><p class="cf-truth" ${called ? "" : "hidden"}>${esc(c.truth)}</p>${called ? "" : '<p class="credit cf-hide">Call it or reveal the verdict to read this.</p>'}</section>
+      <section><h3>The evidence</h3>${c.ev.map((e, i) => `<details class="ev-item"><summary><span class="n">${i + 1}</span>${esc(e.replace(/\[\[|\]\]/g, ""))}</summary>
+        <p>From the case record: <a href="${esc(c.src[1])}" target="_blank" rel="noopener">${esc(c.src[0])}</a>. ${i === 0 ? "Start here if you want to check it yourself." : i === 1 ? "Look for this detail in the original documents." : "This is the part people argue about most."}</p></details>`).join("")}</section>
+      <section><h3>Read the original</h3><a class="cf-link" href="${esc(c.src[1])}" target="_blank" rel="noopener">${esc(c.src[0])} ↗</a></section>
+      <section class="cf-community"></section>
+      <section><h3>Keep digging</h3>
+        <button class="deeper" data-open="${esc(nx.id)}">${ico("deeper")}<span><small>Next file${isLocked(nx) ? " · clearance" : ""}</small>${esc(capFirst(nx.tease))}</span></button>
+        <div class="cf-sibs">${sib.map(x => `<button data-open="${esc(x.id)}">${isLocked(x) ? ico("lock") : ""}<span>${esc(capFirst(x.title))}</span></button>`).join("")}</div></section></div>`;
+    $("#app").append(s);
+    const cv = $(".cf-art", s); if (cv && window.RHART) { const x = cv.getContext("2d"); x.setTransform(.5, 0, 0, .5, 0, -340); RHART.draw(x, c.id, 2.5, HOLES[c.hole].hue); }
+    Contrib.mountCase($(".cf-community", s), c.id);
+    s.addEventListener("click", e => {
+      if (e.target === s || e.target.closest("[data-x]")) return s.remove();
+      if (e.target.closest("[data-reveal]")) { $(".cf-verdict", s).innerHTML = `<span class="stamp-chip ${VERDICT[c.ans][1]}">${VERDICT[c.ans][0]}</span>`; $(".cf-truth", s).hidden = false; $(".cf-hide", s)?.remove(); return; }
+      const o = e.target.closest("[data-open]"); if (o) { const t = byId[o.dataset.open]; if (isLocked(t)) { s.remove(); return paywall(); } return open(t.id); }
+    });
+  }
+  return { open };
+})();
 
 /* ---------- Feed queue: follow the chain ---------- */
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
@@ -645,9 +745,75 @@ function paywall() {
 }
 
 /* ---------- Holes ---------- */
+/* ---------- Explore: Ask Alice, then choose your door ---------- */
+// Search matches what people type (a rumour, a name, a question) to case files. Results open as a maze:
+// one file at a time, each offering three doors, so a case can be explored from several angles.
+const Explore = (() => {
+  const STOP = new Set("i im the a an is are was were be been heard hear that about of in on to and or it its this these those what who whom did do does really true fake real is it if they them their there my me you your we our us any some can could would should with for from by at as not no yes so just like".split(" "));
+  const SYN = { alien: "alien ufo uap non-human saucer flying disc", aliens: "alien ufo uap non-human saucer", ufo: "ufo uap saucer flying disc alien", ufos: "ufo uap saucer alien", moon: "moon apollo lunar", fake: "hoax studio", faked: "hoax studio", mind: "mind lsd mkultra psychic", control: "control mind", spy: "spy surveillance nsa cia", spying: "spy surveillance nsa", nuke: "nuclear bomb", nuclear: "nuclear bomb", poison: "poison bacteria radium plutonium", government: "cia fbi nsa army navy pentagon", weather: "weather cloud rain", plane: "plane jet aircraft", ship: "ship navy submarine", phone: "data nsa surveillance", internet: "data google facebook prism", tobacco: "industry", sugar: "sugar fat harvard", lightbulb: "bulb", lightbulbs: "bulb", bulb: "bulb", jfk: "kennedy jfk", kennedy: "kennedy jfk", nazi: "nazi german", hitler: "hitler german", code: "cipher code", killer: "killer zodiac", mystery: "unsolved unexplained mystery", monster: "monster loch ness", ghost: "ghost ship army", war: "war vietnam gulf cuba" };
+  const stem = w => w.length > 4 ? w.replace(/(ings|ing|ers|ed|es|s)$/, "") : w;
+  const words = t => (t.toLowerCase().match(/[a-z0-9-]+/g) || []).filter(w => !STOP.has(w));
+  const IDX = CASES.map(c => { const f = { title: words(c.title), hook: words(plain(c.hook) + " " + c.tease), rest: words([...c.ev, c.truth, HOLES[c.hole].name, c.year].join(" ").replace(/\[\[|\]\]/g, "")) };
+    return { c, f, all: new Set([...f.title, ...f.hook, ...f.rest].map(stem)) }; });
+  // theories that target real people or groups with no evidence never get a file
+  const NOFILE = /\b(lizards?|reptil\w*|shape-?shift\w*|jews?|jewish|zionis\w*|rothschilds?|soros|bloodlines?|globalists?)\b/i;
+  function search(q) {
+    if (NOFILE.test(q)) return [];
+    const qs = words(q); const terms = new Set(); qs.forEach(w => { terms.add(stem(w)); (SYN[w] || "").split(" ").filter(Boolean).forEach(x => terms.add(stem(x))); });
+    if (!terms.size) return [];
+    return IDX.map(({ c, f }) => { let sc = 0; terms.forEach(t => { if (f.title.some(w => stem(w) === t)) sc += 4; if (f.hook.some(w => stem(w) === t)) sc += 2; if (f.rest.some(w => stem(w) === t)) sc += 1; else if (t.length > 3 && f.rest.some(w => w.startsWith(t))) sc += .5; }); return { c, sc }; })
+      .filter(x => x.sc > 0).sort((a, b) => b.sc - a.sc).filter((x, i, a) => x.sc >= a[0].sc * .45).map(x => x.c);
+  }
+  const sim = (a, b) => { const A = IDX.find(x => x.c === a).all, B = IDX.find(x => x.c === b).all; let n = 0; A.forEach(w => { if (w.length > 3 && B.has(w)) n++; }); return n / Math.sqrt(A.size * B.size); };
+  function doors(c, path) {
+    const seen = new Set([...path, c.id]); const out = [];
+    const n1 = chainNext(c); out.push(["Next in the chain", n1]); seen.add(n1.id);
+    const same = HOLES[c.hole].ids.map(x => byId[x]).filter(x => !seen.has(x.id)); const n2 = same.find(x => !S.seen[x.id]) || same[0]; if (n2) { out.push(["Same hole", n2]); seen.add(n2.id); }
+    const other = CASES.filter(x => x.hole !== c.hole && !seen.has(x.id)).map(x => [x, sim(c, x)]).sort((a, b) => b[1] - a[1])[0]; if (other) out.push(["A different angle", other[0]]);
+    return out;
+  }
+  let path = [], results = [], query = "";
+  const SUGGEST = ["Did the CIA try to control minds?", "Is Area 51 real?", "Who was D. B. Cooper?", "Are chemtrails real?", "Did a government fake an attack?", "I heard the royals are lizards"];
+  function trailHTML() {
+    if (!path.length) return "";
+    const c = byId[path[path.length - 1]], hasReel = (MEDIA.reels || {})[c.id];
+    return `<div class="trail" style="--hue:${HOLES[c.hole].hue}">
+      <div class="crumbs">${path.map((id, i) => `<button data-crumb="${i}" ${i === path.length - 1 ? 'aria-current="step"' : ""}>${i + 1}. ${esc(capFirst(byId[id].title))}</button>`).join("<span>›</span>")}</div>
+      <div class="door-card"><span class="chip">${esc(HOLES[c.hole].name)} · layer ${path.length}</span><h2 class="hook">${hookHTML(c.hook)}</h2>
+        <div class="row-btns"><button class="cta" data-file="${esc(c.id)}">Open the file</button>${hasReel ? `<button class="ghost" data-watch="${esc(c.id)}">${ico("watch")} Watch</button>` : ""}</div></div>
+      <h3 class="doors-h">Choose your next door</h3>
+      <div class="doors">${doors(c, path).map(([label, d]) => `<button class="door${isLocked(d) ? " locked" : ""}" data-door="${esc(d.id)}"><small>${label}${isLocked(d) ? " · clearance" : ""}</small><b>${esc(capFirst(d.tease))}</b></button>`).join("")}</div></div>`;
+  }
+  function resultsHTML() {
+    if (!query) return `<div class="chips">${SUGGEST.map(x => `<button data-suggest="${esc(x)}">${esc(x)}</button>`).join("")}</div>`;
+    if (!results.length) return `<div class="nofile"><b>Alice hasn't opened that file.</b><p>Nothing in the record matches "${esc(query)}" yet. Some theories target real people with no evidence at all, and Rabbit Hole only opens files it can source. Try a different angle:</p>
+      <div class="doors">${["moon", "birds", "chemtrails"].map(id => byId[id]).map(d => `<button class="door" data-start="${d.id}"><small>Too Good to Be True</small><b>${esc(capFirst(d.tease))}</b></button>`).join("")}</div>
+      ${Community.on ? `<button class="ghost" data-propose>Think it deserves a file? Propose it</button>` : ""}</div>`;
+    return `<p class="credit">Alice found ${results.length} file${results.length > 1 ? "s" : ""}. Start with the strongest lead:</p>
+      <div class="doors">${results.slice(0, 3).map((d, i) => `<button class="door${isLocked(d) ? " locked" : ""}" data-start="${d.id}"><small>${i ? "Another way in" : "Strongest lead"}${isLocked(d) ? " · clearance" : ""}</small><b>${esc(capFirst(d.tease))}</b></button>`).join("")}</div>`;
+  }
+  function html() {
+    return `<form class="ask" role="search"><label for="askQ" class="sr" hidden>Ask Alice</label>${ico("search")}<input id="askQ" type="search" enterkeyhint="search" autocomplete="off" placeholder="Ask Alice anything. A rumour, a name, a question." value="${esc(query)}"><button class="cta" type="submit">Ask</button></form>
+      <div class="ask-out">${path.length ? trailHTML() : resultsHTML()}</div>`;
+  }
+  function go(id) { const c = byId[id]; if (isLocked(c)) return paywall(); path.push(id); S.seen[id] = 1; addDepth(15); paint(); $("#holes").scrollTo({ top: 0, behavior: "smooth" }); }
+  const paint = () => { const o = $("#holes .ask-out"); if (o) o.innerHTML = path.length ? trailHTML() : resultsHTML(); };
+  $("#holes").addEventListener("submit", e => { if (!e.target.closest(".ask")) return; e.preventDefault(); query = $("#askQ").value.trim(); results = search(query); path = []; paint(); $("#askQ").blur(); });
+  $("#holes").addEventListener("click", e => {
+    const sg = e.target.closest("[data-suggest]"); if (sg) { query = sg.dataset.suggest; $("#askQ").value = query; results = search(query); path = []; return paint(); }
+    const st = e.target.closest("[data-start]"); if (st) { path = []; return go(st.dataset.start); }
+    const d = e.target.closest("[data-door]"); if (d) return go(d.dataset.door);
+    const cr = e.target.closest("[data-crumb]"); if (cr) { path = path.slice(0, +cr.dataset.crumb + 1); return paint(); }
+    const f = e.target.closest("[data-file]"); if (f) return CaseFile.open(f.dataset.file);
+    const w = e.target.closest("[data-watch]"); if (w) { tab("watch"); return; }
+    if (e.target.closest("[data-propose]")) return Contrib.compose("_cases", "case");
+  });
+  return { html, search, doors };
+})();
+
 function renderHoles() {
   const v = $("#holes");
-  v.innerHTML = `<h1>Holes</h1><p class="lede">Each hole is a chain of connected files. Start one and keep going down.</p><div class="holes">${Object.entries(HOLES).map(([k, h]) => {
+  v.innerHTML = `<h1>Explore</h1>${Explore.html()}<h2 class="sec-h">Holes</h2><p class="lede">Each hole is a chain of connected files. Start one and keep going down.</p><div class="holes">${Object.entries(HOLES).map(([k, h]) => {
     const seen = h.ids.filter(id => S.seen[id]).length;
     return `<button class="hole" data-hole="${k}" style="--hue:${h.hue}"><h2>${esc(h.name)}</h2><p>${esc(h.blurb)}</p>
       <div class="meter"><i style="width:${seen / h.ids.length * 100}%"></i></div>
@@ -709,11 +875,13 @@ function renderMe() {
     <ol class="levels">${LEVELS.map((l, i) => `<li class="${i <= li ? "on" : ""} ${i === li ? "here" : ""}"><span>${l[1]}</span><span>${l[0].toLocaleString()} m</span></li>`).join("")}</ol>
     <div class="clr"><span>${S.cleared ? "<b>Clearance active.</b> Every chain is open." : `<b>Free access.</b> Today's drop and the next ${FREE_LINKS} files in its chain.`}</span>${S.cleared ? "" : '<button data-act="unlock">Unlock</button>'}</div>
     <div class="clr"><span><b>Daily drop at ${hourLabel()}.</b> ${S.notify ? "Alerts are on." : "Get a reminder when Alice drops the next file."}</span>${S.notify ? "" : '<button data-act="alerts">Remind me</button>'}</div>
+    <button class="cta" data-board style="margin-top:14px">Open my case board (${S.saved.length})</button>
     <button class="ghost" id="reset">Reset my progress on this device</button>`;
 }
 $("#me").addEventListener("click", e => {
   if (e.target.closest("[data-act=unlock]")) return paywall();
   if (e.target.closest("[data-act=alerts]")) return Alerts.enable();
+  if (e.target.closest("[data-board]")) return tab("board");
   const r = e.target.closest("#reset"); if (!r) return;
   if (!r.dataset.armed) { r.dataset.armed = "1"; r.textContent = "Tap again to erase everything"; return; }
   S = blank(); save(); location.reload();
@@ -753,24 +921,25 @@ const Filter = (() => {
 })();
 
 const Community = (() => {
-  let db = null, user = null, sample = null, me = null, admin = false, live = false;
-  let settings = { enabled: false, hideAt: 3, slow: 30, words: [], rules: RULES_DEFAULT };
+  let db = null, user = null, sample = null, assets = null, me = null, admin = false, live = false, profiles = {};
+  let settings = { enabled: true, hideAt: 3, slow: 30, words: [], rules: RULES_DEFAULT };
   let mine = { items: [] }, myReports = { items: [] }, approved = {}, bans = [], subs = {}, reps = {}, log = [], names = {}, triage = {};
   let q = Promise.resolve();
   const W = (path, data) => (q = q.then(() => db.doc(path).set(data)).catch(e => toast(e && e.code === "quota_exceeded" ? "Storage is full. Clear old posts in the mod console." : "Couldn't save that. You may not have permission here.")));
   const banned = id => bans.some(b => b.id === id);
   const repCount = (key, since = 0) => { const by = {}; Object.values(reps).forEach(r => (r.items || []).forEach(x => { if (x.key === key && x.at > since) by[x.reason] = (by[x.reason] || 0) + 1; })); return by; };
   const total = o => Object.values(o).reduce((a, b) => a + b, 0);
-  const visible = caseId => (approved[caseId] || []).filter(x => !banned(x.by) && !(myReports.items || []).some(r => r.key === x.key));
+  const pub = caseId => (approved[caseId] || []).filter(x => !banned(x.by) && !(myReports.items || []).some(r => r.key === x.key));
+  const visible = caseId => pub(caseId).filter(x => (x.type || "comment") === "comment");
   const count = caseId => visible(caseId).length;
   let openId = null, side = null, replyTo = null, view = "queue";
-  function changed() {
+  let changed = function () {
     $$("[data-count]").forEach(x => x.textContent = count(x.dataset.count) || "Discuss");
     document.body.classList.toggle("community-on", live && (settings.enabled || admin));
     const mt = $('[data-tab="mod"]'); if (mt) { mt.hidden = !admin; const n = pending().length; mt.querySelector(".count").textContent = n ? n : "Mod"; }
     if (openId) renderThread(); if (!$("#mod").hidden) renderMod();
     if (admin) autoHide();
-  }
+  };
   async function connect() {
     for (let i = 0; i < 20 && !window.claude?.use; i++) await new Promise(r => setTimeout(r, 300));
     if (!window.claude?.use) return;
@@ -784,6 +953,8 @@ const Community = (() => {
     db.collection("approved").onSnapshot(sn => { const n = {}; sn.docs.forEach(x => { n[x.id] = x.data().items || []; }); approved = n; changed(); }, err);
     db.doc("posts/" + me).onSnapshot(x => { mine = (x.exists && x.data()) || { items: [] }; changed(); }, err);
     db.doc("reports/" + me).onSnapshot(x => { myReports = (x.exists && x.data()) || { items: [] }; changed(); }, err);
+    db.collection("profiles").onSnapshot(sn => { const n = {}; sn.docs.forEach(x => { n[x.id] = x.data(); }); profiles = n; changed(); }, err);
+    claude.use("assets").then(a => { assets = a; }).catch(() => {});
     if (admin) {
       db.collection("posts").onSnapshot(sn => { const n = {}; sn.docs.forEach(x => { n[x.id] = x.data(); }); subs = n; changed(); }, err);
       db.collection("reports").onSnapshot(sn => { const n = {}; sn.docs.forEach(x => { n[x.id] = x.data(); }); reps = n; changed(); }, err);
@@ -798,18 +969,21 @@ const Community = (() => {
     try { const ps = await user.profiles(need); need.forEach(i => names[i] = i === me ? "You" : (ps[i] && ps[i].name) || "Member " + i.slice(-4)); } catch (e) { need.forEach(i => names[i] = "Member " + i.slice(-4)); }
     changed();
   }
-  const nm = id => id === me ? "You" : names[id] || "…";
+  const nm = id => (profiles[id] && profiles[id].handle ? "@" + profiles[id].handle : null) || (id === me ? "You" : names[id] || "…");
   const ago = t => { const s = (Date.now() - t) / 1000; return s < 60 ? "now" : s < 3600 ? Math.floor(s / 60) + "m" : s < 86400 ? Math.floor(s / 3600) + "h" : Math.floor(s / 86400) + "d"; };
   function logAct(action, detail) { log = [{ at: Date.now(), mod: me, action, ...detail }, ...log].slice(0, 300); W("modlog/log", { items: log }); }
   function setStatus(by, id, patch) { const rec = subs[by] || { items: [] }; const doc = { ...rec, items: (rec.items || []).map(x => x.id === id ? { ...x, ...patch } : x) }; subs[by] = doc; W("posts/" + by, doc); }
   const pending = () => { const out = []; for (const by in subs) (subs[by].items || []).forEach(x => x.status === "pending" && out.push({ ...x, by, key: by + ":" + x.id })); return out.sort((a, b) => a.at - b.at); };
   const reported = () => { const out = []; for (const c in approved) approved[c].forEach(x => { const r = repCount(x.key, x.clearedAt || 0); if (total(r)) out.push({ ...x, caseId: c, r }); }); return out.sort((a, b) => total(b.r) - total(a.r)); };
   function approve(it) {
-    const items = [...(approved[it.caseId] || []).filter(x => x.key !== it.key), { key: it.key, by: it.by, id: it.id, side: it.side, text: it.text, at: it.at, parent: it.parent || null, ok: Date.now() }];
+    const keepF = ["type", "title", "source", "asset", "side", "text", "at"]; const pubIt = { key: it.key, by: it.by, id: it.id, parent: it.parent || null, ok: Date.now() }; keepF.forEach(k => { if (it[k] !== undefined) pubIt[k] = it[k]; });
+    const items = [...(approved[it.caseId] || []).filter(x => x.key !== it.key), pubIt];
     approved[it.caseId] = items; W("approved/" + it.caseId, { items }); setStatus(it.by, it.id, { status: "approved" }); logAct("Approved", { key: it.key, caseId: it.caseId, text: it.text.slice(0, 80) });
   }
-  function reject(it, reason) { setStatus(it.by, it.id, { status: "rejected", reason }); logAct("Rejected", { key: it.key, caseId: it.caseId, reason, text: it.text.slice(0, 80) }); }
+  const dropAsset = it => { if (it && it.asset && it.asset.id && assets) assets.delete(it.asset.id).catch(() => {}); };
+  function reject(it, reason) { dropAsset(it); setStatus(it.by, it.id, { status: "rejected", reason }); logAct("Rejected", { key: it.key, caseId: it.caseId, reason, text: it.text.slice(0, 80) }); }
   function removeApproved(caseId, key, reason, silent) {
+    dropAsset((approved[caseId] || []).find(x => x.key === key));
     const items = (approved[caseId] || []).filter(x => x.key !== key && x.parent !== key); approved[caseId] = items; W("approved/" + caseId, { items });
     const [by, id] = key.split(":"); if (subs[by]) setStatus(by, id, { status: "removed", reason }); if (!silent) logAct("Removed", { key, caseId, reason });
   }
@@ -906,11 +1080,12 @@ const Community = (() => {
     const P = pending(), R = reported();
     resolveNames([...P.map(x => x.by), ...R.map(x => x.by), ...bans.map(b => b.id), ...log.map(l => l.mod)]);
     const seg = [["queue", "Queue", P.length], ["reported", "Reported", R.length], ["banned", "Banned", bans.length], ["log", "Log", log.length], ["settings", "Settings", ""]];
-    const caseOf = id => byId[id] ? byId[id].title : id;
+    const caseOf = id => byId[id] ? byId[id].title : id === "_cases" ? "New case" : id;
     let body = "";
     if (view === "queue") body = (sample ? `<button class="ghost" data-triage>Ask Claude to triage</button>` : "") + (P.length ? P.map(x => { const tr = triage[x.key];
       return `<li class="mq"><div class="who"><b>${esc(nm(x.by))}</b><span class="badge ${x.side}">${x.side}</span><span>${ago(x.at)} · ${esc(caseOf(x.caseId))}</span>${banned(x.by) ? '<span class="badge fake">Banned</span>' : ""}</div>
-        <p>${esc(x.text)}</p>${(x.flags || []).length ? `<div class="flags">${x.flags.map(f => `<span class="badge reb">${esc(f)}</span>`).join("")}</div>` : ""}
+        ${x.type && x.type !== "comment" ? `<div class="flags"><span class="badge wait">${{ tip: "Evidence tip", video: "Video", case: "New case" }[x.type] || x.type}</span>${x.title ? `<b>${esc(x.title)}</b>` : ""}</div>` : ""}
+        <p>${esc(x.text)}</p>${x.source ? `<p class="credit">Source given: ${esc(x.source)}</p>` : ""}${x.asset ? `<video src="${esc(x.asset.url)}" controls playsinline preload="metadata" class="mq-vid"></video>` : ""}${(x.flags || []).length ? `<div class="flags">${x.flags.map(f => `<span class="badge reb">${esc(f)}</span>`).join("")}</div>` : ""}
         ${tr ? `<p class="tri tri-${esc(tr.action)}">Claude suggests <b>${esc(tr.action)}</b>: ${esc(tr.reason || "")}</p>` : ""}
         <div class="acts"><button class="ok" data-approve="${esc(x.key)}">Approve</button><select data-reason aria-label="Reason"><option>Breaks the rules</option><option>Harassment or hate</option><option>Harmful misinformation</option><option>Personal information</option><option>Spam</option><option>Off topic</option></select><button data-reject="${esc(x.key)}">Reject</button><button data-ban="${esc(x.by)}">Ban author</button></div></li>`; }).join("") : `<li class="empty-thread">The queue is empty.</li>`);
     if (view === "reported") body = R.length ? R.map(x => `<li class="mq"><div class="who"><b>${esc(nm(x.by))}</b><span class="badge ${x.side}">${x.side}</span><span>${esc(caseOf(x.caseId))}</span></div><p>${esc(x.text)}</p>
@@ -945,10 +1120,130 @@ const Community = (() => {
       W("mod/settings", settings); logAct("Changed settings", { reason: settings.enabled ? "Community on" : "Community off" }); toast("Settings saved"); changed();
     }
   });
+  function submit(fields) {
+    if (!live) return "Posting opens when accounts launch.";
+    if (banned(me)) return "You can't post here.";
+    const last = Math.max(0, ...(mine.items || []).map(x => x.at)); if (Date.now() - last < (settings.slow || 0) * 1000) return `Slow mode: wait ${Math.ceil(((settings.slow || 0) * 1000 - (Date.now() - last)) / 1000)} seconds.`;
+    const f = Filter([fields.title || "", fields.text || ""].join(" "), settings.words); if (f.block.length) return `This can't be posted: ${f.block.join(", ")}.`;
+    if (fields.source && !/^https:\/\/[^\s]+$/.test(fields.source)) return "The source must be a full https:// link.";
+    const it = { id: Math.random().toString(36).slice(2, 10), at: Date.now(), parent: null, status: "pending", flags: [...f.flag, ...(fields.source ? ["Has a source link"] : [])], ...fields };
+    mine = { ...mine, items: [...(mine.items || []), it].slice(-200) }; W("posts/" + me, mine); changed(); return null;
+  }
+  async function upload(file) {
+    if (!assets) throw new Error("Video uploads aren't available here.");
+    if (!/^video\//.test(file.type)) throw new Error("Choose a video file.");
+    if (file.size > 20 * 1024 * 1024) throw new Error("Videos must be under 20 MB (about a minute).");
+    const r = await assets.upload(file); return { id: r.id, url: r.url };
+  }
+  const allPub = () => { const out = []; for (const c in approved) pub(c).forEach(x => (x.type && x.type !== "comment") && out.push({ ...x, caseId: c })); return out.sort((a, b) => (b.ok || b.at) - (a.ok || a.at)); };
+  const minePending = caseId => (mine.items || []).filter(x => x.type && x.type !== "comment" && (!caseId || x.caseId === caseId)).map(x => ({ ...x, by: me, key: me + ":" + x.id }));
+  function setProfile(p) { profiles[me] = { ...(profiles[me] || {}), ...p, since: (profiles[me] || {}).since || Date.now() }; W("profiles/" + me, profiles[me]); changed(); }
+  const listeners = new Set();
+  const _changed = changed; changed = function () { _changed(); listeners.forEach(f => f()); };
   connect();
-  return { open, count, render: renderMod, get live() { return live; }, get admin() { return admin; } };
+  return { open, count, render: renderMod, submit, upload, allPub, pub, minePending, setProfile, nm, resolveNames, onChange: f => listeners.add(f),
+    profileOf: id => profiles[id], get me() { return me; }, get live() { return live; }, get admin() { return admin; }, get on() { return live && (settings.enabled || admin); }, get canUpload() { return !!assets; } };
 })();
 const Debate = Community;
+
+/* ---------- Contributions: build cases together (all pre-moderated) ---------- */
+const Contrib = (() => {
+  const C = Community, ago = t => { const s = (Date.now() - t) / 1000; return s < 60 ? "now" : s < 3600 ? Math.floor(s / 60) + "m" : s < 86400 ? Math.floor(s / 3600) + "h" : Math.floor(s / 86400) + "d"; };
+  const TYPE = { tip: "Evidence", video: "Video", case: "New case" };
+  function postHTML(x, opt = {}) {
+    const c = byId[x.caseId];
+    return `<article class="post"><div class="who"><button class="handle" data-profile="${esc(x.by)}">${esc(C.nm(x.by))}</button><span class="badge wait">${TYPE[x.type] || "Post"}</span><span>${ago(x.ok || x.at)}</span>
+      ${x.status && x.status !== "approved" ? `<span class="badge ${x.status === "pending" ? "wait" : "fake"}">${x.status === "pending" ? "Waiting for a moderator" : "Not published"}</span>` : ""}</div>
+      ${x.title ? `<h4>${esc(x.title)}</h4>` : ""}${opt.caseLink !== false && c ? `<button class="caselink" data-case="${esc(c.id)}">${ico("file")} ${esc(capFirst(c.title))}</button>` : ""}
+      ${x.text ? `<p>${esc(x.text)}</p>` : ""}${x.source ? `<a class="cf-link" href="${esc(x.source)}" target="_blank" rel="noopener nofollow ugc">Source ↗</a>` : ""}
+      ${x.asset ? `<video src="${esc(x.asset.url)}" controls playsinline preload="metadata"></video>` : ""}</article>`;
+  }
+  function mountCase(el, caseId) {
+    const draw = () => {
+      if (!el.isConnected) return;
+      const list = [...C.minePending(caseId).filter(x => x.status !== "approved"), ...C.pub(caseId).filter(x => x.type && x.type !== "comment")];
+      C.resolveNames(list.map(x => x.by));
+      el.innerHTML = `<h3>From the community</h3>${list.length ? list.map(x => postHTML(x, { caseLink: false })).join("") : `<p class="credit">${C.on ? "No one has added to this case yet." : "Know something about this case? Contributions open when accounts launch."}</p>`}
+        ${C.on ? `<button class="cta" data-add="${esc(caseId)}">Add to this case</button>` : ""}`;
+    };
+    draw(); C.onChange(draw);
+    el.addEventListener("click", e => { const a = e.target.closest("[data-add]"); if (a) compose(a.dataset.add); const pr = e.target.closest("[data-profile]"); if (pr) profile(pr.dataset.profile); });
+  }
+  function needProfile(then) {
+    if (C.profileOf(C.me) && C.profileOf(C.me).handle) return then();
+    $(".scrim")?.remove();
+    const s = document.createElement("div"); s.className = "scrim";
+    s.innerHTML = `<form class="sheet" role="dialog" aria-modal="true" aria-labelledby="pfT"><button type="button" class="x" data-x>Not now</button><h2 id="pfT">Make your profile</h2>
+      <p class="onb-sub" style="margin:0">Your handle shows on everything you post. Everything is checked by a moderator before it appears.</p>
+      <label class="fld">Handle<input id="pfH" maxlength="20" autocomplete="off" placeholder="e.g. groomlake_watcher" pattern="[a-z0-9_]{3,20}" required></label>
+      <label class="fld">About you (optional)<textarea id="pfB" maxlength="160" placeholder="What do you dig into?"></textarea></label>
+      <button class="cta" type="submit">Create profile</button></form>`;
+    $("#app").append(s);
+    s.addEventListener("click", e => { if (e.target === s || e.target.closest("[data-x]")) s.remove(); });
+    s.addEventListener("submit", e => { e.preventDefault(); const h = $("#pfH", s).value.trim().toLowerCase(), b = $("#pfB", s).value.trim();
+      if (!/^[a-z0-9_]{3,20}$/.test(h)) return toast("Use 3 to 20 letters, numbers or underscores.");
+      const f = Filter(h + " " + b, []); if (f.block.length) return toast("Choose a different handle or bio.");
+      C.setProfile({ handle: h, bio: b }); s.remove(); toast("Profile created"); then(); });
+    setTimeout(() => $("#pfH", s)?.focus(), 50);
+  }
+  function compose(caseId, kind = "tip") {
+    if (!C.on) return toast("Contributions open when accounts launch.");
+    needProfile(() => {
+      $(".scrim")?.remove();
+      const isNew = caseId === "_cases", c = byId[caseId];
+      const s = document.createElement("div"); s.className = "scrim";
+      s.innerHTML = `<form class="sheet compose-sheet" role="dialog" aria-modal="true" aria-labelledby="cpT"><button type="button" class="x" data-x>Cancel</button>
+        <h2 id="cpT">${isNew ? "Open a new case" : "Add to this case"}</h2>${c ? `<p class="credit" style="margin:0">${esc(capFirst(c.title))}</p>` : ""}
+        <div class="filters" role="group" aria-label="What are you adding">${isNew ? "" : `<button type="button" data-k="tip" aria-pressed="${kind === "tip"}">Evidence or a tip</button>`}<button type="button" data-k="video" aria-pressed="${kind === "video"}">${isNew ? "With a video" : "A video"}</button>${isNew ? `<button type="button" data-k="case" aria-pressed="${kind !== "video"}">Text only</button>` : ""}</div>
+        ${isNew ? `<label class="fld">Case title<input id="cpTitle" maxlength="80" required placeholder="What should we look into?"></label>` : ""}
+        <label class="fld">${isNew ? "What do you know?" : "What do you know that isn't in the file?"}<textarea id="cpText" maxlength="500" rows="4" placeholder="Stick to what you can back up. Say where it comes from."></textarea></label>
+        <label class="fld">Source link (optional)<input id="cpSrc" type="url" inputmode="url" placeholder="https://"></label>
+        <label class="fld vid" hidden>Your video (under 20 MB)<input id="cpVid" type="file" accept="video/*" capture="environment"></label>
+        <p class="fine" style="text-align:left">No personal information about private people. No medical or election claims. A moderator reads and watches everything first.</p>
+        <button class="cta" type="submit">Send for review</button></form>`;
+      $("#app").append(s);
+      let k = isNew ? (kind === "video" ? "video" : "case") : kind; const sync = () => { $$("[data-k]", s).forEach(b => b.setAttribute("aria-pressed", b.dataset.k === k)); $(".vid", s).hidden = k !== "video"; }; sync();
+      s.addEventListener("click", e => { if (e.target === s || e.target.closest("[data-x]")) return s.remove(); const b = e.target.closest("[data-k]"); if (b) { k = b.dataset.k; sync(); } });
+      s.addEventListener("submit", async e => {
+        e.preventDefault(); const btn = $(".cta", s); const text = $("#cpText", s).value.trim(), src = $("#cpSrc", s).value.trim(), title = isNew ? $("#cpTitle", s).value.trim() : undefined;
+        if (!text && k !== "video") return toast("Write what you know first.");
+        let asset;
+        if (k === "video") { const f = $("#cpVid", s).files[0]; if (!f) return toast("Choose a video."); btn.disabled = true; btn.textContent = "Uploading…";
+          try { asset = await C.upload(f); } catch (er) { btn.disabled = false; btn.textContent = "Send for review"; return toast(er.message || "Upload failed."); } }
+        const err = C.submit({ type: isNew ? (k === "video" ? "case" : "case") : k, caseId, text, ...(title ? { title } : {}), ...(src ? { source: src } : {}), ...(asset ? { asset } : {}) });
+        if (err) { btn.disabled = false; btn.textContent = "Send for review"; return toast(err); }
+        s.remove(); toast("Sent. It appears once a moderator approves it.");
+      });
+    });
+  }
+  function profile(id) {
+    $(".scrim")?.remove(); const p = C.profileOf(id) || {}, posts = C.allPub().filter(x => x.by === id);
+    const s = document.createElement("div"); s.className = "scrim";
+    s.innerHTML = `<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="prT"><button class="x" data-x>Close</button>
+      <h2 id="prT">${esc(C.nm(id))}</h2>${p.bio ? `<p class="onb-sub" style="margin:0">${esc(p.bio)}</p>` : ""}
+      <div class="stats" style="margin:0"><div class="stat"><b>${posts.length}</b><span>Published</span></div><div class="stat"><b>${posts.filter(x => x.type === "case").length}</b><span>Cases opened</span></div></div>
+      <div class="posts">${posts.length ? posts.map(x => postHTML(x)).join("") : '<p class="credit">Nothing published yet.</p>'}</div></div>`;
+    $("#app").append(s);
+    s.addEventListener("click", e => { if (e.target === s || e.target.closest("[data-x]")) return s.remove(); const cl = e.target.closest("[data-case]"); if (cl) { s.remove(); CaseFile.open(cl.dataset.case); } });
+  }
+  // the Community tab: everyone's published evidence, videos and new cases
+  const v = $("#people");
+  function render() {
+    const list = C.allPub(), mineP = C.on ? C.minePending().filter(x => x.status !== "approved") : [];
+    C.resolveNames(list.map(x => x.by));
+    v.innerHTML = `<h1>Community</h1><p class="lede">Evidence, videos and new cases from people digging alongside Alice. A moderator checks everything before it appears.</p>
+      ${C.on ? `<div class="row-btns"><button class="cta" data-new>Open a new case</button>${C.profileOf(C.me) ? `<button class="ghost" data-profile="${esc(C.me)}">My profile</button>` : ""}</div>` :
+        `<div class="clr"><span><b>Posting opens with accounts.</b> Soon you'll be able to add evidence and videos to any case, open new cases and follow other diggers.</span></div>`}
+      <div class="posts">${[...mineP, ...list].map(x => postHTML(x)).join("") || '<p class="credit">Nothing published yet. Be the first to add to a case.</p>'}</div>`;
+  }
+  v.addEventListener("click", e => {
+    if (e.target.closest("[data-new]")) return compose("_cases", "case");
+    const pr = e.target.closest("[data-profile]"); if (pr) return profile(pr.dataset.profile);
+    const cl = e.target.closest("[data-case]"); if (cl) return CaseFile.open(cl.dataset.case);
+  });
+  C.onChange(() => { if (!v.hidden) render(); });
+  return { mountCase, compose, profile, render };
+})();
 
 /* ---------- Watch: Alice's episodes, played as one chain ---------- */
 const Watch = (() => {
@@ -959,7 +1254,7 @@ const Watch = (() => {
     if (en.isIntersecting && on && !en.target.classList.contains("locked")) { if (vid.preload !== "auto") vid.preload = "auto"; vid.muted = !sound; vid.play().catch(() => {}); S.seen[en.target.dataset.id] = 1; S.kept[en.target.dataset.id] = 1; if (en.target.dataset.id === dropNow().c.id) markDrop(); save(); }
     else { vid.pause(); $(".nextup", en.target)?.remove(); clearTimeout(timer); } }), { root: v, threshold: .7 });
   function render() {
-    if (built) return; built = true; v.innerHTML = "";
+    if (built) return; built = true; v.innerHTML = `<div class="watch-top"><div><span class="pill">${ico("flame")}${S.streak}-day streak</span><button class="pill" data-ask aria-label="Ask Alice">${ico("search")}Ask Alice</button><span class="pill">Next drop <span class="countdown"></span></span></div></div>`; tick();
     const L = list();
     if (!L.length) { v.innerHTML = `<div class="watch-empty"><b>No episodes here yet</b><span>Alice's episodes play in the installed Rabbit Hole app.</span></div>`; return; }
     for (const c of L) {
@@ -987,31 +1282,33 @@ const Watch = (() => {
     timer = setTimeout(step, 1000);
   }
   v.addEventListener("click", e => {
+    if (e.target.closest("[data-ask]")) { tab("holes"); return setTimeout(() => $("#askQ")?.focus(), 50); }
     const el = e.target.closest(".reel"); if (!el) return;
     if (e.target.closest("[data-unlock]")) return paywall();
+    if (e.target.closest("[data-ask]")) { tab("holes"); return setTimeout(() => $("#askQ")?.focus(), 50); }
     if (e.target.closest(".nextup")) { clearTimeout(timer); $(".nextup", el).remove(); return el.nextElementSibling?.scrollIntoView({ behavior: "smooth" }); }
     const a = e.target.closest("[data-act]");
-    if (a) return ({ save: () => toggleSave(el, a), debate: () => Community.open(el.dataset.id), share: () => share(el), file: () => { tab("feed"); startFeed([byId[el.dataset.id]]); } })[a.dataset.act]?.();
+    if (a) return ({ save: () => toggleSave(el, a), debate: () => Community.open(el.dataset.id), share: () => share(el), file: () => CaseFile.open(el.dataset.id) })[a.dataset.act]?.();
     if (el.classList.contains("locked")) return paywall();
     const vid = $("video", el);
     if (e.target.closest("[data-sound]") || !sound) { sound = true; $$(".reel video", v).forEach(x => x.muted = false); $$("[data-sound]", v).forEach(b => b.hidden = true); vid.play().catch(() => {}); return; }
     vid.paused ? vid.play().catch(() => {}) : vid.pause();
   });
-  return { render, reset() { built = false; if (!v.hidden) render(); },
+  return { render, home() { v.scrollTo({ top: 0, behavior: "smooth" }); }, reset() { built = false; if (!v.hidden) render(); },
     active(x) { on = x; if (!x) { $$(".reel video", v).forEach(vd => vd.pause()); clearTimeout(timer); } else $$(".reel", v).forEach(el => { io.unobserve(el); io.observe(el); }); } };
 })();
 
 /* ---------- Tabs ---------- */
-const TABS = { feed: ["feed", "Feed"], watch: ["watch", "Watch"], holes: ["holes", "Holes"], board: ["board", "Board"], me: ["me", "Depth"], mod: ["shield", "Mod"] };
-$$(".tabs button").forEach(b => { const [i, l] = TABS[b.dataset.tab]; b.innerHTML = ico(i) + (b.dataset.tab === "mod" ? `<span class="count">${l}</span>` : l); });
+const TABS = { feed: ["file", "Files"], watch: ["home", "Home"], people: ["debate", "Community"], holes: ["search", "Explore"], me: ["me", "You"], mod: ["shield", "Mod"] };
+$$(".tabs button").forEach(b => { if (!TABS[b.dataset.tab]) return; const [i, l] = TABS[b.dataset.tab]; b.innerHTML = ico(i) + (b.dataset.tab === "mod" ? `<span class="count">${l}</span>` : l); });
 function tab(name) {
   $$(".tabs button").forEach(b => b.dataset.tab === name ? b.setAttribute("aria-current", "page") : b.removeAttribute("aria-current"));
-  ["feed", "watch", "holes", "board", "me", "mod"].forEach(v => $("#" + v).hidden = v !== name);
+  ["feed", "watch", "people", "holes", "board", "me", "mod"].forEach(v => $("#" + v).hidden = v !== name);
   Watch.active(name === "watch"); if (name !== "feed") Art.stop();
   $("#hud").hidden = name !== "feed";
-  if (name === "watch") Watch.render(); if (name === "holes") renderHoles(); if (name === "board") renderBoard(); if (name === "me") renderMe(); if (name === "mod") Community.render();
+  if (name === "watch") Watch.render(); if (name === "people") Contrib.render(); if (name === "holes") renderHoles(); if (name === "board") renderBoard(); if (name === "me") renderMe(); if (name === "mod") Community.render();
 }
-$(".tabs").addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (b) tab(b.dataset.tab); });
+$(".tabs").addEventListener("click", e => { const b = e.target.closest("[data-tab]"); if (!b) return; if (b.dataset.tab === "watch" && !$("#watch").hidden) return Watch.home(); if (b.dataset.tab === "feed" && !$("#feed").hidden) { feed.scrollTo({ top: 0, behavior: "smooth" }); return; } tab(b.dataset.tab); });
 
 /* ---------- Onboarding ---------- */
 function onboarding() {
@@ -1058,9 +1355,9 @@ function onboarding() {
 }
 
 /* ---------- Boot ---------- */
-hud(); tab("feed");
+hud(); tab(Object.keys(MEDIA.reels || {}).length ? "watch" : "feed");
 if (S.onboarded) { startFeed(); announceDrop(); } else onboarding();
 tick();
-window.RabbitHole = { get state() { return S; }, CASES, HOLES, MEDIA, paywall, startFeed, tab, Community, Watch, dropNow, freeToday, Filter };
+window.RabbitHole = { get state() { return S; }, CASES, HOLES, MEDIA, paywall, startFeed, tab, Community, Contrib, CaseFile, Explore, Watch, dropNow, freeToday, Filter };
 })();
 </script>

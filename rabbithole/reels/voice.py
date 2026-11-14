@@ -58,8 +58,8 @@ def from_case(c):
     v = VERB[c["ans"]]; k = zlib.crc32(c["id"].encode()); n = fileno(c["id"])
     lines = [{"scene": "hook", "text": c["hook"].replace("*", ""), "date": c["year"], "label": HOLES[c["hole"]]["name"]},
              {"scene": "ident", "text": IDENT[k % 3].format(n=n), "say": IDENT[k % 3].format(n=" ".join(DIGIT[int(d)] for d in n))}]
-    for n, e in enumerate(c["ev"], 1):
-        lines.append({"scene": "ev", "n": n, "raw": e, "text": re.sub(r"\[\[|\]\]", "", e)})
+    for i, e in enumerate(c["ev"], 1):
+        lines.append({"scene": "ev", "n": i, "raw": e, "text": re.sub(r"\[\[|\]\]", "", e)})
     lines.append({"scene": "call", "text": CALL[(k >> 3) % 3]})
     lines.append({"scene": "verdict", "text": v[0] + " " + c["reveal"], "verdict": v[1], "cls": v[2], "source": c["src"][0]})
     lines.append({"scene": "end", "text": outro(c["id"], k)})
