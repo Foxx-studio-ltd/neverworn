@@ -36,4 +36,6 @@ writeFileSync(new URL("index.html", dir), head + src + tail);
 // Artifact copy: same page; the artifact only carries the reels listed in media.artifactReels.
 const am = { ...media, reels: Object.fromEntries(Object.entries(media.reels || {}).filter(([k]) => (media.artifactReels || []).includes(k))) };
 writeFileSync(new URL("artifact.html", dir), fill(am));
+// schedule for the service worker's daily alert
+writeFileSync(new URL("drops.json", dir), JSON.stringify({ ...data.drops, order: data.drops.order.map(id => { const c = data.cases.find(x => x.id === id); return { id, title: c.title, tease: c.tease }; }) }));
 console.log("built rabbithole/index.html and rabbithole/artifact.html");
