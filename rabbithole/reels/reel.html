@@ -226,7 +226,7 @@ const SCENES = {
   verdict(lt, s) {
     return `<div style="position:relative;width:1000px;height:900px">
       ${stamp(s.verdict, s.cls + ' free', lt, .12, 500, 330, -10, s.verdict.length > 8 ? 150 : 210, true)}
-      <div class="lbl" style="position:absolute;left:0;right:0;bottom:60px;text-align:center;opacity:${cl((lt - .8) / .4)}">Source: ${s.source}</div></div>`;
+</div>`;
   },
   end(lt, s) {
     return `<div style="display:grid;justify-items:center;gap:40px;text-align:center">
@@ -288,7 +288,7 @@ function photoLayer(t, s, lt) {
   const fade = cl(lt / .6);
   document.getElementById('photo').innerHTML = (prev && prev !== cur && fade < 1 ? kb(prev, T.scenes[i - 1], t - T.scenes[i - 1].start) : '') +
     (cur ? `<div style="position:absolute;inset:0;opacity:${prev && prev !== cur ? fade : 1}">${kb(cur, s, lt)}</div>` : '');
-  document.getElementById('credit').textContent = cur ? `Photo: ${cur.credit}` : '';
+  document.getElementById('credit').textContent = cur ? `Photo: ${cur.credit}` : s.source ? `Source: ${s.source}` : '';
 }
 
 // ---------- frame ----------

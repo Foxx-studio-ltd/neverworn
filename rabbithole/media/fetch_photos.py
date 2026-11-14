@@ -64,7 +64,7 @@ for i in range(0, len(allf), 40):
 # 3) download PD candidates
 cands = {}
 for c in want:
-    fl = [f for f in files.get(arts[c["id"]], []) if f in info and info[f]["pd"] and info[f]["mime"] in ("image/jpeg", "image/png", "image/gif", "image/tiff") and info[f]["w"] >= 450][:4]
+    fl = [f for f in files.get(arts[c["id"]], []) if f in info and info[f]["pd"] and info[f]["mime"] in ("image/jpeg", "image/png", "image/gif", "image/tiff") and info[f]["w"] >= 450][:int(os.environ.get("MAXC", "4"))]
     d = os.path.join(out, c["id"]); os.makedirs(d, exist_ok=True); cands[c["id"]] = []
     for n, f in enumerate(fl):
         p = os.path.join(d, f"{n:02d}.jpg")
@@ -74,6 +74,10 @@ for c in want:
             except Exception as e: print("skip", f, e); continue
         cands[c["id"]].append({"n": n, "file": f, **info[f]})
     print(c["id"], arts[c["id"]], len(cands[c["id"]]), "pd candidates", flush=True)
+    old = {}
+    try: old = json.load(open(os.path.join(out, "candidates.json")))
+    except Exception: pass
+    old[c["id"]] = cands[c["id"]]; json.dump(old, open(os.path.join(out, "candidates.json"), "w"), indent=1)
 old = {}
 try: old = json.load(open(os.path.join(out, "candidates.json")))
 except Exception: pass

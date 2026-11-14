@@ -6,7 +6,8 @@ const dir = new URL(".", import.meta.url);
 const data = JSON.parse(readFileSync(new URL("data/cases.json", dir), "utf8"));
 let media = {}; try { media = JSON.parse(readFileSync(new URL("data/media.json", dir), "utf8")); } catch {}
 const inline = d => JSON.stringify(d).replace(/</g, "\\u003c");
-const fill = (m) => readFileSync(new URL("src/app.html", dir), "utf8").replace(/\/\*DATA\*\/[\s\S]*?\/\*END\*\//, "/*DATA*/" + inline({ ...data, media: m }) + "/*END*/");
+const anim = readFileSync(new URL("reels/anim.js", dir), "utf8");
+const fill = (m) => readFileSync(new URL("src/app.html", dir), "utf8").replace("/*ANIM*/", () => anim).replace(/\/\*DATA\*\/[\s\S]*?\/\*END\*\//, "/*DATA*/" + inline({ ...data, media: m }) + "/*END*/");
 const src = fill(media);
 const head = `<!doctype html>
 <html lang="en"><head>

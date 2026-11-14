@@ -32,8 +32,7 @@ const ART = {
     for (let i = 0; i < 2; i++) { const a = -Math.PI / 2 + Math.sin(t * .6 + i * 2) * .5 + (i ? .25 : -.25); rays(c, 300 + i * 420, 1080, a, .05, 1300, 'rgba(242,225,76,.10)'); }
     hills(c, 1060, 120, '#1b1626', 2, .003); c.fillStyle = '#100d18'; c.fillRect(0, 1060, W, H);
     c.fillStyle = '#251f33'; c.beginPath(); c.moveTo(380, 1060); c.lineTo(380, 990); c.quadraticCurveTo(540, 900, 700, 990); c.lineTo(700, 1060); c.fill(); c.fillStyle = MARK; c.fillRect(520, 1010, 40, 50);
-    const x = -300 + (t * 120) % 1700; jet(c, x, 520, 1.15, 0, PAPER, true); glow(c, x + 60, 520, 40, 'rgba(242,225,76,.5)');
-    txt(c, 'GROOM LAKE · NEVADA', W / 2, 1150, 40, 'rgba(239,227,196,.55)', 'Inter Tight', 700); },
+    const x = -300 + (t * 120) % 1700; jet(c, x, 520, 1.15, 0, PAPER, true); glow(c, x + 60, 520, 40, 'rgba(242,225,76,.5)'); },
   saucer(c, t, P) { nightBase(c, t, P, 5); hills(c, 1080, 90, '#18131f', 4); c.fillStyle = '#0f0c15'; c.fillRect(0, 1075, W, H);
     const x = 540 + Math.sin(t * .8) * 160, y = 600 + Math.sin(t * 1.7) * 30;
     if (P.mode === 'balloon') { c.strokeStyle = 'rgba(239,227,196,.6)'; c.lineWidth = 3; c.beginPath(); c.moveTo(x, y - 240); c.lineTo(x, y + 200); c.stroke(); for (let i = 0; i < 5; i++) { c.fillStyle = i % 2 ? PAPER : hue(P, 60); c.beginPath(); c.ellipse(x, y - 240 + i * 90, 34, 44, 0, 0, TAU); c.fill(); } c.fillStyle = '#c9c2b0'; c.beginPath(); c.moveTo(x - 50, y + 200); c.lineTo(x, y + 150); c.lineTo(x + 50, y + 200); c.lineTo(x, y + 250); c.fill(); }
